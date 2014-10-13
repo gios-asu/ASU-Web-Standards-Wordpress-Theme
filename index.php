@@ -14,42 +14,9 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area col-sm-9">
-	
-	
-	
 		<main id="main" class="site-main" role="main">
-			<!-- <p>Testing Index Content </p>
-
-			
-			<nav id="test-nav" role="navigation">
-		    <a href="#test-nav" title="Show navigation">Show navigation</a>
-		    <a href="#" title="Hide navigation">Hide navigation</a>
-		    <ul>
-		        <li><a href="/">Home</a></li>
-		        <li>
-		            <a href="/" aria-haspopup="true">Blog</a>
-		            <ul>
-		                <li><a href="/">Design</a></li>
-		                <li><a href="/">HTML</a></li>
-		                <li><a href="/">CSS</a></li>
-		                <li><a href="/">JavaScript</a></li>
-		            </ul>
-		        </li>
-		        <li>
-		            <a href="/" aria-haspopup="true">Work</a>
-		            <ul>
-		                <li><a href="/">Web Design</a></li>
-		                <li><a href="/">Typography</a></li>
-		                <li><a href="/">Front-End</a></li>
-		            </ul>
-		        </li>
-		        <li><a href="/">About</a></li>
-		    </ul>
-			</nav> -->
-
 		<?php if ( have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
+			
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
