@@ -139,33 +139,23 @@ add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wptemplate_gios_v1_scripts() {
-
-
-          
-/** 
-     wp_register_style( 'wptemplate-gios-v1-css', get_template_directory_uri() . '/wptemplate-gios-v1.css', array(), '3.1.1','all' );
-    
-     wp_register_style( 'wptemplate-gios-v1-css', get_template_directory_uri() . '/style.css', array(), '3.1.1','all' );
-
- 	wp_enqueue_style( 'wptemplate-gios-v1-style', get_template_directory_uri() );
-
- 
-     wp_enqueue_style( 'wptemplate-gios-v1-css' );
- */ 
- 	wp_register_style( 'wptemplate-gios-v1-css', get_template_directory_uri() . '/style.css', array(), false,'all' );
-	wp_enqueue_style( 'wptemplate-gios-v1-css'  );   
-	wp_register_style( 'wptemplate-gios-v1-custom-nav-css', get_template_directory_uri() . '/custom-nav.css', array(), false,'all' );
-	wp_enqueue_style( 'wptemplate-gios-v1-custom-nav-css'  );   
 	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-3.1.1-dist/	js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
-    wp_enqueue_script( 'bootstrap-js' );
-    wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
-    wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
-    wp_enqueue_style( 'bootstrap-css' );
-    wp_enqueue_style( 'bootstrap-theme-css' );
-    wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
-    wp_enqueue_style( 'font-awesome-css');
+  wp_enqueue_script( 'bootstrap-js' );
+  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
+  wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.1', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.1', 'all' );
+  
+  wp_enqueue_style( 'bootstrap-css' );
+  wp_enqueue_style( 'bootstrap-asu' );
+  wp_enqueue_style( 'bootstrap-asu-theme-base' );
+  wp_enqueue_style( 'bootstrap-asu-theme' );
+  //wp_enqueue_style( 'bootstrap-theme-css' );
+
+  wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
+  wp_enqueue_style( 'font-awesome-css');
     
-    wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
+  wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
 	wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/js/sticky-nav-custom.js', array(), false, true );
 	// wp_enqueue_script( 'wptemplate-gios-v1-stickUp', get_template_directory_uri() . '/js/stickUp.min.js', array(), false, true );
@@ -174,7 +164,7 @@ function wptemplate_gios_v1_scripts() {
   /** asu header*/
   wp_register_script( 'asu-header', get_template_directory_uri() . '/asu-header/js/asu-header.js', array() , '4.0', false );
   wp_enqueue_script( 'asu-header' );
-  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/asu-header/css/asu-header.css', array(), false, 'all' );
+  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/asu-header/css/asu-nav.css', array(), false, 'all' );
   wp_enqueue_style( 'asu-header-css');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
