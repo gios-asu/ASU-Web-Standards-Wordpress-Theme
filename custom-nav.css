@@ -1,0 +1,95 @@
+/*Sample test nav to test the drop down*/
+#test-nav {
+	width: 700px; /* 1000 */
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	margin-left: -30em; /* 30 480 */
+}
+#test-nav ul {
+	list-style-type: none;
+}
+
+#test-nav > a {
+	display: none;
+}
+
+#test-nav li {
+	position: relative;
+}
+
+#test-nav li a {
+	color: #fff;
+	display: block;
+}
+
+#test-nav li a:active {
+	background-color: #c00 !important;
+}
+
+#test-nav ul:after {
+	width: 0;
+	height: 0;
+	border: 0.313em solid transparent; /* 5 */
+	border-bottom: none;
+	border-top-color: #efa585;
+	content: '';
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	right: -0.313em; /* 5 */
+}
+
+/* first level */
+
+#test-nav > ul {
+	height: 3.75em; /* 60 */
+	background-color: #e15a1f;
+}
+#test-nav > ul > li {
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+#test-nav > ul > li > a {
+	height: 100%;
+	font-size: 1.5em; /* 24 */
+	line-height: 2.5em; /* 60 (24) */
+	text-align: center;
+}
+#test-nav > ul > li:not( :last-child ) > a {
+	border-right: 1px solid #cc470d;
+}
+#test-nav > ul > li:hover > a,
+#test-nav > ul:not( :hover ) > li.active > a {
+	background-color: #cc470d;
+}
+
+
+/* second level */
+
+#test-nav li ul {
+	background-color: #cc470d;
+	display: none;
+	position: absolute;
+	top: 100%;
+}
+#test-nav li:hover ul {
+	display: block;
+	left: 0;
+	right: 0;
+}
+#test-nav li:not( :first-child ):hover ul {
+	left: -1px;
+}
+
+#test-nav li ul a {
+	font-size: 1.25em; /* 20 */
+	border-top: 1px solid #e15a1f;
+	padding: 0.75em; /* 15 (20) */
+}
+
+#test-nav li ul li a:hover,
+#test-nav li ul:not( :hover ) li.active a {
+	background-color: #e15a1f;
+}

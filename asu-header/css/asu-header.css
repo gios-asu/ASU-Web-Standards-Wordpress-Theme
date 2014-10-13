@@ -1,0 +1,356 @@
+
+/* =============================================================================
+   ASU Navigation
+   ========================================================================== */
+
+/*
+ *  ASU Header  http://www.asu.edu/asuthemes/4.0/css/asu_header.css
+ */
+
+/* =Header Styles
+--------------------------------------------------------- */
+#asu_hdr {
+	position: relative;
+	display: block;
+	overflow: visible !important;
+	font-family: Arial, Helvetica, sans-serif;
+ 	color: #000;
+	z-index: 500;
+}
+
+/*
+#asu_hdr img {
+	border: 0;
+}
+#asu_logo {
+	margin: 0;
+	display: block;
+	float: left;
+	min-width:203px
+}
+#asu_print_logo {
+	display: none;
+}
+
+*/
+/* ----{ Sign-In Links }---- */
+#asu_login_module {
+	border-left: 1px solid #CCC;
+	margin: 5px 0;
+	padding: 0 0 0 5px;
+	float: right;
+	display: inline-block;
+}
+#asu_login_module li {
+	color: #000;
+	font-weight: bold;
+ 	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0 .41em;
+}
+#asu_login_module li.end {
+	text-transform: uppercase;
+	padding-right: 0;
+}
+#asu_login_module li a {
+	text-decoration: none;
+	line-height: 1em;
+	color:#333;
+}
+#asu_login_module li a:hover {
+	text-decoration: underline;
+}
+#asu_search_module {
+	clear: right;
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: 0;
+}
+#asu_search_module input.asu_search_box {
+	background-color: #f3f2e6;
+	border-top: 1px solid #999;
+	border-right: 1px solid #6c6c6c;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 230px;
+	height: 20px;
+	padding: 0 0 0 3px;
+	vertical-align: middle;
+	font: 11px/15px Arial, Helvetica, sans-serif;
+	color: #333;
+}
+#asu_search_module input.asu_search_button {
+	background: #000;
+	border: 0 none;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-o-border-radius: 0px;
+	-ms-border-radius: 0px;
+	-khtml-border-radius: 0px;
+	color: #FFF;
+	font-size: 11px;
+	width: 48px;
+	height: 22px;
+	margin-left: 0;
+	padding: 0;
+	text-shadow: none;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+
+
+.asu-nav {
+	display: block;
+	text-align: right;
+	margin: 0;
+	padding: 5px 0;
+	float: right;
+}
+ 
+.asu-nav li.first {
+	display: inline;
+	margin-right: 1em;
+}
+ 
+.asu-nav li {
+	margin-right: .7em;
+	display: inline-block;
+	font-size:  ;
+	line-height:  ;
+}
+.asu-nav li.last {
+	border-left: 1px solid #CCC;
+	display: inline;
+	padding-left: 1.2em;
+	margin-right: 0;
+}
+.asu-nav ul li.last {
+	border-left: none;
+	padding-left: 0;
+}
+.asu-nav li.last a {
+	text-transform:  ;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+.asu-nav ul a {
+	color:#000;
+	display:block;
+	padding: 0;
+	margin: 5px 10px;
+	line-height: 20px;
+	white-space: nowrap;
+}
+.asu-nav ul a:hover {
+	text-decoration:underline;
+}
+.asu-nav > li {
+	position:relative;
+}
+.asu-nav > li.parent {
+	margin-right: 0;
+}
+.asu-nav ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	margin-left:0;
+	padding:5px;
+	text-align:left;
+	background-color: #fff;
+	padding-top: 10px;
+	-moz-box-shadow: 0px 3px 3px 0px #999;
+	-webkit-box-shadow: 0px 3px 3px 0px #999;
+	box-shadow: 0px 3px 3px 0px #999;
+	zoom: 1;
+ filter: progid:DXImageTransform.Microsoft.Shadow(color=#dddddd, direction=135, strength=5), progid:DXImageTransform.Microsoft.Shadow(color=#dddddd, direction=225, strength=5);
+}
+.asu-nav ul li, .asu-nav ul li:first-child, .asu-nav ul li:last-child {
+	display:block;
+}
+ul.asu-nav > li.parent > a {
+  /** These are not showing up correctly
+	background: transparent url(../img/asu_arrow_closed.gif) 100% 55% no-repeat;
+  */
+	padding-right: 10px;
+}
+ul.asu-nav > li.parent > a:hover {
+  /** These are not showing up correctly
+	background: transparent url(../img/asu_arrow_open.gif) 100% 55% no-repeat;
+  */
+	padding-right: 10px;
+}
+.asu-nav li.parent ul li a.border {
+	border-bottom: 1px dotted #a6a6a6;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+}
+.asu-nav li:hover > ul {
+	display:block;
+	z-index: 1;
+	margin: 0;
+	padding: 5px;
+}
+.asu-search {
+	width: 30%;
+	float: right;
+	margin:0;
+}
+.asu-search p {
+	margin: 0;
+}
+.asu-search p:last-child {
+	display: none;
+}
+.asu-search input[type=search] {
+	float: right;
+	width: 100%;
+	background-color: #eee;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	color: #333;
+	padding: 0px 5px;
+	margin: 0 0 10px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	font-size: 12px;
+}
+.asu-search input[type=submit] {
+	display: none;
+}
+.main-menu ul.menu > li.cat-active {
+	border-top: 5px solid #ffb310;
+}
+.ir {
+	display: block;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+}
+.hidden, 
+#webform-component-program-code,
+#webform-component-plan-code,
+.field-name-field-grad-program,
+.field-name-field-program,
+.field-name-field-plan {
+	visibility: visible;
+	display: none;
+}
+.navHidden {
+	display:none;
+}
+
+  
+  
+  @media(max-width:767px){}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+
+
+.asu-nav a {
+	color:#990033;
+	text-decoration: none;
+}
+
+.asu-nav li {
+	font-size: .8em;
+}
+#asu_login_module {
+		font-size: .8em;
+}
+
+@media  ( max-width: 1199px ) {
+
+.asu-nav li {
+	font-size: .7em;
+}
+#asu_login_module {
+		font-size: .7em;
+}
+}
+
+
+@media  ( max-width: 991px ) {
+   .asu-nav a {
+ 	}
+	
+	#asu_nav_wrapper .asu-sign-in {
+		display:none;
+	}
+	#asu_login_module {
+		display:none;
+}
+	
+	
+}
+
+
+@media  ( max-width: 767px ) {	
+	.asu-nav {
+	display: none;
+	}
+	.navbar-toggle {
+	 float: left;	
+	}
+	
+	.request-info-toggle {
+	  float: right;
+	 
+	}
+
+}
+
+@media(min-width:768px){
+	.request-info-toggle {
+	  display: none;
+	 
+	}
+
+}
+
+
+
+.region-asu-nav a{
+	color: #666666;
+}
+
+
+.region-asu-nav a:hover{
+	color: #990033;
+}
+
+
+.row-padding-cancel {
+margin-left: 0px;
+margin-right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
