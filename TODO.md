@@ -9,8 +9,7 @@
 
 - wordpress_asu_customize_register callbacks to validate URLs
 - shortcodes for common functionaility:
-  - gray-back-container
-  - sidebar
+
   - buttons
     - primary
     - secondary
@@ -24,3 +23,4 @@
   - calendar
   - events listing
   - news listing
+  - columns
