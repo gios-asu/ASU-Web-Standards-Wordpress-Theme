@@ -32,6 +32,7 @@ This theme adds a lot of new options to your project.
 ## Custom Fields
 
 - page_feature_description
+  - You can have any HTML in here as well
 - page_feature_title
 - page_feature_image (example: "./wp-content/uploads/2014/10/hero-background-1.jpg")
--- You can have 0 to any number of "page_feature_image".
+  - You can have 0 to any number of "page_feature_image".

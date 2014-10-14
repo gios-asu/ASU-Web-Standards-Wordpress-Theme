@@ -140,15 +140,15 @@ add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wptemplate_gios_v1_scripts() {
-  wp_register_script( 'smoothscroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array(), '4.8.2', true );
+  wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_enqueue_script( 'smoothscroll' );
 
-	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-3.1.1-dist/	js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
+	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/	js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_enqueue_script( 'bootstrap-js' );
-  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.1', 'all' );
-  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.1', 'all' );
+  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
+  wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.1', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.1', 'all' );
   
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
@@ -156,19 +156,19 @@ function wptemplate_gios_v1_scripts() {
   wp_enqueue_style( 'bootstrap-asu-theme' );
   //wp_enqueue_style( 'bootstrap-theme-css' );
 
-  wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
+  wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
   wp_enqueue_style( 'font-awesome-css');
     
   wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
-	wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-	wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/js/sticky-nav-custom.js', array(), false, true );
-	// wp_enqueue_script( 'wptemplate-gios-v1-stickUp', get_template_directory_uri() . '/js/stickUp.min.js', array(), false, true );
-	wp_enqueue_script( 'wptemplate-gios-v1-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/assets/js/sticky-nav-custom.js', array(), false, true );
+	// wp_enqueue_script( 'wptemplate-gios-v1-stickUp', get_template_directory_uri() . '/assets/js/stickUp.min.js', array(), false, true );
+	wp_enqueue_script( 'wptemplate-gios-v1-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
   /** asu header*/
-  wp_register_script( 'asu-header', get_template_directory_uri() . '/asu-header/js/asu-header.js', array() , '4.0', false );
+  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.js', array() , '4.0', false );
   wp_enqueue_script( 'asu-header' );
-  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/asu-header/css/asu-nav.css', array(), false, 'all' );
+  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
   wp_enqueue_style( 'asu-header-css');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -219,195 +219,3 @@ function add_first_and_last($output) {
   return $output;
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
- 
-
-/**
- * Custom theme manager.  Special settings for the theme
- * get defined here.
- */
-function wordpress_asu_customize_register( $wp_customize ) {
-
-  //  =============================
-  //  =                           =
-  //  = School Info Section       =
-  //  =                           =
-  //  =============================
-
-  $wp_customize->add_section( 'wordpress_asu_theme_section' , array(
-    'title'      => __('School Information','asu_wordpress'),
-    'priority'   => 30,
-  ));
-
-  //  =============================
-  //  = Organization Text         =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[org]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_org_text', array(
-      'label'      => __('Parent Organization', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section',
-      'settings'   => 'wordpress_asu_theme_options[org]',
-  ));
-
-  //  =============================
-  //  = Organization Link         =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[org_link]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_org_link', array(
-      'label'      => __('Parent Organization URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section',
-      'settings'   => 'wordpress_asu_theme_options[org_link]',
-  ));
-
-  //  =============================
-  //  = Address                   =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[address]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_address', array(
-      'label'      => __('Address', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section',
-      'settings'   => 'wordpress_asu_theme_options[address]',
-      'type'       => 'textarea',
-  ));
-
-  //  =============================
-  //  = Phone                     =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[phone]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_phone', array(
-      'label'      => __('Phone Number', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section',
-      'settings'   => 'wordpress_asu_theme_options[phone]',
-  ));
-
-  //  =============================
-  //  = Fax                       =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[fax]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_fax', array(
-      'label'      => __('Phone Number', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section',
-      'settings'   => 'wordpress_asu_theme_options[fax]',
-  ));
-
-  //  =============================
-  //  =                           =
-  //  = Social Media Section      =
-  //  =                           =
-  //  =============================
-
-  $wp_customize->add_section( 'wordpress_asu_theme_section_social' , array(
-    'title'      => __('Social Media','asu_wordpress'),
-    'priority'   => 31,
-  ));
-
-
-  //  =============================
-  //  = Facebook                  =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[facebook]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_facebook', array(
-      'label'      => __('Facebook URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[facebook]',
-  ));
-
-  //  =============================
-  //  = Twitter                   =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[twitter]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_twitter', array(
-      'label'      => __('Twitter URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[twitter]',
-  ));
-
-  //  =============================
-  //  = Google+                   =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[google_plus]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_google_plus', array(
-      'label'      => __('Google Plus URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[google_plus]',
-  ));
-
-  //  =============================
-  //  = LinkedIn                  =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[linkedin]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-
-  ));
-
-  $wp_customize->add_control('wordpress_asu_linkedin', array(
-      'label'      => __('Linked In URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[linkedin]',
-  ));
-
-  //  =============================
-  //  = Youtube                   =
-  //  =============================
-  $wp_customize->add_setting('wordpress_asu_theme_options[youtube]', array(
-      'default'        => '',
-      'capability'     => 'edit_theme_options',
-      'type'           => 'option',
-  ));
-
-  $wp_customize->add_control('wordpress_asu_youtube', array(
-      'label'      => __('Youtube URL', 'asu_wordpress'),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[youtube]',
-  ));
-}
-add_action( 'customize_register', 'wordpress_asu_customize_register' );
