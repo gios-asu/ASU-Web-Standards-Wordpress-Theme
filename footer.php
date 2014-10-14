@@ -120,13 +120,33 @@
 
 	              	echo sprintf($googlePlus, $cOptions['google_plus']);
 	              }
+
+              	//  =============================
+							  //  = LinkedIn                  =
+							  //  =============================
+              	$linkedIn = '<li><a href="%1$s" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>';
+
+              	// Do we have a linkedin?
+              	if (isset($cOptions) && 
+	                  array_key_exists('linkedin', $cOptions) &&
+	                  $cOptions['linkedin'] !== '') {
+
+	              	echo sprintf($linkedIn, $cOptions['linkedin']);
+	              }
+
+              	//  =============================
+							  //  = Youtube                   =
+							  //  =============================
+              	$youtube = '<li><a href="%1$s" title="Youtube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>';
+
+              	// Do we have a youtube?
+              	if (isset($cOptions) && 
+	                  array_key_exists('youtube', $cOptions) &&
+	                  $cOptions['youtube'] !== '') {
+
+	              	echo sprintf($youtube, $cOptions['youtube']);
+	              }
               ?>
-	            <li>
-	            	<a href="#" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-	            </li>
-	            <li>
-	            	<a href="#" title="YouTube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-	            </li>
 	          </ul>
 	          <button type="button" class="btn btn-primary">Contribute</button>
 	        </div>

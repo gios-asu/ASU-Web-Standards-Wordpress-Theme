@@ -23,8 +23,16 @@ $customFields = get_post_custom();
 	<?php
     if (array_key_exists('page_feature_title', $customFields))
       $title = $customFields['page_feature_title'][0];
-    if (array_key_exists('page_feature_image', $customFields))
-      $image = $customFields['page_feature_image'][0];
+    if (array_key_exists('page_feature_image', $customFields)) {
+    	$count = count($customFields['page_feature_image']);
+
+    	if ($count == 0) {
+     	  $image = $customFields['page_feature_image'][0];
+    	} else {
+    		$index = rand(0, $count - 1);
+    		$image = $customFields['page_feature_image'][$index];
+    	}
+    }
     if (array_key_exists('page_feature_description', $customFields))
       $description = $customFields['page_feature_description'][0];
 

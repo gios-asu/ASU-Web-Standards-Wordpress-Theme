@@ -60,7 +60,7 @@ $customFields = get_post_custom();
                   echo sprintf($prefix, $cOptions['org']);
                 }
               ?>
-              <a href="/"><?php bloginfo( 'name' ); ?></a>
+              <a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
             </h1>
           </div>
         </div>
@@ -75,7 +75,7 @@ $customFields = get_post_custom();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
+              <a class="navbar-brand" href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
             </div>
             <?php
 

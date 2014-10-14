@@ -239,7 +239,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   ));
 
   //  =============================
-  //  = Organization Input Text   =
+  //  = Organization Text         =
   //  =============================
   $wp_customize->add_setting('wordpress_asu_theme_options[org]', array(
       'default'        => '',
@@ -255,7 +255,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   ));
 
   //  =============================
-  //  = Organization Input Link   =
+  //  = Organization Link         =
   //  =============================
   $wp_customize->add_setting('wordpress_asu_theme_options[org_link]', array(
       'default'        => '',
@@ -377,6 +377,37 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Google Plus URL', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section_social',
       'settings'   => 'wordpress_asu_theme_options[google_plus]',
+  ));
+
+  //  =============================
+  //  = LinkedIn                  =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[linkedin]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_linkedin', array(
+      'label'      => __('Linked In URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section_social',
+      'settings'   => 'wordpress_asu_theme_options[linkedin]',
+  ));
+
+  //  =============================
+  //  = Youtube                   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[youtube]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+  ));
+
+  $wp_customize->add_control('wordpress_asu_youtube', array(
+      'label'      => __('Youtube URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section_social',
+      'settings'   => 'wordpress_asu_theme_options[youtube]',
   ));
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );
