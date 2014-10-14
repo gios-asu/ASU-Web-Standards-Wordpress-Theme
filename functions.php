@@ -362,5 +362,21 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'section'    => 'wordpress_asu_theme_section_social',
       'settings'   => 'wordpress_asu_theme_options[twitter]',
   ));
+
+  //  =============================
+  //  = Google+                   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[google_plus]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_google_plus', array(
+      'label'      => __('Google Plus URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section_social',
+      'settings'   => 'wordpress_asu_theme_options[google_plus]',
+  ));
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );

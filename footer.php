@@ -107,9 +107,20 @@
 	              	echo sprintf($twitter, $cOptions['twitter']);
 	              }
               ?>
-	            <li>
-	            	<a href="#" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-	            </li>
+	            <?php
+              	//  =============================
+							  //  = Google+                   =
+							  //  =============================
+              	$googlePlus = '<li><a href="%1$s" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>';
+
+              	// Do we have a google+?
+              	if (isset($cOptions) && 
+	                  array_key_exists('google_plus', $cOptions) &&
+	                  $cOptions['google_plus'] !== '') {
+
+	              	echo sprintf($googlePlus, $cOptions['google_plus']);
+	              }
+              ?>
 	            <li>
 	            	<a href="#" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
 	            </li>
