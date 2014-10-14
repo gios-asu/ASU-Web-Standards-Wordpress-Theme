@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards
  */
 ?>
 	</div><!-- /.row -->
@@ -37,9 +37,9 @@
 	          	<?php
 		          	$cOptions = get_option( 'wordpress_asu_theme_options' );
 
-		          	/**
-		          	 * Show the Address
-		          	 */
+		          	//  =============================
+							  //  = Address                   =
+							  //  =============================
 	              // Do we have an address?
 	              if (isset($cOptions) && 
 	                  array_key_exists('address', $cOptions) &&
@@ -49,9 +49,9 @@
 	              }
               ?><br/>
               <?php
-              	/**
-              	 * Show the Phone Number
-              	 */
+              	//  =============================
+							  //  = Phone                     =
+							  //  =============================
               	$phone = 'Phone: <a class="phone-link" href="tel:%1$s">%1$s</a><br>';
 
               	// Do we have a phone number?
@@ -63,9 +63,9 @@
 	              }
               ?>
               <?php
-              	/**
-              	 * Show the Fax Number
-              	 */
+              	//  =============================
+							  //  = Fax                       =
+							  //  =============================
               	$fax = 'Fax: <a class="phone-link" href="tel:%1$s">%1$s</a><br>';
 
               	// Do we have a fax number?
@@ -79,11 +79,33 @@
 	          </address>
 	          <p><a class="contact-link" href="#">Contact Us</a></p>
 	          <ul class="social-media">
-	            <li><a href="#" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-	            <li><a href="#" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-	            <li><a href="#" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-	            <li><a href="#" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-	            <li><a href="#" title="YouTube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+	          	<?php
+              	//  =============================
+							  //  = Facebook                  =
+							  //  =============================
+              	$fb = '<li><a href="%1$s" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>';
+
+              	// Do we have a facebook?
+              	if (isset($cOptions) && 
+	                  array_key_exists('facebook', $cOptions) &&
+	                  $cOptions['facebook'] !== '') {
+
+	              	echo sprintf($fb, $cOptions['facebook']);
+	              }
+              ?>
+	            
+	            <li>
+	            	<a href="#" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+	            </li>
+	            <li>
+	            	<a href="#" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+	            </li>
+	            <li>
+	            	<a href="#" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+	            </li>
+	            <li>
+	            	<a href="#" title="YouTube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+	            </li>
 	          </ul>
 	          <button type="button" class="btn btn-primary">Contribute</button>
 	        </div>

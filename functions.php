@@ -222,13 +222,16 @@ add_filter('wp_nav_menu', 'add_first_and_last');
  
 
 /**
- * Custom theme manager
+ * Custom theme manager.  Special settings for the theme
+ * get defined here.
  */
 function wordpress_asu_customize_register( $wp_customize ) {
-  // Special theme settings
-  // - Site Title & Tagline
-  // -- Parent Org (if Applicable)
-  // -- Parent Org Link (if Applicable)
+
+  //  =============================
+  //  =                           =
+  //  = School Info Section       =
+  //  =                           =
+  //  =============================
 
   $wp_customize->add_section( 'wordpress_asu_theme_section' , array(
     'title'      => __('School Information','asu_wordpress'),
@@ -262,7 +265,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   ));
 
   $wp_customize->add_control('wordpress_asu_org_link', array(
-      'label'      => __('Parent Organization Link', 'asu_wordpress'),
+      'label'      => __('Parent Organization URL', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[org_link]',
   ));
@@ -315,5 +318,35 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[fax]',
   ));
+
+  //  =============================
+  //  =                           =
+  //  = Social Media Section      =
+  //  =                           =
+  //  =============================
+
+  $wp_customize->add_section( 'wordpress_asu_theme_section_social' , array(
+    'title'      => __('Social Media','asu_wordpress'),
+    'priority'   => 31,
+  ));
+
+
+  //  =============================
+  //  = Facebook                  =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[facebook]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_facebook', array(
+      'label'      => __('Facebook URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section_social',
+      'settings'   => 'wordpress_asu_theme_options[facebook]',
+  ));
+
+
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );
