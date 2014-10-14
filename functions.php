@@ -347,6 +347,20 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'settings'   => 'wordpress_asu_theme_options[facebook]',
   ));
 
+  //  =============================
+  //  = Twitter                   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[twitter]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
 
+  ));
+
+  $wp_customize->add_control('wordpress_asu_twitter', array(
+      'label'      => __('Twitter URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section_social',
+      'settings'   => 'wordpress_asu_theme_options[twitter]',
+  ));
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );

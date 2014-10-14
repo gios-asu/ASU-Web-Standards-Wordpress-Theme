@@ -93,10 +93,20 @@
 	              	echo sprintf($fb, $cOptions['facebook']);
 	              }
               ?>
-	            
-	            <li>
-	            	<a href="#" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-	            </li>
+	            <?php
+              	//  =============================
+							  //  = Twitter                   =
+							  //  =============================
+              	$twitter = '<li><a href="%1$s" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>';
+
+              	// Do we have a twitter?
+              	if (isset($cOptions) && 
+	                  array_key_exists('twitter', $cOptions) &&
+	                  $cOptions['twitter'] !== '') {
+
+	              	echo sprintf($twitter, $cOptions['twitter']);
+	              }
+              ?>
 	            <li>
 	            	<a href="#" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
 	            </li>

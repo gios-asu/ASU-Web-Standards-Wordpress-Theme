@@ -5,7 +5,6 @@
 - Extra Blog Info
 -- Contact us Custom URL - Defaults to email
 -- Social Media
---- Twitter Account
 --- Google Plus Account
 --- Linked In Acount
 --- Youtube Account
