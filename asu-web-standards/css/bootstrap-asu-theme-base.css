@@ -175,3 +175,7 @@
 .gray-back {
   background-color: #f1f1f1;
 }
+
+#masthead, body {
+  background-color: white;
+}

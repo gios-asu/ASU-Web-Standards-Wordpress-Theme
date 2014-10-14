@@ -11,8 +11,9 @@
 #asu_hdr {
   padding-right: 0 !important;
 }
-#asu_header a {
+#asu_hdr a {
   border-bottom: 0;
+  text-decoration: none;
 }
 #asu_mobile_hdr {
   float: left;

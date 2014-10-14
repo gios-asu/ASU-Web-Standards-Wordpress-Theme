@@ -1,11 +1,12 @@
 <?php
 /**
- * wptemplate-gios-v1 functions and definitions
+ * asu-wordpress-web-standards functions and definitions
  *
- * @package wptemplate-gios-v1
+ * @author Global Insititue of Sustainability
+ * @author Ivan Montiel
+ * 
+ * @package asu-wordpress-web-standards
  */
-
-
 
 
 /**
@@ -15,7 +16,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'wptemplate_gios_v1_setup' ) ) :
+if ( ! function_exists( 'asu_wordpress_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -23,7 +24,7 @@ if ( ! function_exists( 'wptemplate_gios_v1_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function wptemplate_gios_v1_setup() {
+function asu_wordpress_setup() {
 
 	/*
 	 * Make theme available for translation.
@@ -45,7 +46,7 @@ function wptemplate_gios_v1_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'wptemplate-gios-v1' ),
+		'primary' => __( 'Primary Menu', 'asu_wordpress' ),
 	) );
 	
 	/*
@@ -87,8 +88,8 @@ function wptemplate_gios_v1_setup() {
   add_theme_support( 'custom-header', $custom_header_defaults );
 
 }
-endif; // wptemplate_gios_v1_setup
-add_action( 'after_setup_theme', 'wptemplate_gios_v1_setup' );
+endif; // end asu_wordpress_setup
+add_action( 'after_setup_theme', 'asu_wordpress_setup' );
 
 /**
  * Register widget area.
@@ -132,13 +133,16 @@ function wptemplate_gios_v1_widgets_init() {
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
-}
+} 
 add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
 function wptemplate_gios_v1_scripts() {
+  wp_register_script( 'smoothscroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array(), '4.8.2', true );
+  wp_enqueue_script( 'smoothscroll' );
+
 	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-3.1.1-dist/	js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
@@ -173,25 +177,10 @@ function wptemplate_gios_v1_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
 
-
-
-
-/**
- *   BOOTSTRAP LOAD END
- */
-
-
-
-
 /**
  *   This line will prevent WordPress from automatically inserting HTML line breaks in your posts. If you dont do this, some of the Bootstrap snippets that we are going to add will probably not display correctly.
-
-remove_filter ('the_content', 'wpautop'); */
-
-
-
-
-
+ */
+//remove_filter ('the_content', 'wpautop');
 
 /**
  * Implement the Custom Header feature.
@@ -219,7 +208,9 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
-  // Register custom navigation walker
+/**
+ * Register custom navigation walker
+ */
 require_once ('wp_bootstrap_navwalker.php');
 
 function add_first_and_last($output) {
@@ -229,3 +220,100 @@ function add_first_and_last($output) {
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
  
+
+/**
+ * Custom theme manager
+ */
+function wordpress_asu_customize_register( $wp_customize ) {
+  // Special theme settings
+  // - Site Title & Tagline
+  // -- Parent Org (if Applicable)
+  // -- Parent Org Link (if Applicable)
+
+  $wp_customize->add_section( 'wordpress_asu_theme_section' , array(
+    'title'      => __('School Information','asu_wordpress'),
+    'priority'   => 30,
+  ));
+
+  //  =============================
+  //  = Organization Input Text   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[org]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_org_text', array(
+      'label'      => __('Parent Organization', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[org]',
+  ));
+
+  //  =============================
+  //  = Organization Input Link   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[org_link]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_org_link', array(
+      'label'      => __('Parent Organization Link', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[org_link]',
+  ));
+
+  //  =============================
+  //  = Address                   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[address]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_address', array(
+      'label'      => __('Address', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[address]',
+      'type'       => 'textarea',
+  ));
+
+  //  =============================
+  //  = Phone                     =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[phone]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_phone', array(
+      'label'      => __('Phone Number', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[phone]',
+  ));
+
+  //  =============================
+  //  = Fax                       =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[fax]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_fax', array(
+      'label'      => __('Phone Number', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[fax]',
+  ));
+}
+add_action( 'customize_register', 'wordpress_asu_customize_register' );

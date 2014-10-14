@@ -1306,6 +1306,8 @@ input[type="button"].btn-block {
 
 .navbar {
   margin-bottom: 0;
+  border-color: transparent;
+  min-height: 46px;
 }
 
 .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
@@ -1400,14 +1402,14 @@ input[type="button"].btn-block {
   }
 }
 .navbar-ws .navbar-nav > li > a {
-  padding: 20px;
+  padding: 15px;
   font-size: 16px;
   font-weight: bold;
   line-height: 1;
 }
 @media (min-width: 1200px) {
   .navbar-ws .navbar-nav > li > a {
-    padding: 20px 25px;
+    padding: 15px 20px;
   }
 }
 .navbar-ws .navbar-brand {
@@ -1498,6 +1500,28 @@ input[type="button"].btn-block {
   .sidebar-nav.affix {
     width: 360px;
   }
+}
+
+#site-name-desktop h1 {
+  line-height: 28px;
+  padding: 4px 6px 8px 6px;
+}
+#site-name-desktop h1.site-title {
+  margin: 0;
+  padding: 5px 13px 5px 7px;
+  font-size: 20px;
+}
+#site-name-desktop h1.site-title a {
+  color: #666;
+  text-decoration: none;
+  border-bottom-color: transparent;
+  font-weight: bold;
+}
+#site-name-desktop h1.site-title a:hover, #site-name-desktop h1.site-title a:focus {
+  text-decoration: underline;
+}
+#site-name-desktop h1.site-title a:first-child {
+  color: black;
 }
 
 .breadcrumb {
