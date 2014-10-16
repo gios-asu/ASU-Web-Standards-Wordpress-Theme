@@ -50,33 +50,45 @@ $customFields = get_post_custom();
 					      <div class="fdt-home-container fdt-home-column-content clearfix  panel-panel row-fluid container">
 				          <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">
 			              <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">
+       						 		<?php
+       						 			if ( isset ($title) ) :
+       						 		?>
        						 		<h2 class="pane-title"><?php echo $title; ?></h2>
-    
-  
-  											<div class="pane-content">
-    											<div class="fieldable-panels-pane">
-    												<div class="field field-name-field-basic-text-text field-type-text-long field-label-hidden">
-    													<div class="field-items">
-    														<div class="field-item even">
-    															<p><?php echo $description; ?></p>
-																</div>
+    									<?php
+    										endif;
+    									?>
+
+    									<?php
+    									  if ( isset ($description) ) :
+    									?>
+											<div class="pane-content">
+  											<div class="fieldable-panels-pane">
+  												<div class="field field-name-field-basic-text-text field-type-text-long field-label-hidden">
+  													<div class="field-items">
+  														<div class="field-item even">
+  															<p><?php echo $description; ?></p>
 															</div>
 														</div>
 													</div>
-  											</div><!-- /.pane-content -->
+												</div>
+											</div><!-- /.pane-content -->
 
-  										</div>
-      							</div>
-        					</div>
-        				</div>
-        			</section>
-        		</div>
-        	</div>
-        </div>
+											<?php
+												endif;
+											?>
+
+										</div>
+    							</div>
+      					</div>
+      				</div>
+      			</section>
+      		</div>
+      	</div>
       </div>
     </div>
   </div>
-	<?php endif; ?>
+</div>
+<?php endif; ?>
 
 
 <div id="content" class="site-content">
