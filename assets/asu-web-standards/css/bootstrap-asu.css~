@@ -2175,6 +2175,20 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   position: relative;
   min-height: 500px;
 }
+.hero-video video {
+  max-width: 100%;
+  width: 100% !important;
+  height: inherit !important;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+.hero-video > .container {
+  z-index: 12;
+  position: absolute;
+  bottom: 10px;
+}
 
 .profile {
   border: 1px solid;

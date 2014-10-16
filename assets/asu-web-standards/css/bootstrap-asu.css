@@ -2173,15 +2173,31 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   padding: 0px;
   overflow: hidden;
   position: relative;
-  min-height: 500px;
+}
+@media (min-width: 768px) {
+  .hero-video {
+    min-height: 500px;
+  }
 }
 .hero-video video {
   max-width: 100%;
   width: 100% !important;
   height: inherit !important;
-  position: absolute;
-  top: 0;
-  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .hero-video video {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+@media (min-width: 768px) {
+  .hero-video > .container {
+    z-index: 12;
+    position: absolute;
+    bottom: 10px;
+  }
 }
 
 .profile {

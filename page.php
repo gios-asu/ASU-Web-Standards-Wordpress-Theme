@@ -95,7 +95,7 @@ $customFields = get_post_custom();
     				?>
 							<?php
 								if ( isset($video) ) {
-									$videoContainer = '<video width="100%2$s" height="auto" autoplay muted="true">%1$s</video>';
+									$videoContainer = '<video width="100%2$s" height="auto" autoplay muted="true" loop>%1$s</video>';
 									$videoPart = '<source src="%1$s" type="%2$s"/>';
 									$parts = '';
 
