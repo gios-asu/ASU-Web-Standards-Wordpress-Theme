@@ -77,7 +77,31 @@
 	              }
               ?>
 	          </address>
-	          <p><a class="contact-link" href="#">Contact Us</a></p>
+	          <?php
+	            //  =============================
+						  //  = Contact Us Email or URL   =
+						  //  =============================
+	          	$contactURL = '<p><a class="contact-link" href="%1$s%2$s%3$s">Contact Us</a></p>';
+
+	          	// Do we have a contact?
+            	if (isset($cOptions) && 
+                  array_key_exists('contact', $cOptions) &&
+                  $cOptions['contact'] !== '') {
+
+            		$type = '';
+            		$contact = $cOptions['contact'];
+            		$additional = '';
+
+            		if ( filter_var( $contact, FILTER_VALIDATE_EMAIL ) ) {
+            			$type = 'mailto:';
+
+            			// TODO if additional, check for title and body
+            		}
+
+              	echo sprintf($contactURL, $type, $contact, $additional);
+              }
+	          
+	          ?>
 	          <ul class="social-media">
 	          	<?php
               	//  =============================

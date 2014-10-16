@@ -123,9 +123,25 @@ function wordpress_asu_customize_register( $wp_customize ) {
   ));
 
   $wp_customize->add_control('wordpress_asu_fax', array(
-      'label'      => __('Phone Number', 'asu_wordpress'),
+      'label'      => __('Fax Number', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[fax]',
+  ));
+
+  //  =============================
+  //  = Contact Us Email or URL   =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[contact]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_contact', array(
+      'label'      => __('Contact Us Email or URL', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[contact]',
   ));
 
   //  =============================

@@ -2,8 +2,7 @@
 == TODO     =
 =============
 
-- Extra Blog Info
--- Contact us Custom URL - Defaults to email
+- Contact Us Button w/ email should have optional subject and body
 - Secondary Menu for Footer
 - Contribute button
 - fix header html, should be wrapped in panel content
@@ -30,3 +29,12 @@
 - Central versioning
 - Add widgets to visual editor
 - inner nav using seperate pages
+-Header schemes
+  - Gold
+  - Maroon
+  - White
+  - Custom
+- Menu Color
+  - Black, with gold text and gray dropdown
+  - Gold
+  - Gray
