@@ -4,7 +4,7 @@ Modernizr.load({
 });
 
 // Document Loaded
-$(document).ready(function() {
+jQuery(document).ready(function($) {
 
   // Smooth scrolling
   smoothScroll.init();

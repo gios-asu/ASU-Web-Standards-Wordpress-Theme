@@ -2,8 +2,6 @@
 == TODO     =
 =============
 
-- Contact Us Button w/ email should have optional subject and body
-- Secondary Menu for Footer
 - Contribute button
 - fix header html, should be wrapped in panel content
 - wordpress_asu_customize_register callbacks to validate URLs
@@ -29,7 +27,7 @@
 - Central versioning
 - Add widgets to visual editor
 - inner nav using seperate pages
--Header schemes
+- Header schemes
   - Gold
   - Maroon
   - White
@@ -38,3 +36,9 @@
   - Black, with gold text and gray dropdown
   - Gold
   - Gray
+- Footer variables with defaults
+  - Trademerk
+  - Accessibility link
+  - privacy link
+  - emergency link
+  - contact asu link 

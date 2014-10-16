@@ -150,9 +150,14 @@ function wptemplate_gios_v1_scripts() {
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.1', 'all' );
   wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.1', 'all' );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.1', 'all' );
+  wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', 'all' );
   
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
+  wp_enqueue_script( 'jquery' );
+  wp_enqueue_script( 'modernizr' );
+  wp_enqueue_script( 'bootstrap-asu-js' );
   wp_enqueue_style( 'bootstrap-asu-theme-base' );
   wp_enqueue_style( 'bootstrap-asu-theme' );
   //wp_enqueue_style( 'bootstrap-theme-css' );
@@ -218,6 +223,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * Register custom navigation walker
  */
 require_once ('wp_bootstrap_navwalker.php');
+require_once ('wp_bootstrap_footer_navwalker.php');
 
 function add_first_and_last($output) {
   $output = preg_replace('/class="menu-item/', 'class="first-menu-item menu-item', $output, 1);

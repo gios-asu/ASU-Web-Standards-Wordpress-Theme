@@ -89,18 +89,18 @@ $customFields = get_post_custom();
             $wrapper .= '%3$s';
             $wrapper .= '</ul>';
             
-              wp_nav_menu( array(
-                'menu'              => 'primary',
-                'theme_location'    => 'primary',
-                'depth'             => 2,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-                'container_id'      => 'bs-example-navbar-collapse-1',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker(),
-                'items_wrap'        => $wrapper)
-              );
+            wp_nav_menu( array(
+              'menu'              => 'primary',
+              'theme_location'    => 'primary',
+              'depth'             => 2,
+              'container'         => 'div',
+              'container_class'   => 'collapse navbar-collapse',
+              'container_id'      => 'bs-example-navbar-collapse-1',
+              'menu_class'        => 'nav navbar-nav',
+              'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+              'walker'            => new wp_bootstrap_navwalker(),
+              'items_wrap'        => $wrapper)
+            );
             ?>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container -->

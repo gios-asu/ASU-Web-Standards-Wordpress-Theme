@@ -95,7 +95,32 @@
             		if ( filter_var( $contact, FILTER_VALIDATE_EMAIL ) ) {
             			$type = 'mailto:';
 
-            			// TODO if additional, check for title and body
+            			//  =============================
+								  //  = Contact Us Email Subject  =
+								  //  =============================
+
+            			// Do we have a subject line?
+            			if (array_key_exists('contact_subject', $cOptions) &&
+		                  $cOptions['contact_subject'] !== '') {
+
+            				$additional .= '&subject=' . rawurlencode($cOptions['contact_subject']);
+            			}
+
+            			//  =============================
+								  //  = Contact Us Email Body     =
+								  //  =============================
+
+            			// Do we have a body?
+            			if (array_key_exists('contact_body', $cOptions) &&
+		                  $cOptions['contact_body'] !== '') {
+
+            				$additional .= '&body=' . rawurlencode($cOptions['contact_body']);
+            			}
+
+            			// Fix the additional part
+            			if ( strlen( $additional ) > 0 ) {
+            				$additional = substr_replace( $additional, '?', 0, 1 );
+            			}
             		}
 
               	echo sprintf($contactURL, $type, $contact, $additional);
@@ -174,46 +199,17 @@
 	          </ul>
 	          <button type="button" class="btn btn-primary">Contribute</button>
 	        </div>
-	        <div class="col-md-2 col-sm-3 space-bot-md">
-	          <h2 data-toggle="collapse" data-target="#academics-menu">Academics</h2>
-	          <ul class="big-foot-nav collapse" id="academics-menu">
-	            <li><a class="" href="#">Departments</a></li>
-	            <li><a class="" href="#">Executive Education</a></li>
-	            <li><a class="" href="#">MBA Degrees</a></li>
-	            <li><a class="" href="#">Master's Degrees</a></li>
-	            <li><a class="" href="#">Ph.D. Programs</a></li>
-	          </ul>
-	        </div>
-	        <div class="col-md-2 col-sm-3 space-bot-md">
-	          <h2 data-toggle="collapse" data-target="#connect-menu">Connect</h2>
-	          <ul class="big-foot-nav collapse" id="connect-menu">
-	            <li><a class="" href="#">Calendar of Events</a></li>
-	            <li><a class="" href="#">Contact Us</a></li>
-	            <li><a class="" href="#">Employment</a></li>
-	            <li><a class="" href="#">School Directory</a></li>
-	            <li><a class="" href="#">School Store</a></li>
-	          </ul>
-	        </div>
-	        <div class="col-md-2 col-sm-3 space-bot-md">
-	          <h2 data-toggle="collapse" data-target="#impact-menu">Impact</h2>
-	          <ul class="big-foot-nav collapse" id="impact-menu">
-	            <li><a class="" href="#">China Programs</a></li>
-	            <li><a class="" href="#">Invest</a></li>
-	            <li><a class="" href="#">KnowWPC</a></li>
-	            <li><a class="" href="#">News Releases</a></li>
-	            <li><a class="" href="#">Research Centers</a></li>
-	          </ul>
-	        </div>
-	        <div class="col-md-2 col-sm-3 space-bot-md">
-	          <h2 data-toggle="collapse" data-target="#people-menu">People</h2>
-	          <ul class="big-foot-nav collapse" id="people-menu">
-	            <li><a class="" href="#">Alumni</a></li>
-	            <li><a class="" href="#">Current Students</a></li>
-	            <li><a class="" href="#">Faculty &amp; Staff</a></li>
-	            <li><a class="" href="#">International Students</a></li>
-	            <li><a class="" href="#">Media</a></li>
-	          </ul>
-	        </div>
+
+	        <?php
+	        wp_nav_menu( array(
+              'menu'              => 'secondary',
+              'theme_location'    => 'secondary',
+              'depth'             => 2,
+              'container'         => '',
+              'walker'            => new wp_bootstrap_footer_navwalker(),
+              'items_wrap'        => '%3$s')
+            );
+	        ?>
 	      </div><!-- /.row -->
 	    </div><!-- /.container -->
 	  </div><!-- /.big-foot -->

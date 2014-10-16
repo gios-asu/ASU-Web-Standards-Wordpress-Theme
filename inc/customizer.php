@@ -61,6 +61,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Parent Organization', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[org]',
+      'priority'   => 0,
   ));
 
   //  =============================
@@ -77,6 +78,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Parent Organization URL', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[org_link]',
+      'priority'   => 10,
   ));
 
   //  =============================
@@ -94,6 +96,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[address]',
       'type'       => 'textarea',
+      'priority'   => 20,
   ));
 
   //  =============================
@@ -110,6 +113,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Phone Number', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[phone]',
+      'priority'   => 30,
   ));
 
   //  =============================
@@ -126,6 +130,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Fax Number', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[fax]',
+      'priority'   => 40,
   ));
 
   //  =============================
@@ -142,6 +147,41 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'label'      => __('Contact Us Email or URL', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[contact]',
+      'priority'   => 50,
+  ));
+
+  //  =============================
+  //  = Contact Us Email Subject  =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[contact_subject]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+
+  ));
+
+  $wp_customize->add_control('wordpress_asu_contact_subject', array(
+      'label'      => __('Contact Us Email Subject (Optional)', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[contact_subject]',
+      'priority'   => 60,
+  ));
+
+  //  =============================
+  //  = Contact Us Email Body     =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[contact_body]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+  ));
+
+  $wp_customize->add_control('wordpress_asu_contac_body', array(
+      'label'      => __('Contact Us Email Body (Optional)', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[contact_body]',
+      'type'           => 'textarea',
+      'priority'   => 70,
   ));
 
   //  =============================

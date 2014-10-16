@@ -91,5 +91,4 @@ Creating a Footer Menu is as easy as 1-2-3:
 
 # Recommended Plugins
 
-
 - [HTML Editor Syntax Highlighter](https://wordpress.org/plugins/html-editor-syntax-highlighter/) - Adds syntax highlighting to the Text Editor in Wordpress.
