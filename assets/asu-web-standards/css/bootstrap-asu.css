@@ -1290,7 +1290,7 @@ input[type="button"].btn-block {
 .nav-tabs-justified > .active > a, .nav-tabs-justified > .active > a :hover, .nav-tabs-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a :hover, .nav-tabs.nav-justified > .active > a:focus, .alterna-tabs.nav-justified > .active > a, .alterna-tabs.nav-justified > .active > a :hover, .alterna-tabs.nav-justified > .active > a:focus {
   border: 1px solid #ddd;
 }
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a, .alterna-tabs.nav-justified > li > a {
     border-bottom: 1px solid #ddd;
     border-radius: 4px 4px 0 0;
@@ -1309,15 +1309,49 @@ input[type="button"].btn-block {
   border-color: transparent;
   min-height: 46px;
 }
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand {
+    margin-left: 0;
+  }
+}
+@media (min-width: 991px) {
+  .navbar > .container .navbar-brand {
+    margin-left: -15px;
+  }
+}
 
 .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
   margin-right: 0;
   margin-left: 0;
 }
 @media (min-width: 768px) {
+  .container > .navbar-header.collapse, .container > .navbar-collapse.collapse, .container-fluid > .navbar-header.collapse, .container-fluid > .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .container > .navbar-header.collapse.in, .container > .navbar-collapse.collapse.in, .container-fluid > .navbar-header.collapse.in, .container-fluid > .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+}
+@media (min-width: 991px) {
+  .container > .navbar-header.collapse, .container > .navbar-collapse.collapse, .container-fluid > .navbar-header.collapse, .container-fluid > .navbar-collapse.collapse {
+    display: block !important;
+  }
+}
+@media (min-width: 991px) {
   .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .container > .navbar-header, .container-fluid > .navbar-header {
+    float: none;
+  }
+}
+@media (min-width: 991px) {
+  .container > .navbar-header, .container-fluid > .navbar-header {
+    display: none;
+    float: left;
   }
 }
 
@@ -1336,24 +1370,48 @@ input[type="button"].btn-block {
 }
 
 .navbar-nav {
-  margin: 6.5px -15px;
+  margin: 1px -15px;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: none;
+  }
+}
+@media (min-width: 991px) {
   .navbar-nav {
     float: left;
     margin: 0;
   }
 }
-
+@media (min-width: 768px) {
+  .navbar-nav > li {
+    float: none;
+  }
+}
+@media (min-width: 991px) {
+  .navbar-nav > li {
+    float: left;
+  }
+}
 .navbar-nav > li > a {
   line-height: 24px;
 }
 
 @media (max-width: 991px) {
+  .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+}
+@media (max-width: 991px) {
   .navbar-nav .open .dropdown-menu > li > a,
   .navbar-nav .open .dropdown-menu .dropdown-header {
     white-space: normal;
-    padding: 0;
   }
 }
 @media (max-width: 768px) {
@@ -1396,11 +1454,6 @@ input[type="button"].btn-block {
   padding-left: 0;
   padding-right: 0;
 }
-@media (max-width: 991px) {
-  .navbar-ws .container {
-    width: 100%;
-  }
-}
 .navbar-ws .navbar-nav > li > a {
   padding: 15px;
   font-size: 16px;
@@ -1422,6 +1475,16 @@ input[type="button"].btn-block {
 .navbar-ws .navbar-toggle {
   border: 0;
 }
+@media (min-width: 768px) {
+  .navbar-ws .navbar-toggle {
+    display: block;
+  }
+}
+@media (min-width: 991px) {
+  .navbar-ws .navbar-toggle {
+    display: none;
+  }
+}
 .navbar-ws .dropdown-menu {
   border: 1px solid;
   position: relative;
@@ -1434,7 +1497,7 @@ input[type="button"].btn-block {
   overflow: hidden;
   border-radius: 4px;
 }
-@media (min-width: 992px) {
+@media (min-width: 991px) {
   .navbar-ws .dropdown-menu {
     position: absolute;
     width: auto;
@@ -1453,6 +1516,7 @@ input[type="button"].btn-block {
 }
 .navbar-ws .dropdown-menu > li > a:hover, .navbar-ws .dropdown-menu > li > a:focus {
   text-decoration: none;
+  border: none;
 }
 .navbar-ws .dropdown-menu > .active > a, .navbar-ws .dropdown-menu > .active > a:hover, .navbar-ws .dropdown-menu > .active > a:focus {
   text-decoration: none;

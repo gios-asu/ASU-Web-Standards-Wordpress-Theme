@@ -35,7 +35,7 @@ $customFields = get_post_custom();
       <div class="">
         <div class="section" id="site-name-desktop">
           <div class="container">
-            <h1 class="site-title">
+            <h1 class="site-title" id="asu_school_name">
               <?php
                 // Print the parent organization and its link
                 $prefix = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
@@ -69,7 +69,7 @@ $customFields = get_post_custom();
         <nav class="navbar navbar-ws" role="navigation">
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-example">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ws-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -95,7 +95,7 @@ $customFields = get_post_custom();
               'depth'             => 2,
               'container'         => 'div',
               'container_class'   => 'collapse navbar-collapse',
-              'container_id'      => 'bs-example-navbar-collapse-1',
+              'container_id'      => 'ws-navbar-collapse-1',
               'menu_class'        => 'nav navbar-nav',
               'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
               'walker'            => new wp_bootstrap_navwalker(),
