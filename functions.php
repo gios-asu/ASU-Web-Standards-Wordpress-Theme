@@ -186,7 +186,7 @@ add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
 /**
  *   This line will prevent WordPress from automatically inserting HTML line breaks in your posts. If you dont do this, some of the Bootstrap snippets that we are going to add will probably not display correctly.
  */
-//remove_filter ('the_content', 'wpautop');
+remove_filter ('the_content', 'wpautop');
 
 /**
  * Implement the Custom Header feature.
