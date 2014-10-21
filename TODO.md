@@ -26,18 +26,9 @@
 - Central versioning
 - Add widgets to visual editor
 - inner nav using seperate pages
-- Header schemes
-  - Gold
-  - Maroon
-  - White
-  - Custom
-- Menu Color
-  - Black, with gold text and gray dropdown
-  - Gold
-  - Gray
-- Footer variables with defaults
-  - Trademerk
-  - Accessibility link
-  - privacy link
-  - emergency link
-  - contact asu link 
+
+- Reenable auto p and br tags and add a page template that auto defaults to have a container wrapper
+
+
+- Footer partner images
+
