@@ -21,7 +21,26 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+
+		if ( $depth == 0 )
+			$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+
+		// if the depth is not 0 and args has children, then add a row
+		if ( $args->children_has_children ) {
+			$columns = floor( 12.0 / $args->number_of_children );
+
+			$output .= '<div class="row"><div class="column col-md-'  . $columns . ' vertical-border-right">';
+		}
+	}
+
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+		if ( $depth == 0 )
+			$output .= "\n</ul>";
+
+		// if the depth is not 0 and args has children, then add a row
+		if ( $args->children_has_children) {
+			$output .= '</div></div>';
+		}
 	}
 
 	/**
@@ -60,6 +79,11 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 
+			// Add the mega menu class if your children have children
+			if ( $args->children_has_children) {
+				$classes[] = 'mega-menu';
+			}
+
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
 			if ( $args->has_children )
@@ -73,7 +97,30 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
+			/**
+			 * Columns for mega menu
+			 * =====================
+			 */
+			if ( $depth === 1 && $args->has_children && $args->not_first ) {
+				$columns = floor( 12.0 / $args->number_of_siblings );
+
+				if ( $args->not_last )
+					$line = 'vertical-border-right';
+				$output .= '</div><div class="column col-md-'  . $columns . ' ' . $line . '">';
+			}
+
+			// Override classes w/the dropdown title class if we are a child that has children
+			if ( $depth === 1 && $args->has_children ) {
+				$class_names		= 'class="dropdown-title"';
+			}
+
 			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+			// if we are a child that has children
+			if ( $depth === 1 && $args->has_children ) {
+				$output .= apply_filters( 'the_title', $item->title, $item->ID );
+				return;
+			}
 
 			$atts = array();
 			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
@@ -118,7 +165,13 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
 			$item_output .= $args->after;
 
+			if ($depth > 0 && $args->has_children) {
+				$item_output .= "</li>";
+			}
+
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
+
 		}
 	}
 
@@ -144,13 +197,50 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	 */
 	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
         if ( ! $element )
-            return;
+          return;
 
         $id_field = $this->db_fields['id'];
 
         // Display this element.
-        if ( is_object( $args[0] ) )
-           $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+        if ( is_object( $args[0] ) ) {
+          $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+
+          $children_has_children = false;
+          $number_of_children = 0;
+
+ 					if ( $args[0]->has_children ) {
+ 						$number_of_children = count( $children_elements[ $element->$id_field ] );
+	          foreach ( $children_elements[ $element->$id_field ] as $_ => $child ) {
+
+	          	if ( in_array ( 'menu-item-has-children', $child->classes ) ) {
+	          		$children_has_children = true;
+	          		break;
+	          	}
+          	}
+          }
+
+          $args[0]->children_has_children = $children_has_children;
+          $args[0]->number_of_children =  $number_of_children;
+
+          // Determine if we are a child
+          $parent_id = $element->menu_item_parent;
+          if ( array_key_exists($parent_id, $children_elements)) {
+	        	$parent_array = $children_elements[ $parent_id ];
+	        	$my_id = $element->ID;
+	        	$index = -1;
+
+	        	for ($i = 0; $i < count( $parent_array ); $i++) {
+	        		if ($my_id === $parent_array[$i]->ID) {
+	        			$index = $i;
+	        			break;
+	        		}
+	        	}
+
+	          $args[0]->not_first =  ! ( $i == 0 );
+	          $args[0]->not_last =  ! ( $i === count($parent_array) );
+	          $args[0]->number_of_siblings = count( $parent_array );
+	        }
+        }
 
         parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
@@ -204,3 +294,4 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 		}
 	}
 }
+

@@ -92,7 +92,7 @@ $customFields = get_post_custom();
             wp_nav_menu( array(
               'menu'              => 'primary',
               'theme_location'    => 'primary',
-              'depth'             => 2,
+              'depth'             => 3,
               'container'         => 'div',
               'container_class'   => 'collapse navbar-collapse',
               'container_id'      => 'ws-navbar-collapse-1',
