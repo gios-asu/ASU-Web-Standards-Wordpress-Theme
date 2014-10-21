@@ -176,12 +176,28 @@ function wordpress_asu_customize_register( $wp_customize ) {
       'type'           => 'option',
   ));
 
-  $wp_customize->add_control('wordpress_asu_contac_body', array(
+  $wp_customize->add_control('wordpress_asu_contact_body', array(
       'label'      => __('Contact Us Email Body (Optional)', 'asu_wordpress'),
       'section'    => 'wordpress_asu_theme_section',
       'settings'   => 'wordpress_asu_theme_options[contact_body]',
       'type'           => 'textarea',
       'priority'   => 70,
+  ));
+
+  //  =============================
+  //  = Contribute URL            =
+  //  =============================
+  $wp_customize->add_setting('wordpress_asu_theme_options[contribute]', array(
+      'default'        => '',
+      'capability'     => 'edit_theme_options',
+      'type'           => 'option',
+  ));
+
+  $wp_customize->add_control('wordpress_asu_contribute', array(
+      'label'      => __('Contribute URL (Optional)', 'asu_wordpress'),
+      'section'    => 'wordpress_asu_theme_section',
+      'settings'   => 'wordpress_asu_theme_options[contribute]',
+      'priority'   => 80,
   ));
 
   //  =============================

@@ -199,7 +199,21 @@
 	              }
               ?>
 	          </ul>
-	          <button type="button" class="btn btn-primary">Contribute</button>
+            <?php
+              //  =============================
+              //  = Contribute URL            =
+              //  =============================
+              $contribute = '<a type="button" class="btn btn-primary" href="%s">Contribute</a>';
+
+              // Do we have a contribute?
+              if (isset($cOptions) && 
+                  array_key_exists('contribute', $cOptions) &&
+                  $cOptions['contribute'] !== '') {
+
+                echo sprintf($contribute, $cOptions['contribute']);
+              }
+            ?>
+	          
 	        </div>
 
 	        <?php
