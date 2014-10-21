@@ -35,7 +35,9 @@
 	          <h1><?php bloginfo( 'description' ); ?></h1>
 	          <address>
 	          	<?php
-		          	$cOptions = get_option( 'wordpress_asu_theme_options' );
+                if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+                  $cOptions = get_option( 'wordpress_asu_theme_options' );
+                }
 
 		          	//  =============================
 							  //  = Address                   =

@@ -41,6 +41,11 @@ class wp_bootstrap_footer_navwalker extends Walker_Nav_Menu {
     if (!$isTopLevel)
       $output .= '<li' . $idFull . $class_names .'>';
 
+  
+    if ( $args == null || empty( $args ) ) {
+      return;
+    }    
+
     /**
      * Filter the HTML attributes applied to a menu item's <a>.
      *
