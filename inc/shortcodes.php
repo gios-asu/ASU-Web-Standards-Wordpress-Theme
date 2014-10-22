@@ -178,6 +178,8 @@ function asu_button_shortcode( $atts, $content = null ) {
     $result = $button;
   }
 
+  $class = 'class="btn ';
+
   $colorMap = array (
     'default'   => 'btn-default',
     'primary'   => 'btn-primary',
@@ -192,21 +194,40 @@ function asu_button_shortcode( $atts, $content = null ) {
     );
 
   // Check if the attributes contain a color
-  $class = 'btn ';
-
   if ( array_key_exists( 'color', $atts ) ) {
     if ( array_key_exists( $atts['color'], $colorMap ) ) {
-      $class .= $colorMap[$atts['color']];
+      $class .= ' ' . $colorMap[$atts['color']];
     }
   } 
 
+  $sizeMap = array (
+    'large'       => 'btn-lg',
+    'medium'      => '',
+    'small'       => 'btn-sm',
+    'extra-small' => 'btn-xs'
+    );
 
-  // size?
+  // Check if the attributes contain a size
+  if ( array_key_exists( 'size', $atts ) ) {
+    if ( array_key_exists( $atts['size'], $sizeMap ) ) {
+      $class .= ' ' . $sizeMap[$atts['size']];
+    }
+  } 
 
+  $extraMap = array (
+    'block' => 'btn-block'
+    );
 
+  // Check if we have extras
+  if ( array_key_exists( 'extra', $atts ) ) {
+    if ( array_key_exists( $atts['extra'], $extraMap ) ) {
+      $class .= ' ' . $extraMap[$atts['extra']];
+    }
+  } 
 
+  $class .= '"';
 
-  return do_shortcode( '' );
+  return do_shortcode( sprintf ( $result, $class, $content ) );
 }
 add_shortcode( 'button', 'asu_button_shortcode' );
 endif;
