@@ -155,4 +155,61 @@ function asu_wp_panel_shortcode( $atts, $content = null ) {
 add_shortcode( 'panel', 'asu_wp_panel_shortcode' );
 endif;
 
+if ( ! function_exists( 'asu_button_shortcode' ) ) :
+/**
+ * Buttons.
+ * 
+ * Attributes:
+ * - Link (optional)
+ * - Color (optional, defaults "default")
+ * 
+ * @param $atts - associative array.
+ * @param $content - content 
+ */
+function asu_button_shortcode( $atts, $content = null ) {
+  $button = '<button %1$s>%2$s</button>';
+  $ahref = '<a href="%3$s" %1$s>%2$s</a>';
+  $result = '';
+
+  // Check if the attributes contain a link
+  if ( array_key_exists( 'link', $atts ) ) {
+    $result = sprintf ( $ahref, '%1$s', '%2$s', $atts['link']);
+  } else {
+    $result = $button;
+  }
+
+  $colorMap = array (
+    'default'   => 'btn-default',
+    'primary'   => 'btn-primary',
+    'secondary' => 'btn-secondary',
+    'gold'      => 'btn-gold',
+    'blue'      => 'btn-blue',
+    'success'   => 'btn-success',
+    'info'      => 'btn-info',
+    'warning'   => 'btn-warning',
+    'danger'    => 'btn-danger',
+    'link'      => 'btn-link',
+    );
+
+  // Check if the attributes contain a color
+  $class = 'btn ';
+
+  if ( array_key_exists( 'color', $atts ) ) {
+    if ( array_key_exists( $atts['color'], $colorMap ) ) {
+      $class .= $colorMap[$atts['color']];
+    }
+  } 
+
+
+  // size?
+
+
+
+
+  return do_shortcode( '' );
+}
+add_shortcode( 'button', 'asu_button_shortcode' );
+endif;
+
+
 ?>

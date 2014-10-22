@@ -23,5 +23,3 @@
 - Add widgets to visual editor
 - inner nav using seperate pages
 - Footer partner images
-
-- Breadcrumbs

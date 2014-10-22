@@ -93,6 +93,13 @@
   border-bottom-color: #e9e9e9;
 }
 
+#site-name-desktop h1 a {
+  color: #4f5557;
+}
+#site-name-desktop h1 a:first-child {
+  color: black;
+}
+
 .calendar-date {
   color: #4f5557;
   background-color: #fafafa;

@@ -1576,16 +1576,12 @@ input[type="button"].btn-block {
   font-size: 20px;
 }
 #site-name-desktop h1.site-title a {
-  color: #666;
   text-decoration: none;
   border-bottom-color: transparent;
   font-weight: bold;
 }
 #site-name-desktop h1.site-title a:hover, #site-name-desktop h1.site-title a:focus {
   text-decoration: underline;
-}
-#site-name-desktop h1.site-title a:first-child {
-  color: black;
 }
 
 .breadcrumb {
@@ -2544,6 +2540,7 @@ button {
 }
 .collapse.in {
   display: block;
+  max-height: none !important;
 }
 
 tr.collapse.in {
