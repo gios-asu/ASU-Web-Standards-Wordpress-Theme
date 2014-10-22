@@ -239,7 +239,7 @@
 	            <li><a class="" href="http://www.asu.edu/accessibility/">Accessibility</a></li>
 	            <li><a class="" href="http://www.asu.edu/privacy/">Privacy</a></li>
 	            <li><a class="" href="https://cfo.asu.edu/emergency">Emergency</a></li>
-	            <li><a class="" href="#">Contact ASU</a></li>
+	            <li><a class="" href="https://contact.asu.edu/">Contact ASU</a></li>
 	          </ul>
 	        </div>
 	      </div><!-- /.row -->

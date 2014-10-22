@@ -55,7 +55,11 @@ function asu_wp_sidebar_shortcode( $atts, $content = null ) {
     $title = $atts['title'];
   }
 
-  $user_list_items = explode( '\n', str_replace( '<br />', '\n', $content ) );
+  $cleaned = str_replace( '<br />', "\n", $content );
+  $cleaned = str_replace( '<br/>', "\n", $cleaned );
+  $cleaned = str_replace( '<br>', "\n", $cleaned );
+
+  $user_list_items = explode( "\n", $cleaned );
   $user_list_items_inst = '';
   foreach ($user_list_items as $_ => $value) {
     // [0] => Text, [1] => link

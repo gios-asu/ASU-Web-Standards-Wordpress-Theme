@@ -75,7 +75,19 @@ The title attribute is optional, it defaults to "Navigate this Doc".
 
 # Menus
 
-This theme supports two main menus: a main navigation menu and a footer menu.  
+This theme supports two main menus: a main navigation menu and a footer menu. 
+
+## Main Navigation
+
+The main navigation menu only supports a max of three levels.  The top level
+of the menu will be the pills/tabs that you see in the menu. The second level will
+create a basic dropdown under that pill.  A third level will force that dropdown
+to become a "Mega Menu." 
+
+Only the lowest level of pills will actually be clickable. If you create a three level
+deep menu, only the deepest pills will be links.
+
+
 
 ## Footer Menu
 
