@@ -99,7 +99,9 @@ Creating a Footer Menu is as easy as 1-2-3:
 2. Use the "Pages" tab to add links under the top level menu items to specific pages.
 3.  Click the checkbox next to "Footer Menu" in "Menu Settings" and then click "Save Menu". Your menu will now appear at the bottom of the page!
 
+# Widgets
 
+Extra widgets can be added to the Footer.  These will appear on the bottom of the page, after the footer menu and school information.
 
 # Recommended Plugins
 

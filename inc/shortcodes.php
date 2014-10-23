@@ -11,7 +11,12 @@
 
 if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
 /**
+ * Containers
+ * ==========
+ * 
  * Containers with gray option
+ * - type=gray
+ * - spacing=none
  * 
  * @param atts - associative array.  You can override 'type' to 'gray'
  */
@@ -29,8 +34,17 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
       $container = sprintf( $wrap_container, $container );
     }
   } else {
-    // Extra classes
-    $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
+    if ( $atts != null &&
+         array_key_exists( 'spacing', $atts ) &&
+         $atts['spacing'] === 'none' ) 
+    {
+      // No extra classes needed
+      $container = sprintf( $container, '%1$s', '' );
+    } else {
+      // Extra classes
+      $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
+    }
+  
   }
 
   return do_shortcode( sprintf( $container, $content ) );
@@ -38,8 +52,12 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
 add_shortcode( 'container', 'asu_wp_container_shortcode' );
 endif;
 
+
 if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
 /**
+ * Sidebar Nav
+ * ===========
+ * 
  * Navbar with group parameters
  * 
  * @param $atts - associative array. You can override 'title'.
@@ -82,6 +100,9 @@ endif;
 
 if ( ! function_exists( 'asu_wp_column_shortcode' ) ) :
 /**
+ * Columns
+ * =======
+ * 
  * Columns for rows
  * 
  * @param $atts - associative array. You can override 'size'.
@@ -127,7 +148,8 @@ endif;
 
 if ( ! function_exists( 'asu_wp_panel_shortcode' ) ) :
 /**
- * Columns for rows
+ * Panel
+ * =====
  * 
  * @param $atts - associative array. You can override 'type'.
  * @param $content - content 
@@ -162,6 +184,7 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
  * Attributes:
  * - Link (optional)
  * - Color (optional, defaults "default")
+ * - Extra (block)
  * 
  * @param $atts - associative array.
  * @param $content - content 

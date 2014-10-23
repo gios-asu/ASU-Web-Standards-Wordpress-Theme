@@ -226,7 +226,12 @@
               'items_wrap'        => '%3$s')
             );
 	        ?>
-	      </div><!-- /.row -->
+        </div><!-- /.row -->
+
+        <?php 
+          get_sidebar( 'sidebar' ); 
+        ?>
+
 	    </div><!-- /.container -->
 	  </div><!-- /.big-foot -->
 

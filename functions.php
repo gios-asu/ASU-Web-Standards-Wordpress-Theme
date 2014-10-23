@@ -99,40 +99,13 @@ add_action( 'after_setup_theme', 'asu_wordpress_setup' );
  */
 function wptemplate_gios_v1_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'wptemplate-gios-v1' ),
-		'id'            => 'sidebar-1',
+		'name'          => __( 'Footer', 'wptemplate-gios-v1' ),
+		'id'            => 'footer',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="col-md-4 col-sm-12 space-bot-md widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'left footer', 'wptemplate-gios-v1' ),
-		'id'            => 'left-footer-sidebar',
-		'description'   => 'Footer aligned left',
-		'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'right footer', 'wptemplate-gios-v1' ),
-		'id'            => 'right-footer-sidebar',
-		'description'   => 'Footer aligned right',
-		'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'center footer', 'wptemplate-gios-v1' ),
-		'id'            => 'center-footer-sidebar',
-		'description'   => 'Footer centered',
-		'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
 	) );
 } 
 add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
