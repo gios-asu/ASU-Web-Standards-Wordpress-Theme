@@ -7,7 +7,7 @@ before_install:
   - gem install sass
   - gem update --system
   - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar global install
+  - php composer.phar install
   - npm install grunt-phpcs
   - cp -r ./coding_standards ./vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
   # xcopy "./coding_standards" "./vendor/squizlabs/php_codesniffer/CodeSniffer/Standards" /s /e /y
