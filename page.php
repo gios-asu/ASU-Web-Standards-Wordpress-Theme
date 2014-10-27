@@ -12,25 +12,26 @@
 
 // TODO move this
 $mimeTypes = array(
-	"4gp"       => "video/3gp",
-	"avi"       => "video/x-msvideo",
-	"asf"       => "video/x-ms-asf",
-	"asr"       => "video/x-ms-asf",
-	"asx"       => "video/x-ms-asf",
-	"lsf"       => "video/x-la-asf",
-	"lsx"       => "video/x-la-asf",
-	"mov"       => "video/quicktime",
-  "movie"     => "video/x-sgi-movie",
-  "mp2"       => "video/mpeg",
-  "mp4"       => "video/mp4",
-  "mpa"       => "video/mpeg",
-  "mpe"       => "video/mpeg",
-  "mpeg"      => "video/mpeg",
-  "mpg"       => "video/mpeg",
-  "mpv2"      => "video/mpeg",
-  "ogv"       => "video/ogg",
-  "qt"        => "video/quicktime",
-  "webm"      => "video/webm");
+	'4gp'       => 'video/3gp',
+	'avi'       => 'video/x-msvideo',
+	'asf'       => 'video/x-ms-asf',
+	'asr'       => 'video/x-ms-asf',
+	'asx'       => 'video/x-ms-asf',
+	'lsf'       => 'video/x-la-asf',
+	'lsx'       => 'video/x-la-asf',
+	'mov'       => 'video/quicktime',
+  'movie'     => 'video/x-sgi-movie',
+  'mp2'       => 'video/mpeg',
+  'mp4'       => 'video/mp4',
+  'mpa'       => 'video/mpeg',
+  'mpe'       => 'video/mpeg',
+  'mpeg'      => 'video/mpeg',
+  'mpg'       => 'video/mpeg',
+  'mpv2'      => 'video/mpeg',
+  'ogv'       => 'video/ogg',
+  'qt'        => 'video/quicktime',
+  'webm'      => 'video/webm',
+);
 
 get_header(); 
 
@@ -43,31 +44,32 @@ $customFields = get_post_custom();
 	</div>
 
 	<?php
-    if (array_key_exists('page_feature_title', $customFields))
+    if ( array_key_exists( 'page_feature_title', $customFields ) )
       $title = $customFields['page_feature_title'][0];
-    if (array_key_exists('page_feature_image', $customFields)) {
-    	$count = count($customFields['page_feature_image']);
 
-    	if ($count == 0) {
+    if ( array_key_exists( 'page_feature_image', $customFields ) ) {
+    	$count = count( $customFields['page_feature_image'] );
+
+    	if ( $count == 0 ) {
      	  $image = $customFields['page_feature_image'][0];
     	} else {
-    		$index = rand(0, $count - 1);
+    		$index = rand( 0, $count - 1 );
     		$image = $customFields['page_feature_image'][$index];
     	}
     }
-    if (array_key_exists('page_feature_video', $customFields)) {
+    if ( array_key_exists( 'page_feature_video', $customFields ) ) {
     	$video = [];
     	foreach ( $customFields['page_feature_video'] as $_ => $value ) {
     		$video[] = $value;
     	}
     }
-    if (array_key_exists('page_feature_description', $customFields))
+    if ( array_key_exists( 'page_feature_description', $customFields ) )
       $description = $customFields['page_feature_description'][0];
 
-    if (isset($title) || 
-        isset($image) || 
-        isset($video) || 
-        isset($description)):
+    if ( isset( $title ) || 
+         isset( $image ) || 
+         isset( $video ) || 
+         isset( $description ) ):
   ?>
 	<div id="content" class="column ">
     <div class="region region-content">
@@ -78,16 +80,16 @@ $customFields = get_post_custom();
     					$sectionStart = '<section class="hero hero-bg-img hero-action-call section %2$s" style="%1$s">';
 
     					// Add the video class if we have it
-    					if ( isset($video) ) {
-    						$sectionStart = sprintf($sectionStart, '%1$s', 'hero-video');
+    					if ( isset( $video ) ) {
+    						$sectionStart = sprintf( $sectionStart, '%1$s', 'hero-video' );
     					} else {
-    						$sectionStart = sprintf($sectionStart, '%1$s', '');
+    						$sectionStart = sprintf( $sectionStart, '%1$s', '' );
     					}
 
-    					if ( isset ($image) ) {
-    						$sectionStart = sprintf($sectionStart, 'background-image:url(' . $image . ')');
+    					if ( isset( $image ) ) {
+    						$sectionStart = sprintf( $sectionStart, 'background-image:url(' . $image . ')' );
     					} else {
-    						$sectionStart = sprintf($sectionStart, '');
+    						$sectionStart = sprintf( $sectionStart, '' );
     					}
 
     					
@@ -100,14 +102,14 @@ $customFields = get_post_custom();
 									$parts = '';
 
 									foreach ( $video as $_ => $value ) {
-										$info     = pathinfo($value);
+										$info     = pathinfo( $value );
 										$ext      = $info['extension'];
-										$mimeType = isset($mimeTypes[$ext]) ? $mimeTypes[$ext] : "application/octet-stream";
+										$mimeType = isset( $mimeTypes[$ext] ) ? $mimeTypes[$ext] : 'application/octet-stream';
 							
-										$parts .= sprintf($videoPart, $value, $mimeType);
+										$parts .= sprintf( $videoPart, $value, $mimeType );
 									}
 
-									echo sprintf($videoContainer, $parts, '%');
+									echo sprintf( $videoContainer, $parts, '%' );
 								}
 							?>						
     					<div class="container">
@@ -115,7 +117,7 @@ $customFields = get_post_custom();
 				          <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">
 			              <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">
        						 		<?php
-       						 			if ( isset ($title) ) :
+       						 			if ( isset ( $title ) ) :
        						 		?>
        						 		<h2 class="pane-title"><?php echo $title; ?></h2>
     									<?php
@@ -123,7 +125,7 @@ $customFields = get_post_custom();
     									?>
 
     									<?php
-    									  if ( isset ($description) ) :
+    									  if ( isset ( $description ) ) :
     									?>
 											<div class="pane-content">
   											<div class="fieldable-panels-pane">
@@ -157,26 +159,20 @@ $customFields = get_post_custom();
 
 <div id="content" class="site-content">
 	<main id="main" class="site-main" role="main">
+    <?php 
+      while ( have_posts() ) {
+        the_post();
+        get_template_part( 'content', 'page' );
 
-		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', 'page' ); ?>
-
-			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || '0' != get_comments_number() ) :
 					comments_template();
 				endif;
-			?>
-
-		<?php endwhile; // end of the loop. ?>
+      } // end of the loop. 
+    ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
 
-
-
- 
- 
-
-<?php get_footer(); ?>
+<?php 
+  get_footer();

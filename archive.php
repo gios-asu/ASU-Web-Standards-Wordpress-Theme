@@ -24,55 +24,54 @@ get_header(); ?>
 				<h3 class="page-title">
 				Category: 
 					<?php
-						if ( is_category() ) :
+						if ( is_category() ) {
 							single_cat_title();
-
-						elseif ( is_tag() ) :
+						}
+						elseif ( is_tag() ) {
 							single_tag_title();
-
-						elseif ( is_author() ) :
+						}
+						elseif ( is_author() ) {
 							printf( __( 'Author: %s', 'wptemplate-gios-v1' ), '<span class="vcard">' . get_the_author() . '</span>' );
-
-						elseif ( is_day() ) :
+						}
+						elseif ( is_day() ) {
 							printf( __( 'Day: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
+						}
+						elseif ( is_month() ) {
 							printf( __( 'Month: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'wptemplate-gios-v1' ) ) . '</span>' );
-
-						elseif ( is_year() ) :
+						}
+						elseif ( is_year() ) {
 							printf( __( 'Year: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'wptemplate-gios-v1' ) ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) {
 							_e( 'Asides', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'wptemplate-gios-v1');
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'wptemplate-gios-v1');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+							_e( 'Galleries', 'wptemplate-gios-v1' );
+						}
+						elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+							_e( 'Images', 'wptemplate-gios-v1' );
+						}
+						elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
 							_e( 'Videos', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
 							_e( 'Quotes', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
 							_e( 'Links', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
 							_e( 'Statuses', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
 							_e( 'Audios', 'wptemplate-gios-v1' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+						}
+						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
 							_e( 'Chats', 'wptemplate-gios-v1' );
-
-						else :
+						}
+						else {
 							_e( 'Archives', 'wptemplate-gios-v1' );
-
-						endif;
+						}
 					?>
 				</h3>
 				<?php
@@ -85,7 +84,10 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
+				while ( have_posts() ) : 
+					the_post(); 
+			?>
 
 				<?php
 					/* Include the Post-Format-specific template for the content.

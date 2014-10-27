@@ -6,9 +6,9 @@
  * @package asu-wordpress-web-standards
  */
 
-class wp_bootstrap_footer_navwalker extends Walker_Nav_Menu {
+class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
   public function start_lvl( &$output, $depth = 0, $args = array() ) {
-    //$output .= "\n<ul class='big-foot-nav collapse' id=''>";
+    return;
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -16,16 +16,25 @@ class wp_bootstrap_footer_navwalker extends Walker_Nav_Menu {
   }
 
   public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+    $classes   = array();
     $classes[] = 'menu-item-' . $item->ID;
 
-    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+    if ( ! empty( $item->classes ) ) {
+      $classes = (array) $item->classes;
+    }
 
-    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+    $array_filter = array_filter( $classes );
+    $filters      = apply_filters( 'nav_menu_css_class', $array_filter, $item, $args );
+    $class_names  = join( ' ', $filters );
+
+    if ( $class_names ) {
+      $class_names = ' class="' . esc_attr( $class_names ) . '"';
+    } else {
+      $class_names = '';
+    }
+
+    $id     = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
     $idFull = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-   
 
     // Make sure top levels are treated differently
     $atts = array();
@@ -41,7 +50,6 @@ class wp_bootstrap_footer_navwalker extends Walker_Nav_Menu {
     if (!$isTopLevel)
       $output .= '<li' . $idFull . $class_names .'>';
 
-  
     if ( $args == null || empty( $args ) ) {
       return;
     }    
@@ -113,17 +121,15 @@ class wp_bootstrap_footer_navwalker extends Walker_Nav_Menu {
   }
 
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-    $atts['href']   = ! empty( $item->url ) ? $item->url : '';
+    $atts['href'] = ! empty( $item->url ) ? $item->url : '';
+    $isTopLevel   = $atts['href'] === null ||
+                    $atts['href'] === '' ||
+                    $atts['href'] === '#';
 
-    $isTopLevel = $atts['href'] === null ||
-                  $atts['href'] === '' ||
-                  $atts['href'] === '#';
-
-    if (!$isTopLevel) {
+    if ( ! $isTopLevel ) {
       $output .= "</li>\n";  
     } else {
       $output .= "</ul></div>\n";
     }
-    
   }
 }
