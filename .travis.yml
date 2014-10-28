@@ -4,7 +4,6 @@ node_js:
 before_install: 
   - sudo apt-get install php5
   - npm install -g grunt-cli
-  - gem install sass
   - gem update --system
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install

@@ -14,13 +14,6 @@ module.exports = function (grunt) {
             '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
             ' Licensed <%= props.license %> */\n',
 
-        // PHP Lint
-        // ===============
-        phplint: {
-            core: {
-                src: ['*.php','**/*.php']
-            }
-        },
         phpcs: {
             core: {
                 dir: ['*.php']
@@ -37,15 +30,10 @@ module.exports = function (grunt) {
     });
 
     // These plugins provide necessary tasks
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-jscs');
-    grunt.loadNpmTasks("grunt-phplint");
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-phpcs');
 
     // Default task
     grunt.registerTask('default', [
-        'phplint',
         'phpcs']);
 };
 
