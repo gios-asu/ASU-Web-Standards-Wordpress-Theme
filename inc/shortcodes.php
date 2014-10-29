@@ -65,9 +65,9 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
  */
 function asu_wp_sidebar_shortcode( $atts, $content = null ) {
   $container = '<div id="sidebarNav" class="sidebar-nav affix-top"><h4>%1$s</h4>%2$s</div>';
-  $list = '<div class="list-group">%s</div>';
+  $list      = '<div class="list-group">%s</div>';
   $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
-  $title = 'Navigate this Doc';
+  $title     = 'Navigate this Doc';
 
   if ( $atts != null && array_key_exists( 'title', $atts ) ) {
     $title = $atts['title'];
@@ -79,18 +79,18 @@ function asu_wp_sidebar_shortcode( $atts, $content = null ) {
 
   $user_list_items = explode( "\n", $cleaned );
   $user_list_items_inst = '';
-  foreach ($user_list_items as $_ => $value) {
+  foreach ( $user_list_items as $_ => $value ) {
     // [0] => Text, [1] => link
     $item_parts = explode( '|', $value );
 
     if ( count( $item_parts ) <= 1)
       continue;
 
-    $user_list_item_inst = sprintf ($list_item, trim( $item_parts[1] ), trim( $item_parts[0] ) );
+    $user_list_item_inst   = sprintf( $list_item, trim( $item_parts[1] ), trim( $item_parts[0] ) );
     $user_list_items_inst .= $user_list_item_inst;
   }
 
-  $list = sprintf($list, $user_list_items_inst);
+  $list = sprintf( $list, $user_list_items_inst );
 
   return do_shortcode( sprintf( $container, $title, $list ) );
 }
@@ -118,22 +118,21 @@ function asu_wp_column_shortcode( $atts, $content = null ) {
       $size = $atts['size'];  
 
       $mapper = array(
-        '1'  => 'col-md-1',
-        '2'  => 'col-md-2',
-        '3'  => 'col-md-3',
-        '4'  => 'col-sm-6 col-md-4',
-        '5'  => 'col-sm-6 col-md-5 col-lg-4',
-        '6'  => 'col-md-6',
-        '7'  => 'col-sm-12 col-md-7 col-lg-8',
-        '8'  => 'col-md-8',
-        '9'  => 'col-md-9',
-        '10' => 'col-md-10',
-        '11' => 'col-md-11',
-        '12' => 'col-md-12'
-        );
+          '1'  => 'col-md-1',
+          '2'  => 'col-md-2',
+          '3'  => 'col-md-3',
+          '4'  => 'col-sm-6 col-md-4',
+          '5'  => 'col-sm-6 col-md-5 col-lg-4',
+          '6'  => 'col-md-6',
+          '7'  => 'col-sm-12 col-md-7 col-lg-8',
+          '8'  => 'col-md-8',
+          '9'  => 'col-md-9',
+          '10' => 'col-md-10',
+          '11' => 'col-md-11',
+          '12' => 'col-md-12',
+      );
 
       $classes = $mapper[$size];
-
     } else {
       $classes = $atts['size'];
     }
@@ -166,9 +165,9 @@ function asu_wp_panel_shortcode( $atts, $content = null ) {
   }
 
   $mapper = array(
-    ''  => '',
-    'explore-programs'  => 'explore-programs'
-    );
+      ''  => '',
+      'explore-programs'  => 'explore-programs',
+  );
 
   $classes = 'panel ' . $mapper[$type];
 
@@ -191,30 +190,30 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
  */
 function asu_button_shortcode( $atts, $content = null ) {
   $button = '<button %1$s>%2$s</button>';
-  $ahref = '<a href="%3$s" %1$s>%2$s</a>';
+  $ahref  = '<a href="%3$s" %1$s>%2$s</a>';
   $result = '';
 
   // Check if the attributes contain a link
   if ( array_key_exists( 'link', $atts ) ) {
-    $result = sprintf ( $ahref, '%1$s', '%2$s', $atts['link']);
+    $result = sprintf( $ahref, '%1$s', '%2$s', $atts['link'] );
   } else {
     $result = $button;
   }
 
   $class = 'class="btn ';
 
-  $colorMap = array (
-    'default'   => 'btn-default',
-    'primary'   => 'btn-primary',
-    'secondary' => 'btn-secondary',
-    'gold'      => 'btn-gold',
-    'blue'      => 'btn-blue',
-    'success'   => 'btn-success',
-    'info'      => 'btn-info',
-    'warning'   => 'btn-warning',
-    'danger'    => 'btn-danger',
-    'link'      => 'btn-link',
-    );
+  $colorMap = array(
+      'default'   => 'btn-default',
+      'primary'   => 'btn-primary',
+      'secondary' => 'btn-secondary',
+      'gold'      => 'btn-gold',
+      'blue'      => 'btn-blue',
+      'success'   => 'btn-success',
+      'info'      => 'btn-info',
+      'warning'   => 'btn-warning',
+      'danger'    => 'btn-danger',
+      'link'      => 'btn-link',
+  );
 
   // Check if the attributes contain a color
   if ( array_key_exists( 'color', $atts ) ) {
@@ -223,23 +222,20 @@ function asu_button_shortcode( $atts, $content = null ) {
     }
   } 
 
-  $sizeMap = array (
-    'large'       => 'btn-lg',
-    'medium'      => '',
-    'small'       => 'btn-sm',
-    'extra-small' => 'btn-xs'
-    );
+  $sizeMap = array(
+      'large'       => 'btn-lg',
+      'medium'      => '',
+      'small'       => 'btn-sm',
+      'extra-small' => 'btn-xs',
+  );
 
   // Check if the attributes contain a size
   if ( array_key_exists( 'size', $atts ) ) {
-    if ( array_key_exists( $atts['size'], $sizeMap ) ) {
+    if ( array_key_exists( $atts['size'], $sizeMap ) ) 
       $class .= ' ' . $sizeMap[$atts['size']];
-    }
   } 
 
-  $extraMap = array (
-    'block' => 'btn-block'
-    );
+  $extraMap = array( 'block' => 'btn-block' );
 
   // Check if we have extras
   if ( array_key_exists( 'extra', $atts ) ) {
@@ -250,7 +246,7 @@ function asu_button_shortcode( $atts, $content = null ) {
 
   $class .= '"';
 
-  return do_shortcode( sprintf ( $result, $class, $content ) );
+  return do_shortcode( sprintf( $result, $class, $content ) );
 }
 add_shortcode( 'button', 'asu_button_shortcode' );
 endif;

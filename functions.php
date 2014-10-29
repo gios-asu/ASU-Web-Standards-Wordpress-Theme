@@ -8,12 +8,11 @@
  * @package asu-wordpress-web-standards
  */
 
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+  $content_width = 640; /* pixels */
 }
 
 if ( ! function_exists( 'asu_wordpress_setup' ) ) :
@@ -26,51 +25,73 @@ if ( ! function_exists( 'asu_wordpress_setup' ) ) :
  */
 function asu_wordpress_setup() {
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on wptemplate-gios-v1, use a find and replace
-	 * to change 'wptemplate-gios-v1' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'wptemplate-gios-v1', get_template_directory() . '/languages' );
+  /*
+   * Make theme available for translation.
+   * Translations can be filed in the /languages/ directory.
+   * If you're building a theme based on wptemplate-gios-v1, use a find and replace
+   * to change 'wptemplate-gios-v1' to the name of your theme in all the template files
+   */
+  load_theme_textdomain( 'wptemplate-gios-v1', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+  // Add default posts and comments RSS feed links to head.
+  add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	//add_theme_support( 'post-thumbnails' );
+  /*
+   * Enable support for Post Thumbnails on posts and pages.
+   *
+   * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+   */
+  //add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in two locations.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'asu_wordpress' ),
-    'secondary' => __( 'Footer Menu', 'asu_wordpress' )
-	) );
-	
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+  // This theme uses wp_nav_menu() in two locations.
+  register_nav_menus(
+      array(
+        'primary' => __( 'Primary Menu', 'asu_wordpress' ),
+        'secondary' => __( 'Footer Menu', 'asu_wordpress' ),
+      ) 
+  );
+  
+  /*
+   * Switch default core markup for search form, comment form, and comments
+   * to output valid HTML5.
+   */
+  add_theme_support(
+      'html5', 
+      array(
+          'search-form',
+          'comment-form',
+          'comment-list',
+          'gallery',
+          'caption',
+      )
+  );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link'
-	) );
+  /*
+   * Enable support for Post Formats.
+   * See http://codex.wordpress.org/Post_Formats
+   */
+  add_theme_support(
+      'post-formats', 
+      array(
+        'aside',
+        'image',
+        'video',
+        'quote',
+        'link',
+      )
+  );
 
-	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'wptemplate_gios_v1_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+  // Setup the WordPress core custom background feature.
+  add_theme_support(
+      'custom-background',
+      apply_filters(
+          'wptemplate_gios_v1_custom_background_args', 
+          array(
+            'default-color' => 'ffffff',
+            'default-image' => '',
+          )
+      )
+  );
 
   $custom_header_defaults = array(
     'default-image'          => '',
@@ -98,15 +119,50 @@ add_action( 'after_setup_theme', 'asu_wordpress_setup' );
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function wptemplate_gios_v1_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Footer', 'wptemplate-gios-v1' ),
-		'id'            => 'footer',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="col-md-4 col-sm-12 space-bot-md widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+  register_sidebar(
+      array(
+        'name'          => __( 'Sidebar', 'wptemplate-gios-v1' ),
+        'id'            => 'sidebar-1',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="col-md-4 col-sm-12 space-bot-md widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+      )
+  );
+  register_sidebar(
+      array(
+        'name'          => __( 'left footer', 'wptemplate-gios-v1' ),
+        'id'            => 'left-footer-sidebar',
+        'description'   => 'Footer aligned left',
+        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+      )
+  );
+  register_sidebar(
+      array(
+        'name'          => __( 'right footer', 'wptemplate-gios-v1' ),
+        'id'            => 'right-footer-sidebar',
+        'description'   => 'Footer aligned right',
+        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+      )
+  );
+  register_sidebar(
+      array(
+        'name'          => __( 'center footer', 'wptemplate-gios-v1' ),
+        'id'            => 'center-footer-sidebar',
+        'description'   => 'Footer centered',
+        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+      )
+  );
 } 
 add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
 
@@ -117,7 +173,7 @@ function wptemplate_gios_v1_scripts() {
   wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_enqueue_script( 'smoothscroll' );
 
-	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/	js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
+  wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/ js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
@@ -136,23 +192,22 @@ function wptemplate_gios_v1_scripts() {
   //wp_enqueue_style( 'bootstrap-theme-css' );
 
   wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
-  wp_enqueue_style( 'font-awesome-css');
+  wp_enqueue_style( 'font-awesome-css' );
     
   wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
-	wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
-	wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/assets/js/sticky-nav-custom.js', array(), false, true );
-	// wp_enqueue_script( 'wptemplate-gios-v1-stickUp', get_template_directory_uri() . '/assets/js/stickUp.min.js', array(), false, true );
-	wp_enqueue_script( 'wptemplate-gios-v1-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
+  wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
+  wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/assets/js/sticky-nav-custom.js', array(), false, true );
+  wp_enqueue_script( 'wptemplate-gios-v1-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
   /** asu header*/
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.js', array() , '4.0', false );
   wp_enqueue_script( 'asu-header' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
-  wp_enqueue_style( 'asu-header-css');
+  wp_enqueue_style( 'asu-header-css' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
 }
 add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
 
@@ -162,7 +217,7 @@ add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
  * Bootstrap snippets that we are going to add will 
  * probably not display correctly.
  */
-remove_filter ('the_content', 'wpautop');
+remove_filter ( 'the_content', 'wpautop' );
 //add_filter( 'the_content', 'wpautop' , 99 );
 //add_filter( 'the_content', 'shortcode_unautop', 100 );
 /**
@@ -199,12 +254,16 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Register custom navigation walker
  */
-require_once ('wp_bootstrap_navwalker.php');
-require_once ('wp_bootstrap_footer_navwalker.php');
+require_once ( 'wp-bootstrap-navwalker.php' );
+require_once ( 'wp-bootstrap-footer-navwalker.php' );
 
-function add_first_and_last($output) {
-  $output = preg_replace('/class="menu-item/', 'class="first-menu-item menu-item', $output, 1);
-  $output = substr_replace($output, 'class="last-menu-item menu-item', strripos($output, 'class="menu-item'), strlen('class="menu-item'));
+function add_first_and_last( $output ) {
+  $output       = preg_replace( '/class="menu-item/', 'class="first-menu-item menu-item', $output, 1 );
+  $class_pos    = strripos( $output, 'class="menu-item' );
+  $class_length = strlen( 'class="menu-item' );
+
+  $output = substr_replace( $output, 'class="last-menu-item menu-item', $class_pos,  $class_length );
   return $output;
 }
-add_filter('wp_nav_menu', 'add_first_and_last');
+
+add_filter( 'wp_nav_menu', 'add_first_and_last' );
