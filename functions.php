@@ -124,7 +124,7 @@ function wptemplate_gios_v1_widgets_init() {
         'name'          => __( 'Sidebar', 'wptemplate-gios-v1' ),
         'id'            => 'sidebar-1',
         'description'   => '',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="col-md-4 col-sm-12 space-bot-md widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h1 class="widget-title">',
         'after_title'   => '</h1>',
@@ -212,11 +212,14 @@ function wptemplate_gios_v1_scripts() {
 add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
 
 /**
- *   This line will prevent WordPress from automatically inserting HTML line breaks in your posts. If you dont do this, some of the Bootstrap snippets that we are going to add will probably not display correctly.
+ * This line will prevent WordPress from automatically inserting HTML 
+ * line breaks in your posts. If you dont do this, some of the 
+ * Bootstrap snippets that we are going to add will 
+ * probably not display correctly.
  */
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99 );
-add_filter( 'the_content', 'shortcode_unautop', 100 );
+remove_filter ( 'the_content', 'wpautop' );
+//add_filter( 'the_content', 'wpautop' , 99 );
+//add_filter( 'the_content', 'shortcode_unautop', 100 );
 /**
  * Implement the Custom Header feature.
  */
