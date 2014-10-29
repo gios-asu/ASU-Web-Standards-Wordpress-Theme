@@ -23,3 +23,5 @@
 - Add widgets to visual editor
 - inner nav using seperate pages
 - Footer partner images
+- breadcrumbs
+  - this is built into the Yoast plugin
