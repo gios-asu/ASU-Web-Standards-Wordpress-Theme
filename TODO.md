@@ -2,7 +2,7 @@
 == TODO     =
 =============
 
-- ASU navigation collapse
+
 - wordpress_asu_customize_register callbacks to validate URLs
 - shortcodes for common functionaility:
   - hero
