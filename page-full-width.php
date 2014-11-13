@@ -2,7 +2,7 @@
 /**
  * Template Name: Full Width
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 get_header(); ?>

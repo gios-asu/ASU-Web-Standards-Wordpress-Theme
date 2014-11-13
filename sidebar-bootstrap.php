@@ -2,7 +2,7 @@
 /**
  * The Sidebar containing ONLY BOOTSTRAP EXAMPLES FOR THE STYLES (OR STYLE) PAGE.
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 ?>
 

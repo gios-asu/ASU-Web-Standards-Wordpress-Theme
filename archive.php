@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 get_header(); ?>
@@ -31,46 +31,46 @@ get_header(); ?>
 							single_tag_title();
 						}
 						elseif ( is_author() ) {
-							printf( __( 'Author: %s', 'wptemplate-gios-v1' ), '<span class="vcard">' . get_the_author() . '</span>' );
+							printf( __( 'Author: %s', 'asu-wordpress-web-standards-theme' ), '<span class="vcard">' . get_the_author() . '</span>' );
 						}
 						elseif ( is_day() ) {
-							printf( __( 'Day: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_the_date() . '</span>' );
 						}
 						elseif ( is_month() ) {
-							printf( __( 'Month: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'wptemplate-gios-v1' ) ) . '</span>' );
+							printf( __( 'Month: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'asu-wordpress-web-standards-theme' ) ) . '</span>' );
 						}
 						elseif ( is_year() ) {
-							printf( __( 'Year: %s', 'wptemplate-gios-v1' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'wptemplate-gios-v1' ) ) . '</span>' );
+							printf( __( 'Year: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'asu-wordpress-web-standards-theme' ) ) . '</span>' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) {
-							_e( 'Asides', 'wptemplate-gios-v1' );
+							_e( 'Asides', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-							_e( 'Galleries', 'wptemplate-gios-v1' );
+							_e( 'Galleries', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-							_e( 'Images', 'wptemplate-gios-v1' );
+							_e( 'Images', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-							_e( 'Videos', 'wptemplate-gios-v1' );
+							_e( 'Videos', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-							_e( 'Quotes', 'wptemplate-gios-v1' );
+							_e( 'Quotes', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-							_e( 'Links', 'wptemplate-gios-v1' );
+							_e( 'Links', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-							_e( 'Statuses', 'wptemplate-gios-v1' );
+							_e( 'Statuses', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-							_e( 'Audios', 'wptemplate-gios-v1' );
+							_e( 'Audios', 'asu-wordpress-web-standards-theme' );
 						}
 						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-							_e( 'Chats', 'wptemplate-gios-v1' );
+							_e( 'Chats', 'asu-wordpress-web-standards-theme' );
 						}
 						else {
-							_e( 'Archives', 'wptemplate-gios-v1' );
+							_e( 'Archives', 'asu-wordpress-web-standards-theme' );
 						}
 					?>
 				</h3>

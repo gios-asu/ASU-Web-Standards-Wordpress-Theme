@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 ?>
 
@@ -18,13 +18,13 @@
     <?php
       wp_link_pages(
           array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'wptemplate-gios-v1' ),
+            'before' => '<div class="page-links">' . __( 'Pages:', 'asu-wordpress-web-standards-theme' ),
             'after'  => '</div>',
           )
       );
     ?>
   </div><!-- .entry-content -->
   <footer class="entry-footer">
-    <?php edit_post_link( __( 'Edit', 'wptemplate-gios-v1' ), '<span class="edit-link">', '</span>' ); ?>
+    <?php edit_post_link( __( 'Edit', 'asu-wordpress-web-standards-theme' ), '<span class="edit-link">', '</span>' ); ?>
   </footer><!-- .entry-footer -->
 </article><!-- #post-## -->

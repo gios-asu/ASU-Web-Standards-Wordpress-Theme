@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 get_header(); ?>

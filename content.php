@@ -1,6 +1,6 @@
 <?php
 /**
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
@@ -23,11 +23,11 @@
   </div><!-- .entry-summary -->
   <?php else : ?>
   <div class="entry-content">
-    <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wptemplate-gios-v1' ) ); ?>
+    <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'asu-wordpress-web-standards-theme' ) ); ?>
     <?php
       wp_link_pages(
           array(
-            'before' => '<div class="page-links">' . __( 'Pages:', 'wptemplate-gios-v1' ),
+            'before' => '<div class="page-links">' . __( 'Pages:', 'asu-wordpress-web-standards-theme' ),
             'after'  => '</div>',
           )
       );
@@ -42,30 +42,30 @@
     ?>
       <?php
         /* translators: used between list items, there is a space after the comma */
-        $categories_list = get_the_category_list( __( ', ', 'wptemplate-gios-v1' ) );
+        $categories_list = get_the_category_list( __( ', ', 'asu-wordpress-web-standards-theme' ) );
         if ( $categories_list && wptemplate_gios_v1_categorized_blog() ) :
       ?>
       <span class="cat-links">
-        <?php printf( __( 'Posted in %1$s', 'wptemplate-gios-v1' ), $categories_list ); ?>
+        <?php printf( __( 'Posted in %1$s', 'asu-wordpress-web-standards-theme' ), $categories_list ); ?>
       </span>
       <?php endif; // End if categories ?>
 
       <?php
         /* translators: used between list items, there is a space after the comma */
-        $tags_list = get_the_tag_list( '', __( ', ', 'wptemplate-gios-v1' ) );
+        $tags_list = get_the_tag_list( '', __( ', ', 'asu-wordpress-web-standards-theme' ) );
         if ( $tags_list ) :
       ?>
       <span class="tags-links">
-        <?php printf( __( 'Tagged %1$s', 'wptemplate-gios-v1' ), $tags_list ); ?>
+        <?php printf( __( 'Tagged %1$s', 'asu-wordpress-web-standards-theme' ), $tags_list ); ?>
       </span>
       <?php endif; // End if $tags_list ?>
     <?php endif; // End if 'post' == get_post_type() ?>
 
     <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-    <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'wptemplate-gios-v1' ), __( '1 Comment', 'wptemplate-gios-v1' ), __( '% Comments', 'wptemplate-gios-v1' ) ); ?></span>
+    <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'asu-wordpress-web-standards-theme' ), __( '1 Comment', 'asu-wordpress-web-standards-theme' ), __( '% Comments', 'asu-wordpress-web-standards-theme' ) ); ?></span>
     <?php endif; ?>
 
-    <?php edit_post_link( __( 'Edit', 'wptemplate-gios-v1' ), '<span class="edit-link">', '</span>' ); ?>
+    <?php edit_post_link( __( 'Edit', 'asu-wordpress-web-standards-theme' ), '<span class="edit-link">', '</span>' ); ?>
   </footer><!-- .entry-footer -->
   
 

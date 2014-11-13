@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 if ( ! function_exists( 'wptemplate_gios_v1_paging_nav' ) ) :
@@ -18,15 +18,15 @@ function wptemplate_gios_v1_paging_nav() {
   }
   ?>
   <nav class="navigation paging-navigation" role="navigation">
-    <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'wptemplate-gios-v1' ); ?></h1>
+    <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'asu-wordpress-web-standards-theme' ); ?></h1>
     <div class="nav-links">
 
       <?php if ( get_next_posts_link() ) : ?>
-      <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'wptemplate-gios-v1' ) ); ?></div>
+      <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'asu-wordpress-web-standards-theme' ) ); ?></div>
       <?php endif; ?>
 
       <?php if ( get_previous_posts_link() ) : ?>
-      <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'wptemplate-gios-v1' ) ); ?></div>
+      <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'asu-wordpress-web-standards-theme' ) ); ?></div>
       <?php endif; ?>
 
     </div><!-- .nav-links -->
@@ -49,11 +49,11 @@ function wptemplate_gios_v1_post_nav() {
   }
   ?>
   <nav class="navigation post-navigation" role="navigation">
-    <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'wptemplate-gios-v1' ); ?></h1>
+    <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'asu-wordpress-web-standards-theme' ); ?></h1>
     <div class="nav-links">
       <?php
-        previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'wptemplate-gios-v1' ) );
-        next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'wptemplate-gios-v1' ) );
+        previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'asu-wordpress-web-standards-theme' ) );
+        next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'asu-wordpress-web-standards-theme' ) );
       ?>
     </div><!-- .nav-links -->
   </nav><!-- .navigation -->
@@ -80,12 +80,12 @@ function wptemplate_gios_v1_posted_on() {
   );
 
   $posted_on = sprintf(
-      _x( 'Posted on %s', 'post date', 'wptemplate-gios-v1' ),
+      _x( 'Posted on %s', 'post date', 'asu-wordpress-web-standards-theme' ),
       '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
   );
 
   $byline = sprintf(
-      _x( 'by %s', 'post author', 'wptemplate-gios-v1' ),
+      _x( 'by %s', 'post author', 'asu-wordpress-web-standards-theme' ),
       '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
   );
 
