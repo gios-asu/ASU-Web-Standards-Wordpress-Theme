@@ -23,8 +23,8 @@ module.exports = function (grunt) {
             },
             options: {
                 bin: 'vendor/bin/phpcs',
-                standard: 'Wordpress',
-                ignore: 'header-asu.php'
+                standard: './coding_standards/Wordpress',
+                ignore: 'header-asu.php,coding_standards'
             }
         }
     });
