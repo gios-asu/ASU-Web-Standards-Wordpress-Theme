@@ -105,6 +105,8 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
         if ( $args->not_last )
           $line = 'vertical-border-right';
+        else
+          $line = '';
 
         $output .= '</div><div class="column col-md-'  . $columns . ' ' . $line . '">';
       }
@@ -234,7 +236,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
             }
 
             $args[0]->not_first = ! ( $i == 0 );
-            $args[0]->not_last  = ! ( $i === count( $parent_array ) );
+            $args[0]->not_last  = ! ( $i === count( $parent_array ) - 1 );
             $args[0]->number_of_siblings = count( $parent_array );
           }
         }
