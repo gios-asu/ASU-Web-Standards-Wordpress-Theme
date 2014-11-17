@@ -28,10 +28,10 @@ function asu_wordpress_setup() {
   /*
    * Make theme available for translation.
    * Translations can be filed in the /languages/ directory.
-   * If you're building a theme based on wptemplate-gios-v1, use a find and replace
-   * to change 'wptemplate-gios-v1' to the name of your theme in all the template files
+   * If you're building a theme based on asu-wordpress-web-standards-theme, use a find and replace
+   * to change 'asu-wordpress-web-standards-theme' to the name of your theme in all the template files
    */
-  load_theme_textdomain( 'wptemplate-gios-v1', get_template_directory() . '/languages' );
+  load_theme_textdomain( 'asu-wordpress-web-standards-theme', get_template_directory() . '/languages' );
 
   // Add default posts and comments RSS feed links to head.
   add_theme_support( 'automatic-feed-links' );
@@ -121,7 +121,7 @@ add_action( 'after_setup_theme', 'asu_wordpress_setup' );
 function wptemplate_gios_v1_widgets_init() {
   register_sidebar(
       array(
-        'name'          => __( 'Sidebar', 'wptemplate-gios-v1' ),
+        'name'          => __( 'Sidebar', 'asu-wordpress-web-standards-theme' ),
         'id'            => 'sidebar-1',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="col-md-4 col-sm-12 space-bot-md widget %2$s">',
@@ -132,7 +132,7 @@ function wptemplate_gios_v1_widgets_init() {
   );
   register_sidebar(
       array(
-        'name'          => __( 'left footer', 'wptemplate-gios-v1' ),
+        'name'          => __( 'left footer', 'asu-wordpress-web-standards-theme' ),
         'id'            => 'left-footer-sidebar',
         'description'   => 'Footer aligned left',
         'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
@@ -143,7 +143,7 @@ function wptemplate_gios_v1_widgets_init() {
   );
   register_sidebar(
       array(
-        'name'          => __( 'right footer', 'wptemplate-gios-v1' ),
+        'name'          => __( 'right footer', 'asu-wordpress-web-standards-theme' ),
         'id'            => 'right-footer-sidebar',
         'description'   => 'Footer aligned right',
         'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
@@ -154,7 +154,7 @@ function wptemplate_gios_v1_widgets_init() {
   );
   register_sidebar(
       array(
-        'name'          => __( 'center footer', 'wptemplate-gios-v1' ),
+        'name'          => __( 'center footer', 'asu-wordpress-web-standards-theme' ),
         'id'            => 'center-footer-sidebar',
         'description'   => 'Footer centered',
         'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
@@ -195,9 +195,9 @@ function wptemplate_gios_v1_scripts() {
   wp_enqueue_style( 'font-awesome-css' );
     
   wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
-  wp_enqueue_script( 'wptemplate-gios-v1-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
-  wp_enqueue_script( 'wptemplate-gios-v1-sticky-nav', get_template_directory_uri() . '/assets/js/sticky-nav-custom.js', array(), false, true );
-  wp_enqueue_script( 'wptemplate-gios-v1-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-theme-sticky-nav', get_template_directory_uri() . '/assets/js/sticky-nav-custom.js', array(), false, true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
   /** asu header*/
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.js', array() , '4.0', false );

@@ -1,6 +1,6 @@
 <?php
 /**
- * wptemplate-gios-v1 Theme Customizer
+ * asu-wordpress-web-standards-theme Theme Customizer
  *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel

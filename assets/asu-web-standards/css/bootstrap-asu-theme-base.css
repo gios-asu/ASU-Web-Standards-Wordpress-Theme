@@ -1,3 +1,9 @@
+/* ========================================================================
+ * Web Standards: bootstrap-asu-theme-base.css v0.0.1
+ * ========================================================================
+ * Copyright 2014 ASU
+ * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
+ * ======================================================================== */
 /**
  * This file only contains colors that are related to the look of the 
  * website!
@@ -17,7 +23,7 @@
   background-color: #1e1e1e;
 }
 .navbar-ws .navbar-nav > .disabled > a, .navbar-ws .navbar-nav > .disabled > a:hover, .navbar-ws .navbar-nav > .disabled > a:focus {
-  color: #cccccc;
+  color: #ccc;
   background-color: transparent;
 }
 .navbar-ws .navbar-brand {
@@ -27,7 +33,7 @@
   color: #ededed;
 }
 .navbar-ws .navbar-brand .navbar-text {
-  color: #777777;
+  color: #777;
 }
 .navbar-ws .navbar-toggle:hover, .navbar-ws .navbar-toggle:focus {
   background-color: black;
@@ -47,19 +53,19 @@
   color: #ffb310;
 }
 .navbar-ws .navbar-link {
-  color: #777777;
+  color: #777;
 }
 .navbar-ws .navbar-link:hover {
-  color: #333333;
+  color: #333;
 }
 .navbar-ws .btn-link {
-  color: #777777;
+  color: #777;
 }
 .navbar-ws .btn-link:hover, .navbar-ws .btn-link:focus {
-  color: #333333;
+  color: #333;
 }
 .navbar-ws .btn-link[disabled]:hover, .navbar-ws .btn-link[disabled]:focus, fieldset[disabled] .navbar-ws .btn-link:hover, fieldset[disabled] .navbar-ws .btn-link:focus {
-  color: #cccccc;
+  color: #ccc;
 }
 .navbar-ws .dropdown-menu {
   background-color: #1f1f1f;
@@ -94,10 +100,10 @@
 }
 
 #site-name-desktop h1 a {
-  color: #4f5557;
+  color: #4F5557;
 }
 #site-name-desktop h1 a:first-child {
-  color: black;
+  color: #000000;
 }
 
 .calendar-date {
@@ -119,7 +125,7 @@
   background-color: #1f1f1f;
 }
 .hero img {
-  border-color: gainsboro;
+  border-color: #dcdcdc;
 }
 
 .hero-text-only-dark {
@@ -131,7 +137,7 @@
 }
 
 .footer .social-media > li > a {
-  color: darkgray;
+  color: #a9a9a9;
 }
 .footer .social-media > li > a:hover, .footer .social-media > li > a:focus {
   color: #e9e9e9;
@@ -140,8 +146,8 @@
   background-color: #1e1e1e;
 }
 .footer .big-foot-nav > li > a {
-  color: #cccccc;
-  border-bottom-color: #cccccc;
+  color: #ccc;
+  border-bottom-color: #ccc;
 }
 .footer .big-foot-nav > li > a:hover, .footer .big-foot-nav > li > a:focus {
   color: white;
@@ -184,5 +190,7 @@
 }
 
 #masthead, body {
-  background-color: white;
+  background-color: #FFFFFF;
 }
+
+/*# sourceMappingURL=bootstrap-asu-theme-base.css.map */

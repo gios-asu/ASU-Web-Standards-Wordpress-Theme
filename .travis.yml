@@ -8,7 +8,7 @@ before_install:
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
   - npm install grunt-phpcs
-  - cp -r ./coding_standards ./vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
+  # - cp -r ./coding_standards ./vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
   # xcopy "./coding_standards" "./vendor/squizlabs/php_codesniffer/CodeSniffer/Standards" /s /e /y
-  - ./vendor/bin/phpcs --config-set installed_paths ../../../vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Wordpress
+  # - ./vendor/bin/phpcs --config-set installed_paths "coding_standards/Wordpress"
 install: npm install

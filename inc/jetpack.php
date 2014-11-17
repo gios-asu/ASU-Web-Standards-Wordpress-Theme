@@ -3,7 +3,7 @@
  * Jetpack Compatibility File
  * See: http://jetpack.me/
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 /**

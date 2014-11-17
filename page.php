@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 // TODO move this

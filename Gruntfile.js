@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             },
             options: {
                 bin: 'vendor/bin/phpcs',
-                standard: 'Wordpress',
+                standard: '"$PWD"/coding_standards/Wordpress',
                 ignore: 'header-asu.php'
             }
         }

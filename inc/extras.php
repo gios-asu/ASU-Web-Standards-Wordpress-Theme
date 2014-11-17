@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package wptemplate-gios-v1
+ * @package asu-wordpress-web-standards-theme
  */
 
 /**
@@ -60,7 +60,7 @@ function wptemplate_gios_v1_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'wptemplate-gios-v1' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( __( 'Page %s', 'asu-wordpress-web-standards-theme' ), max( $paged, $page ) );
 	}
 
 	return $title;
