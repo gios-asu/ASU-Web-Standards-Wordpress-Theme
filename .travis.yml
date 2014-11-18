@@ -8,5 +8,5 @@ before_install:
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
   - npm install grunt-phpcs
-  - ./vendor/bin/phpcs --config-set installed_paths "coding_standards/Wordpress"
+  - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
 install: npm install
