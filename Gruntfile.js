@@ -34,10 +34,6 @@ module.exports = function (grunt) {
           core: [
             '*.css'
           ],
-          assets: [
-            'assets/asu-web-standards/css/*.css',
-            'layouts/*.css'
-          ],
           layouts: [
             'layouts/*.css'
           ]
