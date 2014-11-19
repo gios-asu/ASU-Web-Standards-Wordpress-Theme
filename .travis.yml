@@ -9,4 +9,5 @@ before_install:
   - php composer.phar install
   - npm install grunt-phpcs
   - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
+  - npm install grunt-contrib-csslint
 install: npm install
