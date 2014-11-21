@@ -1,9 +1,9 @@
-ASU-Wordpress-Web-Standards-Theme
+ASU-Web-Standards-Wordpress-Theme
 =================================
 
-ASU Wordpress Web Standards Theme
+ASU Web Standards Wordpress Theme
 
-[![Build Status](https://travis-ci.org/gios-asu/ASU-Wordpress-Web-Standards-Theme.svg)](https://travis-ci.org/gios-asu/ASU-Wordpress-Web-Standards-Theme) [![Code Climate](https://codeclimate.com/github/gios-asu/ASU-Wordpress-Web-Standards-Theme/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/ASU-Wordpress-Web-Standards-Theme)
+[![Build Status](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme.svg)](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Code Climate](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme)
 
 This theme adds a lot of new options to your project.
 
