@@ -4,10 +4,6 @@
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
  * ======================================================================== */
-/**
- * This file only contains colors that are related to the look of the 
- * website!
- */
 .navbar-ws {
   background-color: #353535;
 }
@@ -15,16 +11,20 @@
   color: #ededed;
 }
 .navbar-ws .navbar-nav > li > a:hover, .navbar-ws .navbar-nav > li > a:focus {
-  color: #ffb310;
   background-color: black;
+  color: #ffb310;
 }
 .navbar-ws .navbar-nav > .active > a, .navbar-ws .navbar-nav > .active > a:hover, .navbar-ws .navbar-nav > .active > a:focus {
-  color: #ededed;
   background-color: #1e1e1e;
+  color: #ededed;
 }
 .navbar-ws .navbar-nav > .disabled > a, .navbar-ws .navbar-nav > .disabled > a:hover, .navbar-ws .navbar-nav > .disabled > a:focus {
-  color: #ccc;
   background-color: transparent;
+  color: #ccc;
+}
+.navbar-ws .navbar-nav > > .open > a, .navbar-ws .navbar-nav > > .open > a:hover, .navbar-ws .navbar-nav > > .open > a:focus {
+  background-color: black;
+  color: #ffb310;
 }
 .navbar-ws .navbar-brand {
   color: #ededed;
@@ -47,10 +47,6 @@
 .navbar-ws .navbar-collapse,
 .navbar-ws .navbar-form {
   border-color: black;
-}
-.navbar-ws .navbar-nav > .open > a, .navbar-ws .navbar-nav > .open > a:hover, .navbar-ws .navbar-nav > .open > a:focus {
-  background-color: black;
-  color: #ffb310;
 }
 .navbar-ws .navbar-link {
   color: #777;
@@ -78,13 +74,13 @@
 .navbar-ws .dropdown-menu > li > a {
   color: #ededed;
 }
-.navbar-ws .dropdown-menu > li > a:hover, .navbar-ws .dropdown-menu > li > a :focus {
-  color: #ededed;
+.navbar-ws .dropdown-menu > li > a:hover, .navbar-ws .dropdown-menu > li > a:focus {
   background-color: black;
+  color: #ededed;
 }
 .navbar-ws .dropdown-menu > .active > a, .navbar-ws .dropdown-menu > .active > a:hover, .navbar-ws .dropdown-menu > .active > a:focus {
-  color: #ededed;
   background-color: black;
+  color: #ededed;
 }
 .navbar-ws .open > .dropdown-menu {
   border-color: black;
@@ -94,22 +90,22 @@
   border-top-color: #a30046;
 }
 .sidebar-nav:before {
-  border-right-color: #e9e9e9;
-  border-left-color: #e9e9e9;
   border-bottom-color: #e9e9e9;
+  border-left-color: #e9e9e9;
+  border-right-color: #e9e9e9;
 }
 
 #site-name-desktop h1 a {
-  color: #4F5557;
+  color: #4f5557;
 }
 #site-name-desktop h1 a:first-child {
-  color: #000000;
+  color: #000;
 }
 
 .calendar-date {
-  color: #4f5557;
   background-color: #fafafa;
   border: 1px solid #a1a1a1;
+  color: #4f5557;
 }
 .calendar-date:hover {
   border: 1px solid #a30046;
@@ -146,8 +142,8 @@
   background-color: #1e1e1e;
 }
 .footer .big-foot-nav > li > a {
-  color: #ccc;
   border-bottom-color: #ccc;
+  color: #ccc;
 }
 .footer .big-foot-nav > li > a:hover, .footer .big-foot-nav > li > a:focus {
   color: white;
@@ -163,8 +159,8 @@
   color: #ededed;
 }
 .mega-menu .dropdown-menu > .row > .column > li > a:hover, .mega-menu .dropdown-menu > .row > .column > li > a:focus {
-  color: #ededed;
   background-color: black;
+  color: #ededed;
 }
 .mega-menu .dropdown-menu > .row > .column > .active > a, .mega-menu .dropdown-menu > .row > .column > .active > a:hover, .mega-menu .dropdown-menu > .row > .column > .active > a:focus {
   background-color: black;
@@ -178,7 +174,8 @@
 }
 
 @media (max-width: 767px) {
-  .responsive-table > tbody > tr > td:first-child, .responsive-table > tfoot > tr > td:first-child {
+  .responsive-table > tbody > tr > td:first-child,
+  .responsive-table > tfoot > tr > td:first-child {
     border-top-color: #b7b7b7;
   }
   .responsive-table > thead > tr > th:last-child {
@@ -189,8 +186,9 @@
   background-color: #f1f1f1;
 }
 
-#masthead, body {
-  background-color: #FFFFFF;
+#masthead,
+body {
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=bootstrap-asu-theme-base.css.map */
