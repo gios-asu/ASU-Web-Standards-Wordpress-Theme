@@ -7,6 +7,8 @@ ASU Wordpress Web Standards Theme
 
 This theme adds a lot of new options to your project.
 
+Please make sure this theme lives in the folder: ASU-Web-Standards-Wordpress-Theme.
+
 # Appearance
 
 ## Customize

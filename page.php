@@ -47,6 +47,7 @@ $customFields = get_post_custom();
     if ( array_key_exists( 'page_feature_title', $customFields ) )
       $title = $customFields['page_feature_title'][0];
 
+    // TODO This should be a hook with the name web_standards_hero_image
     if ( array_key_exists( 'page_feature_image', $customFields ) ) {
     	$count = count( $customFields['page_feature_image'] );
 
