@@ -44,9 +44,7 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
       // Extra classes
       $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
     }
-  
   }
-
   return do_shortcode( sprintf( $container, $content ) );
 }
 add_shortcode( 'container', 'asu_wp_container_shortcode' );

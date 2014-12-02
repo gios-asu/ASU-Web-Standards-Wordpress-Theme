@@ -216,7 +216,7 @@ add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
  * Bootstrap snippets that we are going to add will 
  * probably not display correctly.
  */
-remove_filter ( 'the_content', 'wpautop' );
+remove_filter( 'the_content', 'wpautop' );
 //add_filter( 'the_content', 'wpautop' , 99 );
 //add_filter( 'the_content', 'shortcode_unautop', 100 );
 /**

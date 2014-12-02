@@ -23,17 +23,30 @@ module.exports = function (grunt) {
             },
             options: {
                 bin: 'vendor/bin/phpcs',
-                standard: '"$PWD"/coding_standards/Wordpress',
+                standard: 'Wordpress',
                 ignore: 'header-asu.php'
             }
+        },
+        csslint: {
+          options: {
+            csslintrc: 'coding_standards/.csslintrc'
+          },
+          core: [
+            '*.css'
+          ],
+          layouts: [
+            'layouts/*.css'
+          ]
         }
     });
 
     // These plugins provide necessary tasks
     grunt.loadNpmTasks('grunt-phpcs');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
 
     // Default task
     grunt.registerTask('default', [
-        'phpcs']);
+        'phpcs', 
+        'csslint']);
 };
 
