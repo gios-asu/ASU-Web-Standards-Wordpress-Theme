@@ -42,7 +42,7 @@ $customFields = get_post_custom();
                 $cOptions = get_option( 'wordpress_asu_theme_options' );
 
                 // Do we have a parent org?
-                if ( isset( $cOptions ) && 
+                if ( isset( $cOptions ) && is_array( $cOptions ) &&
                      array_key_exists( 'org', $cOptions ) &&
                      $cOptions['org'] !== '' ) {
                   // Does the parent org have a link?

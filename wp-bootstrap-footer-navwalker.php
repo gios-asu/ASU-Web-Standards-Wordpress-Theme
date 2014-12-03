@@ -43,14 +43,14 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
     $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
 
-    $isTopLevel = $atts['href'] === null ||
+    $is_top_level = $atts['href'] === null ||
                   $atts['href'] === '' ||
                   $atts['href'] === '#';
 
-    if (!$isTopLevel)
+    if ( ! $is_top_level )
       $output .= '<li' . $idFull . $class_names .'>';
 
-    if ( $args == null || empty( $args ) ) {
+    if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
       return;
     }    
 
@@ -84,7 +84,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
     $item_output = $args->before;
 
-    if ( ! $isTopLevel ) {
+    if ( ! $is_top_level ) {
       $item_output .= '<a'. $attributes .'>';
     }
     else {
@@ -94,7 +94,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
     
-    if ( ! $isTopLevel ) {
+    if ( ! $is_top_level ) {
       $item_output .= '</a>';
     } else {
       $item_output .= '</h2>';
