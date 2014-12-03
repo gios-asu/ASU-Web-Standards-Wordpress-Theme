@@ -1612,6 +1612,8 @@ input[type="button"].btn-block {
 .navbar-ws .dropdown-menu {
   border: 1px solid;
   border-radius: 4px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   display: block;
   margin: 0;
   max-height: 0;
@@ -1647,6 +1649,8 @@ input[type="button"].btn-block {
   text-decoration: none;
 }
 .navbar-ws .open > .dropdown-menu {
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   max-height: 2000px;
   padding: 10px 0;
 }
