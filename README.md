@@ -1,47 +1,150 @@
 ASU-Web-Standards-Wordpress-Theme
 =================================
 
-ASU Web Standards Wordpress Theme
-
 [![Build Status](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme.svg)](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Code Climate](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Stories in Ready](https://badge.waffle.io/gios-asu/asu-web-standards-wordpress-theme.svg)](http://waffle.io/gios-asu/asu-web-standards-wordpress-theme)
 
-This theme adds a lot of new options to your project.
+The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme that leverages the [ASU Web Standards Bootstrap](https://github.com/gios-asu/ASU-Web-Standards-Bootstrap) code.  The intent of this *Wordpress Theme* is to provide a source for the ASU Web Standards that can be applied to Wordpress websites.  This ASU Web Standards Wordpress repository is maintained by the [Julie Ann Wrigley Global Institute of Sustainability](http://sustainability.asu.edu).
 
-Please make sure this theme lives in the folder: ASU-Web-Standards-Wordpress-Theme.
+Fore additional documentation, checkout our [GitHub pages](https://gios-asu.github.io/).
 
-# Appearance
+For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 
-## Customize
+# Table of contents
 
-### School Information
+- [Dependencies](#dependencies)
+- [Appearance](#appearance)
+- [New Settings](#new-settings)
+- [New Page Fields](#new-page-field)
+- [New Page Templates](#new-page-templates)
+- [New Shortcodes](#new-shortcodes)
+- [Menus](#menus)
+- [Widgets](#widgets)
+- [Recommended Plugins](#recommended-plugins)
 
-- Parent Organization
-- Parent Organization URL
-- Address
-- Phone
-- Fax
 
-### Social Media
+# Dependencies
 
-- Facebook URL
-- Twitter URL
-- Google+ URL
-- LinkedIn URL
-- Youtube URL
+When using this theme:
 
-# Pages
+- Make sure this theme lives in the folder: `ASU-Web-Standards-Wordpress-Theme`.
 
-## Custom Fields
+# New Settings
 
-- page_feature_description
-  - You can have any HTML in here as well
-- page_feature_title
-- page_feature_image (example: "./wp-content/uploads/2014/10/hero-background-1.jpg")
-  - You can have 0 to any number of "page_feature_image".
-- page_feature_video (example: "./wp-content/uploads/2014/10/hero-video-1.webm")
-  - You can have 0 to any number of "page_feature_video".  We recommend 4 page_feature_videos: an .mp4, an .ogv, a .3gp and a .webm.
+New customization settings have been added to this theme. They are available by going to `Appearance -> Customize`.
 
-# Shortcodes
+## School Information
+
+A new section to the customize menu has been added labeled `School Information`.  It contains the following settings that you can change:
+
+**Parent Organization**
+
+This is the Parent Organization title text (ex. `Julie Ann Wrigely Global Institute of Sustainability`) that will appear to the left of the site title, seperated by a pipe (`|`).
+
+**Parent Organization URL**
+
+This is the URL (ex. `http://sustainability.asu.edu`) that the page will navigate to when users click on the Parent Organization title text.
+
+**Phone Number**
+
+This is the phone number (ex. `(602)-123-1234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
+
+**Fax Number**
+
+Similar to the phone number, this is the fax number (ex. `+11231234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
+
+**Contact Us Email or URL**
+
+The Contact Us Email or URL can be either an email address (ex. `email@address.com`) or a URL to a Contact Us form (ex. `mysite.asu.edu/contact-us`).
+
+If the Contact Us input is an email address, then Contact Us link will be prepended with `mailto:`, which will open up the user's default Email software if available with the `Send to` field auto-populated with th given email address.
+
+If the Contact Us input is a URL, then the page will navigate to that URL when users click on the Contact Us link.
+
+**Contact Us Email Subject (Optional)**
+
+This field only works if the Contact Us Email or URL is an email.
+
+The Contact Us Email Subject (ex. `Request for Information about the School of Sustainability`) will append to the Contact Us link `?subject=X` where `X` is the value of this input encoded for urls.
+
+This will auto-populate the `Subject` field in the user's default Email software.
+
+**Contribute URL (Optional)**
+
+This is the URL (ex. `http://mysite.asu.edu/contribute`) that the Contribute button will go to.
+
+If not given, the contribute button will not be created.
+
+## Social Media
+
+A new section to the customize menu has been added labeled `Social Media`.  These inputs will add social media badges and links to the footer of your website if given.
+
+**Facebook URL**
+
+Your Facebook page url (ex. `https://www.facebook.com/ASUsustainability`)
+
+**Twitter URL**
+
+Your Twitter profile url (ex. `https://twitter.com/asugreen`)
+
+**Google+ URL**
+
+Your Google+ profile url (ex. `https://plus.google.com/+SchoolofSustainabilityTempe/about`)
+
+**LinkedIn URL**
+
+Your LinkedIn page url (ex. `https://www.linkedin.com/groups/ASU-School-Sustainability-2754225/about`)
+
+**Youtube URL**
+
+Your Youtube page url (ex. `https://www.youtube.com/channel/UCUjJN141U3xoZ6oJed9B8Zw`)
+
+# New Page Fields
+
+When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
+
+To use the following custom fields, just type in the name of the field and the value and click `Add Custom Field`.
+
+**page_feature_title**
+
+The Page Feature Title (ex. `The ASU School of Sustainability`) is the text that you want to be the title in the hero section.  For SEO purposes, this will be wrapped in an `h1` tag.  It is normally similar to the Page Title.
+
+**page_feature_description**
+
+The Page Feature Description (ex. `The nation's first School of Sustainability.`) is the text that will appear under the Page Feature Title.
+
+**page_feature_image**
+
+The Page Feature Image (ex. './wp-content/uploads/2014/10/hero-background-1.jpg') is a absolute or relative URL to the image that you want as the background of the hero section.  It will cover the entire hero section.  For more information about the hero images, consult the [College Standards](https://hub.asu.edu/brand-hq/web-standards/collegeacademic-college-standards).
+
+Note that you can have 0 to any number of `page_feature_image` fields.  To have multiple values for the same option, create new custom fields with the same name and different values.
+
+If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
+
+if you have many `page_feature_image` fields, a random one will be chosen on page load.
+
+**page_feature_video**
+
+The Page Feature Video (ex. `./wp-content/uploads/2014/10/hero-video-1.webm`) is an absolute or relative URL to the video that you want as the background of the hero section.  It will cover the entire hero section and will appear *on top of* the `page_feature_image`.  If a web browser does not support videos, the `page_feature_image` should appear instead. 
+
+It is not recommended that you use this option.
+
+Note that you can have 0 to any number of `page_feature_video` fields. To have multiple values for the same option, create new custom fields with the same name and different values.
+
+Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the (Can I Use Video Entry)[http://caniuse.com/#feat=video].
+
+# New Page Templates
+
+When editting a page, you can set the page template by going to the `Page Attributes` panel and changing the `Template`.
+
+**Default Template**
+
+This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
+
+**Containered Template**
+
+Similar to the Default Template, this will wrap your content in a container for you.
+
+# New Shortcodes
 
 ## Containers
 
@@ -86,10 +189,7 @@ of the menu will be the pills/tabs that you see in the menu. The second level wi
 create a basic dropdown under that pill.  A third level will force that dropdown
 to become a "Mega Menu." 
 
-Only the lowest level of pills will actually be clickable. If you create a three level
-deep menu, only the deepest pills will be links.
-
-
+Only the lowest level of pills will actually be clickable. If you create a three level deep menu, only the deepest pills will be links.
 
 ## Footer Menu
 
