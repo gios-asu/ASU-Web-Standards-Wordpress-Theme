@@ -1,5 +1,5 @@
 /* ========================================================================
- * Web Standards: bootstrap-asu-theme-base.css v0.0.1
+ * Web Standards: bootstrap-asu-theme-base.css v0.0.5
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -11,6 +11,10 @@
   color: #ededed;
 }
 .navbar-ws .navbar-nav > li > a:hover, .navbar-ws .navbar-nav > li > a:focus {
+  background-color: black;
+  color: #ffb310;
+}
+.navbar-ws .navbar-nav > li.open > a {
   background-color: black;
   color: #ffb310;
 }
@@ -87,7 +91,7 @@
 }
 
 .sidebar-nav {
-  border-top-color: #a30046;
+  border-top-color: #903;
 }
 .sidebar-nav:before {
   border-bottom-color: #e9e9e9;
@@ -108,7 +112,7 @@
   color: #4f5557;
 }
 .calendar-date:hover {
-  border: 1px solid #a30046;
+  border: 1px solid #903;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
