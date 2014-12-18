@@ -130,7 +130,7 @@ It is not recommended that you use this option.
 
 Note that you can have 0 to any number of `page_feature_video` fields. To have multiple values for the same option, create new custom fields with the same name and different values.
 
-Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the (Can I Use Video Entry)[http://caniuse.com/#feat=video].
+Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the [Can I Use Video Entry](http://caniuse.com/#feat=video).
 
 # New Page Templates
 
