@@ -205,6 +205,8 @@
           </div>
 
           <?php
+          // TODO empty navs mess up the markup by adding too many closing
+          // div tags
           wp_nav_menu(
               array(
                 'menu'              => 'secondary',

@@ -33,7 +33,7 @@ $customFields = get_post_custom();
 
 
       <div class="">
-        <div class="section" id="site-name-desktop">
+        <div class="section" id="site-name-desktop" class="site-name-desktop">
           <div class="container">
             <h1 class="site-title" id="asu_school_name">
               <?php
@@ -57,7 +57,7 @@ $customFields = get_post_custom();
                   echo sprintf( $prefix, $cOptions['org'] );
                 }
               ?>
-              <a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
+              <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
             </h1>
           </div>
         </div>
@@ -72,7 +72,7 @@ $customFields = get_post_custom();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'name' ); ?></a>
+              <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
             </div>
             <?php
 
