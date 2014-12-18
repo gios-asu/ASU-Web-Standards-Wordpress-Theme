@@ -12,7 +12,9 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
-
+    if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
+      return;
+    }
 
     $output .= "\n</ul>";
   }
@@ -49,12 +51,13 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
                   $atts['href'] === '' ||
                   $atts['href'] === '#';
 
-    if ( ! $is_top_level )
+    if ( ! $is_top_level ) {
       $output .= '<li' . $idFull . $class_names .'>';
+    }
 
     if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
       return;
-    }    
+    }
 
     /**
      * Filter the HTML attributes applied to a menu item's <a>.
@@ -79,10 +82,10 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $attributes = '';
 
     foreach ( $atts as $attr => $value ) {
-            if ( ! empty( $value ) ) {
-                    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-                    $attributes .= ' ' . $attr . '="' . $value . '"';
-            }
+      if ( ! empty( $value ) ) {
+        $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+        $attributes .= ' ' . $attr . '="' . $value . '"';
+      }
     }
     $item_output = $args->before;
 
@@ -98,7 +101,8 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     
     if ( ! $is_top_level ) {
       $item_output .= '</a>';
-    } else {
+    }
+    else {
       $item_output .= '  <span class="caret hidden-sm hidden-md hidden-lg"></span></h2>';
       $item_output .= "\n<ul class='big-foot-nav collapse' id='" . $target . "'>";
     }
@@ -134,7 +138,8 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
 
     if ( ! $isTopLevel ) {
       $output .= "</li>\n";  
-    } else {
+    }
+    else {
       $output .= "</ul></div>\n";
     }
   }

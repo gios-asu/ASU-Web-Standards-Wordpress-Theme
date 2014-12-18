@@ -87,7 +87,7 @@ a img.aligncenter {
   width: auto;
 }
 
-.wp-caption p.wp-caption-text {
+.wp-caption .wp-caption-text {
   font-size: 11px;
   line-height: 17px;
   margin: 0;
@@ -95,13 +95,13 @@ a img.aligncenter {
 }
 
 .sticky {
-
+  border: 0;
 }
 
 .gallery-caption {
-
+  border: 0;
 }
 
 .bypostauthor {
-  
+  border: 0;
 }
