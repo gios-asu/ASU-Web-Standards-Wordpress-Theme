@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         },
         csslint: {
           options: {
-            csslintrc: 'coding_standards/.csslintrc'
+            csslintrc: '.standards/.csslintrc'
           },
           core: [
             '*.css'
