@@ -12,6 +12,8 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
+
+
     $output .= "\n</ul>";
   }
 
@@ -97,7 +99,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     if ( ! $is_top_level ) {
       $item_output .= '</a>';
     } else {
-      $item_output .= '</h2>';
+      $item_output .= '  <span class="caret hidden-sm hidden-md hidden-lg"></span></h2>';
       $item_output .= "\n<ul class='big-foot-nav collapse' id='" . $target . "'>";
     }
     $item_output .= $args->after;
@@ -121,6 +123,10 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
   }
 
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+    if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
+      return;
+    }   
+
     $atts['href'] = ! empty( $item->url ) ? $item->url : '';
     $isTopLevel   = $atts['href'] === null ||
                     $atts['href'] === '' ||
