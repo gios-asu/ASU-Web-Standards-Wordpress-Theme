@@ -117,7 +117,7 @@ $customFields = get_post_custom();
        						 		<?php
        						 			if ( isset ( $title ) ) :
        						 		?>
-       						 		<h2 class="pane-title"><?php echo $title; ?></h2>
+       						 		<h1 class="pane-title"><?php echo $title; ?></h1>
     									<?php
     										endif;
     									?>
