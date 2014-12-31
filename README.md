@@ -191,6 +191,8 @@ to become a "Mega Menu."
 
 Only the lowest level of pills will actually be clickable. If you create a three level deep menu, only the deepest pills will be links.
 
+If you want to indicate that links will exit your website in the menu, go to `Custom Options->CSS Classes` and manually add the class `external-link` to you menu item.  It will add an external link icon to the right of your menu item.
+
 ## Footer Menu
 
 When creating the footer menu, we recommend clicking on "Screen Options" on the top right corner of the admin panel and selecting "CSS Classes".
