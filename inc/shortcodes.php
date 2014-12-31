@@ -13,14 +13,33 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
 /**
  * Containers
  * ==========
+ * [container type="gray" spacing="0"]
  * 
  * Containers with gray option
  * - type=gray
- * - spacing=none
+ * - spacing=0, sm, md, lg, xl, top-0, top-sm, top-md, top-lg, top-xl, bot-0, bot-sm, bot-md, bot-lg, bot-xl
  * 
  * @param atts - associative array.  You can override 'type' to 'gray'
  */
 function asu_wp_container_shortcode( $atts, $content = null ) {
+  $class_mapper = [
+    'bot-xl' => 'space-bot-xl ',
+    'bot-lg' => 'space-bot-lg ',
+    'bot-md' => 'space-bot-md ',
+    'bot-sm' => 'space-bot-sm ',
+    'bot-0' => 'space-bot-0 ',
+    'top-xl' => 'space-top-xl ',
+    'top-lg' => 'space-top-lg ',
+    'top-md' => 'space-top-md ',
+    'top-sm' => 'space-top-sm ',
+    'top-0' => 'space-top-0 ',
+    'xl' => 'space-top-xl space-bot-xl ',
+    'lg' => 'space-top-lg space-bot-lg ',
+    'md' => 'space-top-md space-bot-md ',
+    'sm' => 'space-top-sm space-bot-sm ',
+    '0' => 'space-top-0 space-bot-0 ',
+  ];
+
   $container = '<div class="container"><div class="row %2$s">%1$s</div></div>';
 
   // gray container
@@ -33,18 +52,30 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
       // Wrap
       $container = sprintf( $wrap_container, $container );
     }
-  } else {
-    if ( $atts != null &&
-         array_key_exists( 'spacing', $atts ) &&
-         $atts['spacing'] === 'none' ) 
-    {
-      // No extra classes needed
-      $container = sprintf( $container, '%1$s', '' );
-    } else {
-      // Extra classes
-      $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
-    }
   }
+
+  if ( $atts != null &&
+         array_key_exists( 'spacing', $atts ) ) 
+  {
+    // Copy the spacing attributes
+    $copy_spacing = (string) $atts['spacing'];
+    $classes = '';
+
+    // Work backwards so that the short spacing names are not falsely added
+    foreach ( $class_mapper as $key => $item ) {
+      // Force teh $key to be a string since '0' ==> 0
+      if ( strpos( $copy_spacing, ( string ) $key ) !== false ) {
+        $copy_spacing = str_replace( $key, '', $copy_spacing );
+        $classes     .= $item;
+      }
+    }
+
+    $container = sprintf( $container, '%1$s', $classes );
+  } else {
+    // Extra classes
+    $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
+  }
+
   return do_shortcode( sprintf( $container, $content ) );
 }
 add_shortcode( 'container', 'asu_wp_container_shortcode' );
