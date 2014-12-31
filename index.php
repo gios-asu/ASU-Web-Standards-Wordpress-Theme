@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div id="content" class="site-content container">
   <div class="row row-padding-cancel">
-		<div id="primary" class="content-area col-sm-9">
+		<div id="primary" class="content-area col-sm-8 col-sm-offset-2">
 			<main id="main" class="site-main" role="main">
 			<?php if ( have_posts() ) : ?>
 				
