@@ -1,5 +1,5 @@
 /* ========================================================================
- * Web Standards: bootstrap-asu-theme-base.css v0.0.5
+ * Web Standards: bootstrap-asu-theme-base.css v0.0.7
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -126,6 +126,23 @@
 }
 .hero img {
   border-color: #dcdcdc;
+}
+.hero h1.pop,
+.hero h2.pop,
+.hero p.pop {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* 
+   * table is a little trick to have an inline-block look, but
+   * still break after each block
+   */
+  display: table;
+  padding: 10px;
+}
+.hero h1.pop:after,
+.hero h2.pop:after,
+.hero p.pop:after {
+  clear: both;
+  content: ' ';
 }
 
 .hero-text-only-dark {

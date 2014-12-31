@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ========================================================================
- * Web Standards: bootstrap-asu.css v0.0.5
+ * Web Standards: bootstrap-asu.css v0.0.7
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -42,6 +42,15 @@ a.no-border {
 }
 a.no-border:hover, a.no-border:focus {
   border-bottom: 0;
+}
+li.external-link a:before {
+  color: inherit;
+  content: '\f08e';
+  display: inline-block;
+  float: right;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  width: 10px;
 }
 
 .img-bordered {
@@ -485,6 +494,125 @@ pre {
 
 .gray-back {
   padding: 48px 0;
+}
+
+#masthead {
+  border: 0;
+}
+@media (max-width: 991px) {
+  #masthead > .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+#asu_mobile_hdr {
+  height: auto !important;
+}
+@media (max-width: 991px) {
+  #asu_mobile_hdr {
+    float: left;
+    padding: 0 12px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  #asu_mobile_menu {
+    margin-top: 0 !important;
+  }
+}
+
+#asu_logo {
+  padding: 12px 0;
+}
+@media (max-width: 991px) {
+  #asu_logo {
+    min-width: 100px !important;
+  }
+  #asu_logo a img {
+    margin-top: 0 !important;
+  }
+}
+
+#asu_mobile_search_button,
+#asu_mobile_menu_button {
+  color: #999;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-size: 22px;
+  height: 61px;
+  margin: 0;
+  padding: 21px 5px;
+  text-align: center;
+  width: 35px;
+}
+#asu_mobile_search_button:hover,
+#asu_mobile_menu_button:hover {
+  color: #000;
+}
+
+#asu_mobile_search_button.clicked {
+  background-color: #e7e7e7;
+}
+
+#asu_mobile_menu_button a {
+  display: none;
+}
+
+.main-search {
+  /*
+   * do not use display:none;
+   * it does not react to animations
+   * TODO test on IE, we may need to use visibility:0
+   */
+  height: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  padding-top: 0;
+  -moz-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.main-search.opened {
+  display: block;
+  height: auto;
+  max-height: 1000px;
+  overflow: hidden;
+  -moz-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+.main-search .asu_search_box {
+  -webkit-appearance: none;
+  background-color: #e7e7e7;
+  border: 0;
+  border-radius: 0;
+  color: #505558;
+  font-size: 16px;
+  outline: 0;
+  padding: 10px 12px;
+  position: relative;
+  width: 100%;
+  z-index: 500;
+}
+.main-search .asu_search_button {
+  display: none;
 }
 
 .table {
@@ -2097,6 +2225,12 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .panel-body + .table-responsive {
   border-top: 1px solid #b7b7b7;
 }
+.panel h1,
+.panel h2,
+.panel h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .panel-body {
   padding: 30px 20px;
@@ -2104,6 +2238,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 .panel-title {
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .panel-group {
@@ -2606,6 +2742,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 @media (max-width: 991px) {
   .mega-menu .dropdown-menu .row .column {
+    border-right: 0;
     display: block !important;
     width: 100%;
   }

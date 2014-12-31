@@ -177,15 +177,17 @@ function wptemplate_gios_v1_scripts() {
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.1', 'all' );
-  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.1', 'all' );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.1', 'all' );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.7', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.7', 'all' );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.7', 'all' );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', 'all' );
+  wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', 'all' );
   
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
+  wp_enqueue_script( 'moment-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
   wp_enqueue_style( 'bootstrap-asu-theme-base' );
   wp_enqueue_style( 'bootstrap-asu-theme' );
@@ -193,6 +195,7 @@ function wptemplate_gios_v1_scripts() {
 
   wp_register_style( 'font-awesome-css', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css', array(), false, 'all' );
   wp_enqueue_style( 'font-awesome-css' );
+
     
   wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
