@@ -105,3 +105,51 @@ a img.aligncenter {
 .bypostauthor {
   border: 0;
 }
+
+/* ========
+ * Comments
+ * ======== */
+ol.comment-list {
+  list-style: none;
+}
+
+ol.comment-list > li {
+  border-top: 1px solid #b7b7b7;
+  display: block;
+  line-height: 1.44;
+  padding: 8px;
+  vertical-align: top;
+}
+
+ol.comment-list > li:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+ol.comment-list > li:hover {
+  background-color: whitesmoke;
+}
+
+.comment-edit-link {
+  float: right;
+}
+
+.logged-in-as {
+  float: right;
+}
+
+.comment-form-comment label {
+  display: block;
+}
+
+.comment-form-comment textarea {
+  width: 100%;
+}
+
+.form-allowed-tags code {
+  display: block;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
