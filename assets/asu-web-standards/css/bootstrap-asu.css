@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ========================================================================
- * Web Standards: bootstrap-asu.css v0.0.7
+ * Web Standards: bootstrap-asu.css v0.0.8
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -1553,7 +1553,7 @@ input[type="button"].btn-block {
     margin-left: 0;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .navbar > .container .navbar-brand {
     margin-left: -15px;
   }
@@ -1580,7 +1580,7 @@ input[type="button"].btn-block {
     display: block !important;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .container > .navbar-header.collapse,
   .container > .navbar-collapse.collapse,
   .container-fluid > .navbar-header.collapse,
@@ -1588,7 +1588,7 @@ input[type="button"].btn-block {
     display: block !important;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .container > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-header,
@@ -1603,7 +1603,7 @@ input[type="button"].btn-block {
     float: none;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header {
     display: none;
@@ -1633,7 +1633,7 @@ input[type="button"].btn-block {
     float: none;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -1644,7 +1644,7 @@ input[type="button"].btn-block {
     float: none;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .navbar-nav > li {
     float: left;
   }
@@ -2479,11 +2479,6 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   color: white;
   font-weight: bold;
   margin-bottom: 1.3em;
-}
-.hero-bg-img.hero-programs, .hero-bg-img.hero-action-call, .hero-bg-img.hero-degrees {
-  background-image: url("../img/hero-background-1.jpg");
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-background-1.jpg', sizingMethod='scale')";
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-background-1.jpg', sizingMethod='scale');
 }
 
 .hero-text-only {

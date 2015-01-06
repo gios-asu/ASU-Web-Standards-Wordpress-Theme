@@ -118,7 +118,6 @@ ol.comment-list > li {
   display: block;
   line-height: 1.44;
   padding: 8px;
-  vertical-align: top;
 }
 
 ol.comment-list > li:nth-child(odd) {

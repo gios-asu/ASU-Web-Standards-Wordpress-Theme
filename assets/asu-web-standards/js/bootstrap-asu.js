@@ -1,3 +1,11 @@
+/**========================================================================
+ * Web Standards: bootstrap-asu.js v0.0.8
+ * ========================================================================
+ * Copyright 2014 ASU
+ * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
+ * @license MIT
+ * ======================================================================== */
+
 /* ========================================================================
  * Web Standards: modernizr.js v0.0.1
  * ========================================================================
@@ -16,6 +24,30 @@
   } )
 
 } ();
+
+/* ========================================================================
+ * Web Standards: iframe-overlay.js v0.0.1
+ * ========================================================================
+ * Copyright 2014 ASU
+ * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
+ * ======================================================================== */
+
++function ($) {
+  'use strict';
+
+  $(document).ready(function () {
+    /*
+     * iframes with content like google maps will take control of mouse scrolling
+     * and cause unwanted interaction when scrolling through a page.
+     * There is an invisible div over the visit our campus map to stop this behavior.
+     * This script will disable the overlay div and allow map interaction after a click.
+     */
+    $('.iframe-overlay').on( 'click', function () {
+      $(this).css( 'pointerEvents', 'none' )
+    } )
+  })
+
+} (jQuery);
 
 /* ========================================================================
  * Web Standards: smoothscroll.js v0.0.1
@@ -156,13 +188,64 @@
 } (jQuery)
 
 /* ========================================================================
- * Web Standards: calendar.js v0.0.2
+ * Web Standards: calendar.js v0.0.3
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
  * ======================================================================== */
 
 /* global moment */
+
+/*
+ * Calendar Documentation
+ *
+ * Allows you to add calendar popups and downloads
+ * to elements.  Calendar dropdowns will get
+ * automatically added to `.calendarPopover` elements
+ * on page ready.
+ *
+ * If you do not override the content option, the plugin
+ * will automatically generate a data-uri for your calendar
+ * markup as an ICS file.  The examples demonstrate the
+ * proper markup for a calendar icon.
+ *
+ * Definition:
+ *
+ * $( selector ).calendarPopover( [options] )
+ *
+ * Options:
+ *
+ * ```js
+ * {
+ *   "animation": Boolean [true],
+ *   "html": Boolean [true],
+ *   "placement": ("bottom", "top", "left", "right") ["bottom"],
+ *   "trigger": String ["click"],
+ *   "content": Function [Add To Calendar Function]
+ * }
+ * ```
+ *
+ * Example:
+ *
+ * Calendar invite for the School of Sustainability at 1:00pm on
+ * December 1st of 2016.
+ *
+ * ```html
+ * <div class="calendar-date calendarPopover"
+ *     data-timezone="Z"
+ *     data-description="Example"
+ *     data-mailto="user-email@asu.edu"
+ *     data-date-end="2016-12-01 2:00 pm"
+ *     data-location="School of Sustainability"
+ *     data-summary="Just an Example" title="">
+ * <time datetime="2016-12-01 1:00 pm">
+ * <span class="weekday">Thr</span>
+ * <span class="date">1</span>
+ * <span class="month">Dec</span>
+ * </time>
+ * </div>
+ * ```
+ */
 
 +function ($) {
   'use strict';
@@ -187,17 +270,19 @@
     placement: 'bottom',
     trigger: 'click',
     content: function () {
+      var $this = $( this )
+      var $time = $this.find( 'time' )
 
       // Grab the datetime from the content
-      var dateStart   = $(this).find('time').attr('datetime') || ''
-      var timeZone    = $(this).find('time').attr('data-timezone') || 'Z'
-      var dateEnd     = $(this).attr('data-date-end') || ''
-      var eventName   = $(this).attr('title') || ''
-      var filename    = $(this).attr('data-filename') || 'invite.ics'
-      var subject     = $(this).attr('data-subject') || ''
-      var description = $(this).attr('data-description') || ''
-      var location    = $(this).attr('data-location') || ''
-      var mailto      = $(this).attr('data-mailto') || 'me@email.com'
+      var dateStart   = $time.attr('datetime') || ''
+      var timeZone    = $time.attr('data-timezone') || 'Z'
+      var dateEnd     = $this.attr('data-date-end') || ''
+      var eventName   = $this.attr('title') || ''
+      var filename    = $this.attr('data-filename') || 'invite.ics'
+      var subject     = $this.attr('data-subject') || ''
+      var description = $this.attr('data-description') || ''
+      var location    = $this.attr('data-location') || ''
+      var mailto      = $this.attr('data-mailto') || 'me@email.com'
 
       // TODO test
       var ics = CalendarPopover.ICS( {
@@ -215,21 +300,21 @@
   })
 
   CalendarPopover.ICS = function ( data ) {
-    var calendarDateFormat = 'YYYYMMDD\\THHmmss'
-    var calendarApprovedFormat = 'YYYY-MM-DD HH:mm a'
+    var outputFormat = 'YYYYMMDD\\THHmmss'
+    var inputFormat = 'YYYY-MM-DD HH:mm a'
 
     // dateEnd first so that we can add 1 hour to dateStart
     // if necessary
     if ( typeof data.dateEnd == 'string' ) {
       if ( data.dateEnd === '' ) {
-        data.dateEnd = moment( data.dateStart, calendarApprovedFormat ).add( 1, 'hour' ).format( calendarDateFormat )
+        data.dateEnd = moment( data.dateStart, inputFormat ).add( 1, 'hour' ).format( outputFormat )
       } else {
-        data.dateEnd = moment( data.dateEnd, calendarApprovedFormat ).format( calendarDateFormat )
+        data.dateEnd = moment( data.dateEnd, inputFormat ).format( outputFormat )
       }
     }
 
     if ( typeof data.dateStart == 'string' ) {
-      data.dateStart = moment( data.dateStart, calendarApprovedFormat ).format( calendarDateFormat )
+      data.dateStart = moment( data.dateStart, inputFormat ).format( outputFormat )
     }
 
     var icsMessage = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//'
@@ -442,41 +527,143 @@
   });
 } (jQuery);
 
+/* ========================================================================
+ * Web Standards: wait-for.js v0.0.1
+ * ========================================================================
+ * Copyright 2014 ASU
+ * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
+ * ======================================================================== */
 
+/*
+ * Wait For Documentation
+ *
+ * Allows you to wait for when a given element is
+ * a given selector and run a callback.  The callback
+ * is only run once.  If the condition is true, then
+ * the callback will be run immediately; i.e. it does
+ * not wait for the condition to be false and then wait
+ * for the condition to be true.
+ *
+ * Definition:
+ *
+ * $( selector ).waitFor( selector, callback [, options] )
+ *
+ * Options:
+ *
+ * ```js
+ * {
+ *   "rate" : Number [200]
+ * }
+ * ```
+ *
+ * Example:
+ *
+ * Run a function when $('body') has the class 'done'
+ *
+ * ```js
+ * $( 'body' ).waitFor( '.done', function () {
+ *   console.log( 'body is done!' )
+ * } );
+ * ```
+ *
+ * Example 2:
+ *
+ * Run a function when $('body') does not have the class 'done'.
+ * This will run immediately once run
+ *
+ * ```js
+ * $( 'body' ).waitFor( ':not(.done)', function () {
+ *   console.log( 'body is not done!' )
+ * } );
+ * ```
+ */
 
-// TODO tests
 +function ($) {
   'use strict';
 
+  // WAITFOR PUBLIC CLASS DEFINITION
+  // ===============================
+
+  var WaitFor = function (element, options) {
+    this.options = $.extend({}, options)
+  }
+
+  WaitFor.VERSION = '0.0.1'
+
+  WaitFor.DEFAULTS = {
+    rate : 100
+  }
+
+  WaitFor.prototype = {}
+
+  WaitFor.prototype.constructor = WaitFor
+
+  // WAITFOR PLUGIN DEFINITION
+  // =========================
+
+  function Plugin( selector, callback, option ) {
+    var $self   = $( this )
+    var options = typeof option == 'object' && option
+
+    options = $.extend( WaitFor.DEFAULTS, options )
+
+    var interval = setInterval( function () {
+      if ( $self.is( selector ) ) {
+        clearInterval( interval )
+
+        callback.call( $self )
+      }
+    }, options.rate )
+  }
+
+  var old = $.fn.WaitFor
+
+  $.fn.waitFor             = Plugin
+  $.fn.waitFor.Constructor = WaitFor
+
+  // WAITFOR NO CONFLICT
+  // ===================
+
+  $.fn.waitFor.noConflict = function () {
+    $.fn.waitFor = old
+    return this
+  }
+
+} (jQuery);
+
+/* ========================================================================
+ * Web Standards: mobile_menu.js v0.0.2
+ * ========================================================================
+ * Copyright 2014 ASU
+ * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
+ * ======================================================================== */
+
++function ($) {
+  'use strict';
+
+  // TODO refactor this constant
   var mobileWidth = 975
 
-  // TODO open up should just stuff
-  // TODO close down should just run once on start up and show stuff instead
-  function collapseHeader () {
-    if ( $(window).innerWidth() >= mobileWidth ) {
-      // ==========
-      // Navigation
-      // ==========
-      $( '.navbar-ws .navbar-toggle' ).show()
-      // hide asu menu items
-      $( '.asu_mobile_nav_item' ).remove()
+  var desktopElements = [
+    '.navbar-ws .navbar-toggle'
+  ].join( ',' )
+  var mobileElements = [
+    '.asu_mobile_nav_item',
+    '#main-search',
+    '#asu_mobile_menu_button',
+    '#asu_mobile_search_button'
+  ].join( ',' )
 
-      // ======
-      // Search
-      // ======
-      $( '#main-search' ).remove()
 
-      // =====
-      // Icons
-      // =====
-      $( '#asu_mobile_menu_button' ).remove()
-      $( '#asu_mobile_search_button' ).remove()
-
-    } else {
-      if ( $( '#main-search' ).length > 0 ) {
-        return
-      }
-
+  /**
+   * Create nagivation, search, and icons
+   * if they do not already exist
+   *
+   * Don't use #main-search id for anything else!
+   */
+  function generateMarkup() {
+    var mainSearch = document.getElementById( 'main-search' )
+    if ( mainSearch === null ) {
       // ==========
       // Navigation
       // ==========
@@ -575,19 +762,21 @@
 
       $mobileMenuButton.click( function ( e ) {
         e.preventDefault();
-        // TODO $menuHiddenButton.click() is an animation event
-        // that we need to wait for
-        // TODO mobile -> click icon -> non-mobile -> mobile == wrong state
-        if ( $( this ).is( '.fa-close' ) ) {
+        var $self = $( this )
+        if ( $self.is( '.fa-close' ) ) {
           // Close the menu
-          $( this ).removeClass( 'fa-close' )
-          $( this ).addClass( 'fa-navicon' )
+          $( '.navbar-ws .navbar-collapse' ).waitFor( ':not(.in)', function () {
+            $self.removeClass( 'fa-close' )
+            $self.addClass( 'fa-navicon' )
+          } )
 
           $menuHiddenButton.click()
         } else {
           // Open the menu
-          $( this ).addClass( 'fa-close' )
-          $( this ).removeClass( 'fa-navicon' )
+          $( '.navbar-ws .navbar-collapse' ).waitFor( '.in', function () {
+            $self.addClass( 'fa-close' )
+            $self.removeClass( 'fa-navicon' )
+          } )
 
           $menuHiddenButton.click()
         }
@@ -595,11 +784,28 @@
     }
   }
 
+  /**
+   * Hide and show elements depending on viewport size.
+   */
+  function collapseHeader () {
+    if ( $( window ).innerWidth() >= mobileWidth ) {
+      $( desktopElements ).show()
+      $( mobileElements ).hide()
+    } else {
+      $( desktopElements ).hide()
+      $( mobileElements ).show()
+    }
+  }
+
+  /**
+   * Bootstrap the markup.
+   */
   $(document).ready(function () {
-    // Keep all window resize scripts within the throttling function
+    // Re-check viewport size on resize
     $(window).resize( collapseHeader )
 
     // Run collapse header right off the bat
+    generateMarkup()
     collapseHeader()
-  });
+  } );
 } (jQuery);
