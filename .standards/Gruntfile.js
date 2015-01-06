@@ -16,26 +16,26 @@ module.exports = function (grunt) {
 
         phpcs: {
             core: {
-                dir: ['*.php']
+                dir: ['../*.php']
             },
             extra: {
-                dir: ['inc/*.php']
+                dir: ['../inc/*.php']
             },
             options: {
                 bin: 'vendor/bin/phpcs',
                 standard: 'Wordpress',
-                ignore: 'header-asu.php'
+                ignore: '../header-asu.php'
             }
         },
         csslint: {
           options: {
-            csslintrc: '.standards/.csslintrc'
+            csslintrc: '.csslintrc'
           },
           core: [
-            '*.css'
+            '../*.css'
           ],
           layouts: [
-            'layouts/*.css'
+            '../layouts/*.css'
           ]
         }
     });

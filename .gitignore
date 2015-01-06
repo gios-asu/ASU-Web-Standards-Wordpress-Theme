@@ -2,3 +2,8 @@ node_modules/*
 composer.phar
 composer.lock
 vendor/*
+
+.standards/node_modules/*
+.standards/composer.phar
+.standards/composer.lock
+.standards/vendor/*
