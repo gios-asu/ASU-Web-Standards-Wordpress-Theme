@@ -14,15 +14,7 @@ get_header(); ?>
   <div class="row row-padding-cancel">
     <div id="primary" class="content-area">
       <main id="main" class="site-main" role="main">
-        <?php if ( function_exists('yoast_breadcrumb') && !is_home() && !is_front_page() ): ?>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <?php yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumb">','</ul>'); ?>
-              </div>
-            </div>
-          </div>
-        <?php endif; ?>
+        <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
         <section class="error-404 not-found">
           <header class="page-header">
             <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'asu-wordpress-web-standards-theme' ); ?></h1>

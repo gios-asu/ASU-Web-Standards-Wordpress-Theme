@@ -8,15 +8,7 @@
 get_header(); ?>
 
 	<div id="primary full" class="content-area col-md-12">
-		<?php if ( function_exists('yoast_breadcrumb') && !is_home() && !is_front_page() ): ?>
-	    <div class="container">
-	      <div class="row">
-	        <div class="col-md-12">
-	          <?php yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumb">','</ul>'); ?>
-	        </div>
-	      </div>
-	    </div>
-	  <?php endif; ?>
+		<?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
   
 		<main id="main" class="site-main" role="main">
 
