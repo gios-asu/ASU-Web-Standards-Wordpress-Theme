@@ -3,6 +3,8 @@ ASU-Web-Standards-Wordpress-Theme
 
 [![Build Status](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme.svg)](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Code Climate](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Stories in Ready](https://badge.waffle.io/gios-asu/asu-web-standards-wordpress-theme.svg)](http://waffle.io/gios-asu/asu-web-standards-wordpress-theme)
 
+![Screenshot](screenshot.png)
+
 The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme that leverages the [ASU Web Standards Bootstrap](https://github.com/gios-asu/ASU-Web-Standards-Bootstrap) code.  The intent of this *Wordpress Theme* is to provide a source for the ASU Web Standards that can be applied to Wordpress websites.  This ASU Web Standards Wordpress repository is maintained by the [Julie Ann Wrigley Global Institute of Sustainability](http://sustainability.asu.edu).
 
 Fore additional documentation, checkout our [GitHub pages](https://gios-asu.github.io/).
