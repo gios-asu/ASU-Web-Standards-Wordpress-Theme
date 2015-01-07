@@ -138,6 +138,7 @@ $customFields = get_post_custom();
 
 
 <div id="content" class="site-content">
+  <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
 	<main id="main" class="site-main" role="main">
     <?php 
       while ( have_posts() ) {

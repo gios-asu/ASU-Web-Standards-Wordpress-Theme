@@ -14,7 +14,7 @@ get_header(); ?>
   <div class="row row-padding-cancel">
     <div id="primary" class="content-area">
       <main id="main" class="site-main" role="main">
-
+        <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
         <section class="error-404 not-found">
           <header class="page-header">
             <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'asu-wordpress-web-standards-theme' ); ?></h1>

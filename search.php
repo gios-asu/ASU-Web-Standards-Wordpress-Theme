@@ -8,6 +8,7 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area col-sm-8 col-sm-offset-2">
+		<?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>

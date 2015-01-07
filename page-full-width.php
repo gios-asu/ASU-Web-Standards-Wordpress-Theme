@@ -8,6 +8,8 @@
 get_header(); ?>
 
 	<div id="primary full" class="content-area col-md-12">
+		<?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
+  
 		<main id="main" class="site-main" role="main">
 
 			<?php 
