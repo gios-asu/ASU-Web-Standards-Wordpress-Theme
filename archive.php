@@ -10,6 +10,15 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area col-sm-8 col-sm-offset-2">
+		<?php if ( function_exists('yoast_breadcrumb') && !is_home() && !is_front_page() ): ?>
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-12">
+	          <?php yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumb">','</ul>'); ?>
+	        </div>
+	      </div>
+	    </div>
+	  <?php endif; ?>
 		<main id="main" class="site-main" role="main">
 
 
