@@ -289,15 +289,17 @@ function asu_breadcrumbs() {
   $markup = '';
 
   if ( function_exists( 'yoast_breadcrumb' ) && !is_home() && !is_front_page() ) {
-    $markup  = '<div class="container">';
-    $markup .= '<div class="row">';
-    $markup .= '<div class="col-md-12">';
+    $markup  = '<div class="asu-breadcrumbs">';
+    $markup .= '  <div class="container">';
+    $markup .= '    <div class="row">';
+    $markup .= '      <div class="col-md-12">';
     ob_start();
     yoast_breadcrumb( '<ul id="breadcrumbs" class="breadcrumb">', '</ul>' );
     $markup .= ob_get_contents();
     ob_end_clean();
-    $markup .= '</div>';
-    $markup .= '</div>';
+    $markup .= '      </div>';
+    $markup .= '    </div>';
+    $markup .= '  </div>';
     $markup .= '</div>';
   }
 

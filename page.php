@@ -14,6 +14,7 @@ include 'helpers/mime-types-helper.php';
 
 get_header(); 
 
+// TODO $customFields should be $custom_fields.  UNACCEPTABLE!!!!
 $customFields = get_post_custom();
 ?>
 <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
@@ -57,6 +58,7 @@ $customFields = get_post_custom();
 				<div class="content">
     			<div class="panel-display fdt-home clearfix  " id="page-page">
     				<?php
+              // TODO $sectionStart should be $section_start
     					$sectionStart = '<section class="hero hero-bg-img hero-action-call section %2$s" style="%1$s">';
 
     					// Add the video class if we have it
