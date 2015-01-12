@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ========================================================================
- * Web Standards: bootstrap-asu.css v0.0.8
+ * Web Standards: bootstrap-asu.css v0.1.0
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -136,6 +136,12 @@ h1,
   margin-bottom: 48px;
   margin-top: 48px;
 }
+@media (max-width: 767px) {
+  h1,
+  .h1 {
+    font-size: 40px;
+  }
+}
 
 h2,
 h3,
@@ -214,10 +220,22 @@ h2,
 .h2 {
   font-size: 36px;
 }
+@media (max-width: 767px) {
+  h2,
+  .h2 {
+    font-size: 28px;
+  }
+}
 
 h3,
 .h3 {
   font-size: 24px;
+}
+@media (max-width: 767px) {
+  h3,
+  .h3 {
+    font-size: 20px;
+  }
 }
 
 p {
@@ -1714,9 +1732,12 @@ input[type="button"].btn-block {
   line-height: 1;
   padding: 20px;
 }
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
   .navbar-ws .navbar-nav > li > a {
-    padding: 20px 25px;
+    font-size: .9em;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 21px;
   }
 }
 .navbar-ws .navbar-brand {
@@ -2216,6 +2237,11 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 .panel.explore-programs h3 {
   font-size: 30px;
+}
+@media (max-width: 767px) {
+  .panel.explore-programs h3 {
+    font-size: 26px;
+  }
 }
 .panel.explore-programs p {
   font-size: 14px;
