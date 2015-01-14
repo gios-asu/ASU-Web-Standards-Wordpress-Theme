@@ -361,7 +361,7 @@ function page_feature() {
           'description' => $description,
           'image' => $image,
           'video' => $video,
-          'type' => $type
+          'type' => $type,
       )
   );
 
