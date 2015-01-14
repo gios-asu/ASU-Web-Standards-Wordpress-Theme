@@ -269,3 +269,12 @@ function add_first_and_last( $output ) {
 }
 
 add_filter( 'wp_nav_menu', 'add_first_and_last' );
+
+
+function change_default_template_name( $translation, $text, $domain ) {
+    if ( $text == 'Default Template' ) {
+        return __( 'Containered Template', 'asu-wordpress-web-standards-theme' );
+    }
+    return $translation;
+}
+add_filter( 'gettext', 'change_default_template_name', 10, 3 );  

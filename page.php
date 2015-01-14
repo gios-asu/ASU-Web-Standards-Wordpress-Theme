@@ -26,17 +26,19 @@ $custom_fields = get_post_custom();
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
     	<main id="main" class="site-main" role="main">
-        <?php 
-          while ( have_posts() ) {
-            the_post();
-            get_template_part( 'content', 'page' );
+        <div class="container">
+          <?php 
+            while ( have_posts() ) {
+              the_post();
+              get_template_part( 'content', 'page' );
 
-    				// If comments are open or we have at least one comment, load up the comment template
-    				if ( comments_open() || '0' != get_comments_number() ) :
-    					comments_template();
-    				endif;
-          } // end of the loop. 
-        ?>
+      				// If comments are open or we have at least one comment, load up the comment template
+      				if ( comments_open() || '0' != get_comments_number() ) :
+      					comments_template();
+      				endif;
+            } // end of the loop. 
+          ?>
+        </div>
 
 	    </main><!-- #main -->
     </div>
