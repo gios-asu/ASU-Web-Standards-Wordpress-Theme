@@ -314,12 +314,12 @@ if ( ! function_exists( 'page_feature' ) ):
  */
 function page_feature() {
   $custom_fields = get_post_custom();
-  $title = null;
-  $count = null;
-  $image = null;
-  $video = null;
-  $description = null;
-  $type = 'standard';
+  $title         = null;
+  $count         = null;
+  $image         = null;
+  $video         = null;
+  $description   = null;
+  $type          = 'standard';
 
   if ( array_key_exists( 'page_feature_title', $custom_fields ) ) {
     $title = $custom_fields['page_feature_title'][0];
@@ -382,7 +382,7 @@ function page_feature() {
     $html .= '        <div class="panel-display clearfix">';
 
     // Section
-    $section_start =  '<section class="hero hero-bg-img hero-action-call %2$s" style="%1$s">';
+    $section_start = '<section class="hero hero-bg-img hero-action-call %2$s" style="%1$s">';
 
     if ( isset( $video ) ) {
       $section_start = sprintf( $section_start, '%1$s', 'hero-video' );
@@ -400,8 +400,8 @@ function page_feature() {
 
     if ( isset( $video ) ) {
       $video_container = '<video width="100%2$s" height="auto" autoplay muted="true" loop>%1$s</video>';
-      $$video_part = '<source src="%1$s" type="%2$s"/>';
-      $parts = '';
+      $$video_part     = '<source src="%1$s" type="%2$s"/>';
+      $parts           = '';
 
       foreach ( $video as $_ => $value ) {
         $info     = pathinfo( $value );
