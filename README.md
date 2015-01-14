@@ -138,7 +138,7 @@ Note that if you have more than 1 `page_feature_video`, then **ALL** of the valu
 
 When editting a page, you can set the page template by going to the `Page Attributes` panel and changing the `Template`.
 
-**Default Template**
+**Full Width Template**
 
 This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
 
