@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: Containered Template
  * 
  * The template for displaying all pages.
  *

@@ -355,12 +355,14 @@ function page_feature() {
   // Check to see if anyone has overriden the page feature
 
   $override = apply_filters(
-      'page_feature',
-      $title,
-      $description,
-      $image,
-      $video,
-      $type
+      'page_feature', 
+      array(
+          'title' => $title,
+          'description' => $description,
+          'image' => $image,
+          'video' => $video,
+          'type' => $type,
+      )
   );
 
   if ( has_filter( 'page_feature' ) && $override ) {
@@ -414,7 +416,6 @@ function page_feature() {
       $html .= sprintf( $video_container, $parts, '%' );
     }
 
-    // TODO figure out which of these classes we can throw out
     $html .= '           <div class="container">';
     $html .= '             <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">';
     $html .= '               <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">';
