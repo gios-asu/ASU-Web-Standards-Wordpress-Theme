@@ -186,6 +186,30 @@
                      $cOptions['youtube'] !== '' ) {
                   echo sprintf( $youtube, $cOptions['youtube'] );
                 }
+
+                //  =============================
+                //  = Vimeo                     =
+                //  =============================
+                $vimeo = '<li><a href="%1$s" title="Vimeo"><i class="fa fa-vimeo-square" aria-hidden="true"></i></a></li>';
+
+                // Do we have a vimeo?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'vimeo', $cOptions ) &&
+                     $cOptions['vimeo'] !== '' ) {
+                  echo sprintf( $vimeo, $cOptions['vimeo'] );
+                }
+
+                //  =============================
+                //  = Instagram                 =
+                //  =============================
+                $instagram = '<li><a href="%1$s" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+
+                // Do we have a instagram?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'instagram', $cOptions ) &&
+                     $cOptions['instagram'] !== '' ) {
+                  echo sprintf( $instagram, $cOptions['instagram'] );
+                }
               ?>
             </ul>
             <?php
