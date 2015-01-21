@@ -58,7 +58,7 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
     '0' => 'pad-top-0 pad-bot-0 ',
   ];
 
-  $container = '<div class="container"><div class="row %2$s">%1$s</div></div>';
+  $container = '<div class="container %2$s">%1$s</div>';
   $no_margin = false;
   $classes   = '';
 
