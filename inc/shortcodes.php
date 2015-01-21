@@ -461,9 +461,10 @@ function page_feature() {
     }
 
     $html .= '           <div class="container">';
-    $html .= '             <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">';
-    $html .= '               <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">';
-    $html .= '                 <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">';
+    $html .= '             <div class="row">';
+    $html .= '               <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">';
+    $html .= '                 <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">';
+    $html .= '                   <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">';
 
     if ( isset( $title ) ) {
       $html .= '<h1 class="pane-title">';
@@ -487,6 +488,7 @@ function page_feature() {
       $html .= '</div>';
     }
 
+    $html .= '                   </div>';
     $html .= '                 </div>';
     $html .= '               </div>';
     $html .= '             </div>';
