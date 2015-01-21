@@ -22,7 +22,7 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
  * @param atts - associative array.  You can override 'type' to 'gray'
  */
 function asu_wp_container_shortcode( $atts, $content = null ) {
-  $class_mapper = [
+  $margin_class_mapper = [
     'bot-xl' => 'space-bot-xl ',
     'bot-lg' => 'space-bot-lg ',
     'bot-md' => 'space-bot-md ',
@@ -40,29 +40,53 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
     '0' => 'space-top-0 space-bot-0 ',
   ];
 
-  $container = '<div class="container"><div class="row %2$s">%1$s</div></div>';
+  $padding_class_mapper = [
+    'bot-xl' => 'pad-bot-xl ',
+    'bot-lg' => 'pad-bot-lg ',
+    'bot-md' => 'pad-bot-md ',
+    'bot-sm' => 'pad-bot-sm ',
+    'bot-0' => 'pad-bot-0 ',
+    'top-xl' => 'pad-top-xl ',
+    'top-lg' => 'pad-top-lg ',
+    'top-md' => 'pad-top-md ',
+    'top-sm' => 'pad-top-sm ',
+    'top-0' => 'pad-top-0 ',
+    'xl' => 'pad-top-xl pad-bot-xl ',
+    'lg' => 'pad-top-lg pad-bot-lg ',
+    'md' => 'pad-top-md pad-bot-md ',
+    'sm' => 'pad-top-sm pad-bot-sm ',
+    '0' => 'pad-top-0 pad-bot-0 ',
+  ];
 
-  // gray container
+  $container = '<div class="container"><div class="row %2$s">%1$s</div></div>';
+  $no_margin = false;
+  $classes   = '';
+
+  // ==============
+  // Gray Container
+  // ==============
   if ( $atts != null && array_key_exists( 'type', $atts ) ) {
     if ( $atts['type'] == 'gray' ) {
-      $wrap_container = '<div class="gray-back">%1$s</div>';
+      $no_margin      = true;
+      $wrap_container = '<div class="gray-back %2$s">%1$s</div>';
 
       // No extra classes needed
       $container = sprintf( $container, '%1$s', '' );
       // Wrap
-      $container = sprintf( $wrap_container, $container );
+      $container = sprintf( $wrap_container, $container, '%2$s' );
     }
   }
 
-  if ( $atts != null &&
-         array_key_exists( 'spacing', $atts ) ) 
-  {
+  // ======
+  // Margin
+  // ======
+  if ( $atts != null && array_key_exists( 'margin', $atts ) ) {
     // Copy the spacing attributes
-    $copy_spacing = (string) $atts['spacing'];
-    $classes = '';
+    $copy_spacing = (string) $atts['margin'];
+    
 
     // Work backwards so that the short spacing names are not falsely added
-    foreach ( $class_mapper as $key => $item ) {
+    foreach ( $margin_class_mapper as $key => $item ) {
       // Force teh $key to be a string since '0' ==> 0
       if ( strpos( $copy_spacing, ( string ) $key ) !== false ) {
         $copy_spacing = str_replace( $key, '', $copy_spacing );
@@ -70,11 +94,33 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
       }
     }
 
-    $container = sprintf( $container, '%1$s', $classes );
   } else {
     // Extra classes
-    $container = sprintf( $container, '%1$s', 'space-top-xl space-bot-xl' );
+    if ( ! $no_margin ) {
+      $classes .= ' space-top-xl space-bot-xl ';
+    }
   }
+
+  // =======
+  // Padding
+  // =======
+  if ( $atts != null && array_key_exists( 'padding', $atts ) ) {
+    // Copy the spacing attributes
+    $copy_spacing = (string) $atts['padding'];
+    
+
+    // Work backwards so that the short spacing names are not falsely added
+    foreach ( $padding_class_mapper as $key => $item ) {
+      // Force teh $key to be a string since '0' ==> 0
+      if ( strpos( $copy_spacing, ( string ) $key ) !== false ) {
+        $copy_spacing = str_replace( $key, '', $copy_spacing );
+        $classes     .= $item;
+      }
+    }
+  }
+
+  // Finish up
+  $container = sprintf( $container, '%1$s', $classes );
 
   return do_shortcode( sprintf( $container, $content ) );
 }
