@@ -93,7 +93,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
         $classes     .= $item;
       }
     }
-
   } else {
     // Extra classes
     if ( ! $no_margin ) {
@@ -107,7 +106,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
   if ( $atts != null && array_key_exists( 'padding', $atts ) ) {
     // Copy the spacing attributes
     $copy_spacing = (string) $atts['padding'];
-    
 
     // Work backwards so that the short spacing names are not falsely added
     foreach ( $padding_class_mapper as $key => $item ) {
