@@ -93,7 +93,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
         $classes     .= $item;
       }
     }
-
   } else {
     // Extra classes
     if ( ! $no_margin ) {
@@ -107,7 +106,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
   if ( $atts != null && array_key_exists( 'padding', $atts ) ) {
     // Copy the spacing attributes
     $copy_spacing = (string) $atts['padding'];
-    
 
     // Work backwards so that the short spacing names are not falsely added
     foreach ( $padding_class_mapper as $key => $item ) {
@@ -463,9 +461,10 @@ function page_feature() {
     }
 
     $html .= '           <div class="container">';
-    $html .= '             <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">';
-    $html .= '               <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">';
-    $html .= '                 <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">';
+    $html .= '             <div class="row">';
+    $html .= '               <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">';
+    $html .= '                 <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">';
+    $html .= '                   <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">';
 
     if ( isset( $title ) ) {
       $html .= '<h1 class="pane-title">';
@@ -489,6 +488,7 @@ function page_feature() {
       $html .= '</div>';
     }
 
+    $html .= '                   </div>';
     $html .= '                 </div>';
     $html .= '               </div>';
     $html .= '             </div>';

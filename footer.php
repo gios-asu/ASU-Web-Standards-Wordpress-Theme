@@ -186,6 +186,30 @@
                      $cOptions['youtube'] !== '' ) {
                   echo sprintf( $youtube, $cOptions['youtube'] );
                 }
+
+                //  =============================
+                //  = Vimeo                     =
+                //  =============================
+                $vimeo = '<li><a href="%1$s" title="Vimeo"><i class="fa fa-vimeo-square" aria-hidden="true"></i></a></li>';
+
+                // Do we have a vimeo?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'vimeo', $cOptions ) &&
+                     $cOptions['vimeo'] !== '' ) {
+                  echo sprintf( $vimeo, $cOptions['vimeo'] );
+                }
+
+                //  =============================
+                //  = Instagram                 =
+                //  =============================
+                $instagram = '<li><a href="%1$s" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+
+                // Do we have a instagram?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'instagram', $cOptions ) &&
+                     $cOptions['instagram'] !== '' ) {
+                  echo sprintf( $instagram, $cOptions['instagram'] );
+                }
               ?>
             </ul>
             <?php
@@ -225,11 +249,12 @@
         <div class="row">
           <div class="col-md-12">
             <ul class="little-foot-nav">
-              <li><a class="" href="http://www.asu.edu/copyright/">Copyright &amp; Trademark</a></li>
-              <li><a class="" href="http://www.asu.edu/accessibility/">Accessibility</a></li>
-              <li><a class="" href="http://www.asu.edu/privacy/">Privacy</a></li>
-              <li><a class="" href="https://cfo.asu.edu/emergency">Emergency</a></li>
-              <li><a class="" href="https://contact.asu.edu/">Contact ASU</a></li>
+              <li><a href="http://www.asu.edu/copyright/">Copyright &amp; Trademark</a></li>
+              <li><a href="http://www.asu.edu/accessibility/">Accessibility</a></li>
+              <li><a href="http://www.asu.edu/privacy/">Privacy</a></li>
+              <li><a href="http://www.asu.edu/asujobs">Jobs At ASU</a></li>
+              <li><a href="https://cfo.asu.edu/emergency">Emergency</a></li>
+              <li><a href="https://contact.asu.edu/">Contact ASU</a></li>
             </ul>
           </div>
         </div><!-- /.row -->
