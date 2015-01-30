@@ -59,7 +59,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                   $campus_address_option = $cOptions['campus_address'];
 
                   echo '<address>';
-                  switch ($campus_address_option) {
+                  switch ( $campus_address_option ) {
                     case 'Tempe':
                       echo 'Arizona State University - Tempe campus<br/>1151 S. Forest Ave.<br/>Tempe, AZ 85287 USA';
                       break;
