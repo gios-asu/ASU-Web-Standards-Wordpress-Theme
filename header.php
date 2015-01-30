@@ -13,6 +13,7 @@
 $homeUrl = esc_url( home_url( '/' ) ); 
 $customFields = get_post_custom();
 
+$ping_back = get_bloginfo( 'pingback_url' );
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -21,7 +22,10 @@ $customFields = get_post_custom();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+<?php if ( ! empty( $ping_back ) ) : ?>
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<?php endif; ?>
 
 <?php wp_head(); ?>
 </head>
@@ -33,7 +37,7 @@ $customFields = get_post_custom();
 
 
       <div class="">
-        <div class="section" id="site-name-desktop" class="site-name-desktop">
+        <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
             <h1 class="site-title" id="asu_school_name">
               <?php
@@ -102,6 +106,6 @@ $customFields = get_post_custom();
             );
             ?>
             </div><!-- /.navbar-collapse -->
-          </div><!-- /.container -->
-        </nav>
+          </nav>
+        </div><!-- /.container -->
         <!-- End Navigation -->

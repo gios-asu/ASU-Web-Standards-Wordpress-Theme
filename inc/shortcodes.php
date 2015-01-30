@@ -338,7 +338,7 @@ function asu_breadcrumbs() {
     $markup .= '    <div class="row">';
     $markup .= '      <div class="col-md-12">';
     ob_start();
-    yoast_breadcrumb( '<ul id="breadcrumbs" class="breadcrumb">', '</ul>' );
+    yoast_breadcrumb( '<div id="breadcrumbs" class="breadcrumb">', '</div>' );
     $markup .= ob_get_contents();
     ob_end_clean();
     $markup .= '      </div>';

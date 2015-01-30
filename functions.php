@@ -209,6 +209,10 @@ function wptemplate_gios_v1_scripts() {
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
   wp_enqueue_style( 'asu-header-css' );
 
+  /** ie 8 respondsive */
+  /** @see https://github.com/scottjehl/Respond */
+  wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '20150115', true );
+
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
   }

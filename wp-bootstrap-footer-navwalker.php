@@ -15,7 +15,6 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
       return;
     }
-
     $output .= "\n</ul>";
   }
 
@@ -94,7 +93,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
     else {
       $target = $id ? esc_attr( $id ) . '-nav' : '';
-      $item_output .= '<div class="col-md-2 col-sm-3 space-bot-md"><h2 data-toggle="collapse" data-target="#' . $target . '" '. $attributes .'>';
+      $item_output .= '<div class="col-md-2 col-sm-3 space-bot-md"><h2 data-toggle="collapse" data-target="#' . $target . '" >';
     }
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -140,7 +139,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
       $output .= "</li>\n";  
     }
     else {
-      $output .= "</ul></div>\n";
+      $output .= "</div>\n";
     }
   }
 }
