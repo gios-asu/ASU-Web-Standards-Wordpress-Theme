@@ -2701,6 +2701,9 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   padding-bottom: 14px;
   padding-top: 40px;
 }
+.footer .big-foot img {
+  max-width: 300px;
+}
 .footer .big-foot-nav > li {
   margin-bottom: 12px;
 }

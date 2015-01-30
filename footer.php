@@ -83,7 +83,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                       break;
                   }
 
-                  echo '</address><br/><br/>';
+                  echo '</address><br/>';
                 }
               ?>
             <address>
@@ -276,6 +276,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             ?>
             
           </div>
+
 
           <?php
           wp_nav_menu(
