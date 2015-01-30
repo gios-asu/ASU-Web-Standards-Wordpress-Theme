@@ -113,7 +113,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
       // Override classes w/the dropdown title class if we are a child that has children
       if ( $depth === 1 && $args->has_children ) {
-        $class_names = 'class="dropdown-title"';
+        $class_names = ' class="dropdown-title"';
       }
 
       $output .= $indent . '<li' . $id . $value . $class_names .'>';

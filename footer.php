@@ -7,10 +7,6 @@
  * @package asu-wordpress-web-standards
  */
 ?>
-  </div><!-- /.row -->
-
-  </div><!-- #content -->
-
   </div><!-- #page -->  
 </div><!-- #page-wrapper -->
 
@@ -32,7 +28,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-12 space-bot-md">
-            <h1><?php bloginfo( 'description' ); ?></h1>
+            <h2><?php bloginfo( 'description' ); ?></h2>
             <address>
               <?php
                 if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {

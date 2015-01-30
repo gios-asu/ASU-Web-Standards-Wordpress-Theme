@@ -91,7 +91,7 @@
                 </a>
               </div>
               <!-- /#asu_logo  -->
-              <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" height="32" width="203" id="asu_print_logo">
+              <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" height="32" width="203" id="asu_print_logo" alt="ASU Logo" />
               <div id="asu_mobile_button" class="asushow"><a href="javascript:toggleASU();" data-target=".navbar-collapse" data-toggle="collapse">Menu</a></div>
             </div>
             <!-- /#asu_mobile_header  -->
