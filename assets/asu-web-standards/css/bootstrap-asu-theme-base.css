@@ -153,11 +153,18 @@
   border-color: #d7d7d7;
 }
 
+.footer .contact-link {
+  border-bottom-color: #a9a9a9;
+  color: #a9a9a9;
+}
+.footer .contact-link:hover, .footer .contact-link:focus {
+  color: #fff;
+}
 .footer .social-media > li > a {
   color: #a9a9a9;
 }
 .footer .social-media > li > a:hover, .footer .social-media > li > a:focus {
-  color: #e9e9e9;
+  color: #fff;
 }
 .footer .big-foot {
   background-color: #1e1e1e;

@@ -1870,6 +1870,11 @@ input[type="button"].btn-block {
   text-decoration: underline;
 }
 
+#asu_hdr img {
+  height: 32px;
+  width: 203px;
+}
+
 .breadcrumb {
   background-color: transparent;
   font-size: 14px;
@@ -2644,11 +2649,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   margin-bottom: 0;
 }
 .footer .contact-link {
-  border-bottom: 1px dotted #a9a9a9;
-  color: #a9a9a9;
-}
-.footer .contact-link:hover, .footer .contact-link:focus {
-  color: #e9e9e9;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
 }
 .footer ul,
 .footer ol {

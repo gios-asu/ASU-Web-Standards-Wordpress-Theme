@@ -80,6 +80,29 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
+  //  = School Logo               =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[logo]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_logo_text',
+      array(
+        'label'      => __( 'School Logo Full URL', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section',
+        'settings'   => 'wordpress_asu_theme_options[logo]',
+        'priority'   => 0,
+      )
+  );
+
+  //  =============================
   //  = Organization Text         =
   //  =============================
   $wp_customize->add_setting(
@@ -98,7 +121,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'label'      => __( 'Parent Organization', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[org]',
-        'priority'   => 0,
+        'priority'   => 1,
       )
   );
 
@@ -126,10 +149,34 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
-  //  = Address                   =
+  //  = Campus Address            =
   //  =============================
   $wp_customize->add_setting(
-      'wordpress_asu_theme_options[address]', 
+      'wordpress_asu_theme_options[campus_address]', 
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_campus_address',
+      array(
+        'label'      => __( 'Campus Address (Tempe, Polytechnic, Downtown Phoenix, West, Research Park, Skysong, Lake Havasu)', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section',
+        'settings'   => 'wordpress_asu_theme_options[campus_address]',
+        'type'       => 'option',
+        'priority'   => 20,
+      )
+  );
+
+  //  =============================
+  //  = School Address            =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[address]',
       array(
         'default'           => '',
         'capability'        => 'edit_theme_options',
@@ -141,11 +188,11 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_address', 
       array(
-        'label'      => __( 'Address', 'asu_wordpress' ),
+        'label'      => __( 'School Address', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[address]',
         'type'       => 'textarea',
-        'priority'   => 20,
+        'priority'   => 21,
       )
   );
 
