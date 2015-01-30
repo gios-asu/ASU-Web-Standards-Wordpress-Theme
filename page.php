@@ -41,5 +41,7 @@ $custom_fields = get_post_custom();
 
 	    </main><!-- #main -->
     </div>
+  </div><!-- #main -->
+</div><!-- #main-wrapper -->
     <?php 
       get_footer();

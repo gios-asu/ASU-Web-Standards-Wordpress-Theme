@@ -21,6 +21,10 @@
  * 
  * @package asu-wordpress-web-standards
  */
+
+if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+  $cOptions = get_option( 'wordpress_asu_theme_options' );
+}
 ?>
 
   <div class="footer">
@@ -28,15 +32,64 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-12 space-bot-md">
-            <h2><?php bloginfo( 'description' ); ?></h2>
+            
+            <?php
+              //  =============================
+              //  = Logo                      =
+              //  =============================
+              // Do we have a logo?
+              $logo = '<img class="footer-logo" src="%1$s"/><br>';
+              if ( isset( $cOptions ) && 
+                   array_key_exists( 'logo', $cOptions ) &&
+                   $cOptions['logo'] !== '' ) {
+                echo sprintf( $logo, $cOptions['logo'] );
+              } else {
+                echo '<h2>' . get_bloginfo( 'description' ) . '</h2>';
+              }
+            ?>
+            
+              <?php
+                //  =============================
+                //  = Campus Address            =
+                //  =============================
+                // Do we have an address?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'campus_address', $cOptions ) &&
+                     $cOptions['campus_address'] !== '' ) {
+                  $campus_address_option = $cOptions['campus_address'];
+
+                  echo '<address>';
+                  switch ( $campus_address_option ) {
+                    case 'Tempe':
+                      echo 'Arizona State University - Tempe campus<br/>1151 S. Forest Ave.<br/>Tempe, AZ 85287 USA';
+                      break;
+                    case 'Polytechnic':
+                      echo 'Arizona State University - Polytechnic campus<br/>Power Road and Williams Field Road<br/>7001 E. Williams Field Road<br/>Mesa, AZ 85212';
+                      break;
+                    case 'Downtown Phoenix':
+                      echo 'Arizona State University - Downtown Phoenix<br/>411 N. Central, Suite 520<br/>Phoenix, AZ 85004';
+                      break;
+                    case 'West':
+                      echo 'Arizona State University - West campus<br/>4701 West Thunderbird Road<br/>PO Box 37100<br/>Phoenix, AZ 85069-7100';
+                      break;
+                    case 'Research Park':
+                      echo 'Arizona State University - Research Park<br/>8750 S Science Dr<br/>Tempe, AZ 85284';
+                      break;
+                    case 'Skysong':
+                      echo 'Arizona State University - SkySong<br/>1475 N. Scottsdale Rd, Suite 200<br/>Scottsdale, Arizona 85257-3538';
+                      break;
+                    case 'Lake Havasu':
+                      echo 'Arizona State University - Lake Havasu<br/>100 University Way<br/>Lake Havasu City, AZ 86403';
+                      break;
+                  }
+
+                  echo '</address><br/>';
+                }
+              ?>
             <address>
               <?php
-                if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
-                  $cOptions = get_option( 'wordpress_asu_theme_options' );
-                }
-
                 //  =============================
-                //  = Address                   =
+                //  = School Address            =
                 //  =============================
                 // Do we have an address?
                 if ( isset( $cOptions ) && 
@@ -223,6 +276,7 @@
             ?>
             
           </div>
+
 
           <?php
           wp_nav_menu(
