@@ -59,7 +59,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
   ];
 
   $container = '<div class="container %2$s">%1$s</div>';
-  $no_margin = false;
   $classes   = '';
 
   // ==============
@@ -67,7 +66,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
   // ==============
   if ( $atts != null && array_key_exists( 'type', $atts ) ) {
     if ( $atts['type'] == 'gray' ) {
-      $no_margin      = true;
       $wrap_container = '<div class="gray-back %2$s">%1$s</div>';
 
       // No extra classes needed
@@ -93,11 +91,6 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
         $classes     .= $item;
       }
     }
-  } else {
-    // Extra classes
-    if ( ! $no_margin ) {
-      $classes .= ' space-top-xl space-bot-xl ';
-    }
   }
 
   // =======
@@ -114,6 +107,20 @@ function asu_wp_container_shortcode( $atts, $content = null ) {
         $copy_spacing = str_replace( $key, '', $copy_spacing );
         $classes     .= $item;
       }
+    }
+  } else {
+    // Extra classes
+    $classes .= ' pad-bot-md ';
+
+    // If gray:
+    if ( $atts != null && array_key_exists( 'type', $atts ) ) {
+      if ( $atts['type'] == 'gray' ) {
+        $classes .= ' pad-top-md ';
+      } else {
+        $classes .= ' pad-top-sm ';    
+      }
+    } else {
+      $classes .= ' pad-top-sm ';
     }
   }
 
