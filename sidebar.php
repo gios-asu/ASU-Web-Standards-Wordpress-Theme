@@ -9,6 +9,14 @@
 		<?php 
 		if ( is_active_sidebar( 'footer' ) ) :
 			dynamic_sidebar( 'footer' );
-		endif; 
+		endif;
+
+    if ( is_active_sidebar( 'sidebar-1' ) ) :
+      ?>
+      <div class="sidebar-nav affix-top">
+        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+      </div>
+      <?php
+    endif;
 		?>
 	</div><!-- #secondary -->
