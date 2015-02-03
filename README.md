@@ -29,6 +29,7 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 When using this theme:
 
 - Make sure this theme lives in the folder: `ASU-Web-Standards-Wordpress-Theme`.
+- This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
 
 # New Settings
 
