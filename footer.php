@@ -259,6 +259,18 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                      $cOptions['instagram'] !== '' ) {
                   echo sprintf( $instagram, $cOptions['instagram'] );
                 }
+
+                //  =============================
+                //  = RSS                 =
+                //  =============================
+                $rss = '<li><a href="%1$s" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+
+                // Do we have a instagram?
+                if ( isset( $cOptions ) && 
+                     array_key_exists( 'rss', $cOptions ) &&
+                     $cOptions['rss'] !== '' ) {
+                  echo sprintf( $rss, $cOptions['rss'] );
+                }
               ?>
             </ul>
             <?php
