@@ -266,11 +266,11 @@ require_once ( 'wp-bootstrap-navwalker.php' );
 require_once ( 'wp-bootstrap-footer-navwalker.php' );
 
 function add_first_and_last( $output ) {
-  $output       = preg_replace( '/class="menu-item/', 'class="first-menu-item menu-item', $output, 1 );
-  $class_pos    = strripos( $output, 'class="menu-item' );
-  $class_length = strlen( 'class="menu-item' );
+  // $output       = preg_replace( '/menu-item/', 'first-menu-item menu-item', $output, 1 );
+  // $class_pos    = strripos( $output, 'class="menu-item' );
+  // $class_length = strlen( 'class="menu-item' );
 
-  $output = substr_replace( $output, 'class="last-menu-item menu-item', $class_pos,  $class_length );
+  // $output = substr_replace( $output, 'class="last-menu-item menu-item', $class_pos,  $class_length );
   return $output;
 }
 
