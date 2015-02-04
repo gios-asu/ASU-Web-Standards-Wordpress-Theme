@@ -23,23 +23,22 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     $indent = str_repeat( "\t", $depth );
 
     if ( $depth == 0 )
-      $output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+      $output .= "$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
 
     // if the depth is not 0 and args has children, then add a row
     if ( $args->children_has_children ) {
       $columns = floor( 12.0 / $args->number_of_children );
 
-      $output .= '<div class="row"><div class="column col-md-'  . $columns . ' vertical-border-right">';
+      $output .= '<li class="li-row-container">' . "\n";
+      $output .= '<div class="row">' . "\n";
+      $output .= '<div class="column col-md-'  . $columns . ' vertical-border-right">' . "\n";
+      $output .= '<ul>';
     }
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
-    if ( $depth == 0 )
-      $output .= "\n</ul>";
-
-    // if the depth is not 0 and args has children, then add a row
-    if ( $args->children_has_children ) {
-      $output .= '</div></div>';
+    if ( $depth == 0 ) {
+      $output .= "</ul>\n";
     }
   }
 
@@ -108,7 +107,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         else
           $line = '';
 
-        $output .= '</div><div class="column col-md-'  . $columns . ' ' . $line . '">';
+        $output .= "</ul>\n</div>\n<div class='column col-md-{$columns} $line'>\n<ul>\n";
       }
 
       // Override classes w/the dropdown title class if we are a child that has children
@@ -116,11 +115,12 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         $class_names = ' class="dropdown-title"';
       }
 
-      $output .= $indent . '<li' . $id . $value . $class_names .'>';
+      $output .= $indent . '<li ' . $id . $value . $class_names .' >';
 
       // if we are a child that has children
       if ( $depth === 1 && $args->has_children ) {
         $output .= apply_filters( 'the_title', $item->title, $item->ID );
+        $output .= "</li>\n";
         return;
       }
 
@@ -168,13 +168,25 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $item_output .= $args->after;
 
       if ( $depth > 0 && $args->has_children ) {
-        $item_output .= '</li>';
+        $item_output .= "</li>\n";
       }
 
-      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args ) . "\n";
     }
   }
 
+  public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+    if ( $depth === 1 && $args->depth > 2 ) {
+      return;
+    }
+
+    if ( $depth === 0 ) {
+      $output .= "\n</div>\n</div>\n</li>\n</ul>\n";
+      return;
+    }
+
+    $output .= "</li><!-- end_el $depth -->\n";
+  }
   /**
    * Traverse elements to create list from elements.
    *
