@@ -6,41 +6,47 @@
  */
 
 get_header(); ?>
+<div id="main-wrapper" class="clearfix">
+  <div id="main" class="clearfix">
+    <?php echo do_shortcode( '[page_feature]' ); ?>
 
-	<section id="primary" class="content-area col-sm-8 col-sm-offset-2">
-		<?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-		<main id="main" class="site-main" role="main">
+    <div id="content" class="site-content">
+      <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
+    	<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+        <div class="container">
+					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+        	<div class="row">
+        		<div class="col-sm-9">
+    					<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+								<?php 
+									while ( have_posts() ) {
+										the_post();
 
-			<div class="container">
-			<?php 
-				while ( have_posts() ) {
-					the_post();
+										/**
+										 * Run the loop for the search to output the results.
+										 * If you want to overload this in a child theme then include a file
+										 * called content-search.php and that will be used instead.
+										 */
+										get_template_part( 'content', 'search' );
+									}
+								  the_posts_navigation(); 
+								 ?>
+							<?php else : ?>
 
-					/**
-					 * Run the loop for the search to output the results.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-search.php and that will be used instead.
-					 */
-					get_template_part( 'content', 'search' );
-				}
-			?>
+								<?php get_template_part( 'content', 'none' ); ?>
 
-			<?php asu_webstandards_paging_nav(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'content', 'none' ); ?>
-
-		<?php endif; ?>
-		</div><!-- #container -->
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+							<?php endif; ?>
+						</div>
+						<div class="col-sm-3">
+							<?php get_sidebar(); ?>
+						</div>
+					</div>
+				</div>
+	    </main><!-- #main -->
+    </div>
+  </div><!-- #main -->
+</div><!-- #main-wrapper -->
+    <?php 
+      get_footer();
