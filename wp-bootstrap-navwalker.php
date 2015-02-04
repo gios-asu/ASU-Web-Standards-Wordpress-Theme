@@ -181,7 +181,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     }
 
     if ( $depth === 0 ) {
-      $output .= "\n</div>\n</div>\n</li>\n</ul>\n";
+
+      if ( $args->children_has_children ) {
+        $output .= "\n</div>\n</div>\n</li>\n</ul>\n";  
+      } else {
+        $output .= "\n</li>";
+      }
+      
       return;
     }
 
