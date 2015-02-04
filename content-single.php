@@ -9,7 +9,7 @@
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
     <div class="entry-meta">
-      <?php wptemplate_gios_v1_posted_on(); ?>
+      <?php asu_webstandards_posted_on(); ?>
     </div><!-- .entry-meta -->
   </header><!-- .entry-header -->
 
@@ -33,7 +33,7 @@
       /* translators: used between list items, there is a space after the comma */
       $tag_list = get_the_tag_list( '', __( ', ', 'asu-wordpress-web-standards-theme' ) );
 
-      if ( ! wptemplate_gios_v1_categorized_blog() ) {
+      if ( ! asu_webstandards_categorized_blog() ) {
         // This blog only has 1 category so we just need to worry about tags in the meta text
         if ( '' != $tag_list ) {
           $meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'asu-wordpress-web-standards-theme' );

@@ -85,7 +85,7 @@ function asu_wordpress_setup() {
   add_theme_support(
       'custom-background',
       apply_filters(
-          'wptemplate_gios_v1_custom_background_args', 
+          'asu_webstandards_custom_background_args', 
           array(
             'default-color' => 'ffffff',
             'default-image' => '',
@@ -118,7 +118,7 @@ add_action( 'after_setup_theme', 'asu_wordpress_setup' );
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function wptemplate_gios_v1_widgets_init() {
+function asu_webstandards_widgets_init() {
   register_sidebar(
       array(
         'name'          => __( 'Sidebar', 'asu-wordpress-web-standards-theme' ),
@@ -164,12 +164,12 @@ function wptemplate_gios_v1_widgets_init() {
       )
   );
 } 
-add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
+add_action( 'widgets_init', 'asu_webstandards_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function wptemplate_gios_v1_scripts() {
+function asu_webstandards_scripts() {
   wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_enqueue_script( 'smoothscroll' );
 
@@ -217,7 +217,7 @@ function wptemplate_gios_v1_scripts() {
     wp_enqueue_script( 'comment-reply' );
   }
 }
-add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
+add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
 
 /**
  * This line will prevent WordPress from automatically inserting HTML 

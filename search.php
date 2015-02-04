@@ -17,6 +17,7 @@ get_header(); ?>
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
+			<div class="container">
 			<?php 
 				while ( have_posts() ) {
 					the_post();
@@ -30,14 +31,14 @@ get_header(); ?>
 				}
 			?>
 
-			<?php wptemplate_gios_v1_paging_nav(); ?>
+			<?php asu_webstandards_paging_nav(); ?>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
-
+		</div><!-- #container -->
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

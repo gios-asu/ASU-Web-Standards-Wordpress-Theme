@@ -28,7 +28,7 @@ get_header(); ?>
             <?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
             <?php 
-              if ( wptemplate_gios_v1_categorized_blog() ) : 
+              if ( asu_webstandards_categorized_blog() ) : 
                 // Only show the widget if site has multiple categories. 
             ?>
             <div class="widget widget_categories">
