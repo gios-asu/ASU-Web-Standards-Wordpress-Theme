@@ -183,14 +183,20 @@
   color: #595959;
 }
 
-.mega-menu .dropdown-menu > .row > .column > li > a {
+.mega-menu .dropdown-menu > .row > .column li a,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column li a {
   color: #ededed;
 }
-.mega-menu .dropdown-menu > .row > .column > li > a:hover, .mega-menu .dropdown-menu > .row > .column > li > a:focus {
+.mega-menu .dropdown-menu > .row > .column li a:hover, .mega-menu .dropdown-menu > .row > .column li a:focus,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column li a:hover,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column li a:focus {
   background-color: black;
   color: #ededed;
 }
-.mega-menu .dropdown-menu > .row > .column > .active > a, .mega-menu .dropdown-menu > .row > .column > .active > a:hover, .mega-menu .dropdown-menu > .row > .column > .active > a:focus {
+.mega-menu .dropdown-menu > .row > .column .active a, .mega-menu .dropdown-menu > .row > .column .active a:hover, .mega-menu .dropdown-menu > .row > .column .active a:focus,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column .active a,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column .active a:hover,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column .active a:focus {
   background-color: black;
   color: #ededed;
 }
