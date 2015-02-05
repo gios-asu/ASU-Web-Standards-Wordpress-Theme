@@ -309,7 +309,7 @@ function asu_webstandards_favicons() {
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="<?php echo bloginfo('name'); ?>"/>
+  <meta name="application-name" content="<?php echo bloginfo( 'name' ); ?>"/>
   <meta name="msapplication-TileColor" content="#FFFFFF" />
   <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-144x144.png" />
   <meta name="msapplication-square70x70logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-70x70.png" />
