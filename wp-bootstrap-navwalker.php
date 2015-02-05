@@ -24,8 +24,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     $indent = str_repeat( "\t", $depth );
 
     if ( 0 == $depth ) {
-      $output .= "$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
-    }
+      $output .= "$indent<ul role=\"menu\" class=\" dropdown-menu\">\n"; }
 
     // if the depth is not 0 and args has children, then add a row
     if ( $args->children_has_children ) {
@@ -35,13 +34,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $output .= '<div class="row">' . "\n";
       $output .= '<div class="column col-md-'  . $columns . ' vertical-border-right">' . "\n";
       $output .= '<ul>';
-      $this->mega_menu_flag = true;
+      $this->mega_menu_flag = $depth;
     }
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
-    if ( $this->mega_menu_flag ) {
-      $output .= "\n</div>\n</div>\n</li>\n";
+    if ( $depth === $this->mega_menu_flag ) {
+      $output .= "\n</div>\n</div>\n</li>\n</ul>";
       $this->mega_menu_flag = false;
     } else if ( 0 == $depth ) {
       $output .= "</ul>\n";
@@ -69,13 +68,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
      * comparison that is not case sensitive. The strcasecmp() function returns
      * a 0 if the strings are equal.
      */
-    if ( 0 == strcasecmp( $item->attr_title, 'divider' )  && 1 === $depth ) {
+    if ( 0 == strcasecmp( $item->attr_title, 'divider' ) &&  1 === $depth ) {
       $output .= $indent . '<li role="presentation" class="divider">';
-    } else if ( 0 == strcasecmp( $item->title, 'divider' )  && 1 === $depth  ) {
+    } else if ( 0 == strcasecmp( $item->title, 'divider' ) &&  1 === $depth ) {
       $output .= $indent . '<li role="presentation" class="divider">';
-    } else if ( 0 == strcasecmp( $item->attr_title, 'dropdown-header' )  && 1 === $depth ) {
+    } else if ( 0 == strcasecmp( $item->attr_title, 'dropdown-header' ) && 1 === $depth ) {
       $output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
-    } else if ( 0 == strcasecmp( $item->attr_title, 'disabled' )  ) {
+    } else if ( 0 == strcasecmp( $item->attr_title, 'disabled' ) ) {
       $output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
     } else {
       $class_names = $value = '';
@@ -91,12 +90,10 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
       if ( $args->has_children ) {
-        $class_names .= ' dropdown';
-      }
+        $class_names .= ' dropdown'; }
 
       if ( in_array( 'current-menu-item', $classes ) ) {
-        $class_names .= ' active';
-      }
+        $class_names .= ' active'; }
 
       $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
@@ -111,16 +108,15 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         $columns = floor( 12.0 / $args->number_of_siblings );
 
         if ( $args->not_last ) {
-          $line = 'vertical-border-right';
-        } else {
-          $line = '';
-        }
+          $line = 'vertical-border-right'; }
+        else {
+          $line = ''; }
 
         $output .= "</ul>\n</div>\n<div class='column col-md-{$columns} $line'>\n<ul>\n";
       }
 
       // Override classes w/the dropdown title class if we are a child that has children
-      if ( 1 === $depth&& $args->has_children ) {
+      if ( 1 === $depth && $args->has_children ) {
         $class_names = ' class="dropdown-title"';
       }
 
@@ -168,10 +164,9 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
        * property is NOT null we apply it as the class name for the glyphicon.
        */
       if ( ! empty( $item->attr_title ) ) {
-        $item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
-      } else {
-        $item_output .= '<a'. $attributes .'>';
-      }
+        $item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;'; }
+      else {
+        $item_output .= '<a'. $attributes .'>'; }
 
       $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
       $item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
@@ -186,13 +181,12 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
   }
 
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-    if ( 1 === $depth  && $args->depth > 2 ) {
+    if ( 1 === $depth && $args->depth > 2 ) {
       return;
     }
 
-    $output .= "</li><!-- end_el $depth -->\n";
+    $output .= "</li>\n";
   }
-
   /**
    * Traverse elements to create list from elements.
    *
@@ -215,12 +209,11 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
    */
   public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
     if ( ! $element ) {
-      return;
-    }
+      return; }
 
-    $id_field = $this->db_fields['id'];
+        $id_field = $this->db_fields['id'];
 
-    // Display this element.
+        // Display this element.
     if ( is_object( $args[0] ) ) {
       $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
       $children_has_children = false;
@@ -260,7 +253,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       }
     }
 
-    parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
   }
 
   /**
@@ -289,12 +282,10 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         $fb_output = '<' . $container;
 
         if ( $container_id ) {
-          $fb_output .= ' id="' . $container_id . '"';
-        }
+          $fb_output .= ' id="' . $container_id . '"'; }
 
         if ( $container_class ) {
-          $fb_output .= ' class="' . $container_class . '"';
-        }
+          $fb_output .= ' class="' . $container_class . '"'; }
 
         $fb_output .= '>';
       }
@@ -302,24 +293,19 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $fb_output .= '<ul';
 
       if ( $menu_id ) {
-        $fb_output .= ' id="' . $menu_id . '"';
-      }
+        $fb_output .= ' id="' . $menu_id . '"'; }
 
       if ( $menu_class ) {
-        $fb_output .= ' class="' . $menu_class . '"';
-      }
+        $fb_output .= ' class="' . $menu_class . '"'; }
 
       $fb_output .= '>';
       $fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
       $fb_output .= '</ul>';
 
       if ( $container ) {
-        $fb_output .= '</' . $container . '>';
-      }
+        $fb_output .= '</' . $container . '>'; }
 
-      // @codingStandardsIgnoreStart
-      echo $fb_output;
-      // @codingStandardsIgnoreEnd
+      echo wp_kses( $fb_output );
     }
   }
 }

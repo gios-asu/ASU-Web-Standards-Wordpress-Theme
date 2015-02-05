@@ -2774,6 +2774,10 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
     width: 100%;
   }
 }
+.mega-menu .dropdown-menu > .row > .column ul,
+.mega-menu .dropdown-menu > .li-row-container > .row > .column ul {
+  padding-left: 0;
+}
 .mega-menu .dropdown-menu > .row > .column li,
 .mega-menu .dropdown-menu > .li-row-container > .row > .column li {
   list-style: none;
