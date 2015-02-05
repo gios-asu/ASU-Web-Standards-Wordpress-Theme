@@ -19,10 +19,11 @@ $custom_fields = get_post_custom();
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
+
 						  <header class="entry-header">
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								<div class="entry-meta">
-									<?php wptemplate_gios_v1_posted_on(); ?>
+									<?php asu_webstandards_posted_on(); ?>
 								</div><!-- .entry-meta -->
 							</header><!-- .entry-header -->
 							<?php 
@@ -30,7 +31,8 @@ $custom_fields = get_post_custom();
 									the_post(); 
 
 									get_template_part( 'content', 'single' );
-									wptemplate_gios_v1_post_nav();
+
+									asu_webstandards_post_nav();
 								}
 								?>
             </div>
