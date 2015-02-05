@@ -23,8 +23,9 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
   public function start_lvl( &$output, $depth = 0, $args = array() ) {
     $indent = str_repeat( "\t", $depth );
 
-    if ( $depth == 0 )
+    if ( 0 == $depth ) {
       $output .= "$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+    }
 
     // if the depth is not 0 and args has children, then add a row
     if ( $args->children_has_children ) {
@@ -42,7 +43,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     if ( $this->mega_menu_flag ) {
       $output .= "\n</div>\n</div>\n</li>\n";
       $this->mega_menu_flag = false;
-    } else if ( $depth == 0 ) {
+    } else if ( 0 == $depth ) {
       $output .= "</ul>\n";
     }
   }
@@ -68,13 +69,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
      * comparison that is not case sensitive. The strcasecmp() function returns
      * a 0 if the strings are equal.
      */
-    if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
+    if ( 0 == strcasecmp( $item->attr_title, 'divider' )  && 1 === $depth ) {
       $output .= $indent . '<li role="presentation" class="divider">';
-    } else if ( strcasecmp( $item->title, 'divider' ) == 0 && $depth === 1 ) {
+    } else if ( 0 == strcasecmp( $item->title, 'divider' )  && 1 === $depth  ) {
       $output .= $indent . '<li role="presentation" class="divider">';
-    } else if ( strcasecmp( $item->attr_title, 'dropdown-header' ) == 0 && $depth === 1 ) {
+    } else if ( 0 == strcasecmp( $item->attr_title, 'dropdown-header' )  && 1 === $depth ) {
       $output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
-    } else if ( strcasecmp( $item->attr_title, 'disabled' ) == 0 ) {
+    } else if ( 0 == strcasecmp( $item->attr_title, 'disabled' )  ) {
       $output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
     } else {
       $class_names = $value = '';
@@ -89,11 +90,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
       $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
-      if ( $args->has_children )
+      if ( $args->has_children ) {
         $class_names .= ' dropdown';
+      }
 
-      if ( in_array( 'current-menu-item', $classes ) )
+      if ( in_array( 'current-menu-item', $classes ) ) {
         $class_names .= ' active';
+      }
 
       $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
@@ -104,26 +107,27 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
        * Columns for mega menu
        * =====================
        */
-      if ( $depth === 1 && $args->has_children && $args->not_first ) {
+      if ( 1 === $depth  && $args->has_children && $args->not_first ) {
         $columns = floor( 12.0 / $args->number_of_siblings );
 
-        if ( $args->not_last )
+        if ( $args->not_last ) {
           $line = 'vertical-border-right';
-        else
+        } else {
           $line = '';
+        }
 
         $output .= "</ul>\n</div>\n<div class='column col-md-{$columns} $line'>\n<ul>\n";
       }
 
       // Override classes w/the dropdown title class if we are a child that has children
-      if ( $depth === 1 && $args->has_children ) {
+      if ( 1 === $depth&& $args->has_children ) {
         $class_names = ' class="dropdown-title"';
       }
 
       $output .= $indent . '<li ' . $id . $value . $class_names .' >';
 
       // if we are a child that has children
-      if ( $depth === 1 && $args->has_children ) {
+      if ( 1 === $depth && $args->has_children ) {
         $output .= apply_filters( 'the_title', $item->title, $item->ID );
         $output .= "</li>\n";
         return;
@@ -135,7 +139,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $atts['rel']    = ! empty( $item->xfn )   ? $item->xfn  : '';
 
       // If item has_children add atts to a.
-      if ( $args->has_children && $depth === 0 ) {
+      if ( $args->has_children && 0 === $depth  ) {
         $atts['href']          = '#';
         $atts['data-toggle']   = 'dropdown';
         $atts['class']         = 'dropdown-toggle';
@@ -163,10 +167,11 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
        * if there is a value in the attr_title property. If the attr_title
        * property is NOT null we apply it as the class name for the glyphicon.
        */
-      if ( ! empty( $item->attr_title ) )
+      if ( ! empty( $item->attr_title ) ) {
         $item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
-      else
+      } else {
         $item_output .= '<a'. $attributes .'>';
+      }
 
       $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
       $item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
@@ -181,12 +186,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
   }
 
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-    if ( $depth === 1 && $args->depth > 2 ) {
+    if ( 1 === $depth  && $args->depth > 2 ) {
       return;
     }
 
     $output .= "</li><!-- end_el $depth -->\n";
   }
+
   /**
    * Traverse elements to create list from elements.
    *
@@ -208,53 +214,54 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
    * @return null Null on failure with no changes to parameters.
    */
   public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
-        if ( ! $element )
-          return;
+    if ( ! $element ) {
+      return;
+    }
 
-        $id_field = $this->db_fields['id'];
+    $id_field = $this->db_fields['id'];
 
-        // Display this element.
-        if ( is_object( $args[0] ) ) {
-          $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
-          $children_has_children = false;
-          $number_of_children    = 0;
+    // Display this element.
+    if ( is_object( $args[0] ) ) {
+      $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+      $children_has_children = false;
+      $number_of_children    = 0;
 
-          if ( $args[0]->has_children ) {
-            $number_of_children = count( $children_elements[ $element->$id_field ] );
+      if ( $args[0]->has_children ) {
+        $number_of_children = count( $children_elements[ $element->$id_field ] );
 
-            foreach ( $children_elements[ $element->$id_field ] as $_ => $child ) {
-              if ( in_array( 'menu-item-has-children', $child->classes ) ) {
-                $children_has_children = true;
-                break;
-              }
-            }
+        foreach ( $children_elements[ $element->$id_field ] as $_ => $child ) {
+          if ( in_array( 'menu-item-has-children', $child->classes ) ) {
+            $children_has_children = true;
+            break;
           }
+        }
+      }
 
-          $args[0]->children_has_children = $children_has_children;
-          $args[0]->number_of_children    = $number_of_children;
+      $args[0]->children_has_children = $children_has_children;
+      $args[0]->number_of_children    = $number_of_children;
 
-          // Determine if we are a child
-          $parent_id = $element->menu_item_parent;
-          if ( array_key_exists( $parent_id, $children_elements ) ) {
-            $parent_array = $children_elements[ $parent_id ];
-            $my_id = $element->ID;
-            $index = -1;
+      // Determine if we are a child
+      $parent_id = $element->menu_item_parent;
+      if ( array_key_exists( $parent_id, $children_elements ) ) {
+        $parent_array = $children_elements[ $parent_id ];
+        $my_id = $element->ID;
+        $index = -1;
 
-            for ( $i = 0; $i < count( $parent_array ); $i++ ) {
-              if ( $my_id === $parent_array[$i]->ID ) {
-                $index = $i;
-                break;
-              }
-            }
-
-            $args[0]->not_first = ! ( $i == 0 );
-            $args[0]->not_last  = ! ( $i === count( $parent_array ) - 1 );
-            $args[0]->number_of_siblings = count( $parent_array );
+        for ( $i = 0; $i < count( $parent_array ); $i++ ) {
+          if ( $my_id === $parent_array[ $i ]->ID ) {
+            $index = $i;
+            break;
           }
         }
 
-        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+        $args[0]->not_first = ! ( $i == 0 );
+        $args[0]->not_last  = ! ( $i === count( $parent_array ) - 1 );
+        $args[0]->number_of_siblings = count( $parent_array );
+      }
     }
+
+    parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+  }
 
   /**
    * Menu Fallback
@@ -269,38 +276,50 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
    */
   public static function fallback( $args ) {
     if ( current_user_can( 'manage_options' ) ) {
+
+      /** @todo: extract() usage is highly discouraged, due to the complexity and
+       * unintended issues it might cause. */
+      // @codingStandardsIgnoreStart
       extract( $args );
+      // @codingStandardsIgnoreEnd
 
       $fb_output = null;
 
       if ( $container ) {
         $fb_output = '<' . $container;
 
-        if ( $container_id )
+        if ( $container_id ) {
           $fb_output .= ' id="' . $container_id . '"';
+        }
 
-        if ( $container_class )
+        if ( $container_class ) {
           $fb_output .= ' class="' . $container_class . '"';
+        }
 
         $fb_output .= '>';
       }
 
       $fb_output .= '<ul';
 
-      if ( $menu_id )
+      if ( $menu_id ) {
         $fb_output .= ' id="' . $menu_id . '"';
+      }
 
-      if ( $menu_class )
+      if ( $menu_class ) {
         $fb_output .= ' class="' . $menu_class . '"';
+      }
 
       $fb_output .= '>';
       $fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
       $fb_output .= '</ul>';
 
-      if ( $container )
+      if ( $container ) {
         $fb_output .= '</' . $container . '>';
+      }
 
+      // @codingStandardsIgnoreStart
       echo $fb_output;
+      // @codingStandardsIgnoreEnd
     }
   }
 }
