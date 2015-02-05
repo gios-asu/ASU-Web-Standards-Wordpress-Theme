@@ -11,6 +11,7 @@
  */
 
 class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+  private $mega_menu_flag = false;
 
   /**
    * @see Walker::start_lvl()
@@ -33,11 +34,15 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $output .= '<div class="row">' . "\n";
       $output .= '<div class="column col-md-'  . $columns . ' vertical-border-right">' . "\n";
       $output .= '<ul>';
+      $this->mega_menu_flag = $depth;
     }
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
-    if ( $depth == 0 ) {
+    if ( $depth === $this->mega_menu_flag ) {
+      $output .= "\n</div>\n</div>\n</li>\n</ul>";
+      $this->mega_menu_flag = false;
+    } else if ( $depth == 0 ) {
       $output .= "</ul>\n";
     }
   }
@@ -171,7 +176,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         $item_output .= "</li>\n";
       }
 
-      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args ) . "\n";
+      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth + 1, $args ) . "\n";
     }
   }
 
@@ -180,17 +185,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       return;
     }
 
-    if ( $depth === 0 ) {
-      if ( $args->children_has_children ) {
-        $output .= "\n</div>\n</div>\n</li>\n</ul>\n";  
-      } else {
-        $output .= "\n</li>";
-      }
-      
-      return;
-    }
-
-    $output .= "</li><!-- end_el $depth -->\n";
+    $output .= "</li>\n";
   }
   /**
    * Traverse elements to create list from elements.

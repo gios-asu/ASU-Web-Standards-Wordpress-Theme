@@ -5,30 +5,45 @@
  * @package asu-wordpress-web-standards-theme
  */
 
-get_header(); ?>
+get_header(); 
 
-<div id="primary" class="content-area col-sm-8 col-sm-offset-2">
-	<?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-	<main id="main" class="site-main" role="main">
+$custom_fields = get_post_custom();
+?>
+<div id="main-wrapper" class="clearfix">
+  <div id="main" class="clearfix">
+    <?php echo do_shortcode( '[page_feature]' ); ?>
 
-	  <header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <div id="content" class="site-content">
+      <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
+      <main id="main" class="site-main space-top-md" role="main">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8">
 
-			<div class="entry-meta">
-				<?php asu_webstandards_posted_on(); ?>
-			</div><!-- .entry-meta -->
-		</header><!-- .entry-header -->
-		<?php 
-			while ( have_posts() ) { 
-				the_post(); 
+						  <header class="entry-header">
+								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+								<div class="entry-meta">
+									<?php asu_webstandards_posted_on(); ?>
+								</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+							<?php 
+								while ( have_posts() ) { 
+									the_post(); 
 
-				get_template_part( 'content', 'single' );
+									get_template_part( 'content', 'single' );
 
-				asu_webstandards_post_nav();
-			}
-			?>
-	</main><!-- #main -->
-</div><!-- #primary -->
+									asu_webstandards_post_nav();
+								}
+								?>
+            </div>
+            <div class="col-sm-4 hidden-xs">
+              <?php get_sidebar(); ?>
+            </div>
+          </div>
+        </div>
+      </main><!-- #main -->
+    </div>
+  </div><!-- #main -->
+</div><!-- #main-wrapper -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
