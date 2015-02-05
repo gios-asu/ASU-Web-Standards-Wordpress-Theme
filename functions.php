@@ -85,7 +85,7 @@ function asu_wordpress_setup() {
   add_theme_support(
       'custom-background',
       apply_filters(
-          'wptemplate_gios_v1_custom_background_args', 
+          'asu_webstandards_custom_background_args', 
           array(
             'default-color' => 'ffffff',
             'default-image' => '',
@@ -118,7 +118,7 @@ add_action( 'after_setup_theme', 'asu_wordpress_setup' );
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function wptemplate_gios_v1_widgets_init() {
+function asu_webstandards_widgets_init() {
   register_sidebar(
       array(
         'name'          => __( 'Sidebar', 'asu-wordpress-web-standards-theme' ),
@@ -164,24 +164,27 @@ function wptemplate_gios_v1_widgets_init() {
       )
   );
 } 
-add_action( 'widgets_init', 'wptemplate_gios_v1_widgets_init' );
+add_action( 'widgets_init', 'asu_webstandards_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function wptemplate_gios_v1_scripts() {
+function asu_webstandards_scripts() {
   wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_enqueue_script( 'smoothscroll' );
 
+  // Wordpress provides jquery, but we enque our own mainly so we include it in the footer and control the version. 
+  wp_deregister_script( 'jquery' );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.11.2.min.js', array(), '1.11.2', true );
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/ js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.7', 'all' );
   wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.7', 'all' );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.7', 'all' );
-  wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', 'all' );
-  wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', 'all' );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.7', true );
+  wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', true );
+  wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', true );
   
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
@@ -204,7 +207,7 @@ function wptemplate_gios_v1_scripts() {
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
   /** asu header*/
-  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.js', array() , '4.0', false );
+  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.js', array() , '4.0', true );
   wp_enqueue_script( 'asu-header' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
   wp_enqueue_style( 'asu-header-css' );
@@ -217,7 +220,7 @@ function wptemplate_gios_v1_scripts() {
     wp_enqueue_script( 'comment-reply' );
   }
 }
-add_action( 'wp_enqueue_scripts', 'wptemplate_gios_v1_scripts' );
+add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
 
 /**
  * This line will prevent WordPress from automatically inserting HTML 
@@ -283,4 +286,37 @@ function change_default_template_name( $translation, $text, $domain ) {
     }
     return $translation;
 }
-add_filter( 'gettext', 'change_default_template_name', 10, 3 );  
+add_filter( 'gettext', 'change_default_template_name', 10, 3 );
+
+
+add_action( 'wp_head', 'asu_webstandards_favicons' );
+
+/** 
+ * asu_webstandards_favicons header hook, provides links to the favicons from the asu-web-standards
+ */
+function asu_webstandards_favicons() {
+  ?>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="<?php echo bloginfo( 'name' ); ?>"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-310x310.png" />
+  <?php
+}
+
+

@@ -19,7 +19,6 @@ $custom_fields = get_post_custom();
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
-
 						  <header class="entry-header">
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								<div class="entry-meta">
@@ -31,7 +30,6 @@ $custom_fields = get_post_custom();
 									the_post(); 
 
 									get_template_part( 'content', 'single' );
-
 									wptemplate_gios_v1_post_nav();
 								}
 								?>

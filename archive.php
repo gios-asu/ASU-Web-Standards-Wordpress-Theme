@@ -100,7 +100,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php  wptemplate_gios_v1_paging_nav(); ?>
+			<?php  asu_webstandards_paging_nav(); ?>
 
 		<?php else : ?>
 
