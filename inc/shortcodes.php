@@ -339,7 +339,12 @@ if ( ! function_exists( 'asu_breadcrumbs' ) ):
 function asu_breadcrumbs() {
   $markup = '';
 
-  if ( function_exists( 'yoast_breadcrumb' ) && !is_home() && !is_front_page() ) {
+  // The home page is considered index.php which is used to render the blog.
+  // Sometimes the home page is NOT the front page, which is the case with 
+  // most of the sites that will use this theme.  Since we only want breadcrumbs
+  // to not show up on the front page, we will not check for is_home as most
+  // online discussions would suggest.
+  if ( function_exists( 'yoast_breadcrumb' ) /* && !is_home() */ && !is_front_page() ) {
     $markup  = '<div class="asu-breadcrumbs">';
     $markup .= '  <div class="container">';
     $markup .= '    <div class="row">';
