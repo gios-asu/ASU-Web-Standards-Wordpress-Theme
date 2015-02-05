@@ -34,13 +34,13 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $output .= '<div class="row">' . "\n";
       $output .= '<div class="column col-md-'  . $columns . ' vertical-border-right">' . "\n";
       $output .= '<ul>';
-      $this->mega_menu_flag = true;
+      $this->mega_menu_flag = $depth;
     }
   }
 
   public function end_lvl( &$output, $depth = 0, $args = array() ) {
-    if ( $this->mega_menu_flag ) {
-      $output .= "\n</div>\n</div>\n</li>\n";
+    if ( $depth === $this->mega_menu_flag ) {
+      $output .= "\n</div>\n</div>\n</li>\n</ul>";
       $this->mega_menu_flag = false;
     } else if ( $depth == 0 ) {
       $output .= "</ul>\n";
@@ -185,7 +185,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       return;
     }
 
-    $output .= "</li><!-- end_el $depth -->\n";
+    $output .= "</li>\n";
   }
   /**
    * Traverse elements to create list from elements.
