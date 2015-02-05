@@ -9,37 +9,37 @@
 /**
  * Setup the WordPress core custom header feature.
  *
- * @uses wptemplate_gios_v1_header_style()
- * @uses wptemplate_gios_v1_admin_header_style()
- * @uses wptemplate_gios_v1_admin_header_image()
+ * @uses asu_webstandards_header_style()
+ * @uses asu_webstandards_admin_header_style()
+ * @uses asu_webstandards_admin_header_image()
  */
-function wptemplate_gios_v1_custom_header_setup() {
+function asu_webstandards_custom_header_setup() {
   add_theme_support(
       'custom-header', 
       apply_filters(
-          'wptemplate_gios_v1_custom_header_args', 
+          'asu_webstandards_custom_header_args', 
           array(
             'default-image'          => '',
             'default-text-color'     => '000000',
             'width'                  => 1000,
             'height'                 => 250,
             'flex-height'            => true,
-            'wp-head-callback'       => 'wptemplate_gios_v1_header_style',
-            'admin-head-callback'    => 'wptemplate_gios_v1_admin_header_style',
-            'admin-preview-callback' => 'wptemplate_gios_v1_admin_header_image',
+            'wp-head-callback'       => 'asu_webstandards_header_style',
+            'admin-head-callback'    => 'asu_webstandards_admin_header_style',
+            'admin-preview-callback' => 'asu_webstandards_admin_header_image',
           )
       ) 
   );
 }
-add_action( 'after_setup_theme', 'wptemplate_gios_v1_custom_header_setup' );
+add_action( 'after_setup_theme', 'asu_webstandards_custom_header_setup' );
 
-if ( ! function_exists( 'wptemplate_gios_v1_header_style' ) ) :
+if ( ! function_exists( 'asu_webstandards_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see wptemplate_gios_v1_custom_header_setup().
+ * @see asu_webstandards_custom_header_setup().
  */
-function wptemplate_gios_v1_header_style() {
+function asu_webstandards_header_style() {
   $header_text_color = get_header_textcolor();
 
   // If no custom options for text are set, let's bail
@@ -72,15 +72,15 @@ function wptemplate_gios_v1_header_style() {
   </style>
   <?php
 }
-endif; // wptemplate_gios_v1_header_style
+endif; // asu_webstandards_header_style
 
-if ( ! function_exists( 'wptemplate_gios_v1_admin_header_style' ) ) :
+if ( ! function_exists( 'asu_webstandards_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see wptemplate_gios_v1_custom_header_setup().
+ * @see asu_webstandards_custom_header_setup().
  */
-function wptemplate_gios_v1_admin_header_style() {
+function asu_webstandards_admin_header_style() {
 ?>
   <style type="text/css">
     .appearance_page_custom-header #headimg {
@@ -100,15 +100,15 @@ function wptemplate_gios_v1_admin_header_style() {
   </style>
 <?php
 }
-endif; // wptemplate_gios_v1_admin_header_style
+endif; // asu_webstandards_admin_header_style
 
-if ( ! function_exists( 'wptemplate_gios_v1_admin_header_image' ) ) :
+if ( ! function_exists( 'asu_webstandards_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see wptemplate_gios_v1_custom_header_setup().
+ * @see asu_webstandards_custom_header_setup().
  */
-function wptemplate_gios_v1_admin_header_image() {
+function asu_webstandards_admin_header_image() {
   $style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
   <div id="headimg">
@@ -120,4 +120,4 @@ function wptemplate_gios_v1_admin_header_image() {
   </div>
 <?php
 }
-endif; // wptemplate_gios_v1_admin_header_image
+endif; // asu_webstandards_admin_header_image

@@ -15,7 +15,7 @@ get_header(); ?>
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 			<div class="entry-meta">
-				<?php wptemplate_gios_v1_posted_on(); ?>
+				<?php asu_webstandards_posted_on(); ?>
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<?php 
@@ -24,7 +24,7 @@ get_header(); ?>
 
 				get_template_part( 'content', 'single' );
 
-				wptemplate_gios_v1_post_nav();
+				asu_webstandards_post_nav();
 			}
 			?>
 	</main><!-- #main -->
