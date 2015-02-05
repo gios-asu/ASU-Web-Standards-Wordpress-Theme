@@ -1,5 +1,7 @@
 {
-    "require-dev": {
-        "squizlabs/php_codesniffer": "1.*"
-    }
+  "name": "ASU Web Standards Wordpress Theme",
+  "version": "0.0.1",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  }
 }

@@ -2,7 +2,7 @@
 
 /**
  * Class Name: wp_bootstrap_footer_navwalker
- * 
+ *
  * @package asu-wordpress-web-standards
  */
 
@@ -97,7 +97,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-    
+
     if ( ! $is_top_level ) {
       $item_output .= '</a>';
     }
@@ -128,7 +128,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
     if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
       return;
-    }   
+    }
 
     $atts['href'] = ! empty( $item->url ) ? $item->url : '';
     $isTopLevel   = $atts['href'] === null ||
@@ -136,7 +136,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
                     $atts['href'] === '#';
 
     if ( ! $isTopLevel ) {
-      $output .= "</li>\n";  
+      $output .= "</li>\n";
     }
     else {
       $output .= "</div>\n";

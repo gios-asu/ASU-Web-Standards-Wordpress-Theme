@@ -22,7 +22,8 @@ module.exports = function (grunt) {
                 dir: ['../inc/*.php']
             },
             options: {
-                bin: 'vendor/bin/phpcs',
+                bin: 'vendor/bin/phpcs', 
+                // bin: 'vendor/bin/phpcbf',
                 standard: 'Wordpress',
                 ignore: '../header-asu.php'
             }

@@ -6,11 +6,11 @@
  *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel
- * 
+ *
  * @package asu-wordpress-web-standards
  */
 
-$homeUrl = esc_url( home_url( '/' ) ); 
+$homeUrl = esc_url( home_url( '/' ) );
 $customFields = get_post_custom();
 
 $ping_back = get_bloginfo( 'pingback_url' );
@@ -46,20 +46,20 @@ $ping_back = get_bloginfo( 'pingback_url' );
                 $cOptions = get_option( 'wordpress_asu_theme_options' );
 
                 // Do we have a parent org?
-                if ( isset( $cOptions ) && is_array( $cOptions ) &&
+              if ( isset( $cOptions ) && is_array( $cOptions ) &&
                      array_key_exists( 'org', $cOptions ) &&
                      $cOptions['org'] !== '' ) {
-                  // Does the parent org have a link?
-                  if ( array_key_exists( 'org_link', $cOptions ) &&
-                       $cOptions['org_link'] !== '' ) {
-                    $wrapper = '<a href="%1$s">%2$s</a>';
+                // Does the parent org have a link?
+                if ( array_key_exists( 'org_link', $cOptions ) &&
+                     $cOptions['org_link'] !== '' ) {
+                  $wrapper = '<a href="%1$s">%2$s</a>';
 
-                    $wrapper = sprintf( $wrapper, $cOptions['org_link'], '%1$s' );
-                    $prefix  = sprintf( $prefix, $wrapper );
-                  }
-
-                  echo sprintf( $prefix, $cOptions['org'] );
+                  $wrapper = sprintf( $wrapper, $cOptions['org_link'], '%1$s' );
+                  $prefix  = sprintf( $prefix, $wrapper );
                 }
+
+                echo sprintf( $prefix, $cOptions['org'] );
+              }
               ?>
               <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
             </h1>
@@ -80,7 +80,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
             </div>
             <?php
 
-            
+
             $wrapper  = '<ul id="%1$s" class="%2$s">';
             $wrapper .= '<li>';
             $wrapper .= "<a href=\"$homeUrl\" title=\"Home\">";
@@ -89,7 +89,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
             $wrapper .= '</li>';
             $wrapper .= '%3$s';
             $wrapper .= '</ul>';
-            
+
             wp_nav_menu(
                 array(
                   'menu'              => 'primary',

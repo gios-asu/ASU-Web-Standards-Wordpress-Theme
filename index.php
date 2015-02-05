@@ -6,17 +6,17 @@
  *
  * This is the template that displays blog pages.
  *
- * 
- * 
+ *
+ *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel
- * 
+ *
  * @package asu-wordpress-web-standards
  */
 
 include 'helpers/mime-types-helper.php';
 
-get_header(); 
+get_header();
 
 $custom_fields = get_post_custom();
 ?>
@@ -30,16 +30,16 @@ $custom_fields = get_post_custom();
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
-              <?php 
-                while ( have_posts() ) {
-                  the_post();
-                  get_template_part( 'content', get_post_format() );
+              <?php
+              while ( have_posts() ) {
+                the_post();
+                get_template_part( 'content', get_post_format() );
 
-                  // If comments are open or we have at least one comment, load up the comment template
-                  if ( comments_open() || '0' != get_comments_number() ) :
-                    comments_template();
+                // If comments are open or we have at least one comment, load up the comment template
+                if ( comments_open() || '0' != get_comments_number() ) :
+                  comments_template();
                   endif;
-                } // end of the loop. 
+              } // end of the loop.
               ?>
             </div>
             <div class="col-sm-4 hidden-xs">
