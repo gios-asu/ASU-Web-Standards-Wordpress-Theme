@@ -281,7 +281,7 @@ add_filter( 'wp_nav_menu', 'add_first_and_last' );
 
 
 function change_default_template_name( $translation, $text, $domain ) {
-  if ( $text == 'Default Template' ) {
+  if ( 'Default Template' == $text ) {
       return __( 'Containered Template', 'asu-wordpress-web-standards-theme' );
   }
     return $translation;

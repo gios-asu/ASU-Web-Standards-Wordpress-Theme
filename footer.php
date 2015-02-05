@@ -42,9 +42,9 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             if ( isset( $cOptions ) &&
                    array_key_exists( 'logo', $cOptions ) &&
                    $cOptions['logo'] !== '' ) {
-              echo sprintf( $logo, $cOptions['logo'] );
+              echo wp_kses( sprintf( $logo, $cOptions['logo'] ) );
             } else {
-              echo '<h2>' . get_bloginfo( 'description' ) . '</h2>';
+              echo '<h2>' .wp_kses( get_bloginfo( 'description' ) ) . '</h2>';
             }
             ?>
             
@@ -95,7 +95,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'address', $cOptions ) &&
                      $cOptions['address'] !== '' ) {
-                echo nl2br( $cOptions['address'] );
+                echo wp_kses( nl2br( $cOptions['address'] ) );
               }
               ?><br/>
               <?php
@@ -108,7 +108,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'phone', $cOptions ) &&
                      $cOptions['phone'] !== '' ) {
-                echo sprintf( $phone, $cOptions['phone'] );
+                echo wp_kses( sprintf( $phone, $cOptions['phone'] ) );
               }
               ?>
               <?php
@@ -121,7 +121,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'fax', $cOptions ) &&
                      $cOptions['fax'] !== '' ) {
-                echo sprintf( $fax, $cOptions['fax'] );
+                echo wp_kses( sprintf( $fax, $cOptions['fax'] ) );
               }
               ?>
             </address>
@@ -168,7 +168,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 }
               }
 
-              echo sprintf( $contactURL, $type, $contact, $additional );
+              echo wp_kses( sprintf( $contactURL, $type, $contact, $additional ) );
             }
 
             ?>
@@ -183,7 +183,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'facebook', $cOptions ) &&
                      $cOptions['facebook'] !== '' ) {
-                echo sprintf( $fb, $cOptions['facebook'] );
+                echo wp_kses( sprintf( $fb, $cOptions['facebook'] ) );
               }
               ?>
               <?php
@@ -196,7 +196,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'twitter', $cOptions ) &&
                      $cOptions['twitter'] !== '' ) {
-                echo sprintf( $twitter, $cOptions['twitter'] );
+                echo wp_kses( sprintf( $twitter, $cOptions['twitter'] ) );
               }
               ?>
               <?php
@@ -209,7 +209,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'google_plus', $cOptions ) &&
                      $cOptions['google_plus'] !== '' ) {
-                echo sprintf( $googlePlus, $cOptions['google_plus'] );
+                echo wp_kses( sprintf( $googlePlus, $cOptions['google_plus'] ) );
               }
 
                 //  =============================
@@ -221,7 +221,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'linkedin', $cOptions ) &&
                      $cOptions['linkedin'] !== '' ) {
-                echo sprintf( $linkedIn, $cOptions['linkedin'] );
+                echo wp_kses( sprintf( $linkedIn, $cOptions['linkedin'] ) );
               }
 
                 //  =============================
@@ -233,7 +233,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'youtube', $cOptions ) &&
                      $cOptions['youtube'] !== '' ) {
-                echo sprintf( $youtube, $cOptions['youtube'] );
+                echo wp_kses( sprintf( $youtube, $cOptions['youtube'] ) );
               }
 
                 //  =============================
@@ -245,7 +245,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'vimeo', $cOptions ) &&
                      $cOptions['vimeo'] !== '' ) {
-                echo sprintf( $vimeo, $cOptions['vimeo'] );
+                echo wp_kses( sprintf( $vimeo, $cOptions['vimeo'] ) );
               }
 
                 //  =============================
@@ -257,7 +257,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'instagram', $cOptions ) &&
                      $cOptions['instagram'] !== '' ) {
-                echo sprintf( $instagram, $cOptions['instagram'] );
+                echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ) );
               }
 
                 //  =============================
@@ -269,7 +269,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'rss', $cOptions ) &&
                      $cOptions['rss'] !== '' ) {
-                echo sprintf( $rss, $cOptions['rss'] );
+                echo wp_kses( sprintf( $rss, $cOptions['rss'] ) );
               }
               ?>
             </ul>
@@ -283,7 +283,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             if ( isset( $cOptions ) &&
                    array_key_exists( 'contribute', $cOptions ) &&
                    $cOptions['contribute'] !== '' ) {
-              echo sprintf( $contribute, $cOptions['contribute'] );
+              echo wp_kses( sprintf( $contribute, $cOptions['contribute'] ) );
             }
             ?>
             
