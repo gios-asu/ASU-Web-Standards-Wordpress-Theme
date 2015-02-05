@@ -18,10 +18,10 @@ get_header(); ?>
 					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
         	<div class="row">
         		<div class="col-sm-9">
-    					<?php if ( have_posts() ) : ?>
+          <?php if ( have_posts() ) : ?>
 
-								<?php 
-									while ( have_posts() ) {
+								<?php
+        while ( have_posts() ) {
 										the_post();
 
 										/**
@@ -30,17 +30,17 @@ get_header(); ?>
 										 * called content-search.php and that will be used instead.
 										 */
 										get_template_part( 'content', 'search' );
-									}
-								  the_posts_navigation(); 
-								 ?>
-							<?php else : ?>
+        }
+								  the_posts_navigation();
+          ?>
+        <?php else : ?>
 
 								<?php get_template_part( 'content', 'none' ); ?>
 
-							<?php endif; ?>
+        <?php endif; ?>
 						</div>
 						<div class="col-sm-3">
-							<?php get_sidebar(); ?>
+        <?php get_sidebar(); ?>
 						</div>
 					</div>
 				</div>
@@ -48,5 +48,5 @@ get_header(); ?>
     </div>
   </div><!-- #main -->
 </div><!-- #main-wrapper -->
-    <?php 
+    <?php
       get_footer();

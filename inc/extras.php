@@ -14,8 +14,8 @@
  * @return array
  */
 function asu_webstandards_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+  $args['show_home'] = true;
+  return $args;
 }
 add_filter( 'wp_page_menu_args', 'asu_webstandards_page_menu_args' );
 
@@ -26,12 +26,12 @@ add_filter( 'wp_page_menu_args', 'asu_webstandards_page_menu_args' );
  * @return array
  */
 function asu_webstandards_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
+  // Adds a class of group-blog to blogs with more than 1 published author.
+  if ( is_multi_author() ) {
+    $classes[] = 'group-blog';
+  }
 
-	return $classes;
+  return $classes;
 }
 add_filter( 'body_class', 'asu_webstandards_body_classes' );
 
@@ -43,47 +43,27 @@ add_filter( 'body_class', 'asu_webstandards_body_classes' );
  * @return string The filtered title.
  */
 function asu_webstandards_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
-		return $title;
-	}
+  if ( is_feed() ) {
+    return $title;
+  }
 
-	global $page, $paged;
+  global $page, $paged;
 
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
+  // Add the blog name
+  $title .= get_bloginfo( 'name', 'display' );
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
+  // Add the blog description for the home/front page.
+  $site_description = get_bloginfo( 'description', 'display' );
+  if ( $site_description && ( is_home() || is_front_page() ) ) {
+    $title .= " $sep $site_description";
+  }
 
-	// Add a page number if necessary:
-	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'asu-wordpress-web-standards-theme' ), max( $paged, $page ) );
-	}
+  // Add a page number if necessary:
+  if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+    $title .= " $sep " . sprintf( __( 'Page %s', 'asu-wordpress-web-standards-theme' ), max( $paged, $page ) );
+  }
 
-	return $title;
+  return $title;
 }
 add_filter( 'wp_title', 'asu_webstandards_wp_title', 10, 2 );
 
-/**
- * Sets the authordata global when viewing an author archive.
- *
- * This provides backwards compatibility with
- * http://core.trac.wordpress.org/changeset/25574
- *
- * It removes the need to call the_post() and rewind_posts() in an author
- * template to print information about the author.
- *
- * @global WP_Query $wp_query WordPress Query object.
- * @return void
- */
-function asu_webstandards_setup_author() {
-	global $wp_query;
-
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
-}
-add_action( 'wp', 'asu_webstandards_setup_author' );
