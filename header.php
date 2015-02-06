@@ -58,7 +58,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
                     $prefix  = sprintf( $prefix, $wrapper );
                 }
 
-                echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ) );
+                echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
               <a href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
