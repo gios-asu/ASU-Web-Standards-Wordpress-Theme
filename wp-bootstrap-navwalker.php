@@ -305,7 +305,9 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       if ( $container ) {
         $fb_output .= '</' . $container . '>'; }
 
-      echo wp_kses( $fb_output );
+      // @codingStandardsIgnoreStart
+      echo $fb_output ;
+      // @codingStandardsIgnoreEnd
     }
   }
 }

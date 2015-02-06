@@ -42,9 +42,9 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             if ( isset( $cOptions ) &&
                    array_key_exists( 'logo', $cOptions ) &&
                    $cOptions['logo'] !== '' ) {
-              echo wp_kses( sprintf( $logo, $cOptions['logo'] ) );
+              echo wp_kses( sprintf( $logo, $cOptions['logo'] ), wp_kses_allowed_html( 'post' ) );
             } else {
-              echo '<h2>' .wp_kses( get_bloginfo( 'description' ) ) . '</h2>';
+              echo '<h2>' .wp_kses( get_bloginfo( 'description' ), wp_kses_allowed_html( 'post' ) ) . '</h2>';
             }
             ?>
             
@@ -95,7 +95,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'address', $cOptions ) &&
                      $cOptions['address'] !== '' ) {
-                echo wp_kses( nl2br( $cOptions['address'] ) );
+                echo wp_kses( nl2br( $cOptions['address'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?><br/>
               <?php
@@ -108,20 +108,21 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'phone', $cOptions ) &&
                      $cOptions['phone'] !== '' ) {
-                echo wp_kses( sprintf( $phone, $cOptions['phone'] ) );
+                echo wp_kses( sprintf( $phone, $cOptions['phone'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
               <?php
                 //  =============================
                 //  = Fax                       =
                 //  =============================
-                $fax = 'Fax: <a class="phone-link" href="tel:%1$s">%1$s</a><br>';
+                //$fax = 'Fax: <a class="phone-link" href="fax:%1$s">%1$s</a><br>';
+                $fax = 'Fax: %1$s<br>';
 
                 // Do we have a fax number?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'fax', $cOptions ) &&
                      $cOptions['fax'] !== '' ) {
-                echo wp_kses( sprintf( $fax, $cOptions['fax'] ) );
+                echo wp_kses( sprintf( $fax, $cOptions['fax'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
             </address>
@@ -168,7 +169,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 }
               }
 
-              echo wp_kses( sprintf( $contactURL, $type, $contact, $additional ) );
+              echo wp_kses( sprintf( $contactURL, $type, $contact, $additional ), wp_kses_allowed_html( 'post' ) );
             }
 
             ?>
@@ -183,7 +184,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'facebook', $cOptions ) &&
                      $cOptions['facebook'] !== '' ) {
-                echo wp_kses( sprintf( $fb, $cOptions['facebook'] ) );
+                echo wp_kses( sprintf( $fb, $cOptions['facebook'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
               <?php
@@ -196,7 +197,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'twitter', $cOptions ) &&
                      $cOptions['twitter'] !== '' ) {
-                echo wp_kses( sprintf( $twitter, $cOptions['twitter'] ) );
+                echo wp_kses( sprintf( $twitter, $cOptions['twitter'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
               <?php
@@ -209,7 +210,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'google_plus', $cOptions ) &&
                      $cOptions['google_plus'] !== '' ) {
-                echo wp_kses( sprintf( $googlePlus, $cOptions['google_plus'] ) );
+                echo wp_kses( sprintf( $googlePlus, $cOptions['google_plus'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -221,7 +222,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'linkedin', $cOptions ) &&
                      $cOptions['linkedin'] !== '' ) {
-                echo wp_kses( sprintf( $linkedIn, $cOptions['linkedin'] ) );
+                echo wp_kses( sprintf( $linkedIn, $cOptions['linkedin'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -233,7 +234,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'youtube', $cOptions ) &&
                      $cOptions['youtube'] !== '' ) {
-                echo wp_kses( sprintf( $youtube, $cOptions['youtube'] ) );
+                echo wp_kses( sprintf( $youtube, $cOptions['youtube'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -245,7 +246,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'vimeo', $cOptions ) &&
                      $cOptions['vimeo'] !== '' ) {
-                echo wp_kses( sprintf( $vimeo, $cOptions['vimeo'] ) );
+                echo wp_kses( sprintf( $vimeo, $cOptions['vimeo'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -257,7 +258,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'instagram', $cOptions ) &&
                      $cOptions['instagram'] !== '' ) {
-                echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ) );
+                echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -269,7 +270,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'rss', $cOptions ) &&
                      $cOptions['rss'] !== '' ) {
-                echo wp_kses( sprintf( $rss, $cOptions['rss'] ) );
+                echo wp_kses( sprintf( $rss, $cOptions['rss'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
             </ul>
@@ -283,7 +284,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             if ( isset( $cOptions ) &&
                    array_key_exists( 'contribute', $cOptions ) &&
                    $cOptions['contribute'] !== '' ) {
-              echo wp_kses( sprintf( $contribute, $cOptions['contribute'] ) );
+              echo wp_kses( sprintf( $contribute, $cOptions['contribute'] ), wp_kses_allowed_html( 'post' ) );
             }
             ?>
             
