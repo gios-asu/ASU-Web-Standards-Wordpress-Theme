@@ -81,7 +81,7 @@ if ( ! function_exists( 'asu_webstandards_posted_on' ) ) :
 
     $posted_on = sprintf(
         _x( 'Posted on %s', 'post date', 'asu-wordpress-web-standards-theme' ),
-        '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_kses( $time_string ) . '</a>'
+        '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_kses( $time_string, wp_kses_allowed_html( 'post' ) ) . '</a>'
     );
 
     $byline = sprintf(
@@ -89,7 +89,7 @@ if ( ! function_exists( 'asu_webstandards_posted_on' ) ) :
         '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
     );
 
-    echo '<span class="posted-on">' . wp_kses( $posted_on ) . '</span><span class="byline"> ' . wp_kses( $byline ) . '</span>';
+    echo '<span class="posted-on">' . wp_kses( $posted_on, wp_kses_allowed_html( 'post' ) ) . '</span><span class="byline"> ' . wp_kses( $byline, wp_kses_allowed_html( 'post' ) ) . '</span>';
 
   }
 endif;
