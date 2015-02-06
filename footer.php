@@ -258,7 +258,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'instagram', $cOptions ) &&
                      $cOptions['instagram'] !== '' ) {
-                echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ), wp_kses_allowed_html( 'post' ));
+                echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ), wp_kses_allowed_html( 'post' ) );
               }
 
                 //  =============================
@@ -270,7 +270,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               if ( isset( $cOptions ) &&
                      array_key_exists( 'rss', $cOptions ) &&
                      $cOptions['rss'] !== '' ) {
-                echo wp_kses( sprintf( $rss, $cOptions['rss'] ), wp_kses_allowed_html( 'post' ));
+                echo wp_kses( sprintf( $rss, $cOptions['rss'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
             </ul>

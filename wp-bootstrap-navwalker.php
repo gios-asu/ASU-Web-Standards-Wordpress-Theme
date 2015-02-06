@@ -304,7 +304,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
       if ( $container ) {
         $fb_output .= '</' . $container . '>'; }
-        
+
       // @codingStandardsIgnoreStart
       echo $fb_output ;
       // @codingStandardsIgnoreEnd
