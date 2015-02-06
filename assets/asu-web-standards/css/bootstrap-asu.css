@@ -2717,6 +2717,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 .footer .little-foot-nav > li {
   float: left;
+  padding-bottom: 12px;
 }
 .footer .little-foot-nav > li > a {
   border-bottom: 0;

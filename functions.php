@@ -180,9 +180,9 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.7', 'all' );
-  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.7', 'all' );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.7', true );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.0.7', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.min.css', array(), '0.0.7', 'all' );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.0.7', true );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', true );
   wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', true );
 
