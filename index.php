@@ -16,7 +16,7 @@
 
 include 'helpers/mime-types-helper.php';
 
-get_header(); 
+get_header();
 
 $custom_fields = get_post_custom();
 ?>

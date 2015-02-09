@@ -520,7 +520,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_rss', 
       array(
-        'label'      => __( 'Instagram URL', 'asu_wordpress' ),
+        'label'      => __( 'RSS URL', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section_social',
         'settings'   => 'wordpress_asu_theme_options[rss]',
       )

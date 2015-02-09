@@ -261,7 +261,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 }
 
                 //  =============================
-                //  = RSS                 =
+                //  = RSS                       =
                 //  =============================
                 $rss = '<li><a href="%1$s" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
 
