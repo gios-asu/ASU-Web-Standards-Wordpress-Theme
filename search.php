@@ -8,8 +8,6 @@
 get_header(); ?>
 <div id="main-wrapper" class="clearfix">
   <div id="main" class="clearfix">
-    <?php echo do_shortcode( '[page_feature]' ); ?>
-
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
     	<main id="main" class="site-main" role="main">
