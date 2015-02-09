@@ -69,7 +69,7 @@
                   <form target="_top" action="https://search.asu.edu/search" method="get" name="gs">
                     <label class="hidden" for="asu_search_box">Search</label>
                     <input name="site" value="default_collection" type="hidden">
-                    <input type="text" name="q" size="32" value="Search ASU" id="asu_search_box" class="asu_search_box" onfocus="ASUHeader.searchFocus(this)" onblur="ASUHeader.searchBlur(this)"> 
+                    <input type="text" name="q" size="32" placeholder="Search ASU" id="asu_search_box" class="asu_search_box" onfocus="ASUHeader.searchFocus(this)" onblur="ASUHeader.searchBlur(this)"> 
                     <input type="submit" value="Search" title="Search" class="asu_search_button">
                     <input name="sort" value="date:D:L:d1" type="hidden"> 
                     <input name="output" value="xml_no_dtd" type="hidden"> 
