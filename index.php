@@ -36,9 +36,9 @@ $custom_fields = get_post_custom();
                 get_template_part( 'content', get_post_format() );
 
                 // If comments are open or we have at least one comment, load up the comment template
-                if ( comments_open() || '0' != get_comments_number() ) :
+                if ( comments_open() || '0' != get_comments_number() ) {
                   comments_template();
-                  endif;
+                }
               } // end of the loop.
               ?>
             </div>

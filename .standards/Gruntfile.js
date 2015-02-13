@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 
         phpcs: {
             core: {
-                dir: ['../*.php']
+                dir: ['../*.php'],
             },
             extra: {
                 dir: ['../inc/*.php']
@@ -25,7 +25,9 @@ module.exports = function (grunt) {
                 bin: 'vendor/bin/phpcs',
                 // bin: 'vendor/bin/phpcbf',
                 standard: 'Wordpress',
-                ignore: '../header-asu.php'
+                ignore: [
+                    '../header-asu.php'
+                ]
             }
         },
         csslint: {

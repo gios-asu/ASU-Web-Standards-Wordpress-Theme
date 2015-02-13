@@ -30,23 +30,23 @@ get_header(); ?>
             <?php
             if ( asu_webstandards_categorized_blog() ) :
               // Only show the widget if site has multiple categories.
-            ?>
-            <div class="widget widget_categories">
-            <h2 class="widget-title"><?php _e( 'Most Used Categories', 'asu-wordpress-web-standards-theme' ); ?></h2>
-            <ul>
-            <?php
-              wp_list_categories(
-                  array(
-                    'orderby'    => 'count',
-                    'order'      => 'DESC',
-                    'show_count' => 1,
-                    'title_li'   => '',
-                    'number'     => 10,
-                  )
-              );
               ?>
-              </ul>
-            </div><!-- .widget -->
+              <div class="widget widget_categories">
+                <h2 class="widget-title"><?php _e( 'Most Used Categories', 'asu-wordpress-web-standards-theme' ); ?></h2>
+                <ul>
+                <?php
+                  wp_list_categories(
+                      array(
+                        'orderby'    => 'count',
+                        'order'      => 'DESC',
+                        'show_count' => 1,
+                        'title_li'   => '',
+                        'number'     => 10,
+                      )
+                  );
+                ?>
+                </ul>
+              </div><!-- .widget -->
             <?php endif; ?>
 
             <?php

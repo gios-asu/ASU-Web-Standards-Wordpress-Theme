@@ -17,12 +17,12 @@ if ( ! isset( $content_width ) ) {
 
 if ( ! function_exists( 'asu_wordpress_setup' ) ) :
   /**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+   * Sets up theme defaults and registers support for various WordPress features.
+   *
+   * Note that this function is hooked into the after_setup_theme hook, which
+   * runs before the init hook. The init hook is too late for some features, such
+   * as indicating support for post thumbnails.
+   */
   function asu_wordpress_setup() {
 
     /*
@@ -252,9 +252,14 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Customizer additions.
+ * Shortcodes.
  */
 require get_template_directory() . '/inc/shortcodes.php';
+
+/**
+ * Filters
+ */
+require get_template_directory() . '/inc/filters.php';
 
 /**
  * Load Jetpack compatibility file.

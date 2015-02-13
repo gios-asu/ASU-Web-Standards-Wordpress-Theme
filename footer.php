@@ -32,66 +32,65 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-12 space-bot-md">
-            
             <?php
-              //  =============================
-              //  = Logo                      =
-              //  =============================
-              // Do we have a logo?
-              $logo = '<img class="footer-logo" src="%1$s"/><br>';
+            //  =============================
+            //  = Logo                      =
+            //  =============================
+            // Do we have a logo?
+            $logo = '<img class="footer-logo" src="%1$s"/><br>';
             if ( isset( $cOptions ) &&
-                   array_key_exists( 'logo', $cOptions ) &&
-                   $cOptions['logo'] !== '' ) {
+              array_key_exists( 'logo', $cOptions ) &&
+              $cOptions['logo'] !== '' ) {
               echo wp_kses( sprintf( $logo, $cOptions['logo'] ), wp_kses_allowed_html( 'post' ) );
             } else {
               echo '<h2>' .wp_kses( get_bloginfo( 'description' ), wp_kses_allowed_html( 'post' ) ) . '</h2>';
             }
             ?>
-            
-              <?php
-                //  =============================
-                //  = Campus Address            =
-                //  =============================
-                // Do we have an address?
-              if ( isset( $cOptions ) &&
-                     array_key_exists( 'campus_address', $cOptions ) &&
-                     $cOptions['campus_address'] !== '' ) {
-                $campus_address_option = $cOptions['campus_address'];
 
-                echo '<address>';
-                switch ( $campus_address_option ) {
-                  case 'Tempe':
-                    echo 'Arizona State University - Tempe campus<br/>1151 S. Forest Ave.<br/>Tempe, AZ 85287 USA';
-                    break;
-                  case 'Polytechnic':
-                    echo 'Arizona State University - Polytechnic campus<br/>Power Road and Williams Field Road<br/>7001 E. Williams Field Road<br/>Mesa, AZ 85212';
-                    break;
-                  case 'Downtown Phoenix':
-                    echo 'Arizona State University - Downtown Phoenix<br/>411 N. Central, Suite 520<br/>Phoenix, AZ 85004';
-                    break;
-                  case 'West':
-                    echo 'Arizona State University - West campus<br/>4701 West Thunderbird Road<br/>PO Box 37100<br/>Phoenix, AZ 85069-7100';
-                    break;
-                  case 'Research Park':
-                    echo 'Arizona State University - Research Park<br/>8750 S Science Dr<br/>Tempe, AZ 85284';
-                    break;
-                  case 'Skysong':
-                    echo 'Arizona State University - SkySong<br/>1475 N. Scottsdale Rd, Suite 200<br/>Scottsdale, Arizona 85257-3538';
-                    break;
-                  case 'Lake Havasu':
-                    echo 'Arizona State University - Lake Havasu<br/>100 University Way<br/>Lake Havasu City, AZ 86403';
-                    break;
-                }
+            <?php
+            //  =============================
+            //  = Campus Address            =
+            //  =============================
+            // Do we have an address?
+            if ( isset( $cOptions ) &&
+                 array_key_exists( 'campus_address', $cOptions ) &&
+                 $cOptions['campus_address'] !== '' ) {
+              $campus_address_option = $cOptions['campus_address'];
 
-                echo '</address><br/>';
+              echo '<address>';
+              switch ( $campus_address_option ) {
+                case 'Tempe':
+                  echo 'Arizona State University - Tempe campus<br/>1151 S. Forest Ave.<br/>Tempe, AZ 85287 USA';
+                  break;
+                case 'Polytechnic':
+                  echo 'Arizona State University - Polytechnic campus<br/>Power Road and Williams Field Road<br/>7001 E. Williams Field Road<br/>Mesa, AZ 85212';
+                  break;
+                case 'Downtown Phoenix':
+                  echo 'Arizona State University - Downtown Phoenix<br/>411 N. Central, Suite 520<br/>Phoenix, AZ 85004';
+                  break;
+                case 'West':
+                  echo 'Arizona State University - West campus<br/>4701 West Thunderbird Road<br/>PO Box 37100<br/>Phoenix, AZ 85069-7100';
+                  break;
+                case 'Research Park':
+                  echo 'Arizona State University - Research Park<br/>8750 S Science Dr<br/>Tempe, AZ 85284';
+                  break;
+                case 'Skysong':
+                  echo 'Arizona State University - SkySong<br/>1475 N. Scottsdale Rd, Suite 200<br/>Scottsdale, Arizona 85257-3538';
+                  break;
+                case 'Lake Havasu':
+                  echo 'Arizona State University - Lake Havasu<br/>100 University Way<br/>Lake Havasu City, AZ 86403';
+                  break;
               }
-              ?>
+
+              echo '</address><br/>';
+            }
+            ?>
             <address>
               <?php
-                //  =============================
-                //  = School Address            =
-                //  =============================
-                // Do we have an address?
+              //  =============================
+              //  = School Address            =
+              //  =============================
+              // Do we have an address?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'address', $cOptions ) &&
                      $cOptions['address'] !== '' ) {
@@ -99,12 +98,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
               ?><br/>
               <?php
-                //  =============================
-                //  = Phone                     =
-                //  =============================
-                $phone = 'Phone: <a class="phone-link" href="tel:%1$s">%1$s</a><br>';
+              //  =============================
+              //  = Phone                     =
+              //  =============================
+              $phone = 'Phone: <a class="phone-link" href="tel:%1$s">%1$s</a><br>';
 
-                // Do we have a phone number?
+              // Do we have a phone number?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'phone', $cOptions ) &&
                      $cOptions['phone'] !== '' ) {
@@ -112,13 +111,13 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
               ?>
               <?php
-                //  =============================
-                //  = Fax                       =
-                //  =============================
-                //$fax = 'Fax: <a class="phone-link" href="fax:%1$s">%1$s</a><br>';
-                $fax = 'Fax: %1$s<br>';
+              //  =============================
+              //  = Fax                       =
+              //  =============================
+              //$fax = 'Fax: <a class="phone-link" href="fax:%1$s">%1$s</a><br>';
+              $fax = 'Fax: %1$s<br>';
 
-                // Do we have a fax number?
+              // Do we have a fax number?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'fax', $cOptions ) &&
                      $cOptions['fax'] !== '' ) {
@@ -127,10 +126,10 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               ?>
             </address>
             <?php
-              //  =============================
-              //  = Contact Us Email or URL   =
-              //  =============================
-              $contactURL = '<p><a class="contact-link" href="%1$s%2$s%3$s">Contact Us</a></p>';
+            //  =============================
+            //  = Contact Us Email or URL   =
+            //  =============================
+            $contactURL = '<p><a class="contact-link" href="%1$s%2$s%3$s">Contact Us</a></p>';
 
               // Do we have a contact?
             if ( isset( $cOptions ) &&
@@ -175,12 +174,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             ?>
             <ul class="social-media">
               <?php
-                //  =============================
-                //  = Facebook                  =
-                //  =============================
-                $fb = '<li><a href="%1$s" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Facebook                  =
+              //  =============================
+              $fb = '<li><a href="%1$s" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a facebook?
+              // Do we have a facebook?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'facebook', $cOptions ) &&
                      $cOptions['facebook'] !== '' ) {
@@ -188,12 +187,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
               ?>
               <?php
-                //  =============================
-                //  = Twitter                   =
-                //  =============================
-                $twitter = '<li><a href="%1$s" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Twitter                   =
+              //  =============================
+              $twitter = '<li><a href="%1$s" title="Twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a twitter?
+              // Do we have a twitter?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'twitter', $cOptions ) &&
                      $cOptions['twitter'] !== '' ) {
@@ -201,72 +200,72 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
               ?>
               <?php
-                //  =============================
-                //  = Google+                   =
-                //  =============================
-                $googlePlus = '<li><a href="%1$s" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Google+                   =
+              //  =============================
+              $googlePlus = '<li><a href="%1$s" title="Google+"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a google+?
+              // Do we have a google+?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'google_plus', $cOptions ) &&
                      $cOptions['google_plus'] !== '' ) {
                 echo wp_kses( sprintf( $googlePlus, $cOptions['google_plus'] ), wp_kses_allowed_html( 'post' ) );
               }
 
-                //  =============================
-                //  = LinkedIn                  =
-                //  =============================
-                $linkedIn = '<li><a href="%1$s" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = LinkedIn                  =
+              //  =============================
+              $linkedIn = '<li><a href="%1$s" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a linkedin?
+              // Do we have a linkedin?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'linkedin', $cOptions ) &&
                      $cOptions['linkedin'] !== '' ) {
                 echo wp_kses( sprintf( $linkedIn, $cOptions['linkedin'] ), wp_kses_allowed_html( 'post' ) );
               }
 
-                //  =============================
-                //  = Youtube                   =
-                //  =============================
-                $youtube = '<li><a href="%1$s" title="Youtube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Youtube                   =
+              //  =============================
+              $youtube = '<li><a href="%1$s" title="Youtube"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a youtube?
+              // Do we have a youtube?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'youtube', $cOptions ) &&
                      $cOptions['youtube'] !== '' ) {
                 echo wp_kses( sprintf( $youtube, $cOptions['youtube'] ), wp_kses_allowed_html( 'post' ) );
               }
 
-                //  =============================
-                //  = Vimeo                     =
-                //  =============================
-                $vimeo = '<li><a href="%1$s" title="Vimeo"><i class="fa fa-vimeo-square" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Vimeo                     =
+              //  =============================
+              $vimeo = '<li><a href="%1$s" title="Vimeo"><i class="fa fa-vimeo-square" aria-hidden="true"></i></a></li>';
 
-                // Do we have a vimeo?
+              // Do we have a vimeo?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'vimeo', $cOptions ) &&
                      $cOptions['vimeo'] !== '' ) {
                 echo wp_kses( sprintf( $vimeo, $cOptions['vimeo'] ), wp_kses_allowed_html( 'post' ) );
               }
 
-                //  =============================
-                //  = Instagram                 =
-                //  =============================
-                $instagram = '<li><a href="%1$s" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = Instagram                 =
+              //  =============================
+              $instagram = '<li><a href="%1$s" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
 
-                // Do we have a instagram?
+              // Do we have a instagram?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'instagram', $cOptions ) &&
                      $cOptions['instagram'] !== '' ) {
                 echo wp_kses( sprintf( $instagram, $cOptions['instagram'] ), wp_kses_allowed_html( 'post' ) );
               }
 
-                //  =============================
-                //  = RSS                 =
-                //  =============================
-                $rss = '<li><a href="%1$s" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+              //  =============================
+              //  = RSS                       =
+              //  =============================
+              $rss = '<li><a href="%1$s" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
 
-                // Do we have a instagram?
+              // Do we have a instagram?
               if ( isset( $cOptions ) &&
                      array_key_exists( 'rss', $cOptions ) &&
                      $cOptions['rss'] !== '' ) {
@@ -275,12 +274,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               ?>
             </ul>
             <?php
-              //  =============================
-              //  = Contribute URL            =
-              //  =============================
-              $contribute = '<a type="button" class="btn btn-primary" href="%s">Contribute</a>';
+            //  =============================
+            //  = Contribute URL            =
+            //  =============================
+            $contribute = '<a type="button" class="btn btn-primary" href="%s">Contribute</a>';
 
-              // Do we have a contribute?
+            // Do we have a contribute?
             if ( isset( $cOptions ) &&
                    array_key_exists( 'contribute', $cOptions ) &&
                    $cOptions['contribute'] !== '' ) {
