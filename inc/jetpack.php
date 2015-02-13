@@ -12,11 +12,11 @@
  */
 function asu_webstandards_jetpack_setup() {
   add_theme_support(
-      'infinite-scroll', 
+      'infinite-scroll',
       array(
         'container' => 'main',
         'footer'    => 'page',
-      ) 
+      )
   );
 }
 add_action( 'after_setup_theme', 'asu_webstandards_jetpack_setup' );

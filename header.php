@@ -6,11 +6,11 @@
  *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel
- * 
+ *
  * @package asu-wordpress-web-standards
  */
 
-$homeUrl = esc_url( home_url( '/' ) ); 
+$homeUrl = esc_url( home_url( '/' ) );
 $customFields = get_post_custom();
 
 $ping_back = get_bloginfo( 'pingback_url' );
@@ -42,26 +42,26 @@ $ping_back = get_bloginfo( 'pingback_url' );
             <h1 class="site-title" id="asu_school_name">
               <?php
                 // Print the parent organization and its link
-                $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
-                $cOptions = get_option( 'wordpress_asu_theme_options' );
+              $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
+              $cOptions = get_option( 'wordpress_asu_theme_options' );
 
                 // Do we have a parent org?
-                if ( isset( $cOptions ) && is_array( $cOptions ) &&
-                     array_key_exists( 'org', $cOptions ) &&
-                     $cOptions['org'] !== '' ) {
+              if ( isset( $cOptions ) && is_array( $cOptions ) &&
+                       array_key_exists( 'org', $cOptions ) &&
+                       $cOptions['org'] !== '' ) {
                   // Does the parent org have a link?
-                  if ( array_key_exists( 'org_link', $cOptions ) &&
+                if ( array_key_exists( 'org_link', $cOptions ) &&
                        $cOptions['org_link'] !== '' ) {
                     $wrapper = '<a href="%1$s">%2$s</a>';
 
-                    $wrapper = sprintf( $wrapper, $cOptions['org_link'], '%1$s' );
+                    $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
                     $prefix  = sprintf( $prefix, $wrapper );
-                  }
-
-                  echo sprintf( $prefix, $cOptions['org'] );
                 }
+
+                echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
+              }
               ?>
-              <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+              <a href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
             </h1>
           </div>
         </div>
@@ -76,11 +76,11 @@ $ping_back = get_bloginfo( 'pingback_url' );
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
+              <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
             </div>
             <?php
 
-            
+
             $wrapper  = '<ul id="%1$s" class="%2$s">';
             $wrapper .= '<li>';
             $wrapper .= "<a href=\"$homeUrl\" title=\"Home\">";
@@ -89,7 +89,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
             $wrapper .= '</li>';
             $wrapper .= '%3$s';
             $wrapper .= '</ul>';
-            
+
             wp_nav_menu(
                 array(
                   'menu'              => 'primary',

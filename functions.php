@@ -4,7 +4,7 @@
  *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel
- * 
+ *
  * @package asu-wordpress-web-standards
  */
 
@@ -16,84 +16,84 @@ if ( ! isset( $content_width ) ) {
 }
 
 if ( ! function_exists( 'asu_wordpress_setup' ) ) :
-/**
+  /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function asu_wordpress_setup() {
+  function asu_wordpress_setup() {
 
-  /*
-   * Make theme available for translation.
-   * Translations can be filed in the /languages/ directory.
-   * If you're building a theme based on asu-wordpress-web-standards-theme, use a find and replace
-   * to change 'asu-wordpress-web-standards-theme' to the name of your theme in all the template files
-   */
-  load_theme_textdomain( 'asu-wordpress-web-standards-theme', get_template_directory() . '/languages' );
+    /*
+     * Make theme available for translation.
+     * Translations can be filed in the /languages/ directory.
+     * If you're building a theme based on asu-wordpress-web-standards-theme, use a find and replace
+     * to change 'asu-wordpress-web-standards-theme' to the name of your theme in all the template files
+     */
+    load_theme_textdomain( 'asu-wordpress-web-standards-theme', get_template_directory() . '/languages' );
 
-  // Add default posts and comments RSS feed links to head.
-  add_theme_support( 'automatic-feed-links' );
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'automatic-feed-links' );
 
-  /*
-   * Enable support for Post Thumbnails on posts and pages.
-   *
-   * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-   */
-  //add_theme_support( 'post-thumbnails' );
+    /*
+     * Enable support for Post Thumbnails on posts and pages.
+     *
+     * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+     */
+    //add_theme_support( 'post-thumbnails' );
 
-  // This theme uses wp_nav_menu() in two locations.
-  register_nav_menus(
-      array(
+    // This theme uses wp_nav_menu() in two locations.
+    register_nav_menus(
+        array(
         'primary' => __( 'Primary Menu', 'asu_wordpress' ),
         'secondary' => __( 'Footer Menu', 'asu_wordpress' ),
-      ) 
-  );
-  
-  /*
-   * Switch default core markup for search form, comment form, and comments
-   * to output valid HTML5.
-   */
-  add_theme_support(
-      'html5', 
-      array(
+        )
+    );
+
+    /*
+     * Switch default core markup for search form, comment form, and comments
+     * to output valid HTML5.
+     */
+    add_theme_support(
+        'html5',
+        array(
           'search-form',
           'comment-form',
           'comment-list',
           'gallery',
           'caption',
-      )
-  );
+        )
+    );
 
-  /*
-   * Enable support for Post Formats.
-   * See http://codex.wordpress.org/Post_Formats
-   */
-  add_theme_support(
-      'post-formats', 
-      array(
+    /*
+     * Enable support for Post Formats.
+     * See http://codex.wordpress.org/Post_Formats
+     */
+    add_theme_support(
+        'post-formats',
+        array(
         'aside',
         'image',
         'video',
         'quote',
         'link',
-      )
-  );
+        )
+    );
 
-  // Setup the WordPress core custom background feature.
-  add_theme_support(
-      'custom-background',
-      apply_filters(
-          'asu_webstandards_custom_background_args', 
-          array(
+    // Setup the WordPress core custom background feature.
+    add_theme_support(
+        'custom-background',
+        apply_filters(
+            'asu_webstandards_custom_background_args',
+            array(
             'default-color' => 'ffffff',
             'default-image' => '',
-          )
-      )
-  );
+            )
+        )
+    );
 
-  $custom_header_defaults = array(
+    $custom_header_defaults = array(
     'default-image'          => '',
     'random-default'         => false,
     'width'                  => 0,
@@ -106,10 +106,10 @@ function asu_wordpress_setup() {
     'wp-head-callback'       => '',
     'admin-head-callback'    => '',
     'admin-preview-callback' => '',
-  );
-  add_theme_support( 'custom-header', $custom_header_defaults );
+    );
+    add_theme_support( 'custom-header', $custom_header_defaults );
 
-}
+  }
 endif; // end asu_wordpress_setup
 add_action( 'after_setup_theme', 'asu_wordpress_setup' );
 
@@ -163,7 +163,7 @@ function asu_webstandards_widgets_init() {
         'after_title'   => '</h3>',
       )
   );
-} 
+}
 add_action( 'widgets_init', 'asu_webstandards_widgets_init' );
 
 /**
@@ -173,19 +173,19 @@ function asu_webstandards_scripts() {
   wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_enqueue_script( 'smoothscroll' );
 
-  // Wordpress provides jquery, but we enque our own mainly so we include it in the footer and control the version. 
+  // Wordpress provides jquery, but we enque our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.11.2.min.js', array(), '1.11.2', true );
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/ js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_enqueue_script( 'bootstrap-js' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
   wp_register_style( 'bootstrap-theme-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.css', array(), '0.0.7', 'all' );
-  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.css', array(), '0.0.7', 'all' );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.js', array(), '0.0.7', true );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.0.7', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.min.css', array(), '0.0.7', 'all' );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.0.7', true );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', true );
   wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', true );
-  
+
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
   wp_enqueue_script( 'jquery' );
@@ -201,8 +201,8 @@ function asu_webstandards_scripts() {
 
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
   wp_enqueue_style( 'base-wordpress-theme' );
-    
-  wp_enqueue_style( 'child-style', get_stylesheet_uri() ); 
+
+  wp_enqueue_style( 'child-style', get_stylesheet_uri() );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -223,9 +223,9 @@ function asu_webstandards_scripts() {
 add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
 
 /**
- * This line will prevent WordPress from automatically inserting HTML 
- * line breaks in your posts. If you dont do this, some of the 
- * Bootstrap snippets that we are going to add will 
+ * This line will prevent WordPress from automatically inserting HTML
+ * line breaks in your posts. If you dont do this, some of the
+ * Bootstrap snippets that we are going to add will
  * probably not display correctly.
  */
 remove_filter( 'the_content', 'wpautop' );
@@ -286,9 +286,9 @@ add_filter( 'wp_nav_menu', 'add_first_and_last' );
 
 
 function change_default_template_name( $translation, $text, $domain ) {
-    if ( $text == 'Default Template' ) {
-        return __( 'Containered Template', 'asu-wordpress-web-standards-theme' );
-    }
+  if ( 'Default Template' == $text ) {
+      return __( 'Containered Template', 'asu-wordpress-web-standards-theme' );
+  }
     return $translation;
 }
 add_filter( 'gettext', 'change_default_template_name', 10, 3 );
@@ -296,7 +296,7 @@ add_filter( 'gettext', 'change_default_template_name', 10, 3 );
 
 add_action( 'wp_head', 'asu_webstandards_favicons' );
 
-/** 
+/**
  * asu_webstandards_favicons header hook, provides links to the favicons from the asu-web-standards
  */
 function asu_webstandards_favicons() {

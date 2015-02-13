@@ -5,7 +5,7 @@
  * @package asu-wordpress-web-standards-theme
  */
 
-get_header(); 
+get_header();
 
 $custom_fields = get_post_custom();
 ?>
@@ -23,16 +23,16 @@ $custom_fields = get_post_custom();
 						  <header class="entry-header">
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								<div class="entry-meta">
-									<?php asu_webstandards_posted_on(); ?>
+          <?php asu_webstandards_posted_on(); ?>
 								</div><!-- .entry-meta -->
 							</header><!-- .entry-header -->
-							<?php 
-								while ( have_posts() ) { 
-									the_post(); 
+        <?php
+								while ( have_posts() ) {
+          the_post();
 
-									get_template_part( 'content', 'single' );
+          get_template_part( 'content', 'single' );
 
-									asu_webstandards_post_nav();
+          asu_webstandards_post_nav();
 								}
 								?>
             </div>
