@@ -585,7 +585,6 @@ pre {
   /*
    * do not use display:none;
    * it does not react to animations
-   * TODO test on IE, we may need to use visibility:0
    */
   height: 0;
   margin-bottom: 0;
@@ -797,6 +796,56 @@ pre {
     border-bottom: 2px solid;
   }
 }
+.table-col-1-right tr td:nth-child(1),
+.table-col-1-right tr th:nth-child(1) {
+  text-align: right;
+}
+
+.table-col-2-right tr td:nth-child(2),
+.table-col-2-right tr th:nth-child(2) {
+  text-align: right;
+}
+
+.table-col-3-right tr td:nth-child(3),
+.table-col-3-right tr th:nth-child(3) {
+  text-align: right;
+}
+
+.table-col-4-right tr td:nth-child(4),
+.table-col-4-right tr th:nth-child(4) {
+  text-align: right;
+}
+
+.table-col-5-right tr td:nth-child(5),
+.table-col-5-right tr th:nth-child(5) {
+  text-align: right;
+}
+
+.table-col-6-right tr td:nth-child(6),
+.table-col-6-right tr th:nth-child(6) {
+  text-align: right;
+}
+
+.table-col-7-right tr td:nth-child(7),
+.table-col-7-right tr th:nth-child(7) {
+  text-align: right;
+}
+
+.table-col-8-right tr td:nth-child(8),
+.table-col-8-right tr th:nth-child(8) {
+  text-align: right;
+}
+
+.table-col-9-right tr td:nth-child(9),
+.table-col-9-right tr th:nth-child(9) {
+  text-align: right;
+}
+
+.table-col-10-right tr td:nth-child(10),
+.table-col-10-right tr th:nth-child(10) {
+  text-align: right;
+}
+
 ::-webkit-input-placeholder {
   color: #7f7f7f;
   font-weight: 200;
@@ -2717,6 +2766,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 .footer .little-foot-nav > li {
   float: left;
+  padding-bottom: 12px;
 }
 .footer .little-foot-nav > li > a {
   border-bottom: 0;

@@ -252,9 +252,14 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Customizer additions.
+ * Shortcodes.
  */
 require get_template_directory() . '/inc/shortcodes.php';
+
+/**
+ * Filters
+ */
+require get_template_directory() . '/inc/filters.php';
 
 /**
  * Load Jetpack compatibility file.
