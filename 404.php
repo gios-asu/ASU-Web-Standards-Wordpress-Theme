@@ -10,59 +10,71 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content container">
-  <div class="row row-padding-cancel">
-    <div id="primary" class="content-area">
-      <main id="main" class="site-main" role="main">
-        <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-        <section class="error-404 not-found">
-          <header class="page-header">
-            <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'asu-wordpress-web-standards-theme' ); ?></h1>
-          </header><!-- .page-header -->
+<style>
+.hero {
+  min-height: 50%;
+  min-height: 50vh;
+}
 
-          <div class="page-content">
-            <p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'asu-wordpress-web-standards-theme' ); ?></p>
+.hero p,
+.hero h1.pane-title {
+  text-align: center;
+  text-shadow: 0px 0px 5px rgb(48, 42, 42);
+}
 
-            <?php get_search_form(); ?>
+.hero h1.pane-title {
+  font-size: 120px;
+}
 
-            <?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+.hero form {
+  margin: auto;
+  min-width: 400px;
+  text-align: center;
+  width: 50%;
+}
 
-            <?php
-            if ( asu_webstandards_categorized_blog() ) :
-              // Only show the widget if site has multiple categories.
-              ?>
-              <div class="widget widget_categories">
-                <h2 class="widget-title"><?php _e( 'Most Used Categories', 'asu-wordpress-web-standards-theme' ); ?></h2>
-                <ul>
-                <?php
-                  wp_list_categories(
-                      array(
-                        'orderby'    => 'count',
-                        'order'      => 'DESC',
-                        'show_count' => 1,
-                        'title_li'   => '',
-                        'number'     => 10,
-                      )
-                  );
-                ?>
-                </ul>
-              </div><!-- .widget -->
-            <?php endif; ?>
 
-            <?php
-              /* translators: %1$s: smiley */
-              $archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'asu-wordpress-web-standards-theme' ), convert_smilies( ':)' ) ) . '</p>';
-              the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-            ?>
+.hero-bg-img p {
+  max-width: none;
+}
+</style>
 
-            <?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
-
-          </div><!-- .page-content -->
-        </section><!-- .error-404 -->
-
-      </main><!-- #main -->
-    </div><!-- #primary -->
+<div id="main-wrapper" class="clearfix">
+  <div id="main" class="clearfix">
+    <div class="column">
+      <div class="region region-content">
+        <div class="block block-system">
+          <div class="content">
+            <div class="panel-display clearfix">
+              <section class="hero hero-bg-img hero-action-call">
+                <div class="container">
+                  <div class="row">
+                    <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">
+                      <div class="fdt-home-column-content-region fdt-home-row panel-panel span12">
+                        <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">
+                          <h1 class="pane-title">
+                            404
+                          </h1>
+                          <p>Not Found</p>
+                          <br/>
+                          <br/>
+                        </div>
+                        <div class="panel-pane pane-fieldable-panels-pane pane-fpid-12 pane-bundle-text">
+                          <p><?php _e( 'It looks like nothing was found!', 'asu-wordpress-web-standards-theme' ); ?></p>
+                          <p><?php _e( 'Maybe try searching?', 'asu-wordpress-web-standards-theme' ); ?></p>
+                          
+                          <?php get_search_form(); ?>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/page feature-->
   </div>
 </div>
-
 <?php get_footer(); ?>
