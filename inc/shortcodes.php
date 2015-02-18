@@ -23,39 +23,39 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
  */
   function asu_wp_container_shortcode( $atts, $content = null ) {
     $margin_class_mapper = [
-    'bot-xl' => 'space-bot-xl ',
-    'bot-lg' => 'space-bot-lg ',
-    'bot-md' => 'space-bot-md ',
-    'bot-sm' => 'space-bot-sm ',
-    'bot-0' => 'space-bot-0 ',
-    'top-xl' => 'space-top-xl ',
-    'top-lg' => 'space-top-lg ',
-    'top-md' => 'space-top-md ',
-    'top-sm' => 'space-top-sm ',
-    'top-0' => 'space-top-0 ',
-    'xl' => 'space-top-xl space-bot-xl ',
-    'lg' => 'space-top-lg space-bot-lg ',
-    'md' => 'space-top-md space-bot-md ',
-    'sm' => 'space-top-sm space-bot-sm ',
-    '0' => 'space-top-0 space-bot-0 ',
+      'bot-xl' => 'space-bot-xl ',
+      'bot-lg' => 'space-bot-lg ',
+      'bot-md' => 'space-bot-md ',
+      'bot-sm' => 'space-bot-sm ',
+      'bot-0' => 'space-bot-0 ',
+      'top-xl' => 'space-top-xl ',
+      'top-lg' => 'space-top-lg ',
+      'top-md' => 'space-top-md ',
+      'top-sm' => 'space-top-sm ',
+      'top-0' => 'space-top-0 ',
+      'xl' => 'space-top-xl space-bot-xl ',
+      'lg' => 'space-top-lg space-bot-lg ',
+      'md' => 'space-top-md space-bot-md ',
+      'sm' => 'space-top-sm space-bot-sm ',
+      '0' => 'space-top-0 space-bot-0 ',
     ];
 
     $padding_class_mapper = [
-    'bot-xl' => 'pad-bot-xl ',
-    'bot-lg' => 'pad-bot-lg ',
-    'bot-md' => 'pad-bot-md ',
-    'bot-sm' => 'pad-bot-sm ',
-    'bot-0' => 'pad-bot-0 ',
-    'top-xl' => 'pad-top-xl ',
-    'top-lg' => 'pad-top-lg ',
-    'top-md' => 'pad-top-md ',
-    'top-sm' => 'pad-top-sm ',
-    'top-0' => 'pad-top-0 ',
-    'xl' => 'pad-top-xl pad-bot-xl ',
-    'lg' => 'pad-top-lg pad-bot-lg ',
-    'md' => 'pad-top-md pad-bot-md ',
-    'sm' => 'pad-top-sm pad-bot-sm ',
-    '0' => 'pad-top-0 pad-bot-0 ',
+      'bot-xl' => 'pad-bot-xl ',
+      'bot-lg' => 'pad-bot-lg ',
+      'bot-md' => 'pad-bot-md ',
+      'bot-sm' => 'pad-bot-sm ',
+      'bot-0' => 'pad-bot-0 ',
+      'top-xl' => 'pad-top-xl ',
+      'top-lg' => 'pad-top-lg ',
+      'top-md' => 'pad-top-md ',
+      'top-sm' => 'pad-top-sm ',
+      'top-0' => 'pad-top-0 ',
+      'xl' => 'pad-top-xl pad-bot-xl ',
+      'lg' => 'pad-top-lg pad-bot-lg ',
+      'md' => 'pad-top-md pad-bot-md ',
+      'sm' => 'pad-top-sm pad-bot-sm ',
+      '0' => 'pad-top-0 pad-bot-0 ',
     ];
 
     $container = '<div class="container %2$s">%1$s</div>';
@@ -523,5 +523,3 @@ if ( ! function_exists( 'page_feature' ) ) :
   }
   add_shortcode( 'page_feature', 'page_feature' );
 endif;
-
-?>
