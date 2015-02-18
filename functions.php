@@ -209,7 +209,7 @@ function asu_webstandards_scripts() {
   /** asu header*/
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , '4.0', true );
   wp_enqueue_script( 'asu-header' );
-  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array('asu-header') , '4.0', true );
+  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array( 'asu-header' ) , '4.0', true );
   wp_enqueue_script( 'asu-header-config' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
   wp_enqueue_style( 'asu-header-css' );
