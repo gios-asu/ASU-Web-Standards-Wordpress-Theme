@@ -52,7 +52,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
                   // Does the parent org have a link?
                 if ( array_key_exists( 'org_link', $cOptions ) &&
                        $cOptions['org_link'] !== '' ) {
-                    $wrapper = '<a href="%1$s">%2$s</a>';
+                    $wrapper = '<a href="%1$s" id="org-link-site-title">%2$s</a>';
 
                     $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
                     $prefix  = sprintf( $prefix, $wrapper );
@@ -61,7 +61,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
                 echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
-              <a href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
+              <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
             </h1>
           </div>
         </div>
