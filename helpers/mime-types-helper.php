@@ -24,4 +24,4 @@
   'ogv'       => 'video/ogg',
   'qt'        => 'video/quicktime',
   'webm'      => 'video/webm',
-);
+ );

@@ -1,7 +1,7 @@
 <?php
 /**
  * Request For Information Helper
- * 
+ *
  * @see https://github.com/ASU/webspark-drops-drupal7/blob/79fc33b70336c152afc686666dad031dae3e9deb/profiles/openasu/modules/contrib/webform/webform.module
  * @see https://github.com/ASU/webspark-drops-drupal7/blob/5f8a994ad6e82ff1c782a69d22c1624848b33bcf/profiles/openasu/modules/custom/asu_rfi/asu_rfi.module
  * @see https://github.com/ASU/webspark-drops-drupal7/blob/5f8a994ad6e82ff1c782a69d22c1624848b33bcf/profiles/openasu/modules/custom/asu_rfi/data/asu_rfi_countries_data.inc
@@ -42,23 +42,25 @@ class Request_For_Information_Helper {
   /**
    * @return JSON Object
    */
-  public static function request( $information_type = '', $data = array(), $body = FALSE ) {
+  public static function request( $information_type = '', $data = array(), $body = false ) {
     // TODO set $data defaults
-
+    // TODO use vip_safe_wp_remote_get()  instead of curl: http://lobby.vip.wordpress.com/best-practices/fetching-remote-data/
+    // @codingStandardsIgnoreStart
+      
     $url = 'https://' .  $data['host'] . '/' . $data['api'] . '/' . $data['type'] . '/' . $data['name'];
 
     $curl = curl_init();
     $options = array();
     $options['CURLOPT_URL'] = $url;
-    $options['CURLOPT_RETURNTRANSFER'] = 1; // TODO should this just be TRUE? 
+    $options['CURLOPT_RETURNTRANSFER'] = 1; // TODO should this just be TRUE?
     $options['CURLOPT_HTTPHEADER'] = array( 'Content-Type: text/json', 'Authorization: Basic ' . base64_encode( $data['authorization_token'] ) );
 
     if ( $body ) {
       $options['CURL_POST_FIELDS'] = $body;
     }
 
-    if ( $information_type == 'semester_dates' ) {  
-      $options['CURL_POST'] = 1; // TODO should this just be TRUE? 
+    if ( 'semester_dates' == $information_type) {
+      $options['CURL_POST'] = 1; // TODO should this just be TRUE?
     }
 
     curl_setopt_array( $curl, $options );
@@ -67,28 +69,28 @@ class Request_For_Information_Helper {
     $result = json_decode( $resonse );
 
     curl_close( $curl );
-
+    // @codingStandardsIgnoreEnd  
     return $result;
   }
 
   /**
    * Gets data in the form of: [ { ID, LABEL }, ... ].
-   * 
+   *
    * Example value: ('a0Jd000000CpGccEAF', '2014 Spring')
-   * 
+   *
    * @return JSON Object
    */
   public static function request_semester_dates() {
-    $body = json_encode( array( 'condition_Term_Status__c' => TRUE ) )
+    $body = json_encode( array( 'condition_Term_Status__c' => true ) )
 
     return self::request( 'semester_dates', self::$semester_dates, $body );
   }
 
   /**
    * Gets data in the form of: [ { STATE_CODE, STATE_DESCRIPTION }, ... ].
-   * 
+   *
    * Example values: ('AZ', 'Arizona')
-   * 
+   *
    * @return JSON Object
    */
   public static function request_states_data() {
@@ -97,9 +99,9 @@ class Request_For_Information_Helper {
 
   /**
    * Gets data in the form of: [ { COUNTRY_CODE, COUNTRY_DESCRIPTION }, ... ].
-   * 
+   *
    * Example values: ('US', 'United States')
-   * 
+   *
    * @return JSON Object
    */
   public static function request_countries_data() {

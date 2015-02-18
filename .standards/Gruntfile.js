@@ -19,7 +19,10 @@ module.exports = function (grunt) {
                 dir: ['../*.php'],
             },
             extra: {
-                dir: ['../inc/*.php']
+                dir: [
+                  '../inc/*.php',
+                  '../helpers/*.php',
+                ],
             },
             options: {
                 bin: 'vendor/bin/phpcs',
