@@ -99,6 +99,7 @@
           <!-- /#asu_hdr -->
           <script type="text/javascript">
             <!--//--><![CDATA[//><!--
+              var ASUHeader = ASUHeader || {};
               ASUHeader.default_search_text = "Search ASU";
               ASUHeader.default_search_alttext = "Search ASU";
               if (typeof ASUHeader.signin_callback_url == "undefined") {
