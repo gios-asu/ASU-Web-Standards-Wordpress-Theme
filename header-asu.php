@@ -1,3 +1,4 @@
+<?php // ASU Header ?>
 <header class="navbar navbar-default" id="masthead">
   <div class="container">
     <div class="region region-header">
