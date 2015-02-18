@@ -17,44 +17,45 @@
                   <h2 class="hidden">Menu</h2>
                   <div id="asu_universal_nav">
                     <ul>
-                      <li class="home"><a target="_top" href="http://www.asu.edu/">ASU Home</a></li>
-                      <li class="myasu"><a target="_top" href="https://my.asu.edu/">My ASU</a></li>
+                      <li class="home"><a target="_top" href="http://www.asu.edu/" id="asu-home-link-asu-header">ASU Home</a></li>
+                      <li class="myasu"><a target="_top" href="https://my.asu.edu/" id="my-asu-link-asu-header">My ASU</a></li>
                       <li class="parent colleges">
-                        <a target="_top" href="http://www.asu.edu/colleges/">Colleges &amp; Schools</a>
+                        <a target="_top" href="http://www.asu.edu/colleges/" id="colleges-and-schools-link-asu-header">Colleges &amp; Schools</a>
                         <ul>
-                          <li><a target="_top" class="first" href="http://artsandsciences.asu.edu/" title="Arts and Sciences website">Arts and Sciences</a></li>
-                          <li><a target="_top" href="http://wpcarey.asu.edu/" title="W. P. Carey School of Business Web  and Morrison School of Agribusiness website">Business</a></li>
-                          <li><a target="_top" href="http://herbergerinstitute.asu.edu" title="Herberger Institute for Design and the Arts website">Design and the Arts</a></li>
-                          <li><a target="_top" href="http://education.asu.edu/" title="Mary Lou Fulton Teachers College website">Education </a></li>
-                          <li><a target="_top" href="http://engineering.asu.edu/" title="Engineering website">Engineering</a></li>
-                          <li><a target="_top" href="http://graduate.asu.edu" title="Graduate College website">Graduate</a></li>
-                          <li><a target="_top" href="https://healthsolutions.asu.edu/" title="Health Solutions website">Health Solutions</a></li>
-                          <li><a target="_top" href="http://honors.asu.edu/" title="Barrett, The Honors College website">Honors</a></li>
-                          <li><a target="_top" href="http://cronkite.asu.edu" title="Walter Cronkite School of Journalism and Mass Communication website">Journalism</a></li>
-                          <li><a target="_top" href="http://www.law.asu.edu/" title="Sandra Day O' Connor College of Law website">Law</a></li>
-                          <li><a target="_top" href="http://nursingandhealth.asu.edu/" title="College of Nursing and Health Innovation website">Nursing and Health</a></li>
-                          <li><a target="_top" href="http://copp.asu.edu" title="College of Public Programs website">Public Programs</a></li>
-                          <li><a target="_top" href="http://schoolofsustainability.asu.edu" title="School of Sustainability website">Sustainability</a></li>
-                          <li><a target="_top" href="http://uc.asu.edu/" title="University College website">University College</a></li>
+                          <li><a target="_top" class="first" href="http://artsandsciences.asu.edu/" title="Arts and Sciences website" id="arts-and-sciences-link-asu-header">Arts and Sciences</a></li>
+                          <li><a target="_top" href="//wpcarey.asu.edu/" title="W. P. Carey School of Business Web  and Morrison School of Agribusiness website" id="business-link-asu-header">Business</a></li>
+                          <li><a target="_top" href="//herbergerinstitute.asu.edu" title="Herberger Institute for Design and the Arts website" id="design-and-the-arts-link-asu-header">Design and the Arts</a></li>
+                          <li><a target="_top" href="//education.asu.edu/" title="Mary Lou Fulton Teachers College website" id="education-link-asu-header">Education</a></li>
+                          <li><a target="_top" href="//engineering.asu.edu/" title="Engineering website" id="engineering-link-asu-header">Engineering</a></li>
+                          <li><a target="_top" href="//graduate.asu.edu" title="Graduate College website" id="graduate-link-asu-header">Graduate</a></li>
+                          <li><a target="_top" href="//healthsolutions.asu.edu/" title="Health Solutions website"  id="health-solutions-link-asu-header">Health Solutions</a></li>
+                          <li><a target="_top" href="//honors.asu.edu/" title="Barrett, The Honors College website" id="honors-link-asu-header">Honors</a></li>
+                          <li><a target="_top" href="//cronkite.asu.edu" title="Walter Cronkite School of Journalism and Mass Communication website" id="journalism-link-asu-header">Journalism</a></li>
+                          <li><a target="_top" href="//www.law.asu.edu/" title="Sandra Day O' Connor College of Law website" id="law-link-asu-header">Law</a></li>
+                          <li><a target="_top" href="//nursingandhealth.asu.edu/" title="College of Nursing and Health Innovation website" id="nursing-and-health-link-asu-header">Nursing and Health</a></li>
+                          <li><a target="_top" href="//copp.asu.edu" title="College of Public Programs website" id="public-programs-link-asu-header">Public Programs</a></li>
+                          <li><a target="_top" href="//schoolofsustainability.asu.edu" title="School of Sustainability website" id="sustainability-link-asu-header">Sustainability</a></li>
+                          <li><a target="_top" href="//uc.asu.edu/" title="University College website" id="university-college-link-asu-header">University College</a></li>
+                          <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website" id="thunderbird-school-link-asu-header">New: Thunderbird School of Global Management</a></li>
                         </ul>
                       </li>
                       <li class="parent map">
-                        <a target="_top" href="http://www.asu.edu/map/">Map &amp; Locations</a>
+                        <a target="_top" href="http://www.asu.edu/map/" id="map-and-locations-link-asu-header">Map &amp; Locations</a>
                         <ul>
-                          <li><a target="_top" class="border first" href="http://www.asu.edu/map/">Map</a></li>
-                          <li><a target="_top" href="http://campus.asu.edu/tempe/" title="Tempe campus">Tempe</a></li>
-                          <li><a target="_top" href="http://campus.asu.edu/west/" title="West campus">West</a></li>
-                          <li><a target="_top" href="http://campus.asu.edu/polytechnic/" title="Polytechnic campus">Polytechnic</a></li>
-                          <li><a target="_top" href="http://campus.asu.edu/downtown/" title="Downtown Phoenix campus">Downtown Phoenix</a></li>
-                          <li><a target="_top" href="http://asuonline.asu.edu/" title="Online and Extended campus">Online and Extended</a></li>
-                          <li><a target="_top" class="border" href="http://havasu.asu.edu/">Lake Havasu</a></li>
-                          <li><a target="_top" href="http://skysong.asu.edu/">Skysong</a></li>
-                          <li><a target="_top" href="http://asuresearchpark.com/">Research Park</a></li>
-                          <li><a target="_top" href="http://washingtoncenter.asu.edu/">Washington D.C.</a></li>
-                          <li><a target="_top" href="http://wpcarey.asu.edu/mba/china-program/english/">China</a></li>
+                          <li><a target="_top" class="border first" href="http://www.asu.edu/map/" id="map-link-asu-header">Map</a></li>
+                          <li><a target="_top" href="//campus.asu.edu/tempe/" title="Tempe campus" id="tempe-link-asu-header">Tempe</a></li>
+                          <li><a target="_top" href="//campus.asu.edu/west/" title="West campus" id="west-link-asu-header">West</a></li>
+                          <li><a target="_top" href="//campus.asu.edu/polytechnic/" title="Polytechnic campus" id="polytechnic-link-asu-header">Polytechnic</a></li>
+                          <li><a target="_top" href="//campus.asu.edu/downtown/" title="Downtown Phoenix campus" id="downtown-phoenix-link-asu-header">Downtown Phoenix</a></li>
+                          <li><a target="_top" href="//asuonline.asu.edu/" title="Online and Extended campus" id="online-and-extended-link-asu-header">Online and Extended</a></li>
+                          <li><a target="_top" class="border" href="//havasu.asu.edu/" id="lake-havasu-link-asu-header">Lake Havasu</a></li>
+                          <li><a target="_top" href="//skysong.asu.edu/" id="skysong-link-asu-header">Skysong</a></li>
+                          <li><a target="_top" href="//asuresearchpark.com/" id="research-park-link-asu-header">Research Park</a></li>
+                          <li><a target="_top" href="//washingtoncenter.asu.edu/" id="washington-dc-link-asu-header">Washington D.C.</a></li>
+                          <li><a target="_top" href="//wpcarey.asu.edu/mba/china-program/english/" id="china-link-asu-header">China</a></li>
                         </ul>
                       </li>
-                      <li class="contact"><a target="_top" href="http://www.asu.edu/contactasu/" title="Directory, Index and other info">Directory</a></li>
+                      <li class="contact"><a target="_top" href="http://www.asu.edu/contactasu/" title="Directory, Index and other info" id="directory-link-asu-header">Directory</a></li>
                     </ul>
                     <img class="asu_touch" src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/ipad_close.gif" alt="">
                   </div>
@@ -86,7 +87,7 @@
             <!-- /#asu_mobile_menu -->
             <div id="asu_mobile_hdr">
               <div id="asu_logo">
-                <a target="_top" href="http://www.asu.edu/" title="Arizona State University">
+                <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
                 <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" alt="Arizona State University" height="32" width="203" style="margin-top:14px" title="Arizona State University">
                 </a>
               </div>
@@ -97,30 +98,6 @@
             <!-- /#asu_mobile_header  -->
           </div>
           <!-- /#asu_hdr -->
-          <script type="text/javascript">
-            <!--//--><![CDATA[//><!--
-              ASUHeader.default_search_text = "Search ASU";
-              ASUHeader.default_search_alttext = "Search ASU";
-              if (typeof ASUHeader.signin_callback_url == "undefined") {
-                ASUHeader.signin_callback_url = '';
-              }
-              if (typeof ASUHeader.signin_url == "undefined") {
-                ASUHeader.signin_url = '';
-              }
-              if (typeof ASUHeader.signout_url == "undefined") {
-                ASUHeader.signout_url = 'https://webapp4.asu.edu/myasu/Signout';
-              }
-              if (typeof ASUHeader.user_signedin == "undefined" ||
-                  (ASUHeader.user_signedin != false && typeof ASUHeader.user_displayname == "undefined")) {
-                ASUHeader.checkSSOCookie();
-              }
-              if (ASUHeader.user_signedin == true) {
-                ASUHeader.setSSOLink();
-              }if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-                  document.getElementById('asu_hdr').className = document.getElementById('asu_hdr').className+" chrome";
-              }
-              //--><!]]>
-          </script>
           <div style="clear:both;"></div>
           <!-- END /asuthemes/4.0-rsp-up.0/headers/default_white.shtml -->
         </div>
