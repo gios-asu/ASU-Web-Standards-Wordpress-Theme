@@ -261,18 +261,19 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
  * - Link (optional)
  * - Color (optional, defaults "default")
  * - Extra (block)
+ * - id (optional)
  *
  * @param $atts - associative array.
  * @param $content - content
  */
   function asu_button_shortcode( $atts, $content = null ) {
     $button = '<button %1$s>%2$s</button>';
-    $ahref  = '<a href="%3$s" %1$s>%2$s</a>';
+    $ahref  = '<a href="%4$s" %1$s %3$s>%2$s</a>';
     $result = '';
 
     // Check if the attributes contain a link
     if ( array_key_exists( 'link', $atts ) ) {
-      $result = sprintf( $ahref, '%1$s', '%2$s', $atts['link'] );
+      $result = sprintf( $ahref, '%1$s', '%2$s', '%3$s', $atts['link'] );
     } else {
       $result = $button;
     }
@@ -323,7 +324,13 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
 
     $class .= '"';
 
-    return do_shortcode( sprintf( $result, $class, $content ) );
+    $id = '';
+
+    if ( array_key_exists( 'id', $atts ) ) {
+      $id = ' id="'.$atts['id'].'"';
+    }
+
+    return do_shortcode( sprintf( $result, $class, $content, $id ) );
   }
   add_shortcode( 'button', 'asu_button_shortcode' );
 endif;
