@@ -83,7 +83,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
 
             $wrapper  = '<ul id="%1$s" class="%2$s">';
             $wrapper .= '<li>';
-            $wrapper .= "<a href=\"$homeUrl\" title=\"Home\">";
+            $wrapper .= "<a href=\"$homeUrl\" title=\"Home\"  id=\"home-icon-main-nav\">";
             $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
             $wrapper .= '</a>';
             $wrapper .= '</li>';

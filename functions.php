@@ -327,3 +327,24 @@ function asu_webstandards_favicons() {
 }
 
 
+/**
+ * Add any additional attributes to the nav menu links.
+ *  id's are nice for google in page analytics so we can see which items get clicked and under
+ *  which sub-heading if a link appears in multiple places in the nav.
+ * @param atts - HTML attributes in an associative array
+ * @param item - Object containing item details. E.G: If the link is to a page $item will be a WP_Post object
+ * @param args - Array containing config with desired markup of nav item
+ * @return atts - array
+ */
+function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args ) {
+  $atts['id'] = 'nav-item_'.$item->post_name;
+  if ( ! empty( $item->menu_item_parent ) ) {
+    // if a link to a particular page appears multiple times then we should qualifiy it with its parent menu item
+    $atts['id'] .= '_under_'.$item->menu_item_parent;
+  }
+  return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', 'asu_webstandards_custom_nav_menu_link_attributes', 10, 3 );
+
+
