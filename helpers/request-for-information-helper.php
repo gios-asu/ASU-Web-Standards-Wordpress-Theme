@@ -46,7 +46,7 @@ class Request_For_Information_Helper {
     // TODO set $data defaults
     // TODO use vip_safe_wp_remote_get()  instead of curl: http://lobby.vip.wordpress.com/best-practices/fetching-remote-data/
     // @codingStandardsIgnoreStart
-      
+
     $url = 'https://' .  $data['host'] . '/' . $data['api'] . '/' . $data['type'] . '/' . $data['name'];
 
     $curl = curl_init();
@@ -59,7 +59,7 @@ class Request_For_Information_Helper {
       $options['CURL_POST_FIELDS'] = $body;
     }
 
-    if ( 'semester_dates' == $information_type) {
+    if ( 'semester_dates' == $information_type ) {
       $options['CURL_POST'] = 1; // TODO should this just be TRUE?
     }
 
@@ -69,7 +69,7 @@ class Request_For_Information_Helper {
     $result = json_decode( $resonse );
 
     curl_close( $curl );
-    // @codingStandardsIgnoreEnd  
+    // @codingStandardsIgnoreEnd
     return $result;
   }
 
