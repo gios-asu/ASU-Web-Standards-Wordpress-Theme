@@ -13,7 +13,7 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
   /**
  * Containers
  * ==========
- * [container type="gray" spacing="0"]
+ * [container type="gray" spacing="0" class=""]
  *
  * Containers with gray option
  * - type=gray
@@ -123,6 +123,11 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
       }
     }
 
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     // Finish up
     $container = sprintf( $container, '%1$s', $classes );
 
@@ -143,13 +148,18 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
  * @param $content - content should be of the form 'text|#id' with one on each line.
  */
   function asu_wp_sidebar_shortcode( $atts, $content = null ) {
-    $container = '<div id="sidebarNav" class="sidebar-nav affix-top"><h4>%1$s</h4>%2$s</div>';
+    $container = '<div id="sidebarNav" class="sidebar-nav affix-top%3$s"><h4>%1$s</h4>%2$s</div>';
     $list      = '<div class="list-group">%s</div>';
     $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
     $title     = 'Navigate this Doc';
 
     if ( $atts != null && array_key_exists( 'title', $atts ) ) {
       $title = $atts['title'];
+    }
+    $classes = '';
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
     }
 
     $cleaned = str_replace( '<br />', "\n", $content );
@@ -171,7 +181,7 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
 
     $list = sprintf( $list, $user_list_items_inst );
 
-    return do_shortcode( sprintf( $container, $title, $list ) );
+    return do_shortcode( sprintf( $container, $title, $list, $classes ) );
   }
   add_shortcode( 'sidebar', 'asu_wp_sidebar_shortcode' );
 endif;
@@ -217,6 +227,11 @@ if ( ! function_exists( 'asu_wp_column_shortcode' ) ) :
       }
     }
 
+    // Any additional custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     return do_shortcode( sprintf( $wrapper, $classes, $content ) );
   }
   add_shortcode( 'column', 'asu_wp_column_shortcode' );
@@ -248,6 +263,11 @@ if ( ! function_exists( 'asu_wp_panel_shortcode' ) ) :
 
     $classes = 'panel ' . $mapper[ $type ];
 
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     return do_shortcode( sprintf( $wrapper, $classes, $prefix_content . $content ) );
   }
   add_shortcode( 'panel', 'asu_wp_panel_shortcode' );
@@ -262,6 +282,7 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
  * - Color (optional, defaults "default")
  * - Extra (block)
  * - id (optional)
+ * - class (optional)
  *
  * @param $atts - associative array.
  * @param $content - content
@@ -320,6 +341,11 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
       if ( array_key_exists( $atts['extra'], $extraMap ) ) {
         $class .= ' ' . $extraMap[ $atts['extra'] ];
       }
+    }
+
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $class .= ' '.$atts['class'];
     }
 
     $class .= '"';
