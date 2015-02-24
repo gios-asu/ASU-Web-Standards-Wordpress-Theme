@@ -4,13 +4,13 @@ node_js:
   - "0.10"
 
 before_install: 
+  - sudo apt-get update
   - sudo apt-get install php5
-  - npm install -g grunt-cli
   - gem update --system
   - cd .standards
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
-  - npm install grunt-phpcs
+  - npm install -g grunt-cli 
   - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
 
 install: npm install
