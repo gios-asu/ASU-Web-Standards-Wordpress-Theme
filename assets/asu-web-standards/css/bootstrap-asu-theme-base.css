@@ -1,5 +1,5 @@
 /* ========================================================================
- * Web Standards: bootstrap-asu-theme-base.css v0.0.8
+ * Web Standards: bootstrap-asu-theme-base.css v0.0.9
  * ========================================================================
  * Copyright 2014 ASU
  * Licensed under MIT (https://github.com/gios-asu/ASU-Bootstrap-Addon/blob/master/LICENSE)
@@ -112,9 +112,10 @@
   color: #4f5557;
 }
 .calendar-date:hover {
-  border: 1px solid #903;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #903;
 }
 .calendar-date .weekday {
   background-color: white;
