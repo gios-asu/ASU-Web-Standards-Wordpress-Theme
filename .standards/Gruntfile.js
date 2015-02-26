@@ -19,15 +19,16 @@ module.exports = function (grunt) {
                 dir: ['../*.php'],
             },
             extra: {
-                dir: ['../inc/*.php']
+                dir: [
+                  '../inc/*.php',
+                  '../helpers/*.php',
+                ],
             },
             options: {
                 bin: 'vendor/bin/phpcs',
                 // bin: 'vendor/bin/phpcbf',
                 standard: 'Wordpress',
-                ignore: [
-                    '../header-asu.php'
-                ]
+                ignore: [ ],
             }
         },
         csslint: {

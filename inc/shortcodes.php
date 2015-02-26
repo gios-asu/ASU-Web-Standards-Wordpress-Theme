@@ -13,7 +13,7 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
   /**
  * Containers
  * ==========
- * [container type="gray" spacing="0"]
+ * [container type="gray" spacing="0" class=""]
  *
  * Containers with gray option
  * - type=gray
@@ -23,39 +23,39 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
  */
   function asu_wp_container_shortcode( $atts, $content = null ) {
     $margin_class_mapper = [
-    'bot-xl' => 'space-bot-xl ',
-    'bot-lg' => 'space-bot-lg ',
-    'bot-md' => 'space-bot-md ',
-    'bot-sm' => 'space-bot-sm ',
-    'bot-0' => 'space-bot-0 ',
-    'top-xl' => 'space-top-xl ',
-    'top-lg' => 'space-top-lg ',
-    'top-md' => 'space-top-md ',
-    'top-sm' => 'space-top-sm ',
-    'top-0' => 'space-top-0 ',
-    'xl' => 'space-top-xl space-bot-xl ',
-    'lg' => 'space-top-lg space-bot-lg ',
-    'md' => 'space-top-md space-bot-md ',
-    'sm' => 'space-top-sm space-bot-sm ',
-    '0' => 'space-top-0 space-bot-0 ',
+      'bot-xl' => 'space-bot-xl ',
+      'bot-lg' => 'space-bot-lg ',
+      'bot-md' => 'space-bot-md ',
+      'bot-sm' => 'space-bot-sm ',
+      'bot-0' => 'space-bot-0 ',
+      'top-xl' => 'space-top-xl ',
+      'top-lg' => 'space-top-lg ',
+      'top-md' => 'space-top-md ',
+      'top-sm' => 'space-top-sm ',
+      'top-0' => 'space-top-0 ',
+      'xl' => 'space-top-xl space-bot-xl ',
+      'lg' => 'space-top-lg space-bot-lg ',
+      'md' => 'space-top-md space-bot-md ',
+      'sm' => 'space-top-sm space-bot-sm ',
+      '0' => 'space-top-0 space-bot-0 ',
     ];
 
     $padding_class_mapper = [
-    'bot-xl' => 'pad-bot-xl ',
-    'bot-lg' => 'pad-bot-lg ',
-    'bot-md' => 'pad-bot-md ',
-    'bot-sm' => 'pad-bot-sm ',
-    'bot-0' => 'pad-bot-0 ',
-    'top-xl' => 'pad-top-xl ',
-    'top-lg' => 'pad-top-lg ',
-    'top-md' => 'pad-top-md ',
-    'top-sm' => 'pad-top-sm ',
-    'top-0' => 'pad-top-0 ',
-    'xl' => 'pad-top-xl pad-bot-xl ',
-    'lg' => 'pad-top-lg pad-bot-lg ',
-    'md' => 'pad-top-md pad-bot-md ',
-    'sm' => 'pad-top-sm pad-bot-sm ',
-    '0' => 'pad-top-0 pad-bot-0 ',
+      'bot-xl' => 'pad-bot-xl ',
+      'bot-lg' => 'pad-bot-lg ',
+      'bot-md' => 'pad-bot-md ',
+      'bot-sm' => 'pad-bot-sm ',
+      'bot-0' => 'pad-bot-0 ',
+      'top-xl' => 'pad-top-xl ',
+      'top-lg' => 'pad-top-lg ',
+      'top-md' => 'pad-top-md ',
+      'top-sm' => 'pad-top-sm ',
+      'top-0' => 'pad-top-0 ',
+      'xl' => 'pad-top-xl pad-bot-xl ',
+      'lg' => 'pad-top-lg pad-bot-lg ',
+      'md' => 'pad-top-md pad-bot-md ',
+      'sm' => 'pad-top-sm pad-bot-sm ',
+      '0' => 'pad-top-0 pad-bot-0 ',
     ];
 
     $container = '<div class="container %2$s">%1$s</div>';
@@ -123,6 +123,11 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
       }
     }
 
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     // Finish up
     $container = sprintf( $container, '%1$s', $classes );
 
@@ -143,13 +148,18 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
  * @param $content - content should be of the form 'text|#id' with one on each line.
  */
   function asu_wp_sidebar_shortcode( $atts, $content = null ) {
-    $container = '<div id="sidebarNav" class="sidebar-nav affix-top"><h4>%1$s</h4>%2$s</div>';
+    $container = '<div id="sidebarNav" class="sidebar-nav affix-top%3$s"><h4>%1$s</h4>%2$s</div>';
     $list      = '<div class="list-group">%s</div>';
     $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
     $title     = 'Navigate this Doc';
 
     if ( $atts != null && array_key_exists( 'title', $atts ) ) {
       $title = $atts['title'];
+    }
+    $classes = '';
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
     }
 
     $cleaned = str_replace( '<br />', "\n", $content );
@@ -171,7 +181,7 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
 
     $list = sprintf( $list, $user_list_items_inst );
 
-    return do_shortcode( sprintf( $container, $title, $list ) );
+    return do_shortcode( sprintf( $container, $title, $list, $classes ) );
   }
   add_shortcode( 'sidebar', 'asu_wp_sidebar_shortcode' );
 endif;
@@ -217,6 +227,11 @@ if ( ! function_exists( 'asu_wp_column_shortcode' ) ) :
       }
     }
 
+    // Any additional custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     return do_shortcode( sprintf( $wrapper, $classes, $content ) );
   }
   add_shortcode( 'column', 'asu_wp_column_shortcode' );
@@ -248,6 +263,11 @@ if ( ! function_exists( 'asu_wp_panel_shortcode' ) ) :
 
     $classes = 'panel ' . $mapper[ $type ];
 
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $classes .= ' '.$atts['class'];
+    }
+
     return do_shortcode( sprintf( $wrapper, $classes, $prefix_content . $content ) );
   }
   add_shortcode( 'panel', 'asu_wp_panel_shortcode' );
@@ -261,18 +281,20 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
  * - Link (optional)
  * - Color (optional, defaults "default")
  * - Extra (block)
+ * - id (optional)
+ * - class (optional)
  *
  * @param $atts - associative array.
  * @param $content - content
  */
   function asu_button_shortcode( $atts, $content = null ) {
     $button = '<button %1$s>%2$s</button>';
-    $ahref  = '<a href="%3$s" %1$s>%2$s</a>';
+    $ahref  = '<a href="%4$s" %1$s %3$s>%2$s</a>';
     $result = '';
 
     // Check if the attributes contain a link
     if ( array_key_exists( 'link', $atts ) ) {
-      $result = sprintf( $ahref, '%1$s', '%2$s', $atts['link'] );
+      $result = sprintf( $ahref, '%1$s', '%2$s', '%3$s', $atts['link'] );
     } else {
       $result = $button;
     }
@@ -321,9 +343,20 @@ if ( ! function_exists( 'asu_button_shortcode' ) ) :
       }
     }
 
+    // Any custom classes to add
+    if ( $atts != null && array_key_exists( 'class', $atts ) ) {
+      $class .= ' '.$atts['class'];
+    }
+
     $class .= '"';
 
-    return do_shortcode( sprintf( $result, $class, $content ) );
+    $id = '';
+
+    if ( array_key_exists( 'id', $atts ) ) {
+      $id = ' id="'.$atts['id'].'"';
+    }
+
+    return do_shortcode( sprintf( $result, $class, $content, $id ) );
   }
   add_shortcode( 'button', 'asu_button_shortcode' );
 endif;
@@ -516,5 +549,3 @@ if ( ! function_exists( 'page_feature' ) ) :
   }
   add_shortcode( 'page_feature', 'page_feature' );
 endif;
-
-?>
