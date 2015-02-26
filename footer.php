@@ -310,14 +310,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <ul class="little-foot-nav">
-              <li><a href="http://www.asu.edu/copyright/">Copyright &amp; Trademark</a></li>
-              <li><a href="http://www.asu.edu/accessibility/">Accessibility</a></li>
-              <li><a href="http://www.asu.edu/privacy/">Privacy</a></li>
-              <li><a href="http://www.asu.edu/asujobs">Jobs At ASU</a></li>
-              <li><a href="https://cfo.asu.edu/emergency">Emergency</a></li>
-              <li><a href="https://contact.asu.edu/">Contact ASU</a></li>
-            </ul>
+            <?php include( 'asuthemes/asu-footer.shtml' ); ?>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->

@@ -28,14 +28,24 @@ $ping_back = get_bloginfo( 'pingback_url' );
 <?php endif; ?>
 
 <?php wp_head(); ?>
+
+
+<script>
+  var ASUHeader = {};
+  ASUHeader.gsa = {};
+  ASUHeader.site_menu = {};
+  ASUHeader.gsa = 'School of Sustainability';
+  ASUHeader.site_menu.site_name = 'Name of site';
+  ASUHeader.site_menu.json = '[{ "title":"Home","path":"http://www.asu.edu/absolute_path"}]';
+</script>
+<?php include 'asuthemes/asu-head.shtml'; ?>
 </head>
 
 <body <?php body_class(); ?>>
   <div id="page-wrapper">
     <div id="page">
-      <?php include 'header-asu.php'; ?>
-
-
+      <?php include 'asuthemes/asu-gtm.shtml'; ?>
+      <?php include 'asuthemes/asu-header.shtml'; ?>
       <div class="">
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
