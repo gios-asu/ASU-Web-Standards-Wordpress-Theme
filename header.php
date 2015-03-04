@@ -10,24 +10,22 @@
  * @package asu-wordpress-web-standards
  */
 
-$homeUrl = esc_url( home_url( '/' ) );
-$customFields = get_post_custom();
-
+$home_url  = esc_url( home_url( '/' ) );
 $ping_back = get_bloginfo( 'pingback_url' );
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11">
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php wp_title( '|', true, 'right' ); ?></title>
+  <link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php if ( ! empty( $ping_back ) ) : ?>
-  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<?php endif; ?>
+  <?php if ( ! empty( $ping_back ) ) : ?>
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <?php endif; ?>
 
-<?php wp_head(); ?>
+  <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -83,7 +81,7 @@ $ping_back = get_bloginfo( 'pingback_url' );
 
             $wrapper  = '<ul id="%1$s" class="%2$s">';
             $wrapper .= '<li>';
-            $wrapper .= "<a href=\"$homeUrl\" title=\"Home\"  id=\"home-icon-main-nav\">";
+            $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
             $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
             $wrapper .= '</a>';
             $wrapper .= '</li>';
