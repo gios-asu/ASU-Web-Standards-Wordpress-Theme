@@ -182,7 +182,7 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , '4.0', true );
-  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array( 'asu-header' ) , '4.0', true );
+  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , '4.0', true );
   /** ie 8 respondsive */
   /** @see https://github.com/scottjehl/Respond */
   wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '20150115', true );
@@ -199,8 +199,8 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'moment-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
-  wp_enqueue_script( 'asu-header' );
   wp_enqueue_script( 'asu-header-config' );
+  wp_enqueue_script( 'asu-header' );
   wp_enqueue_script( 'asu-wordpress-web-standards-respond' );
 
   wp_enqueue_style( 'bootstrap-css' );
