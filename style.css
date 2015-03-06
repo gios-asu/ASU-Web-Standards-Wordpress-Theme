@@ -22,6 +22,15 @@ Licensed under MIT.
   margin: 5px 20px 20px 0;
 }
 
+.screen-reader-text {
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+
 .aligncenter,
 div.aligncenter {
   display: block;
@@ -157,14 +166,15 @@ ol.comment-list > li:hover {
  * Blog Posts
  * ========== */
 article.post {
+  background-color: #f5f5f5;
   border-bottom: 1px solid #b7b7b7;
   display: block;
+  margin-bottom: 10px;
   padding: 20px;
 }
 
-
-article.post:nth-child(odd) {
-  background-color: #fafafa;
+article.post header h1 {
+  margin-top: 0px;
 }
 
 article.post .entry-meta {
@@ -179,6 +189,20 @@ article.post .entry-meta .updated {
 article.post .entry-footer {
   font-size: 0.8em;
   margin-top: 20px;
+}
+
+article.sticky {
+  border-bottom: 0;
+  border-left: 8px solid #903;
+}
+
+article img {
+  max-width: 100%;
+}
+
+.single article {
+  background-color: transparent;
+  border-bottom: 0;
 }
 
 /* Sidebar */

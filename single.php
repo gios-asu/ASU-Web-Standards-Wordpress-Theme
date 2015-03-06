@@ -23,18 +23,20 @@ $custom_fields = get_post_custom();
 						  <header class="entry-header">
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								<div class="entry-meta">
-          <?php asu_webstandards_posted_on(); ?>
+                  <?php asu_webstandards_posted_on(); ?>
 								</div><!-- .entry-meta -->
 							</header><!-- .entry-header -->
-        <?php
-								while ( have_posts() ) {
-          the_post();
+              <div class="single">
+                <?php
+  								while ( have_posts() ) {
+                    the_post();
 
-          get_template_part( 'content', 'single' );
+                    get_template_part( 'content', 'single' );
 
-          asu_webstandards_post_nav();
-								}
-								?>
+                    asu_webstandards_post_nav();
+  								}
+  							?>
+              </div>
             </div>
             <div class="col-sm-4 hidden-xs">
               <?php get_sidebar(); ?>
