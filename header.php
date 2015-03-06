@@ -26,15 +26,22 @@ $ping_back = get_bloginfo( 'pingback_url' );
   <?php endif; ?>
 
   <?php wp_head(); ?>
+
+  <?php if ( is_user_logged_in() ) { ?>
+    <style  type="text/css" media="screen">
+      .navbar-ws.affix {
+        top: 32px !important;
+      }
+    </style>
+  <?php } ?>
 </head>
 
 <body <?php body_class(); ?>>
   <div id="page-wrapper">
     <div id="page">
-      <?php include 'header-asu.php'; ?>
+      <div id="asu_header">
+        <?php include 'header-asu.php'; ?>
 
-
-      <div class="">
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
             <h1 class="site-title" id="asu_school_name">
@@ -63,47 +70,47 @@ $ping_back = get_bloginfo( 'pingback_url' );
             </h1>
           </div>
         </div>
+      </div>
 
-        <!-- Global Navigation -->
-        <nav class="navbar navbar-ws" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ws-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
-            </div>
-            <?php
+      <!-- Global Navigation -->
+      <nav class="navbar navbar-ws" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ws-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
+          </div>
+          <?php
 
 
-            $wrapper  = '<ul id="%1$s" class="%2$s">';
-            $wrapper .= '<li>';
-            $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
-            $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
-            $wrapper .= '</a>';
-            $wrapper .= '</li>';
-            $wrapper .= '%3$s';
-            $wrapper .= '</ul>';
+          $wrapper  = '<ul id="%1$s" class="%2$s">';
+          $wrapper .= '<li>';
+          $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
+          $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
+          $wrapper .= '</a>';
+          $wrapper .= '</li>';
+          $wrapper .= '%3$s';
+          $wrapper .= '</ul>';
 
-            wp_nav_menu(
-                array(
-                  'menu'              => 'primary',
-                  'theme_location'    => 'primary',
-                  'depth'             => 3,
-                  'container'         => 'div',
-                  'container_class'   => 'collapse navbar-collapse',
-                  'container_id'      => 'ws-navbar-collapse-1',
-                  'menu_class'        => 'nav navbar-nav',
-                  'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                  'walker'            => new WP_Bootstrap_Navwalker(),
-                  'items_wrap'        => $wrapper,
-                )
-            );
-            ?>
-            </div><!-- /.navbar-collapse -->
-          </nav>
-        </div><!-- /.container -->
+          wp_nav_menu(
+              array(
+                'menu'              => 'primary',
+                'theme_location'    => 'primary',
+                'depth'             => 3,
+                'container'         => 'div',
+                'container_class'   => 'collapse navbar-collapse',
+                'container_id'      => 'ws-navbar-collapse-1',
+                'menu_class'        => 'nav navbar-nav',
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'            => new WP_Bootstrap_Navwalker(),
+                'items_wrap'        => $wrapper,
+              )
+          );
+          ?>
+          </div><!-- /.navbar-collapse -->
+        </nav>
         <!-- End Navigation -->
