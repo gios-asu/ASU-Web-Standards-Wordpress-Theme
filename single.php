@@ -28,13 +28,13 @@ $custom_fields = get_post_custom();
               </header><!-- .entry-header -->
               <div class="single">
                 <?php
-                  while ( have_posts() ) {
-                    the_post();
+                while ( have_posts() ) {
+                  the_post();
 
-                    get_template_part( 'content', 'single' );
+                  get_template_part( 'content', 'single' );
 
-                    asu_webstandards_post_nav();
-                  }
+                  asu_webstandards_post_nav();
+                }
                 ?>
               </div>
             </div>
