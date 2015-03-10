@@ -176,7 +176,7 @@ function asu_webstandards_scripts() {
   wp_register_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array(), '4.8.2', true );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.11.2.min.js', array(), '1.11.2', true );
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/ js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.0.7', true );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.1.2', true );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.custom.js', array(), '2.8.3', true );
   wp_register_script( 'moment-js', get_template_directory_uri() . '/assets/js/moment-with-locales.min.js', array(), '2.8.4', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
@@ -188,8 +188,8 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '20150115', true );
 
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.0.7', 'all' );
-  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.min.css', array(), '0.0.7', 'all' );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.1.2', 'all' );
+  wp_register_style( 'bootstrap-asu-theme-base', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu-theme-base.min.css', array(), '0.1.2', 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
 
