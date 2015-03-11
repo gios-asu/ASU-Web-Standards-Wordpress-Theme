@@ -27,6 +27,4 @@ before_script:
   - cd .standards
 
 script:
-  - grunt phpcs
-  - grunt css
-  - grunt phpunit
+  - grunt
