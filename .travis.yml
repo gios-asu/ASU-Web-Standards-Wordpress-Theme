@@ -1,16 +1,30 @@
-language: node_js
+language: php
 
-node_js:
-  - "0.10"
+services:
+  - mysql
 
-before_install: 
+php:
+  - 5.4
+
+env:
+  - WP_VERSION=4.1.1 WP_MULTISITE=1
+
+before_install:
   - sudo apt-get update
-  - sudo apt-get install php5
   - gem update --system
   - cd .standards
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
-  - npm install -g grunt-cli 
   - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
+  - cd ../
+  - bash ./bin/dep.sh
+  - gem update --system
+before_script:
+  # For your convenience:
+  # sudo mysqladmin drop -f wordpress_test --user="root" --password="root"
+  # sudo bash bin/install-wp-tests.sh wordpress_test root 'root' localhost 4.0.1
+  - sudo bash bin/install-wp-tests.sh wordpress_test travis '' localhost $WP_VERSION
+  - cd .standards
 
-install: npm install
+script:
+  - grunt

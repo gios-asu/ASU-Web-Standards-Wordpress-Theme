@@ -148,7 +148,7 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
  * @param $content - content should be of the form 'text|#id' with one on each line.
  */
   function asu_wp_sidebar_shortcode( $atts, $content = null ) {
-    $container = '<div id="sidebarNav" class="sidebar-nav affix-top%3$s"><h4>%1$s</h4>%2$s</div>';
+    $container = '<div id="sidebarNav" class="sidebar-nav affix-top %3$s"><h4>%1$s</h4>%2$s</div>';
     $list      = '<div class="list-group">%s</div>';
     $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
     $title     = 'Navigate this Doc';
