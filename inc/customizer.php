@@ -504,6 +504,28 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
+  //  = Fickr                     =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[flickr]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_flickr',
+      array(
+        'label'      => __( 'Flickr URL', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_social',
+        'settings'   => 'wordpress_asu_theme_options[flickr]',
+      )
+  );
+
+  //  =============================
   //  = RSS                 =
   //  =============================
   $wp_customize->add_setting(
