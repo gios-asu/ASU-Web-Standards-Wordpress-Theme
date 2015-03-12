@@ -7,3 +7,4 @@ vendor/*
 .standards/composer.phar
 .standards/composer.lock
 .standards/vendor/*
+.standards/npm-debug.log
