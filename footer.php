@@ -261,6 +261,18 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
 
               //  =============================
+              //  = Flickr                    =
+              //  =============================
+              $flickr = '<li><a href="%1$s" title="Flickr" id="flickr-link-in-footer"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>';
+
+              // Do we have a flickr?
+              if ( isset( $cOptions ) &&
+                     array_key_exists( 'flickr', $cOptions ) &&
+                     $cOptions['flickr'] !== '' ) {
+                echo wp_kses( sprintf( $flickr, $cOptions['flickr'] ), wp_kses_allowed_html( 'post' ) );
+              }
+
+              //  =============================
               //  = RSS                       =
               //  =============================
               $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
