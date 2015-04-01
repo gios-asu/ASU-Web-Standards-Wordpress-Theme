@@ -213,10 +213,11 @@ add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
  * line breaks in your posts. If you dont do this, some of the
  * Bootstrap snippets that we are going to add will
  * probably not display correctly.
+ *  See:  https://stackoverflow.com/questions/5940854/disable-automatic-formatting-inside-wordpress-shortcodes
  */
 remove_filter( 'the_content', 'wpautop' );
-//add_filter( 'the_content', 'wpautop' , 99 );
-//add_filter( 'the_content', 'shortcode_unautop', 100 );
+add_filter( 'the_content', 'wpautop' , 99 );
+add_filter( 'the_content', 'shortcode_unautop', 100 );
 /**
  * Implement the Custom Header feature.
  */
