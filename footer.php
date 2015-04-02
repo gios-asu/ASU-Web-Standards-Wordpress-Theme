@@ -37,11 +37,11 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             //  = Logo                      =
             //  =============================
             // Do we have a logo?
-            $logo = '<img class="footer-logo" src="%1$s" alt="%2$s"/><br>';
+            $logo = '<a class="footer-logo-link" href="%3$s"><img class="footer-logo" src="%1$s" alt="%2$s"/></a><br>';
             if ( isset( $cOptions ) &&
               array_key_exists( 'logo', $cOptions ) &&
               $cOptions['logo'] !== '' ) {
-              echo wp_kses( sprintf( $logo, $cOptions['logo'], get_bloginfo( 'name' ) . ' Logo' ), wp_kses_allowed_html( 'post' ) );
+              echo wp_kses( sprintf( $logo, $cOptions['logo'], get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
             } else {
               echo '<h2>' .wp_kses( get_bloginfo( 'description' ), wp_kses_allowed_html( 'post' ) ) . '</h2>';
             }

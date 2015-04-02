@@ -33,6 +33,10 @@ $ping_back = get_bloginfo( 'pingback_url' );
       .navbar-ws.affix {
         top: 32px !important;
       }
+
+      #wpadminbar {
+        z-index: 999999 !important;
+      }
     </style>
   <?php } ?>
 </head>
