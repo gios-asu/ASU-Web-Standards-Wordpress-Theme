@@ -32,6 +32,19 @@ When using this theme:
 - Make sure this theme lives in the folder: `ASU-Web-Standards-Wordpress-Theme`.
 - This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
 
+# Supported Browsers
+
+These are the lowest tested versions of the browsers that look acceptable.  Note that
+the asterisk denotes that lower versions may also work, but that these are the lowest
+version tested.
+
+![IE Support](https://img.shields.io/badge/IE-9.0%2B-blue.svg)
+
+![Google Chrome Support](https://img.shields.io/badge/Google%20Chrome-41%2B*-green.svg)
+
+![Firefox Support](https://img.shields.io/badge/Firefox-36%2B*-green.svg)
+
+
 # New Settings
 
 New customization settings have been added to this theme. They are available by going to `Appearance -> Customize`.
