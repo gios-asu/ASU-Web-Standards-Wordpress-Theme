@@ -15,6 +15,7 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 # Table of contents
 
 - [Dependencies](#dependencies)
+- [Supported Browsers](#supported-browsers)
 - [Appearance](#appearance)
 - [New Settings](#new-settings)
 - [New Page Fields](#new-page-field)
