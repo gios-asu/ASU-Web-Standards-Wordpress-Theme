@@ -89,17 +89,17 @@
             <div id="asu_mobile_hdr">
               <div id="asu_logo">
                 <?php
-                  $html = apply_filters( 'asu_logo', '' );
+                $html = apply_filters( 'asu_logo', '' );
 
-                  if ( ! empty( $html ) ) {
-                    echo $html;
-                  } else {
+                if ( ! empty( $html ) ) {
+                  echo wp_kses_post( $html );
+                } else {
                 ?>
                 <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
                   <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" alt="Arizona State University" height="32" width="203" style="margin-top:14px" title="Arizona State University">
                 </a>
                 <?php
-                  }
+                }
                 ?>
               </div>
               <!-- /#asu_logo  -->
