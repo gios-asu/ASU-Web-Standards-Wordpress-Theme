@@ -559,7 +559,7 @@ if ( ! function_exists( 'related_links' ) ) :
    *   <a href="http://bing.com">Bing</a>
    * [/related-links]
    * ```
-   * 
+   *
    * Optional limit (default 10)
    */
   function related_links( $atts, $content = '' ) {
@@ -592,7 +592,7 @@ HTML;
 
     // Default Overrides
     if ( is_array( $atts ) ) {
-     if ( array_key_exists( 'limit', $atts ) ) {
+      if ( array_key_exists( 'limit', $atts ) ) {
         $related_links_limit = intval( $atts['limit'] );
       }
 
@@ -628,7 +628,7 @@ HTML;
         if ( is_array( $ancestors ) && count( $ancestors ) > 0 ) {
           // TODO why bother with get_page_children if we are making a query anyway?
           $all_wp_pages = ( new \WP_Query() )->query( array( 'post_type' => 'page' ) );
-          $pages = get_page_children( $ancestors[0], $all_wp_pages );  
+          $pages = get_page_children( $ancestors[0], $all_wp_pages );
 
           // make sure the parent really does have children (sanity check)
           if ( is_array( $pages ) && count( $pages ) > 0 ) {
