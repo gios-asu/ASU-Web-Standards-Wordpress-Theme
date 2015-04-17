@@ -612,8 +612,9 @@ HTML;
       $links = mb_split( "\n", $content );
 
       foreach ( $links as $link ) {
-        if ( ! empty( trim( $link ) ) ) {
-          $related_post[] = sprintf( $related_post_template, trim( $link ) );
+        $trimmed_link = trim( $link );
+        if ( ! empty( $trimmed_link ) ) {
+          $related_post[] = sprintf( $related_post_template, $trimmed_link );
         }
       }
     }
