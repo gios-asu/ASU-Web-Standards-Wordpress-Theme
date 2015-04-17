@@ -13,11 +13,11 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
   /**
  * Containers
  * ==========
- * [container type="gray" spacing="0" class=""]
+ * [container type="gray" margin="0" padding="0" class=""]
  *
  * Containers with gray option
  * - type=gray
- * - spacing=0, sm, md, lg, xl, top-0, top-sm, top-md, top-lg, top-xl, bot-0, bot-sm, bot-md, bot-lg, bot-xl
+ * - margin/padding=0, sm, md, lg, xl, top-0, top-sm, top-md, top-lg, top-xl, bot-0, bot-sm, bot-md, bot-lg, bot-xl
  *
  * @param atts - associative array.  You can override 'type' to 'gray'
  */
@@ -612,8 +612,9 @@ HTML;
       $links = mb_split( "\n", $content );
 
       foreach ( $links as $link ) {
-        if ( ! empty( trim( $link ) ) ) {
-          $related_post[] = sprintf( $related_post_template, trim( $link ) );
+        $trimmed_link = trim( $link );
+        if ( ! empty( $trimmed_link ) ) {
+          $related_post[] = sprintf( $related_post_template, $trimmed_link );
         }
       }
     }
