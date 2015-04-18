@@ -22,6 +22,7 @@ module.exports = function (grunt) {
       extra: {
         dir: [
           '../inc/*.php',
+          '../inc/shortcodes/*.php',
           '../helpers/*.php',
         ],
       },
