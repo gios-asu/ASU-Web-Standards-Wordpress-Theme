@@ -20,35 +20,37 @@ if ( ! function_exists( 'page_feature' ) ) :
     $description   = null;
     $type          = 'standard';
 
-    if ( array_key_exists( 'page_feature_title', $custom_fields ) ) {
-      $title = $custom_fields['page_feature_title'][0];
-    }
-
-    if ( array_key_exists( 'page_feature_image', $custom_fields ) ) {
-      $count = count( $custom_fields['page_feature_image'] );
-
-      if ( 0 == $count ) {
-        $image = $custom_fields['page_feature_image'][0];
-      } else {
-        $index = rand( 0, $count - 1 );
-        $image = $custom_fields['page_feature_image'][ $index ];
+    if ( $custom_fields ) {
+      if ( array_key_exists( 'page_feature_title', $custom_fields ) ) {
+        $title = $custom_fields['page_feature_title'][0];
       }
-    }
 
-    if ( array_key_exists( 'page_feature_video', $custom_fields ) ) {
-      $video = [];
+      if ( array_key_exists( 'page_feature_image', $custom_fields ) ) {
+        $count = count( $custom_fields['page_feature_image'] );
 
-      foreach ( $custom_fields['page_feature_video'] as $_ => $value ) {
-        $video[] = $value;
+        if ( 0 == $count ) {
+          $image = $custom_fields['page_feature_image'][0];
+        } else {
+          $index = rand( 0, $count - 1 );
+          $image = $custom_fields['page_feature_image'][ $index ];
+        }
       }
-    }
 
-    if ( array_key_exists( 'page_feature_description', $custom_fields ) ) {
-      $description = $custom_fields['page_feature_description'][0];
-    }
+      if ( array_key_exists( 'page_feature_video', $custom_fields ) ) {
+        $video = [];
 
-    if ( array_key_exists( 'page_feature_type', $custom_fields ) ) {
-      $type = $custom_fields['page_feature_type'][0];
+        foreach ( $custom_fields['page_feature_video'] as $_ => $value ) {
+          $video[] = $value;
+        }
+      }
+
+      if ( array_key_exists( 'page_feature_description', $custom_fields ) ) {
+        $description = $custom_fields['page_feature_description'][0];
+      }
+
+      if ( array_key_exists( 'page_feature_type', $custom_fields ) ) {
+        $type = $custom_fields['page_feature_type'][0];
+      }
     }
 
     // Check to see if anyone has overriden the page feature
