@@ -76,6 +76,8 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       $output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
     } else if ( 0 == strcasecmp( $item->attr_title, 'disabled' ) ) {
       $output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
+    } else if ( false !== strpos( $item->attr_title, 'dropdown-title' ) ) {
+      $output .= $indent . '<li role="presentation" class="dropdown-title">' . esc_attr( $item->title );
     } else {
       $class_names = $value = '';
 
@@ -93,7 +95,8 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
         $class_names .= ' dropdown'; }
 
       if ( in_array( 'current-menu-item', $classes ) ) {
-        $class_names .= ' active'; }
+        $class_names .= ' active';
+      }
 
       $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
