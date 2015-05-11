@@ -1,0 +1,29 @@
+// News Pages and Articles
+
+article {
+  &.news {
+    margin: 0 0 $spacing-lg;
+    padding: $spacing-lg $spacing-sm;
+  }
+}
+
+.news-slider-img { 
+  padding-top: 24px;
+}
+
+.pager {
+  margin: 0;
+  
+  .next > a, 
+  .next > span {
+    float: left;
+    margin-left: 30px;
+  }
+
+  .all-news > a, 
+  .all-news > span {
+    background-color: $news-secondary-button-background-color;
+    float: right;
+  }
+}
+

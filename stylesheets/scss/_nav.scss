@@ -1,0 +1,37 @@
+// ===
+// Nav
+// ===
+
+// scss-lint:disable SelectorDepth, NestingDepth, QualifyingElement
+/* Menu and ASU mobile nav gone */
+.mega-menu {
+  .dropdown-title {
+    color: $nav-color;
+    font-weight: normal;
+  }
+
+  .dropdown-menu > .row > .column {
+    > li > a:hover {
+      color: $nav-color;
+    }
+
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-color;
+      }
+    }
+  }
+}
+
+.navbar-ws .navbar-nav > .current-menu-ancestor > a {
+  color: $nav-color;
+  
+  span {
+    color: $nav-current-color;
+  }
+}
+
+// scss-lint:enable SelectorDepth, NestingDepth, QualifyingElement
+

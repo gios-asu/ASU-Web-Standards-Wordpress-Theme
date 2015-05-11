@@ -1,0 +1,223 @@
+
+// scss-lint:disable SelectorDepth, NestingDepth, VendorPrefix, QualifyingElement
+$goliath-speed:       .35s;
+$sarah-speed:         .35s;
+$figure-color:        #fff;
+$figure-shadow-color: #010;
+
+figure[class^="effect-"] {
+  background: $figure-color;
+  cursor: pointer;
+  height: auto;
+  margin: 10px 1%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+  img {
+    display: block;
+    max-width: 100%;
+    position: relative;
+  }
+
+  figcaption {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    color: $figure-color;
+    font-size: 1.25em;
+    padding: 2em;
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+      pointer-events: none;
+    }
+
+    &,
+    > a {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    /* Anchor will cover the whole item by default */
+    /* For some effects it will show as a button */
+    > a {
+      font-size: 0;
+      opacity: 0;
+      text-indent: 200%;
+      white-space: nowrap;
+      z-index: 1000;
+    }
+  }
+
+  h2 {
+    font-weight: 300;
+    word-spacing: -.15em;
+
+    span {
+      font-weight: 800;
+    }
+  }
+
+  h2,
+  p {
+    margin: 0;
+
+    @media(max-width: $screen-sm-max) {
+      font-size: 20px;
+    }
+  }
+
+  p {
+    font-size: 68.5%;
+    letter-spacing: 1px;
+
+    @media(max-width: $screen-sm-max) {
+      font-size: 50%;
+    }
+  }
+
+  /*-----------------*/
+  /***** Goliath *****/
+  /*-----------------*/
+
+  &.effect-goliath {
+    // scss-lint:disable ImportantRule
+    &.text-top h2 {
+      bottom: auto !important;
+      top: 0 !important;
+    }
+
+    // scss-lint:enable ImportantRule
+
+    p {
+      font-size: 90%;
+      opacity: 0;
+      text-transform: none;
+      -webkit-transform: translate3d(0, 50px, 0);
+      transform: translate3d(0, 50px, 0);
+      -webkit-transition: opacity $goliath-speed, -webkit-transform $goliath-speed;
+      transition: opacity $goliath-speed, transform $goliath-speed;
+    }
+
+    img,
+    h2 {
+      -webkit-transition: -webkit-transform $goliath-speed;
+      transition: transform $goliath-speed;
+    }
+
+    img {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    h2 {
+      color: $figure-color;
+      text-shadow: 0 0 5px $figure-shadow-color, -1px -1px 2px $figure-shadow-color, 1px 1px 2px $figure-shadow-color;
+    }
+
+    h2,
+    p {
+      bottom: 0;
+      left: 0;
+      // TODO this is to help the text be centered, lets just use a display:table;
+      padding: 18px;
+      position: absolute;
+    }
+  }
+
+  &:hover {
+    img {
+      -webkit-transform: translate3d(0, -80px, 0);
+      transform: translate3d(0, -80px, 0);
+    }
+
+    h2 {
+      -webkit-transform: translate3d(0, -100px, 0);
+      transform: translate3d(0, -100px, 0);
+    }
+
+    p {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /*---------------*/
+  /***** Sarah *****/
+  /*---------------*/
+  &.effect-sarah {
+
+    img {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      max-width: none;
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+      -webkit-transition: opacity $sarah-speed, -webkit-transform $sarah-speed;
+      transition: opacity $sarah-speed, transform $sarah-speed;
+      width: -webkit-calc(100% + 20px);
+      width: calc(100% + 20px);
+    }
+
+    &:hover {
+      img {
+        opacity: .4;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      h2::after {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      p {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    figcaption {
+      text-align: left;
+    }
+
+    h2 {
+      overflow: hidden;
+      padding: .5em 0;
+      position: relative;
+
+      &::after {
+        background: $figure-color;
+        bottom: 0;
+        content: '';
+        height: 3px;
+        left: 0;
+        position: absolute;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transition: -webkit-transform $sarah-speed;
+        transition: transform $sarah-speed;
+        width: 100%;
+      }
+    }
+
+    p {
+      opacity: 0;
+      padding: 1em 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+      -webkit-transition: opacity $sarah-speed, -webkit-transform $sarah-speed;
+      transition: opacity $sarah-speed, transform $sarah-speed;  
+    }
+  }
+}
+// scss-lint:enable ColorVariable
+
+
+
