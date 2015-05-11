@@ -1,0 +1,26 @@
+/*!========================================================================
+ * ASU Web Standards Wordpress Theme v0.0.1
+ * ========================================================================
+ * Copyright 2015 ASU
+ * ======================================================================== */
+.asu-breadcrumbs {
+  background-color: #f5f5f5;
+  border-bottom: 1px #f9f9f9 solid;
+}
+.asu-breadcrumbs .breadcrumb {
+  margin: 12px 0;
+  padding-left: 2px;
+}
+.asu-breadcrumbs .breadcrumb a {
+  opacity: .8;
+}
+.asu-breadcrumbs .breadcrumb a:hover {
+  opacity: 1;
+}
+
+.img-border {
+  border: solid 1px #505050;
+  padding: 4px;
+}
+
+/*# sourceMappingURL=asu-web-standards-wordpress-theme.css.map */

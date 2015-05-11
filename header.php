@@ -21,7 +21,6 @@ $ping_back = get_bloginfo( 'pingback_url' );
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title><?php wp_title( '|', true, 'right' ); ?></title>
   <link rel="profile" href="http://gmpg.org/xfn/11">
-
   <?php if ( ! empty( $ping_back ) ) : ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <?php endif; ?>
@@ -39,6 +38,33 @@ $ping_back = get_bloginfo( 'pingback_url' );
       }
     </style>
   <?php } ?>
+
+  <?php
+  // ================================
+  // Custom Color Based CSS
+  // Dependent on Customizer Settings
+  // ================================
+  $theme_color = false;
+
+  if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+    $c_options = get_option( 'wordpress_asu_theme_options' );
+
+    // Do we have a 404 image?
+    if ( isset( $c_options ) &&
+         array_key_exists( 'theme_color', $c_options ) &&
+         $c_options['theme_color'] !== '' ) {
+      $theme_color = $c_options['theme_color'];
+    }
+  }
+  ?>
+  
+  <?php if ( false !== $theme_color ) : ?>
+    <style type="text/css" media="screen">
+    .img-border {
+      border-color: <?php echo esc_attr( $theme_color ); ?>;
+    }
+    </style>
+  <?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>

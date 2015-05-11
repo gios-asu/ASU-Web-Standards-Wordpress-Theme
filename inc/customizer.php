@@ -546,5 +546,83 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'settings'   => 'wordpress_asu_theme_options[rss]',
       )
   );
+
+  //  =============================
+  //  =============================
+  //  = 404 Image Section         =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_404',
+      array(
+        'title'      => __( '404 Image','asu_wordpress' ),
+        'priority'   => 71,
+      )
+  );
+
+  //  =============================
+  //  = 404 Image                 =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[image_404]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize,
+          'wordpress_asu_404',
+          array(
+            'label'      => __( '404 Image', 'asu_wordpress' ),
+            'section'    => 'wordpress_asu_theme_section_404',
+            'settings'   => 'wordpress_asu_theme_options[image_404]',
+          )
+      )
+  );
+
+  //  =============================
+  //  =============================
+  //  = Colors Section            =
+  //  =============================
+  //  =============================
+
+  // No new section
+
+  //  =============================
+  //  = Main Color                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[theme_color]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Color_Control(
+          $wp_customize,
+          'theme_color',
+          array(
+            'label'      => __( 'Main Theme Color', 'asu_wordpress' ),
+            'section'    => 'colors',
+            'settings'   => 'wordpress_asu_theme_options[theme_color]',
+          )
+      )
+  );
+
+  // ======================================
+  // = Remove Header and Background Color =
+  // ======================================
+  $wp_customize->remove_control( 'header_textcolor' );
+  $wp_customize->remove_control( 'background_color' );
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );
