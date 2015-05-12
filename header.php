@@ -60,28 +60,35 @@ $ping_back = get_bloginfo( 'pingback_url' );
     // Are we a subsite?
     if ( isset( $c_options ) &&
          array_key_exists( 'subsite', $c_options ) &&
-         $c_options['subsite'] !== false ) {
+         false !== $c_options['subsite'] ) {
 
       if ( array_key_exists( 'parent_blog_id', $c_options ) &&
-           $c_options['parent_blog_id'] !== '' ) {
+           '' !== $c_options['parent_blog_id'] ) {
+        // ====================
+        // Create Subnavigation
+        // ====================
         // TODO sanatize $c_options['parent_blog_id'] is number
 
         $subsite_menu = intval( $c_options['parent_blog_id'] );
 
+        // ===============
+        // Switching Blogs
+        // ===============
+        // @codingStandardsIgnoreStart
         global $blog_id;
         $current_blog_id = $blog_id;
         switch_to_blog( $subsite_menu );
         ob_start();
 
         $wrapper  = <<<HTML
-<li class="dropdown" id="%s" class="%s">
-  <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    <i class="fa fa-bars"></i>
-  </a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    %s
-  </ul>
-</li>
+          <li class="dropdown" id="%s" class="%s">
+            <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+              <i class="fa fa-bars"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              %s
+            </ul>
+          </li>
 HTML;
 
         wp_nav_menu(
@@ -90,12 +97,16 @@ HTML;
               'depth'             => 1,
               'container'         => null,
               'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
-              'items_wrap'        => $wrapper
+              'items_wrap'        => $wrapper,
             )
         );
         $subsite_menu = ob_get_contents();
         ob_end_clean();
         switch_to_blog( $current_blog_id );
+        // @codingStandardsIgnoreEnd
+        // ==============
+        // Switching Back
+        // ==============
       }
     }
   }
@@ -163,15 +174,6 @@ HTML;
             <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
           </div>
           <?php
-
-          
-
-          // ====================
-          // Create Subnavigation
-          // ====================
-
-
-
           // ======================
           // Create Main Navigation
           // ======================
