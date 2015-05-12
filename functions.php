@@ -19,7 +19,7 @@ if ( ! function_exists( 'asu_wordpress_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
-   * Note that this function is hooked into the after_setup_theme hook, which
+   * NNote that this function is hooked into the after_setup_theme hook, which
    * runs before the init hook. The init hook is too late for some features, such
    * as indicating support for post thumbnails.
    */
@@ -262,6 +262,7 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require_once ( 'wp-bootstrap-navwalker.php' );
 require_once ( 'wp-bootstrap-footer-navwalker.php' );
+require_once ( 'wp-bootstrap-dropdown-navwalker.php' );
 
 function add_first_and_last( $output ) {
   // $output       = preg_replace( '/menu-item/', 'first-menu-item menu-item', $output, 1 );
