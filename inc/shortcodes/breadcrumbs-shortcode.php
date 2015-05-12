@@ -2,15 +2,15 @@
 /**
  * Buttons Shortcode used for simplifying Bootstrap code
  *
- * @author Global Insititue of Sustainability
+ * @author Global Institute of Sustainability
  * @author Ivan Montiel
  *
  * @package asu-wordpress-web-standards
  */
 if ( ! function_exists( 'asu_breadcrumbs' ) ) :
   /**
- * Used for internal purposes
- */
+   * Used for internal purposes
+   */
   function asu_breadcrumbs() {
     $markup = '';
 

@@ -8,3 +8,4 @@ vendor/*
 .standards/composer.lock
 .standards/vendor/*
 .standards/npm-debug.log
+.standards/.sass-cache

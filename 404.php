@@ -39,6 +39,21 @@ get_header(); ?>
 }
 </style>
 
+<?php
+$image_404 = '';
+
+if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+  $c_options = get_option( 'wordpress_asu_theme_options' );
+
+  // Do we have a 404 image?
+  if ( isset( $c_options ) &&
+       array_key_exists( 'image_404', $c_options ) &&
+       $c_options['image_404'] !== '' ) {
+    $image_404 = $c_options['image_404'];
+  }
+}
+?>
+
 <div id="main-wrapper" class="clearfix">
   <div id="main" class="clearfix">
     <div class="column">
@@ -46,7 +61,7 @@ get_header(); ?>
         <div class="block block-system">
           <div class="content">
             <div class="panel-display clearfix">
-              <section class="hero hero-bg-img hero-action-call">
+              <section class="hero hero-bg-img hero-action-call" style="background-image:url(<?php echo esc_url( $image_404 ); ?>)">
                 <div class="container">
                   <div class="row">
                     <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">

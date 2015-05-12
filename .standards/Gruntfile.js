@@ -54,18 +54,64 @@ module.exports = function (grunt) {
         bin: './vendor/bin/phpunit',
         color: true
       }
-    }
+    },
+    // SCSS Lint
+    // =========
+    scsslint: {
+      allFiles: [
+        '../stylesheets/scss/*.scss'
+      ],
+      options: {
+        bundleExec: true,
+        config: '../stylesheets/scss/.scss-lint.yml',
+        colorizeOutput: true
+      }
+    },
+    // SASS Compile
+    // ============
+    sass: {
+      options: {
+        style: 'expanded',
+        sourcemap: 'auto'
+      },
+      dist: {
+        files: {
+            '../stylesheets/asu-web-standards-wordpress-theme.css' : '../stylesheets/scss/asu-web-standards-wordpress-theme.scss',
+        }
+      }
+    },
+    // CSS Minify
+    // ==========
+    cssmin: {
+        target: {
+            files: [{
+                expand: true,
+                cwd: '../stylesheets/',
+                src: ['*.css', '!*.min.css'],
+                dest: '../stylesheets/',
+                ext: '.min.css'
+            }]
+        }
+    },
   });
 
   // These plugins provide necessary tasks
   grunt.loadNpmTasks('grunt-phpcs');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-phpunit');
+  grunt.loadNpmTasks('grunt-scss-lint');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task
   grunt.registerTask('default', [
       'phpcs', 
       'csslint',
-      'phpunit']);
+      'scsslint',
+      'sass',
+      'cssmin',
+      'phpunit',
+
+  ]);
 };
 
