@@ -681,10 +681,13 @@ function wordpress_asu_customize_register( $wp_customize ) {
 
   // ======================================
   // ======================================
-  // = Remove Header and Background Color =
+  // = Remove Default Wordpress Sections  =
   // ======================================
   // ======================================
   $wp_customize->remove_control( 'header_textcolor' );
   $wp_customize->remove_control( 'background_color' );
+  $wp_customize->remove_control( 'display_header_text' );
+  $wp_customize->remove_control( 'header_image' );
+  $wp_customize->remove_section( 'background_image' );
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );
