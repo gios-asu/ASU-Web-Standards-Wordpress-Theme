@@ -44,7 +44,8 @@ $ping_back = get_bloginfo( 'pingback_url' );
   // Custom Color Based CSS
   // Dependent on Customizer Settings
   // ================================
-  $theme_color = false;
+  $theme_color  = false;
+  $subsite_menu = false;
 
   if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
     $c_options = get_option( 'wordpress_asu_theme_options' );
@@ -54,6 +55,48 @@ $ping_back = get_bloginfo( 'pingback_url' );
          array_key_exists( 'theme_color', $c_options ) &&
          $c_options['theme_color'] !== '' ) {
       $theme_color = $c_options['theme_color'];
+    }
+
+    // Are we a subsite?
+    if ( isset( $c_options ) &&
+         array_key_exists( 'subsite', $c_options ) &&
+         $c_options['subsite'] !== false ) {
+
+      if ( array_key_exists( 'parent_blog_id', $c_options ) &&
+           $c_options['parent_blog_id'] !== '' ) {
+        // TODO sanatize $c_options['parent_blog_id'] is number
+
+        $subsite_menu = intval( $c_options['parent_blog_id'] );
+
+        global $blog_id;
+        $current_blog_id = $blog_id;
+        switch_to_blog( $subsite_menu );
+        ob_start();
+
+        $wrapper  = <<<HTML
+<li class="dropdown" id="%s" class="%s">
+  <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    <i class="fa fa-bars"></i>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    %s
+  </ul>
+</li>
+HTML;
+
+        wp_nav_menu(
+            array(
+              'menu'              => 'primary',
+              'depth'             => 1,
+              'container'         => null,
+              'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
+              'items_wrap'        => $wrapper
+            )
+        );
+        $subsite_menu = ob_get_contents();
+        ob_end_clean();
+        switch_to_blog( $current_blog_id );
+      }
     }
   }
   ?>
@@ -121,8 +164,24 @@ $ping_back = get_bloginfo( 'pingback_url' );
           </div>
           <?php
 
+          
+
+          // ====================
+          // Create Subnavigation
+          // ====================
+
+
+
+          // ======================
+          // Create Main Navigation
+          // ======================
 
           $wrapper  = '<ul id="%1$s" class="%2$s">';
+
+          if ( ! empty( $subsite_menu ) ) {
+            $wrapper .= $subsite_menu;
+          }
+
           $wrapper .= '<li>';
           $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
           $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';

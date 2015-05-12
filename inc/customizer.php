@@ -620,7 +620,70 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   // ======================================
+  // ======================================
+  // = Add Subsite Navigation             =
+  // ======================================
+  // ======================================
+
+  // No new section
+
+  //  =============================
+  //  = Is Subsite                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[subsite]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'subsite',
+          array(
+            'label'      => __( 'Is this a subsite?', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[subsite]',
+            'type'       => 'checkbox',
+          )
+      )
+  );
+
+  //  =============================
+  //  = Parent Blog Id            =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[parent_blog_id]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'parent_blog_id',
+          array(
+            'label'      => __( 'Parent Blog Id (if subsite)', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[parent_blog_id]',
+            'type'       => 'number',
+          )
+      )
+  );
+
+
+  // ======================================
+  // ======================================
   // = Remove Header and Background Color =
+  // ======================================
   // ======================================
   $wp_customize->remove_control( 'header_textcolor' );
   $wp_customize->remove_control( 'background_color' );

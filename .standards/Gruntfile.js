@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                 ext: '.min.css'
             }]
         }
-    },
+    }
   });
 
   // These plugins provide necessary tasks
@@ -111,7 +111,6 @@ module.exports = function (grunt) {
       'sass',
       'cssmin',
       'phpunit',
-
   ]);
 };
 
