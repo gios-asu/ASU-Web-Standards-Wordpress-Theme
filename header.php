@@ -10,8 +10,89 @@
  * @package asu-wordpress-web-standards
  */
 
-$home_url  = esc_url( home_url( '/' ) );
-$ping_back = get_bloginfo( 'pingback_url' );
+$home_url         = esc_url( home_url( '/' ) );
+$ping_back        = get_bloginfo( 'pingback_url' );
+$theme_color      = false;
+$subsite_menu     = false;
+$parent_blog_name = false;
+
+// Check if we have options set
+if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+  $c_options = get_option( 'wordpress_asu_theme_options' );
+
+  // Do we have a 404 image?
+  if ( isset( $c_options ) &&
+       array_key_exists( 'theme_color', $c_options ) &&
+       $c_options['theme_color'] !== '' ) {
+    $theme_color = $c_options['theme_color'];
+  }
+
+  // Are we a subsite?
+  if ( isset( $c_options ) &&
+       array_key_exists( 'subsite', $c_options ) &&
+       false !== $c_options['subsite'] ) {
+
+    // Is the parent blog id set?
+    if ( array_key_exists( 'parent_blog_id', $c_options ) &&
+         '' !== $c_options['parent_blog_id'] ) {
+      // ====================
+      // Create Subnavigation
+      // ====================
+      // TODO sanatize $c_options['parent_blog_id'] is number
+
+      $subsite_menu = intval( $c_options['parent_blog_id'] );
+
+      // Do we have a custom blog name?
+      if ( array_key_exists( 'parent_blog_name', $c_options ) &&
+         '' !== $c_options['parent_blog_name'] ) {
+        $parent_blog_name = $c_options['parent_blog_name'];
+      }
+
+      // ===============
+      // Switching Blogs
+      // ===============
+      // @codingStandardsIgnoreStart
+      global $blog_id;
+      $current_blog_id = $blog_id;
+      switch_to_blog( $subsite_menu );
+      
+      if ( false === $parent_blog_name ) {
+        $parent_blog_name = get_bloginfo( 'name' );
+      }
+
+      ob_start();
+
+      $wrapper  = <<<HTML
+        <li class="dropdown" id="%s" class="%s">
+          <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            <i class="fa fa-bars"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li class="dropdown-title">{$parent_blog_name}</li>
+            %s
+          </ul>
+        </li>
+HTML;
+
+      wp_nav_menu(
+          array(
+            'menu'              => 'primary',
+            'depth'             => 1,
+            'container'         => null,
+            'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
+            'items_wrap'        => $wrapper,
+          )
+      );
+      $subsite_menu = ob_get_contents();
+      ob_end_clean();
+      switch_to_blog( $current_blog_id );
+      // @codingStandardsIgnoreEnd
+      // ==============
+      // Switching Back
+      // ==============
+    }
+  }
+}
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -39,79 +120,6 @@ $ping_back = get_bloginfo( 'pingback_url' );
     </style>
   <?php } ?>
 
-  <?php
-  // ================================
-  // Custom Color Based CSS
-  // Dependent on Customizer Settings
-  // ================================
-  $theme_color  = false;
-  $subsite_menu = false;
-
-  if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
-    $c_options = get_option( 'wordpress_asu_theme_options' );
-
-    // Do we have a 404 image?
-    if ( isset( $c_options ) &&
-         array_key_exists( 'theme_color', $c_options ) &&
-         $c_options['theme_color'] !== '' ) {
-      $theme_color = $c_options['theme_color'];
-    }
-
-    // Are we a subsite?
-    if ( isset( $c_options ) &&
-         array_key_exists( 'subsite', $c_options ) &&
-         false !== $c_options['subsite'] ) {
-
-      if ( array_key_exists( 'parent_blog_id', $c_options ) &&
-           '' !== $c_options['parent_blog_id'] ) {
-        // ====================
-        // Create Subnavigation
-        // ====================
-        // TODO sanatize $c_options['parent_blog_id'] is number
-
-        $subsite_menu = intval( $c_options['parent_blog_id'] );
-
-        // ===============
-        // Switching Blogs
-        // ===============
-        // @codingStandardsIgnoreStart
-        global $blog_id;
-        $current_blog_id = $blog_id;
-        switch_to_blog( $subsite_menu );
-        ob_start();
-
-        $wrapper  = <<<HTML
-          <li class="dropdown" id="%s" class="%s">
-            <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-              <i class="fa fa-bars"></i>
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              %s
-            </ul>
-          </li>
-HTML;
-
-        wp_nav_menu(
-            array(
-              'menu'              => 'primary',
-              'depth'             => 1,
-              'container'         => null,
-              'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
-              'items_wrap'        => $wrapper,
-            )
-        );
-        $subsite_menu = ob_get_contents();
-        ob_end_clean();
-        switch_to_blog( $current_blog_id );
-        // @codingStandardsIgnoreEnd
-        // ==============
-        // Switching Back
-        // ==============
-      }
-    }
-  }
-  ?>
-  
   <?php if ( false !== $theme_color ) : ?>
     <style type="text/css" media="screen">
     .img-border {

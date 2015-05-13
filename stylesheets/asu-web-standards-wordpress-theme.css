@@ -260,9 +260,16 @@ a.list-group-item:focus, a.list-group-item:hover {
 }
 
 /* Menu and ASU mobile nav gone */
+li.dropdown-title {
+  color: #ffb310;
+  font-weight: normal;
+  padding: 3px 25px 7px;
+}
+
 .mega-menu .dropdown-title {
   color: #ffb310;
   font-weight: normal;
+  padding: 9px 10px 10px;
 }
 .mega-menu .dropdown-menu > .row > .column > li > a:hover {
   color: #ffb310;
