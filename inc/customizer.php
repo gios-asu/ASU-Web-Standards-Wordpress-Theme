@@ -679,6 +679,31 @@ function wordpress_asu_customize_register( $wp_customize ) {
       )
   );
 
+  //  =============================
+  //  = Parent Blog Name          =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[parent_blog_name]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'parent_blog_name',
+          array(
+            'label'      => __( 'Parent Blog Name (optional)', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[parent_blog_name]',
+          )
+      )
+  );
+
   // ======================================
   // ======================================
   // = Remove Default Wordpress Sections  =
