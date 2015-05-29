@@ -122,6 +122,10 @@ HTML;
 
   <?php if ( false !== $theme_color ) : ?>
     <style type="text/css" media="screen">
+    .theme-color-background {
+      background: <?php echo esc_attr( $theme_color ); ?>;
+    }
+
     .img-border {
       border-color: <?php echo esc_attr( $theme_color ); ?>;
     }
