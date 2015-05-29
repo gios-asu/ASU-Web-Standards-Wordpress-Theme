@@ -316,6 +316,13 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
           ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <?php dynamic_sidebar( 'footer' ); ?>
+          </div>
+        </div>
+      </div>
     </div><!-- /.big-foot -->
 
     <div class="little-foot">

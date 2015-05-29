@@ -132,31 +132,9 @@ function asu_webstandards_widgets_init() {
   );
   register_sidebar(
       array(
-        'name'          => __( 'left footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'left-footer-sidebar',
+        'name'          => __( 'footer', 'asu-wordpress-web-standards-theme' ),
+        'id'            => 'footer-sidebar',
         'description'   => 'Footer aligned left',
-        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-      )
-  );
-  register_sidebar(
-      array(
-        'name'          => __( 'right footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'right-footer-sidebar',
-        'description'   => 'Footer aligned right',
-        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-      )
-  );
-  register_sidebar(
-      array(
-        'name'          => __( 'center footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'center-footer-sidebar',
-        'description'   => 'Footer centered',
         'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
