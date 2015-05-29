@@ -77,6 +77,7 @@ HTML;
       wp_nav_menu(
           array(
             'menu'              => 'primary',
+            'theme_location'    => 'primary',
             'depth'             => 1,
             'container'         => null,
             'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
