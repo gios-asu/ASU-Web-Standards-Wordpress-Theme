@@ -526,7 +526,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
-  //  = RSS                 =
+  //  = RSS                       =
   //  =============================
   $wp_customize->add_setting(
       'wordpress_asu_theme_options[rss]',
@@ -583,6 +583,120 @@ function wordpress_asu_customize_register( $wp_customize ) {
             'section'    => 'wordpress_asu_theme_section_404',
             'settings'   => 'wordpress_asu_theme_options[image_404]',
           )
+      )
+  );
+
+  //  =============================
+  //  =============================
+  //  = Blog Section              =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_blog_settings',
+      array(
+        'title'      => __( 'Blog Settings','asu_wordpress' ),
+        'priority'   => 72,
+      )
+  );
+
+  //  =============================
+  //  = Blog Image                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_image]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize,
+          'wordpress_asu_404',
+          array(
+            'label'      => __( 'Blog Header Image', 'asu_wordpress' ),
+            'section'    => 'wordpress_asu_theme_section_blog_settings',
+            'settings'   => 'wordpress_asu_theme_options[blog_image]',
+          )
+      )
+  );
+
+  //  =============================
+  //  = Title                     =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_title]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_title',
+      array(
+        'label'      => __( 'Blog Title', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_title]',
+      )
+  );
+
+  //  =============================
+  //  = Description               =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_description]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_description',
+      array(
+        'label'      => __( 'Blog Description', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_description]',
+      )
+  );
+  
+  //  =============================
+  //  = Type                      =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_type]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  // TODO add hook in for the plugin to add in the special hero image types
+  // instead of hardcoding them here
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_type',
+      array(
+        'type'       => 'select',
+        'label'      => __( 'Blog Header Image Type', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_type]',
+        'choices'    => array(
+          'slim' => 'Slim',
+          'ratio' => 'Ratio',
+          'standard' => 'Standard'
+        ),
       )
   );
 
@@ -703,6 +817,8 @@ function wordpress_asu_customize_register( $wp_customize ) {
           )
       )
   );
+
+
 
   // ======================================
   // ======================================
