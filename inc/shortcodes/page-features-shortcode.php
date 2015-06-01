@@ -20,6 +20,41 @@ if ( ! function_exists( 'page_feature' ) ) :
     $description   = null;
     $type          = 'standard';
 
+    // If is blog page, check for theme customizer options
+    if ( is_home() ) {
+      if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+        $c_options = get_option( 'wordpress_asu_theme_options' );
+
+        // Do we have a blog_header_image?
+        if ( isset( $c_options ) &&
+             array_key_exists( 'blog_image', $c_options ) &&
+             $c_options['blog_image'] !== '' ) {
+          $image = $c_options['blog_image'];
+        }
+
+        // Do we have a title?
+        if ( isset( $c_options ) &&
+             array_key_exists( 'blog_title', $c_options ) &&
+             $c_options['blog_title'] !== '' ) {
+          $title = $c_options['blog_title'];
+        }
+
+        // Do we have a description?
+        if ( isset( $c_options ) &&
+             array_key_exists( 'blog_description', $c_options ) &&
+             $c_options['blog_description'] !== '' ) {
+          $description = $c_options['blog_description'];
+        }
+
+        // Do we have a type?
+        if ( isset( $c_options ) &&
+             array_key_exists( 'blog_type', $c_options ) &&
+             $c_options['blog_type'] !== '' ) {
+          $type = $c_options['blog_type'];
+        }
+      }
+    }
+
     if ( $custom_fields ) {
       if ( array_key_exists( 'page_feature_title', $custom_fields ) ) {
         $title = $custom_fields['page_feature_title'][0];
