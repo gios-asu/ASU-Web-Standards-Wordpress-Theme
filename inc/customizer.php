@@ -668,7 +668,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'settings'   => 'wordpress_asu_theme_options[blog_description]',
       )
   );
-  
+
   //  =============================
   //  = Type                      =
   //  =============================
@@ -695,7 +695,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'choices'    => array(
           'slim' => 'Slim',
           'ratio' => 'Ratio',
-          'standard' => 'Standard'
+          'standard' => 'Standard',
         ),
       )
   );
@@ -817,8 +817,6 @@ function wordpress_asu_customize_register( $wp_customize ) {
           )
       )
   );
-
-
 
   // ======================================
   // ======================================
