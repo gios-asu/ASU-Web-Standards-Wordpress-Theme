@@ -67,18 +67,20 @@ if ( ! function_exists( 'asu_webstandards_posted_on' ) ) :
  */
   function asu_webstandards_posted_on() {
     $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-      $time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-    }
+    // TODO no one has requested the modified time to show up. Disabling for now.
+    // if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+    //   $time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+    // }
 
     $time_string = sprintf(
         $time_string,
         esc_attr( get_the_date( 'c' ) ),
-        esc_html( get_the_date() ),
-        esc_attr( get_the_modified_date( 'c' ) ),
-        esc_html( get_the_modified_date() )
+        esc_html( get_the_date() )
+        // esc_attr( get_the_modified_date( 'c' ) ),
+        // esc_html( get_the_modified_date() )
     );
 
+    // TODO wp_kses_allowed_tags('post') does not return "<time>" as an allowed post.
     $posted_on = sprintf(
         _x( 'Posted on %s', 'post date', 'asu-wordpress-web-standards-theme' ),
         '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_kses( $time_string, wp_kses_allowed_html( 'post' ) ) . '</a>'
