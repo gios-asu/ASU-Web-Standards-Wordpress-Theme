@@ -2,8 +2,9 @@
 
 article {
   &.news {
-    margin: 0 0 $spacing-lg;
-    padding: $spacing-lg $spacing-sm;
+    margin-bottom: $spacing-md;
+    margin-top: 0;
+    padding: $spacing-xl;
   }
 }
 
