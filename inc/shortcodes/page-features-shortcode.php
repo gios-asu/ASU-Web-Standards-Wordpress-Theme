@@ -12,6 +12,13 @@ if ( ! function_exists( 'page_feature' ) ) :
  * Display hero section (page feature)
  */
   function page_feature() {
+    $supported_colors = [
+      'black' => '#000000',
+      'white' => '#ffffff',
+      'gold' => '#ffb310',
+      'maroon' => '#990033'
+    ];
+
     $custom_fields = get_post_custom();
     $title         = null;
     $count         = null;

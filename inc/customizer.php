@@ -616,7 +616,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       new WP_Customize_Image_Control(
           $wp_customize,
-          'wordpress_asu_404',
+          'wordpress_asu_blog_image',
           array(
             'label'      => __( 'Blog Header Image', 'asu_wordpress' ),
             'section'    => 'wordpress_asu_theme_section_blog_settings',
