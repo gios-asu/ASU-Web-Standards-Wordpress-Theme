@@ -150,6 +150,16 @@ Note that you can have 0 to any number of `page_feature_video` fields. To have m
 
 Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the [Can I Use Video Entry](http://caniuse.com/#feat=video).
 
+**page_feature_color**
+
+The Page Feature Color overrides the color of the hero image text that is set in
+the `page_feature_title` and `page_feature_description`. It can be 1 of the following:
+
+* gold
+* maroon
+* white
+* black
+
 # New Page Templates
 
 When editting a page, you can set the page template by going to the `Page Attributes` panel and changing the `Template`.
@@ -187,14 +197,15 @@ The container can also be made to appear gray by specifying the gray attribute:
 You can write a sidebar for navigating the current page by using the sidebar tag.  The markup looks like this:
 
 ```php
-[sidebar title='My title']
+[sidebar title='My title' affix=true]
   Text1|#idOnPage1
   Text2|#idOnPage2
   Text3|#idOnPage3
 [/sidebar]
 ```
 
-The title attribute is optional, it defaults to "Navigate this Doc".
+The title attribute is optional, it defaults to "Navigate this Doc". The affix
+attribute is optional, it defaults to false.
 
 # Menus
 
