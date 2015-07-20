@@ -701,6 +701,38 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
+  //  = Type                      =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_color]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  // TODO add hook in for the plugin to add in the special hero colors
+  // instead of hardcoding them here
+  $wp_customize->add_control(
+      'wordpress_asu_blog_color',
+      array(
+        'type'       => 'select',
+        'label'      => __( 'Blog Header Font Color', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_color]',
+        'choices'    => array(
+          'white' => 'White',
+          'gold' => 'Gold',
+          'maroon' => 'Maroon',
+          'black' => 'Black',
+        ),
+      )
+  );
+
+
+  //  =============================
   //  =============================
   //  = Colors Section            =
   //  =============================
