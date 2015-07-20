@@ -731,7 +731,6 @@ function wordpress_asu_customize_register( $wp_customize ) {
       )
   );
 
-
   //  =============================
   //  =============================
   //  = Colors Section            =
