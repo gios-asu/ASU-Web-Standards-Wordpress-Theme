@@ -9,22 +9,32 @@
  */
 if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
   /**
- * Sidebar Nav
- * ===========
- *
- * Navbar with group parameters
- *
- * @param $atts - associative array. You can override 'title'.
- * @param $content - content should be of the form 'text|#id' with one on each line.
- */
+   * Sidebar Nav
+   * ===========
+   *
+   * Navbar with group parameters
+   *
+   * [sidebar (title="example") (affix=true)]
+   *
+   * @param $atts - associative array. You can override 'title'.
+   * @param $content - content should be of the form 'text|#id' with one on each line.
+   */
   function asu_wp_sidebar_shortcode( $atts, $content = null ) {
-    $container = '<div id="sidebarNav" class="sidebar-nav affix-top %3$s"><h4>%1$s</h4>%2$s</div>';
+    $container = '<div id="%4$s" class="sidebar-nav %3$s"><h4>%1$s</h4>%2$s</div>';
     $list      = '<div class="list-group">%s</div>';
     $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
     $title     = 'Navigate this Doc';
+    // Unique ID will only be set if affix is true
+    $unique_id = '';
 
     if ( $atts != null && array_key_exists( 'title', $atts ) ) {
       $title = $atts['title'];
+    }
+
+    if ( $atts != null && array_key_exists( 'affix', $atts ) ) {
+      if ( true === $atts['affix'] ) {
+        $unique_id = 'sidebarNav';
+      }
     }
     $classes = '';
     // Any custom classes to add
@@ -51,7 +61,7 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
 
     $list = sprintf( $list, $user_list_items_inst );
 
-    return do_shortcode( sprintf( $container, $title, $list, $classes ) );
+    return do_shortcode( sprintf( $container, $title, $list, $classes, $unique_id ) );
   }
   add_shortcode( 'sidebar', 'asu_wp_sidebar_shortcode' );
 endif;
