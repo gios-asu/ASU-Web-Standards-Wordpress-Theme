@@ -238,9 +238,9 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Register custom navigation walker
  */
-require_once ( 'wp-bootstrap-navwalker.php' );
-require_once ( 'wp-bootstrap-footer-navwalker.php' );
-require_once ( 'wp-bootstrap-dropdown-navwalker.php' );
+require_once( 'wp-bootstrap-navwalker.php' );
+require_once( 'wp-bootstrap-footer-navwalker.php' );
+require_once( 'wp-bootstrap-dropdown-navwalker.php' );
 
 function add_first_and_last( $output ) {
   // $output       = preg_replace( '/menu-item/', 'first-menu-item menu-item', $output, 1 );
