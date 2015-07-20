@@ -6,12 +6,12 @@
  *
  * @author The Julie Ann Wrigley Global Institute of Sustainability
  * @author Ivan Montiel
- * 
+ *
  * @copyright 2014-2015 Arizona State University
- * 
+ *
  * @license MIT
  * @license http://opensource.org/licenses/MIT
- * 
+ *
  * @package asu-wordpress-web-standards-theme
  */
 
