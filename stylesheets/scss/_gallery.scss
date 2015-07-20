@@ -1,0 +1,17 @@
+// =======
+// Gallery
+// =======
+
+.gallery {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.gallery-item {
+  float: left;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
