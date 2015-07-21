@@ -32,7 +32,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
     if ( is_numeric( $title_font_size ) ) {
       // TODO refactor these constants
       if ( $title_font_size >= 21 && $title_font_size <= 24 ) {
-        $site_title_attr .= ' style="font-size: ' . $title_font_size . 'px;" ';
+        $site_title_attr .= 'font-size: ' . intval( $title_font_size ) . 'px;';
       }
     }
   }
@@ -168,7 +168,9 @@ HTML;
 
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-            <h1 class="site-title" id="asu_school_name" <?php echo $site_title_attr; ?> >
+            <h1 class="site-title" id="asu_school_name" 
+              style="<?php echo esc_attr( $site_title_attr ); ?>"
+            >
               <?php
                 // Print the parent organization and its link
               $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
