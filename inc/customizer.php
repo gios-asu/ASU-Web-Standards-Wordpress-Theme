@@ -766,6 +766,43 @@ function wordpress_asu_customize_register( $wp_customize ) {
 
   // ======================================
   // ======================================
+  // = Add Title Options                  =
+  // ======================================
+  // ======================================
+
+  // No new section
+
+  //  =============================
+  //  = Title Font Size           =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[title_font_size]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_title_font_size',
+      array(
+        'label'      => __( 'Site Title Font Size', 'asu_wordpress' ),
+        'section'    => 'title_tagline',
+        'settings'   => 'wordpress_asu_theme_options[title_font_size]',
+        'type'       => 'number',
+        'default'    => 21,
+        'input_attrs' => array(
+          'min' => 21,
+          'max' => 24,
+          'step' => 1,
+        )
+      )
+  );
+
+  // ======================================
+  // ======================================
   // = Add Subsite Navigation             =
   // ======================================
   // ======================================
