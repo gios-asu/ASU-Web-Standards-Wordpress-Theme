@@ -127,10 +127,6 @@ HTML;
       background: <?php echo esc_attr( $theme_color ); ?>;
     }
 
-    .img-border {
-      border-color: <?php echo esc_attr( $theme_color ); ?>;
-    }
-
     figure[class^="effect-"] {
       background: <?php echo esc_attr( $theme_color ); ?>;
     }
