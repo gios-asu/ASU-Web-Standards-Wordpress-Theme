@@ -15,10 +15,27 @@ $ping_back        = get_bloginfo( 'pingback_url' );
 $theme_color      = false;
 $subsite_menu     = false;
 $parent_blog_name = false;
+$site_title_attr  = '';
 
 // Check if we have options set
 if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
   $c_options = get_option( 'wordpress_asu_theme_options' );
+
+  //  =============================
+  //  = Title Font Size           =
+  //  =============================
+  // Do we have an title_font_size?
+  if ( array_key_exists( 'title_font_size', $c_options ) &&
+         $c_options['title_font_size'] !== '' ) {
+    $title_font_size = $c_options['title_font_size'];
+
+    if ( is_numeric( $title_font_size ) ) {
+      // TODO refactor these constants
+      if ( $title_font_size >= 21 && $title_font_size <= 24 ) {
+        $site_title_attr .= 'font-size: ' . intval( $title_font_size ) . 'px;';
+      }
+    }
+  }
 
   // Do we have a 404 image?
   if ( isset( $c_options ) &&
@@ -127,10 +144,6 @@ HTML;
       background: <?php echo esc_attr( $theme_color ); ?>;
     }
 
-    .img-border {
-      border-color: <?php echo esc_attr( $theme_color ); ?>;
-    }
-
     figure[class^="effect-"] {
       background: <?php echo esc_attr( $theme_color ); ?>;
     }
@@ -155,7 +168,9 @@ HTML;
 
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-            <h1 class="site-title" id="asu_school_name">
+            <h1 class="site-title" id="asu_school_name" 
+              style="<?php echo esc_attr( $site_title_attr ); ?>"
+            >
               <?php
                 // Print the parent organization and its link
               $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';

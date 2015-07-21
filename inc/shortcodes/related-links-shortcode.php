@@ -10,6 +10,20 @@
 
 if ( ! function_exists( 'related_links' ) ) :
   /**
+   * This shortcode takes in a title, a limit, an include_siblings flag,
+   * and content between the opening and closing tags of the shortcode.
+   *
+   * The title attribute is a string that will be used as the title of the
+   * section. Set to false for no title. Defaults to "Additional Reading".
+   *
+   * The limit is the total number of links to show. Defaults to 10.
+   *
+   * The include_siblings flag, if true, will automatically generate
+   * links for pages that are siblings (hierarchically) to the current
+   * page that the shortcode is on.
+   *
+   * The content should be new line delimited a tags.
+   *
    * Example:
    * ```
    * [related-links title="Related Links" limit=5 include_siblings=false]
@@ -18,7 +32,10 @@ if ( ! function_exists( 'related_links' ) ) :
    * [/related-links]
    * ```
    *
-   * Optional limit (default 10)
+   * @param $atts array
+   * @param $content string
+   *
+   * @return string
    */
   function related_links( $atts, $content = '' ) {
     global $post;
@@ -35,16 +52,16 @@ HTML;
 
     $related_posts_template = <<<HTML
 <div class="related-articles">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>%s</h3>
-      <ul class="nav nav-pills">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
         %s
-      </ul>
+        <ul class="nav nav-pills">
+          %s
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </div>
 HTML;
 
@@ -107,6 +124,13 @@ HTML;
     // trim to the limit
     if ( count( $related_post ) > $related_links_limit ) {
       $related_post = array_slice( $related_post, 0, $related_links_limit );
+    }
+
+    // Wrap the title in an h3 if it as not false
+    if ( 'false' === $related_links_title ) {
+      $related_links_title = '<div class="space-top-md"></div>';
+    } else {
+      $related_links_title = '<h3>' . $related_links_title . '</h3>';
     }
 
     $related_posts = sprintf( $related_posts_template, $related_links_title, join( $related_post, '' ) );
