@@ -1,5 +1,5 @@
 <?php // ASU Header ?>
-<header class="navbar navbar-default" id="masthead">
+<header class="" id="masthead">
   <div class="container">
     <div class="region region-header">
       <div id="block-asu-brand-asu-brand-header" class="block block-asu-brand">
