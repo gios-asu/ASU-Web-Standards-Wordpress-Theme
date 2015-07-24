@@ -229,7 +229,7 @@ article img {
   text-decoration: none;
 }
 
-.footer a.footer-logo-link {
+.footer .footer-logo-link {
   border: 0;
   text-decoration: none;
 }
@@ -237,12 +237,10 @@ article img {
 /*
  * Gallery
  */
-.gallery {
-  &:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+.gallery:after {
+  clear: both;
+  content: '';
+  display: table;
 }
 
 .gallery-item {
