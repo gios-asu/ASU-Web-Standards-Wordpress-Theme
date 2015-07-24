@@ -166,7 +166,6 @@ function asu_webstandards_scripts() {
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.5', 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.1.6', 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
-  wp_register_style( 'addon-wordpress-theme', get_template_directory_uri() . '/stylesheets/asu-web-standards-wordpress-theme.min.css', array(), '0.0.2', 'all' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
 
   wp_enqueue_script( 'jquery' );
@@ -315,3 +314,8 @@ function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args )
 add_filter( 'nav_menu_link_attributes', 'asu_webstandards_custom_nav_menu_link_attributes', 10, 3 );
 
 
+function custom_edit_post_link( $output ) {
+    $output = str_replace( 'class="post-edit-link"', 'class="post-edit-link btn btn-lg btn-primary', $output );
+    return $output;
+}
+add_filter( 'edit_post_link', 'custom_edit_post_link' );

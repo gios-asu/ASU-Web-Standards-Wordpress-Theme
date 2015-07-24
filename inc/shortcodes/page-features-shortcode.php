@@ -28,6 +28,7 @@ if ( ! function_exists( 'page_feature' ) ) :
     $description   = null;
     $color         = false;
     $type          = 'standard';
+    $hide_on_small = false;
 
     // If is blog page, check for theme customizer options
     if ( is_home() ) {
@@ -124,6 +125,14 @@ if ( ! function_exists( 'page_feature' ) ) :
           }
         }
       }
+
+      if ( array_key_exists( 'page_feature_hide_on_small', $custom_fields ) ) {
+        $hide_on_small = $custom_fields['page_feature_hide_on_small'][0];
+
+        if ( 'true' === $hide_on_small ) {
+          $hide_on_small = true;
+        }
+      }
     }
 
     // Check to see if anyone has overriden the page feature
@@ -137,6 +146,7 @@ if ( ! function_exists( 'page_feature' ) ) :
           'video' => $video,
           'type' => $type,
           'color' => $color,
+          'hide_on_small' => $hide_on_small,
         )
     );
 
@@ -242,11 +252,18 @@ endif;
 
 if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
   function page_feature_ratio_slim( $options ) {
-    $title       = $options['title'];
-    $image       = $options['image'];
-    $description = $options['description'];
-    $type        = $options['type'];
-    $color       = $options['color'];
+    $title         = $options['title'];
+    $image         = $options['image'];
+    $description   = $options['description'];
+    $type          = $options['type'];
+    $color         = $options['color'];
+    $hide_on_small = $options['hide_on_small'];
+
+    $additional_classes = ' ';
+
+    if ( $hide_on_small ) {
+      $additional_classes .= ' hide-on-small ';
+    }
 
     if ( ( isset( $title ) ||
          isset( $image ) ||
@@ -262,7 +279,7 @@ if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
         // =====
         // Ratio
         // =====
-        $html     .= '<section class="hero-ratio">';
+        $html     .= '<section class="hero-ratio ' . $additional_classes . '">';
         $image_tag = '<img src="%s" class="image-hero"/>';
 
         if ( isset( $image ) ) {
@@ -287,7 +304,7 @@ if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
           $html_description .= '</div>';
         }
 
-        $html_mobile = '<div class="hero-mobile theme-color-background">';
+        $html_mobile = '<div class="hero-mobile theme-color-background ' . $additional_classes . '">';
         if ( isset( $title ) ) {
           $html_mobile .= '<h1 class="pane-title" style="color:' . $color . '">';
           $html_mobile .= $title;
@@ -304,7 +321,7 @@ if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
         // ====
         // Slim
         // ====
-        $image_tag = '<section class="hero-slim theme-color-background" style="background-image: url(%s)">';
+        $image_tag = '<section class="hero-slim theme-color-background ' . $additional_classes . '" style="background-image: url(%s)">';
 
         if ( isset( $image ) ) {
           $html .= sprintf( $image_tag, $image );
