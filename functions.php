@@ -315,3 +315,8 @@ function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args )
 add_filter( 'nav_menu_link_attributes', 'asu_webstandards_custom_nav_menu_link_attributes', 10, 3 );
 
 
+function custom_edit_post_link( $output ) {
+    $output = str_replace( 'class="post-edit-link"', 'class="post-edit-link btn btn-lg btn-primary', $output );
+    return $output;
+}
+add_filter( 'edit_post_link', 'custom_edit_post_link' );
