@@ -129,7 +129,7 @@ if ( ! function_exists( 'page_feature' ) ) :
       if ( array_key_exists( 'page_feature_hide_on_small', $custom_fields ) ) {
         $hide_on_small = $custom_fields['page_feature_hide_on_small'][0];
 
-        if ( $hide_on_small === 'true' ) {
+        if ( 'true' === $hide_on_small ) {
           $hide_on_small = true;
         }
       }
