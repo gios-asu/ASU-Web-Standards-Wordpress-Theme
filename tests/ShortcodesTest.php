@@ -16,8 +16,8 @@ class ShortcodesTest extends WP_UnitTestCase {
     $container = do_shortcode( '[container][/container]' );
 
     $this->assertContains( '<div class="container', $container );
-    $this->assertContains( 'pad-bot-md', $container );
-    $this->assertContains( 'pad-top-sm', $container );
+    $this->assertNotContains( 'pad-bot-md', $container );
+    $this->assertNotContains( 'pad-top-sm', $container );
     $this->assertContains( '</div>', $container );
   }
 
@@ -35,8 +35,8 @@ class ShortcodesTest extends WP_UnitTestCase {
 
     $this->assertContains( '<div class="gray-back', $container );
     $this->assertContains( '<div class="container', $container );
-    $this->assertContains( 'pad-bot-md', $container );
-    $this->assertContains( 'pad-top-md', $container );
+    $this->assertNotContains( 'pad-bot-md', $container );
+    $this->assertNotContains( 'pad-top-md', $container );
     $this->assertContains( '</div>', $container );
   }
 

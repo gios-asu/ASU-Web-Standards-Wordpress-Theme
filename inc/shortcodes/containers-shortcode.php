@@ -107,20 +107,6 @@ if ( ! function_exists( 'asu_wp_container_shortcode' ) ) :
           $classes     .= $item;
         }
       }
-    } else {
-      // Extra classes
-      $classes .= ' pad-bot-md ';
-
-      // If gray:
-      if ( $atts != null && array_key_exists( 'type', $atts ) ) {
-        if ( 'gray' == $atts['type'] ) {
-          $classes .= ' pad-top-md ';
-        } else {
-          $classes .= ' pad-top-sm ';
-        }
-      } else {
-        $classes .= ' pad-top-sm ';
-      }
     }
 
     // Any custom classes to add

@@ -152,6 +152,8 @@ HTML;
 </head>
 
 <body <?php body_class(); ?>>
+  <a href="#skippy" class="sr-only">Skip to Content</a>
+
   <!-- Google Tag Manager ASU Universal-->
   <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDWN8Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -165,7 +167,6 @@ HTML;
     <div id="page">
       <div id="asu_header">
         <?php include 'header-asu.php'; ?>
-
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
             <h1 class="site-title" id="asu_school_name" 
@@ -247,3 +248,4 @@ HTML;
           </div><!-- /.navbar-collapse -->
         </nav>
         <!-- End Navigation -->
+        <span id="skippy" class="sr-only"></span>
