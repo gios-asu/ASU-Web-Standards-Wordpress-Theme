@@ -198,8 +198,8 @@ add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
  *  See:  https://stackoverflow.com/questions/5940854/disable-automatic-formatting-inside-wordpress-shortcodes
  */
 remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99 );
-add_filter( 'the_content', 'shortcode_unautop', 100 );
+// add_filter( 'the_content', 'wpautop' , 99 );
+// add_filter( 'the_content', 'shortcode_unautop', 100 );
 /**
  * Implement the Custom Header feature.
  */
