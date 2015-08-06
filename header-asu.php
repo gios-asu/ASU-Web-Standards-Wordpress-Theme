@@ -1,5 +1,5 @@
 <?php // ASU Header ?>
-<header class="navbar navbar-default" id="masthead">
+<header class="" id="masthead">
   <div class="container">
     <div class="region region-header">
       <div id="block-asu-brand-asu-brand-header" class="block block-asu-brand">
@@ -88,9 +88,19 @@
             <!-- /#asu_mobile_menu -->
             <div id="asu_mobile_hdr">
               <div id="asu_logo">
+                <?php
+                $html = apply_filters( 'asu_logo', '' );
+
+                if ( ! empty( $html ) ) {
+                  echo wp_kses_post( $html );
+                } else {
+                ?>
                 <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
-                <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" alt="Arizona State University" height="32" width="203" style="margin-top:14px" title="Arizona State University">
+                  <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" alt="Arizona State University" height="32" width="203" style="margin-top:14px" title="Arizona State University">
                 </a>
+                <?php
+                }
+                ?>
               </div>
               <!-- /#asu_logo  -->
               <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" height="32" width="203" id="asu_print_logo" alt="ASU Logo" />

@@ -2,42 +2,32 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @author Global Insititue of Sustainability
+ * @author The Julie Ann Wrigley Global Institute of Sustainability
  * @author Ivan Montiel
  *
- * @package asu-wordpress-web-standards
+ * @copyright 2014-2015 Arizona State University
+ *
+ * @license MIT
+ * @license http://opensource.org/licenses/MIT
+ *
+ * @package asu-wordpress-web-standards-theme
  */
 
-get_header(); ?>
+$image_404 = '';
 
-<style>
-.hero {
-  min-height: 50%;
-  min-height: 50vh;
+if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+  $c_options = get_option( 'wordpress_asu_theme_options' );
+
+  // Do we have a 404 image?
+  if ( isset( $c_options ) &&
+       array_key_exists( 'image_404', $c_options ) &&
+       $c_options['image_404'] !== '' ) {
+    $image_404 = $c_options['image_404'];
+  }
 }
 
-.hero p,
-.hero h1.pane-title {
-  text-align: center;
-  text-shadow: 0px 0px 5px rgb(48, 42, 42);
-}
-
-.hero h1.pane-title {
-  font-size: 120px;
-}
-
-.hero form {
-  margin: auto;
-  min-width: 400px;
-  text-align: center;
-  width: 50%;
-}
-
-
-.hero-bg-img p {
-  max-width: none;
-}
-</style>
+get_header();
+?>
 
 <div id="main-wrapper" class="clearfix">
   <div id="main" class="clearfix">
@@ -46,7 +36,7 @@ get_header(); ?>
         <div class="block block-system">
           <div class="content">
             <div class="panel-display clearfix">
-              <section class="hero hero-bg-img hero-action-call">
+              <section class="hero-tall hero-bg-img hero-action-call" style="background-image:url(<?php echo esc_url( $image_404 ); ?>)">
                 <div class="container">
                   <div class="row">
                     <div class="fdt-home-container fdt-home-column-content clearfix panel-panel row-fluid container">

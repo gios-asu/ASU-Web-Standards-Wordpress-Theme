@@ -37,11 +37,11 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             //  = Logo                      =
             //  =============================
             // Do we have a logo?
-            $logo = '<img class="footer-logo" src="%1$s" alt="%2$s"/><br>';
+            $logo = '<a class="footer-logo-link" href="%3$s"><img class="footer-logo" src="%1$s" alt="%2$s"/></a><br>';
             if ( isset( $cOptions ) &&
               array_key_exists( 'logo', $cOptions ) &&
               $cOptions['logo'] !== '' ) {
-              echo wp_kses( sprintf( $logo, $cOptions['logo'], get_bloginfo( 'name' ) . ' Logo' ), wp_kses_allowed_html( 'post' ) );
+              echo wp_kses( sprintf( $logo, $cOptions['logo'], get_bloginfo( 'name' ) . ' Logo', home_url( '/' ) ), wp_kses_allowed_html( 'post' ) );
             } else {
               echo '<h2>' .wp_kses( get_bloginfo( 'description' ), wp_kses_allowed_html( 'post' ) ) . '</h2>';
             }
@@ -177,7 +177,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Facebook                  =
               //  =============================
-              $fb = '<li><a href="%1$s" title="Facebook" id="facebook-link-in-footer"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>';
+              $fb = '<li><a href="%1$s" title="Facebook" id="facebook-link-in-footer"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>';
 
               // Do we have a facebook?
               if ( isset( $cOptions ) &&
@@ -190,7 +190,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Twitter                   =
               //  =============================
-              $twitter = '<li><a href="%1$s" title="Twitter" id="twitter-link-in-footer"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>';
+              $twitter = '<li><a href="%1$s" title="Twitter" id="twitter-link-in-footer"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>';
 
               // Do we have a twitter?
               if ( isset( $cOptions ) &&
@@ -203,7 +203,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Google+                   =
               //  =============================
-              $googlePlus = '<li><a href="%1$s" title="Google+" id="google_plus-link-in-footer"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>';
+              $googlePlus = '<li><a href="%1$s" title="Google+" id="google_plus-link-in-footer"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>';
 
               // Do we have a google+?
               if ( isset( $cOptions ) &&
@@ -215,7 +215,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = LinkedIn                  =
               //  =============================
-              $linkedIn = '<li><a href="%1$s" title="LinkedIn" id="linkedin-link-in-footer"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>';
+              $linkedIn = '<li><a href="%1$s" title="LinkedIn" id="linkedin-link-in-footer"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a></li>';
 
               // Do we have a linkedin?
               if ( isset( $cOptions ) &&
@@ -227,7 +227,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Youtube                   =
               //  =============================
-              $youtube = '<li><a href="%1$s" title="Youtube" id="youtube-link-in-footer"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>';
+              $youtube = '<li><a href="%1$s" title="Youtube" id="youtube-link-in-footer"><i class="fa fa-youtube-square" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>';
 
               // Do we have a youtube?
               if ( isset( $cOptions ) &&
@@ -239,7 +239,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Vimeo                     =
               //  =============================
-              $vimeo = '<li><a href="%1$s" title="Vimeo" id="vimeo-link-in-footer"><i class="fa fa-vimeo-square" aria-hidden="true"></i></a></li>';
+              $vimeo = '<li><a href="%1$s" title="Vimeo" id="vimeo-link-in-footer"><i class="fa fa-vimeo-square" aria-hidden="true"></i><span class="sr-only">Vimeo</span></a></li>';
 
               // Do we have a vimeo?
               if ( isset( $cOptions ) &&
@@ -251,7 +251,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Instagram                 =
               //  =============================
-              $instagram = '<li><a href="%1$s" title="Instagram" id="instagram-link-in-footer"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+              $instagram = '<li><a href="%1$s" title="Instagram" id="instagram-link-in-footer"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>';
 
               // Do we have a instagram?
               if ( isset( $cOptions ) &&
@@ -263,7 +263,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Flickr                    =
               //  =============================
-              $flickr = '<li><a href="%1$s" title="Flickr" id="flickr-link-in-footer"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>';
+              $flickr = '<li><a href="%1$s" title="Flickr" id="flickr-link-in-footer"><i class="fa fa-flickr" aria-hidden="true"></i><span class="sr-only">Flickr</span></a></li>';
 
               // Do we have a flickr?
               if ( isset( $cOptions ) &&
@@ -275,7 +275,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = RSS                       =
               //  =============================
-              $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+              $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer"><i class="fa fa-rss" aria-hidden="true"></i><span class="sr-only">RSS</span></a></li>';
 
               // Do we have a instagram?
               if ( isset( $cOptions ) &&
@@ -316,6 +316,13 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
           ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <?php dynamic_sidebar( 'footer' ); ?>
+          </div>
+        </div>
+      </div>
     </div><!-- /.big-foot -->
 
     <div class="little-foot">

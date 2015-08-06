@@ -526,7 +526,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
-  //  = RSS                 =
+  //  = RSS                       =
   //  =============================
   $wp_customize->add_setting(
       'wordpress_asu_theme_options[rss]',
@@ -546,5 +546,355 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'settings'   => 'wordpress_asu_theme_options[rss]',
       )
   );
+
+  //  =============================
+  //  =============================
+  //  = 404 Image Section         =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_404',
+      array(
+        'title'      => __( '404 Image','asu_wordpress' ),
+        'priority'   => 71,
+      )
+  );
+
+  //  =============================
+  //  = 404 Image                 =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[image_404]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize,
+          'wordpress_asu_404',
+          array(
+            'label'      => __( '404 Image', 'asu_wordpress' ),
+            'section'    => 'wordpress_asu_theme_section_404',
+            'settings'   => 'wordpress_asu_theme_options[image_404]',
+          )
+      )
+  );
+
+  //  =============================
+  //  =============================
+  //  = Blog Section              =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_blog_settings',
+      array(
+        'title'      => __( 'Blog Settings','asu_wordpress' ),
+        'priority'   => 72,
+      )
+  );
+
+  //  =============================
+  //  = Blog Image                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_image]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize,
+          'wordpress_asu_blog_image',
+          array(
+            'label'      => __( 'Blog Header Image', 'asu_wordpress' ),
+            'section'    => 'wordpress_asu_theme_section_blog_settings',
+            'settings'   => 'wordpress_asu_theme_options[blog_image]',
+          )
+      )
+  );
+
+  //  =============================
+  //  = Title                     =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_title]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_title',
+      array(
+        'label'      => __( 'Blog Title', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_title]',
+      )
+  );
+
+  //  =============================
+  //  = Description               =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_description]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_description',
+      array(
+        'label'      => __( 'Blog Description', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_description]',
+      )
+  );
+
+  //  =============================
+  //  = Type                      =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_type]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  // TODO add hook in for the plugin to add in the special hero image types
+  // instead of hardcoding them here
+
+  $wp_customize->add_control(
+      'wordpress_asu_blog_type',
+      array(
+        'type'       => 'select',
+        'label'      => __( 'Blog Header Image Type', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_type]',
+        'choices'    => array(
+          'slim' => 'Slim',
+          'ratio' => 'Ratio',
+          'standard' => 'Standard',
+        ),
+      )
+  );
+
+  //  =============================
+  //  = Type                      =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[blog_color]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  // TODO add hook in for the plugin to add in the special hero colors
+  // instead of hardcoding them here
+  $wp_customize->add_control(
+      'wordpress_asu_blog_color',
+      array(
+        'type'       => 'select',
+        'label'      => __( 'Blog Header Font Color', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_blog_settings',
+        'settings'   => 'wordpress_asu_theme_options[blog_color]',
+        'choices'    => array(
+          'white' => 'White',
+          'gold' => 'Gold',
+          'maroon' => 'Maroon',
+          'black' => 'Black',
+        ),
+      )
+  );
+
+  //  =============================
+  //  =============================
+  //  = Colors Section            =
+  //  =============================
+  //  =============================
+
+  // No new section
+
+  //  =============================
+  //  = Main Color                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[theme_color]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Color_Control(
+          $wp_customize,
+          'theme_color',
+          array(
+            'label'      => __( 'Main Theme Color', 'asu_wordpress' ),
+            'section'    => 'colors',
+            'settings'   => 'wordpress_asu_theme_options[theme_color]',
+          )
+      )
+  );
+
+  // ======================================
+  // ======================================
+  // = Add Title Options                  =
+  // ======================================
+  // ======================================
+
+  // No new section
+
+  //  =============================
+  //  = Title Font Size           =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[title_font_size]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_title_font_size',
+      array(
+        'label'      => __( 'Site Title Font Size', 'asu_wordpress' ),
+        'section'    => 'title_tagline',
+        'settings'   => 'wordpress_asu_theme_options[title_font_size]',
+        'type'       => 'number',
+        'default'    => 21,
+        'input_attrs' => array(
+          'min' => 21,
+          'max' => 24,
+          'step' => 1,
+        )
+      )
+  );
+
+  // ======================================
+  // ======================================
+  // = Add Subsite Navigation             =
+  // ======================================
+  // ======================================
+
+  // No new section
+
+  //  =============================
+  //  = Is Subsite                =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[subsite]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'subsite',
+          array(
+            'label'      => __( 'Is this a subsite?', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[subsite]',
+            'type'       => 'checkbox',
+          )
+      )
+  );
+
+  //  =============================
+  //  = Parent Blog Id            =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[parent_blog_id]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'parent_blog_id',
+          array(
+            'label'      => __( 'Parent Blog Id (if subsite)', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[parent_blog_id]',
+            'type'       => 'number',
+          )
+      )
+  );
+
+  //  =============================
+  //  = Parent Blog Name          =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[parent_blog_name]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Control(
+          $wp_customize,
+          'parent_blog_name',
+          array(
+            'label'      => __( 'Parent Blog Name (optional)', 'asu_wordpress' ),
+            'section'    => 'nav',
+            'settings'   => 'wordpress_asu_theme_options[parent_blog_name]',
+          )
+      )
+  );
+
+  // ======================================
+  // ======================================
+  // = Remove Default Wordpress Sections  =
+  // ======================================
+  // ======================================
+  $wp_customize->remove_control( 'header_textcolor' );
+  $wp_customize->remove_control( 'background_color' );
+  $wp_customize->remove_control( 'display_header_text' );
+  $wp_customize->remove_control( 'header_image' );
+  $wp_customize->remove_section( 'background_image' );
 }
 add_action( 'customize_register', 'wordpress_asu_customize_register' );

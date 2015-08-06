@@ -19,7 +19,7 @@ if ( ! function_exists( 'asu_wordpress_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
-   * Note that this function is hooked into the after_setup_theme hook, which
+   * NNote that this function is hooked into the after_setup_theme hook, which
    * runs before the init hook. The init hook is too late for some features, such
    * as indicating support for post thumbnails.
    */
@@ -132,31 +132,9 @@ function asu_webstandards_widgets_init() {
   );
   register_sidebar(
       array(
-        'name'          => __( 'left footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'left-footer-sidebar',
+        'name'          => __( 'footer', 'asu-wordpress-web-standards-theme' ),
+        'id'            => 'footer-sidebar',
         'description'   => 'Footer aligned left',
-        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-      )
-  );
-  register_sidebar(
-      array(
-        'name'          => __( 'right footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'right-footer-sidebar',
-        'description'   => 'Footer aligned right',
-        'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-      )
-  );
-  register_sidebar(
-      array(
-        'name'          => __( 'center footer', 'asu-wordpress-web-standards-theme' ),
-        'id'            => 'center-footer-sidebar',
-        'description'   => 'Footer centered',
         'before_widget' => '<div id="%1$s" class="widget %2$s  ">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
@@ -175,7 +153,7 @@ function asu_webstandards_scripts() {
 
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.11.2.min.js', array(), '1.11.2', true );
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/ js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
-  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.1.2.3', true );
+  wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), '0.1.9', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , '4.0', true );
@@ -184,8 +162,9 @@ function asu_webstandards_scripts() {
   /** @see https://github.com/scottjehl/Respond */
   wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '20150115', true );
 
-  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.1', 'all' );
-  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.1.2.3', 'all' );
+  wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), '1' );
+  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.5', 'all' );
+  wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), '0.1.9', 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
 
@@ -196,9 +175,11 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-header' );
   wp_enqueue_script( 'asu-wordpress-web-standards-respond' );
 
+  wp_enqueue_style( 'roboto-font' );
   wp_enqueue_style( 'bootstrap-css' );
   wp_enqueue_style( 'bootstrap-asu' );
   wp_enqueue_style( 'base-wordpress-theme' );
+  wp_enqueue_style( 'addon-wordpress-theme' );
   wp_enqueue_style( 'child-style', get_stylesheet_uri() );
   wp_enqueue_style( 'asu-header-css' );
 
@@ -257,8 +238,9 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Register custom navigation walker
  */
-require_once ( 'wp-bootstrap-navwalker.php' );
-require_once ( 'wp-bootstrap-footer-navwalker.php' );
+require_once( 'wp-bootstrap-navwalker.php' );
+require_once( 'wp-bootstrap-footer-navwalker.php' );
+require_once( 'wp-bootstrap-dropdown-navwalker.php' );
 
 function add_first_and_last( $output ) {
   // $output       = preg_replace( '/menu-item/', 'first-menu-item menu-item', $output, 1 );
@@ -333,3 +315,8 @@ function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args )
 add_filter( 'nav_menu_link_attributes', 'asu_webstandards_custom_nav_menu_link_attributes', 10, 3 );
 
 
+function custom_edit_post_link( $output ) {
+    $output = str_replace( 'class="post-edit-link"', 'class="post-edit-link btn btn-lg btn-primary', $output );
+    return $output;
+}
+add_filter( 'edit_post_link', 'custom_edit_post_link' );

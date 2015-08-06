@@ -22,6 +22,7 @@ module.exports = function (grunt) {
       extra: {
         dir: [
           '../inc/*.php',
+          '../inc/shortcodes/*.php',
           '../helpers/*.php',
         ],
       },
@@ -53,6 +54,19 @@ module.exports = function (grunt) {
         bin: './vendor/bin/phpunit',
         color: true
       }
+    },
+    // CSS Minify
+    // ==========
+    cssmin: {
+        target: {
+            files: [{
+                expand: true,
+                cwd: '../stylesheets/',
+                src: ['*.css', '!*.min.css'],
+                dest: '../stylesheets/',
+                ext: '.min.css'
+            }]
+        }
     }
   });
 
@@ -63,8 +77,8 @@ module.exports = function (grunt) {
 
   // Default task
   grunt.registerTask('default', [
-      'phpcs', 
-      'csslint',
-      'phpunit']);
+      'phpcs',
+      'phpunit',
+  ]);
 };
 
