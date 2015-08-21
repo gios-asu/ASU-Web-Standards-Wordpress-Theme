@@ -807,7 +807,13 @@ function wordpress_asu_customize_register( $wp_customize ) {
   // ======================================
   // ======================================
 
-  // No new section
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_subsite_settings',
+      array(
+        'title'      => __( 'Subsite','asu_wordpress' ),
+        'priority'   => 72,
+      )
+  );
 
   //  =============================
   //  = Is Subsite                =
@@ -828,7 +834,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'subsite',
           array(
             'label'      => __( 'Is this a subsite?', 'asu_wordpress' ),
-            'section'    => 'nav',
+            'section'    => 'wordpress_asu_theme_section_subsite_settings',
             'settings'   => 'wordpress_asu_theme_options[subsite]',
             'type'       => 'checkbox',
           )
@@ -854,7 +860,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'parent_blog_id',
           array(
             'label'      => __( 'Parent Blog Id (if subsite)', 'asu_wordpress' ),
-            'section'    => 'nav',
+            'section'    => 'wordpress_asu_theme_section_subsite_settings',
             'settings'   => 'wordpress_asu_theme_options[parent_blog_id]',
             'type'       => 'number',
           )
@@ -880,7 +886,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'parent_blog_name',
           array(
             'label'      => __( 'Parent Blog Name (optional)', 'asu_wordpress' ),
-            'section'    => 'nav',
+            'section'    => 'wordpress_asu_theme_section_subsite_settings',
             'settings'   => 'wordpress_asu_theme_options[parent_blog_name]',
           )
       )
