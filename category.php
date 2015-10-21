@@ -23,11 +23,11 @@ get_header(); ?>
 
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-      <main id="main" class="site-main space-top-md" role="main">
+      <main id="main" class="site-main" role="main">
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <h2><?php single_cat_title(); ?></h2>
+              <h2 class="space-top-0"><?php single_cat_title(); ?></h2>
             </div>
           </div>
           <div class="row">
