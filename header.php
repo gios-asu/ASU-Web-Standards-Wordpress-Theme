@@ -165,14 +165,16 @@ HTML;
     figure[class^="effect-"] {
       background: <?php echo esc_attr( $theme_color ); ?>;
     }
+    </style>
+  <?php endif; ?>
 
+  <style>
     @media (max-width: 1200px) {
       .navbar-ws .navbar-nav>li>a {
         <?php echo esc_attr( $menu_item_attr ); ?>
       }
     }
-    </style>
-  <?php endif; ?>
+  </style>
 </head>
 
 <body <?php body_class(); ?>>
