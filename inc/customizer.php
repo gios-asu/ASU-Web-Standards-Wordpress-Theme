@@ -894,6 +894,50 @@ function wordpress_asu_customize_register( $wp_customize ) {
 
   // ======================================
   // ======================================
+  // = Add Menu Options                   =
+  // ======================================
+  // ======================================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_menu_settings',
+      array(
+        'title'      => __( 'Menu Styles','asu_wordpress' ),
+        'priority'   => 102,
+      )
+  );
+
+  //  =============================
+  //  = Menu Item Padding         =
+  //  =============================
+
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[menu_item_padding]',
+      array(
+        'default'           => 16,
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_menu_item_padding',
+      array(
+        'label'      => __( 'Medium Viewport Menu Item Padding', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_menu_settings',
+        'settings'   => 'wordpress_asu_theme_options[menu_item_padding]',
+        'type'       => 'number',
+        'default'    => 16,
+        'input_attrs' => array(
+          'min' => 8,
+          'max' => 20,
+          'step' => 1,
+        )
+      )
+  );
+
+  // ======================================
+  // ======================================
   // = Remove Default Wordpress Sections  =
   // ======================================
   // ======================================
