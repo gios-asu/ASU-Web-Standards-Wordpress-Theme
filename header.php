@@ -16,6 +16,7 @@ $theme_color      = false;
 $subsite_menu     = false;
 $parent_blog_name = false;
 $site_title_attr  = '';
+$menu_item_attr   = '';
 
 // Check if we have options set
 if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
@@ -36,6 +37,23 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       }
     }
   }
+
+  //  =============================
+  //  = Menu Padding Size         =
+  //  =============================
+  // Do we have an menu_item_padding?
+  if ( array_key_exists( 'menu_item_padding', $c_options ) &&
+         $c_options['menu_item_padding'] !== '' ) {
+    $menu_item_padding = $c_options['menu_item_padding'];
+
+    if ( is_numeric( $menu_item_padding ) ) {
+      $menu_item_attr .= '
+        padding-left: ' . intval( $menu_item_padding ) . 'px !important;
+        padding-right: ' . intval( $menu_item_padding ) . 'px !important;
+      ';
+    }
+  }
+
 
   // Do we have a 404 image?
   if ( isset( $c_options ) &&
@@ -146,6 +164,12 @@ HTML;
 
     figure[class^="effect-"] {
       background: <?php echo esc_attr( $theme_color ); ?>;
+    }
+
+    @media (max-width: 1200px) {
+      .navbar-ws .navbar-nav>li>a {
+        <?php echo esc_attr( $menu_item_attr ); ?>
+      }
     }
     </style>
   <?php endif; ?>
