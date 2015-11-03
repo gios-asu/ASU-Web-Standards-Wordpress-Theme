@@ -329,7 +329,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
           <div class="col-md-12">
             <div class="little-foot__innovate-image-wrapper pull-left">
                <a href="http://yourfuture.asu.edu/rankings" target="_blank" id='best-colleges-us-news-bage-icon'>
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/best-colleges-us-news-badge.png"  alt="mostInnovative">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/images/best-colleges-us-news-badge.png"  alt="Best Colleges U.S. News Most Innovative 2016">
               </a>
             </div>
             <div class="little-foot__right">
