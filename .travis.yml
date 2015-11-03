@@ -1,5 +1,13 @@
 language: php
 
+# TODO: figure out how to not use apt-get
+#sudo: false
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 services:
   - mysql
 
