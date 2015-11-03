@@ -21,8 +21,7 @@ before_install:
   # - sudo apt-get update
   # - gem update --system
   - cd .standards
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
+  - composer install
   - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
   - cd ../
   - bash ./bin/dep.sh
