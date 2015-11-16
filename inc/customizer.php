@@ -923,11 +923,12 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_menu_item_padding',
       array(
-        'label'      => __( 'Medium Viewport Menu Item Padding', 'asu_wordpress' ),
-        'section'    => 'wordpress_asu_theme_section_menu_settings',
-        'settings'   => 'wordpress_asu_theme_options[menu_item_padding]',
-        'type'       => 'number',
-        'default'    => 16,
+        'label'       => __( 'Medium Viewport Menu Item Padding', 'asu_wordpress' ),
+        'description' => __( 'Fine tuning your menu item width, if you dont know what this is then you shouldn\'t touch it.', 'asu_wordpress' ),
+        'section'     => 'wordpress_asu_theme_section_menu_settings',
+        'settings'    => 'wordpress_asu_theme_options[menu_item_padding]',
+        'type'        => 'number',
+        'default'     => 16,
         'input_attrs' => array(
           'min' => 8,
           'max' => 20,
