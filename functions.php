@@ -149,7 +149,9 @@ add_action( 'widgets_init', 'asu_webstandards_widgets_init' );
  */
 function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
-  $asu_web_standards_version = '0.2.5';
+  // This is not necessarily the version of the web standards you are using,
+  // but rather a local version number of the web standards assets for WordPress
+  $asu_web_standards_version = '0.2.6';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
