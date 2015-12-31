@@ -22,6 +22,11 @@ Licensed under MIT.
   margin: 5px 20px 20px 0;
 }
 
+/* The 404 page h1 wont clear the main nav on its own */
+.four-oh-four-error-page .fdt-home-container {
+  clear:both;
+}
+
 .screen-reader-text {
   height: 1px;
   left: -10000px;
