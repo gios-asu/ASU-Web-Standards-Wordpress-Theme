@@ -116,6 +116,22 @@ Your LinkedIn page url (ex. `https://www.linkedin.com/groups/ASU-School-Sustaina
 
 Your Youtube page url (ex. `https://www.youtube.com/channel/UCUjJN141U3xoZ6oJed9B8Zw`)
 
+**Vimeo URL**
+
+Your Vimeo page url (ex. `https://vimeo.com/sustainability`)
+
+**Instagram URL**
+
+Your Instagram url (ex. `https://www.instagram.com/arizonastateuniversity/`)
+
+**Flickr URL**
+
+Your Flickr page url (ex. `https://www.flickr.com/photos/asu-gios/`)
+
+**Pinterest URL**
+
+Your Pinterest page url (ex. `https://www.pinterest.com/arizonastate/`)
+
 # New Page Fields
 
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
@@ -139,6 +155,10 @@ Note that you can have 0 to any number of `page_feature_image` fields.  To have 
 If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
 
 if you have many `page_feature_image` fields, a random one will be chosen on page load.
+
+**page_feature_type** 
+
+The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit.
 
 **page_feature_video**
 
