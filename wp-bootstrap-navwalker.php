@@ -28,11 +28,15 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
     // if the depth is not 0 and args has children, then add a row
     if ( $args->children_has_children ) {
-      $columns = floor( 12.0 / $args->number_of_children );
+      $columns = 'col-md-' . floor( 12.0 / $args->number_of_children );
+
+      if ( $args->number_of_children === 5 ) {
+        $columns = 'col-md-5ths';
+      }
 
       $output .= '<li class="li-row-container">' . "\n";
       $output .= '<div class="row">' . "\n";
-      $output .= '<div class="column col-md-'  . $columns . ' vertical-border-right">' . "\n";
+      $output .= '<div class="column '  . $columns . ' vertical-border-right">' . "\n";
       $output .= '<ul>';
       $this->mega_menu_flag = $depth;
     }
@@ -108,14 +112,18 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
        * =====================
        */
       if ( 1 === $depth  && $args->has_children && $args->not_first ) {
-        $columns = floor( 12.0 / $args->number_of_siblings );
+        $columns = 'col-md-' .floor( 12.0 / $args->number_of_siblings );
+
+        if ( $args->number_of_siblings === 5 ) {
+          $columns = 'col-md-5ths';
+        }
 
         if ( $args->not_last ) {
           $line = 'vertical-border-right'; }
         else {
           $line = ''; }
 
-        $output .= "</ul>\n</div>\n<div class='column col-md-{$columns} $line'>\n<ul>\n";
+        $output .= "</ul>\n</div>\n<div class='column {$columns} $line'>\n<ul>\n";
       }
 
       // Override classes w/the dropdown title class if we are a child that has children
