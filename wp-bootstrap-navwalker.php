@@ -30,7 +30,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     if ( $args->children_has_children ) {
       $columns = 'col-md-' . floor( 12.0 / $args->number_of_children );
 
-      if ( $args->number_of_children === 5 ) {
+      if ( 5 === $args->number_of_children ) {
         $columns = 'col-md-5ths';
       }
 
@@ -114,7 +114,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
       if ( 1 === $depth  && $args->has_children && $args->not_first ) {
         $columns = 'col-md-' .floor( 12.0 / $args->number_of_siblings );
 
-        if ( $args->number_of_siblings === 5 ) {
+        if ( 5 === $args->number_of_siblings ) {
           $columns = 'col-md-5ths';
         }
 
