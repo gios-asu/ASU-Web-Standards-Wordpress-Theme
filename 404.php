@@ -29,7 +29,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
 get_header();
 ?>
 
-<div id="main-wrapper" class="clearfix">
+<div id="main-wrapper" class="clearfix four-oh-four-error-page">
   <div id="main" class="clearfix">
     <div class="column">
       <div class="region region-content">

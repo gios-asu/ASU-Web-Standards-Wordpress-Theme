@@ -272,6 +272,18 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               }
 
               //  =============================
+              //  = Pinterest                 =
+              //  =============================
+              $pinterest = '<li><a href="%1$s" title="Pinterest" id="pinterest-link-in-footer"><i class="fa fa-pinterest-square" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>';
+
+              // Do we have a pinterest?
+              if ( isset( $cOptions ) &&
+                     array_key_exists( 'pinterest', $cOptions ) &&
+                     $cOptions['pinterest'] !== '' ) {
+                echo wp_kses( sprintf( $pinterest, $cOptions['pinterest'] ), wp_kses_allowed_html( 'post' ) );
+              }
+
+              //  =============================
               //  = RSS                       =
               //  =============================
               $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer"><i class="fa fa-rss" aria-hidden="true"></i><span class="sr-only">RSS</span></a></li>';
