@@ -1,20 +1,29 @@
 language: php
 
+# TODO: figure out how to not use apt-get
+#sudo: false
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 services:
   - mysql
 
 php:
-  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
 
 env:
-  - WP_VERSION=4.1.1 WP_MULTISITE=1
+  - WP_VERSION=4.3.1 WP_MULTISITE=1
 
 before_install:
-  - sudo apt-get update
-  - gem update --system
+  # - sudo apt-get update
+  # - gem update --system
   - cd .standards
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
+  - composer install
   - ./vendor/bin/phpcs -vvv -w --config-set installed_paths "../../../coding_standards/"
   - cd ../
   - bash ./bin/dep.sh
