@@ -335,21 +335,25 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
         </div>
       </div>
     </div><!-- /.big-foot -->
+    <div id="innovation-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 space-top-sm space-bot-sm">
+            <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="asu-is-number-1-for-innovation">ASU is #1 in the U.S. for Innovation</a>
+          </div>
+          <div class="hidden-sm hidden-xs col-md-2 innovation-footer-image-wrapper">
+             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="best-colleges-us-news-bage-icon">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/asu-web-standards/img/footer/best-colleges-us-news-badge.png" alt="Best Colleges U.S. News Most Innovative 2016">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#innovation-bar -->
     <div class="little-foot">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="little-foot__innovate-image-wrapper pull-left">
-               <a href="http://yourfuture.asu.edu/rankings" target="_blank" id='best-colleges-us-news-bage-icon'>
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/best-colleges-us-news-badge.png"  alt="Best Colleges U.S. News Most Innovative 2016">
-              </a>
-            </div>
             <div class="little-foot__right">
-              <span class="little-foot__right__innovate">
-                 <a href="http://yourfuture.asu.edu/rankings" target="_blank">Learn to thrive</a>
-                 <br>
-                 <span>#1 in the U.S. for innovation</span>
-              </span>
               <ul class="little-foot-nav">
                 <li><a href="http://www.asu.edu/copyright/" id="copyright-trademark-legal-footer">Copyright &amp; Trademark</a></li>
                 <li><a href="http://www.asu.edu/accessibility/" id="accessibility-legal-footer">Accessibility</a></li>
