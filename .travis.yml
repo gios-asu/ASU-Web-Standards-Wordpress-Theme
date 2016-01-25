@@ -18,8 +18,8 @@ php:
   - 7.0
 
 env:
-  # - WP_VERSION=4.4 WP_MULTISITE=1
-  - WP_VERSION=latest WP_MULTISITE=1
+  # - WP_VERSION=latest WP_MULTISITE=1
+  - WP_VERSION=4.4.1 WP_MULTISITE=1
 
 before_install:
   # - sudo apt-get update
