@@ -5,8 +5,9 @@ language: php
 
 cache:
   directories:
-    - vendor
+    - .standards/vendor
     - $HOME/.composer/cache
+    - .standards/node_modules
 
 services:
   - mysql
@@ -17,7 +18,8 @@ php:
   - 7.0
 
 env:
-  - WP_VERSION=4.4 WP_MULTISITE=1
+  # - WP_VERSION=4.4 WP_MULTISITE=1
+  - WP_VERSION=latest WP_MULTISITE=1
 
 before_install:
   # - sudo apt-get update
@@ -31,7 +33,7 @@ before_install:
 before_script:
   # For your convenience:
   # sudo mysqladmin drop -f wordpress_test --user="root" --password="root"
-  # sudo bash bin/install-wp-tests.sh wordpress_test root 'root' localhost 4.0.1
+  # sudo bash bin/install-wp-tests.sh wordpress_test root 'root' localhost latest
   - sudo bash bin/install-wp-tests.sh wordpress_test travis '' localhost $WP_VERSION
   - cd .standards
 
