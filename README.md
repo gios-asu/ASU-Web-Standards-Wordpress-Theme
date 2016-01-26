@@ -265,13 +265,17 @@ Extra widgets can be added to the Footer.  These will appear on the bottom of th
 
 # Developers Corner
 
-Tools:
+You will need [Bower](http://bower.io/) and Grunt installed
+
+## Using Grunt:
+
+Install the Grunt CLI by using NPM:
 
 ```
 npm install -g grunt-cli
 ```
 
-Grunt commands:
+The following Grunt commands are available:
 
 ```
 # test:
@@ -284,7 +288,7 @@ grunt build
 grunt
 ```
 
-Upversion:
+To upversion our dependencies:
 
 ```
 bower update
