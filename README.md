@@ -22,7 +22,8 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
     + [School Information](#school-information)
     + [Social Media](#social-media)
 - [Creating Pages](#creating-pages)
-- [New Page Templates](#new-page-templates)
+    + [Hero Images](#hero-images)
+    + [Page Templates](#page-templates)
 - [New Shortcodes](#new-shortcodes)
 - [Menus](#menus)
 - [Widgets](#widgets)
@@ -30,7 +31,7 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 
 ## Installation
 
-[Download the latest version of the theme](https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme/releases/tag/latest).
+[Download the latest version of the theme](https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme/releases/latest).
 
 You can upload this theme to your WordPress installation by going to `Themes -> Add New -> Upload Theme -> Choose File`.
 
@@ -74,65 +75,43 @@ A new section to the customize menu has been added labeled `Social Media`.  Thes
 - **Flickr URL** - Your Flickr page url (ex. `https://www.flickr.com/photos/asu-gios/`)
 - **Pinterest URL** - Your Pinterest page url (ex. `https://www.pinterest.com/arizonastate/`)
 
-# Creating Pages
+## Creating Pages
+
+### Hero Images
 
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
 
 To use the following custom fields, just type in the name of the field and the value and click `Add Custom Field`.
 
-**page_feature_title**
+- **page_feature_title** - The Page Feature Title (ex. `The ASU School of Sustainability`) is the text that you want to be the title in the hero section.  For SEO purposes, this will be wrapped in an `h1` tag.  It is normally similar to the Page Title.
+- **page_feature_description** - The Page Feature Description (ex. `The nation's first School of Sustainability.`) is the text that will appear under the Page Feature Title.
+- **page_feature_image** - The Page Feature Image (ex. './wp-content/uploads/2014/10/hero-background-1.jpg') is a absolute or relative URL to the image that you want as the background of the hero section.  It will cover the entire hero section.  For more information about the hero images, consult the [College Standards](https://brandguide.asu.edu/web-standards/academic/hero-images).
+    
+    Note that you can have 0 to any number of `page_feature_image` fields.  To have multiple values for the same option, create new custom fields with the same name and different values.
 
-The Page Feature Title (ex. `The ASU School of Sustainability`) is the text that you want to be the title in the hero section.  For SEO purposes, this will be wrapped in an `h1` tag.  It is normally similar to the Page Title.
+    If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
 
-**page_feature_description**
+    If you have many `page_feature_image` fields, a random one will be chosen on page load.
+- **page_feature_type** - The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit.
+- **page_feature_video** - The Page Feature Video (ex. `./wp-content/uploads/2014/10/hero-video-1.webm`) is an absolute or relative URL to the video that you want as the background of the hero section.  It will cover the entire hero section and will appear *on top of* the `page_feature_image`.  If a web browser does not support videos, the `page_feature_image` should appear instead. 
 
-The Page Feature Description (ex. `The nation's first School of Sustainability.`) is the text that will appear under the Page Feature Title.
+    It is not recommended that you use this option.
 
-**page_feature_image**
+    Note that you can have 0 to any number of `page_feature_video` fields. To have multiple values for the same option, create new custom fields with the same name and different values.
 
-The Page Feature Image (ex. './wp-content/uploads/2014/10/hero-background-1.jpg') is a absolute or relative URL to the image that you want as the background of the hero section.  It will cover the entire hero section.  For more information about the hero images, consult the [College Standards](https://hub.asu.edu/brand-hq/web-standards/collegeacademic-college-standards).
+    Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the [Can I Use Video Entry](http://caniuse.com/#feat=video).
+- **page_feature_color** - The Page Feature Color overrides the color of the hero image text that is set in the `page_feature_title` and `page_feature_description`. It can be 1 of the following:
+    + gold
+    + maroon
+    + white
+    + black
 
-Note that you can have 0 to any number of `page_feature_image` fields.  To have multiple values for the same option, create new custom fields with the same name and different values.
-
-If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
-
-if you have many `page_feature_image` fields, a random one will be chosen on page load.
-
-**page_feature_type** 
-
-The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit.
-
-**page_feature_video**
-
-The Page Feature Video (ex. `./wp-content/uploads/2014/10/hero-video-1.webm`) is an absolute or relative URL to the video that you want as the background of the hero section.  It will cover the entire hero section and will appear *on top of* the `page_feature_image`.  If a web browser does not support videos, the `page_feature_image` should appear instead. 
-
-It is not recommended that you use this option.
-
-Note that you can have 0 to any number of `page_feature_video` fields. To have multiple values for the same option, create new custom fields with the same name and different values.
-
-Note that if you have more than 1 `page_feature_video`, then **ALL** of the values will be used at the same time.  This is because it is recommended that you have the following video formats for the same video: an .mp4, an .ogv, a .3gp and a .webm.  For more information about why you need all of these file types, see the [Can I Use Video Entry](http://caniuse.com/#feat=video).
-
-**page_feature_color**
-
-The Page Feature Color overrides the color of the hero image text that is set in
-the `page_feature_title` and `page_feature_description`. It can be 1 of the following:
-
-* gold
-* maroon
-* white
-* black
-
-# New Page Templates
+### Page Templates
 
 When editting a page, you can set the page template by going to the `Page Attributes` panel and changing the `Template`.
 
-**Full Width Template**
-
-This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
-
-**Containered Template**
-
-Similar to the Default Template, this will wrap your content in a container for you.
+- **Full Width Template** - This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
+- **Containered Template** - Similar to the Default Template, this will wrap your content in a container for you.
 
 # New Shortcodes
 
