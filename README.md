@@ -82,6 +82,12 @@ A new section to the customize menu has been added labeled `Social Media`.  Thes
 
 ![Hero images](documentation/images/hero.png)
 
+There are three types of hero images used:
+
+- **Normal hero** - Normal hero images have a static height - no matter what the width of the viewport is, the height will remain the same. The height of the hero will expand to fit the content, but will at least 350px is height. The recommended size for these hero images 1170px by 380 to 700px.
+- **Ratio hero** - The Ratio hero will maintain a ratio of 30% height to the width of the view port. Images should be 1170px by 351px.
+- **Slim hero** - The Slim hero will always maintain a height of 70px, no matter what the view port width is. These images should be 1170px by 70px.
+
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
 
 To use the following custom fields, just type in the name of the field and the value and click `Add Custom Field`.
