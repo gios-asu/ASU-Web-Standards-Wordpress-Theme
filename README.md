@@ -122,6 +122,12 @@ When editting a page, you can set the page template by going to the `Page Attrib
 - **Full Width Template** - This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
 - **Containered Template** - Similar to the Default Template, this will wrap your content in a container for you.
 
+### Writing Content
+
+The content for your Page can contain HTML. This theme disables the automatic paragraph tags that WordPress normally adds.
+
+This allows you to use our [UI kit that is based off of Bootstrap](http://gios-asu.github.io/ASU-Web-Standards-Bootstrap/).
+
 ## Shortcodes
 
 This theme adds the following shortcodes for you to use:
