@@ -9,3 +9,4 @@ vendor/*
 .standards/vendor/*
 .standards/npm-debug.log
 .standards/.sass-cache
+.standards/bower_components

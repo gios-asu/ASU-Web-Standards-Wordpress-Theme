@@ -67,6 +67,40 @@ module.exports = function (grunt) {
                 ext: '.min.css'
             }]
         }
+    },
+    // Bower
+    // =====
+    bower: {
+      dev: {
+        dest: '../assets/',
+        options: {
+          keepExpandedHierarchy: false,
+          packageSpecific: {
+            bootstrap: {
+              js_dest: '../assets/bootstrap/js',
+              css_dest: '../assets/bootstrap/css',
+              fonts_dest: '../assets/bootstrap/fonts',
+              files: [
+                'dist/css/bootstrap.min.css',
+                'dist/js/bootstrap.min.js',
+                'dist/fonts/*'
+              ]
+            },
+            jquery: {
+              dest: '../assets/jquery',
+              files: [
+                'dist/jquery.min.js',
+              ]
+            },
+            respond: {
+              dest: '../assets/respond',
+              files: [
+                'dest/respond.min.js'
+              ]
+            }
+          }
+        }
+      }
     }
   });
 
@@ -74,11 +108,21 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-phpcs');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-phpunit');
+  grunt.loadNpmTasks('grunt-bower');
+
+  grunt.registerTask('build', [
+    'bower'
+  ]);
+
+  grunt.registerTask('test', [
+    'phpcs',
+    'phpunit',
+  ]);
 
   // Default task
   grunt.registerTask('default', [
-      'phpcs',
-      'phpunit',
+    'test',
+    'build'
   ]);
 };
 

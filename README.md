@@ -29,6 +29,7 @@ For Web Standards documentation, checkout the [Enterprise Brand and Marketing Gu
 - [Widgets](#widgets)
 - [Recommended Plugins](#recommended-plugins)
 - [Additional Notes](#additional-notes)
+- [Developers Corner](#developers-corner)
 
 ## Installation
 
@@ -204,3 +205,37 @@ Extra widgets can be added to the Footer.  These will appear on the bottom of th
 ## Additional Notes
 
 - This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
+
+## Developers Corner
+
+You will need [Bower](http://bower.io/) and Grunt installed
+
+## Using Grunt:
+
+Install the Grunt CLI by using NPM:
+
+```
+npm install -g grunt-cli
+```
+
+The following Grunt commands are available:
+
+```
+# test:
+grunt test
+
+# build:
+grunt build
+
+# all:
+grunt
+```
+
+To upversion our dependencies:
+
+```
+bower update
+grunt build
+```
+
+Note that you will need to upversion the version in functions.php and style.css as well.
