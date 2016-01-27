@@ -7,13 +7,13 @@ ASU-Web-Standards-Wordpress-Theme
 ![Google Chrome Support](https://img.shields.io/badge/Google%20Chrome-41%2B*-green.svg)
 ![Firefox Support](https://img.shields.io/badge/Firefox-36%2B*-green.svg)
 
-![Screenshot](screenshot.png)
+<center>
+    ![Screenshot](screenshot.png)
+</center>
 
 The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme that leverages the [ASU Web Standards Bootstrap](https://github.com/gios-asu/ASU-Web-Standards-Bootstrap) code.  The intent of this *Wordpress Theme* is to provide a source for the ASU Web Standards that can be applied to Wordpress websites.  This ASU Web Standards Wordpress repository is maintained by the [Julie Ann Wrigley Global Institute of Sustainability](http://sustainability.asu.edu).
 
-Fore additional documentation, checkout our [GitHub pages](https://gios-asu.github.io/).
-
-For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
+For Web Standards documentation, checkout the [Enterprise Brand and Marketing Guide](https://brandguide.asu.edu/about/about-enterprise-marketing-hub).
 
 ## Table of contents
 
@@ -24,10 +24,13 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 - [Creating Pages](#creating-pages)
     + [Hero Images](#hero-images)
     + [Page Templates](#page-templates)
-- [New Shortcodes](#new-shortcodes)
+- [Shortcodes](#shortcodes)
+    + [Containers](#containers)
+    + [Sidebars](#sidebars)
 - [Menus](#menus)
 - [Widgets](#widgets)
 - [Recommended Plugins](#recommended-plugins)
+- [Additional Notes](#additional-notes)
 
 ## Installation
 
@@ -35,7 +38,9 @@ For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 
 You can upload this theme to your WordPress installation by going to `Themes -> Add New -> Upload Theme -> Choose File`.
 
-![How to install](documentation/images/upload-theme.gif)
+<center>
+    ![How to install](documentation/images/upload-theme.gif)
+</center>
 
 If you manually download and FTP into your server, make sure the theme lives in `wp-content/themes/ASU-Web-Standards-Wordpress-Theme`.
 
@@ -79,6 +84,10 @@ A new section to the customize menu has been added labeled `Social Media`.  Thes
 
 ### Hero Images
 
+<center>
+    ![Hero images](documentation/images/hero.png)
+</center>
+
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
 
 To use the following custom fields, just type in the name of the field and the value and click `Add Custom Field`.
@@ -113,9 +122,11 @@ When editting a page, you can set the page template by going to the `Page Attrib
 - **Full Width Template** - This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
 - **Containered Template** - Similar to the Default Template, this will wrap your content in a container for you.
 
-# New Shortcodes
+## Shortcodes
 
-## Containers
+This theme adds the following shortcodes for you to use:
+
+### Containers
 
 You can write the boiler plate for a bootstrap container using the following shortcode:
 
@@ -133,7 +144,7 @@ The container can also be made to appear gray by specifying the gray attribute:
 [/container]
 ```
 
-## Sidebars
+### Sidebars
 
 You can write a sidebar for navigating the current page by using the sidebar tag.  The markup looks like this:
 
@@ -148,11 +159,11 @@ You can write a sidebar for navigating the current page by using the sidebar tag
 The title attribute is optional, it defaults to "Navigate this Doc". The affix
 attribute is optional, it defaults to false.
 
-# Menus
+## Menus
 
 This theme supports two main menus: a main navigation menu and a footer menu. 
 
-## Main Navigation
+### Main Navigation
 
 The main navigation menu only supports a max of three levels.  The top level
 of the menu will be the pills/tabs that you see in the menu. The second level will
@@ -163,7 +174,7 @@ Only the lowest level of pills will actually be clickable. If you create a three
 
 If you want to indicate that links will exit your website in the menu, go to `Custom Options->CSS Classes` and manually add the class `external-link` to you menu item.  It will add an external link icon to the right of your menu item.
 
-## Footer Menu
+### Footer Menu
 
 When creating the footer menu, we recommend clicking on "Screen Options" on the top right corner of the admin panel and selecting "CSS Classes".
 
@@ -173,17 +184,17 @@ Creating a Footer Menu is as easy as 1-2-3:
 2. Use the "Pages" tab to add links under the top level menu items to specific pages.
 3.  Click the checkbox next to "Footer Menu" in "Menu Settings" and then click "Save Menu". Your menu will now appear at the bottom of the page!
 
-# Widgets
+## Widgets
 
 Extra widgets can be added to the Footer.  These will appear on the bottom of the page, after the footer menu and school information.
 
-# Recommended Plugins
+## Recommended Plugins
 
 - [HTML Editor Syntax Highlighter](https://wordpress.org/plugins/html-editor-syntax-highlighter/) - Adds syntax highlighting to the Text Editor in Wordpress.
 - [GitHub Updater](https://github.com/afragen/github-updater) - You can update themes and plugins that are hosted on GitHub.
 - [Yoast SEO](https://yoast.com/wordpress/plugins/seo/) - SEO, breadcrumbs, sitemaps, and more!
 - [Yoast Analytics](https://yoast.com/wordpress/plugins/google-analytics/) - Google analytics.
 
-# Additional Notes
+## Additional Notes
 
 - This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
