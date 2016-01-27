@@ -7,9 +7,9 @@ ASU-Web-Standards-Wordpress-Theme
 ![Google Chrome Support](https://img.shields.io/badge/Google%20Chrome-41%2B*-green.svg)
 ![Firefox Support](https://img.shields.io/badge/Firefox-36%2B*-green.svg)
 
-<center>
+<p align="center">
     ![Screenshot](screenshot.png)
-</center>
+</p>
 
 The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme that leverages the [ASU Web Standards Bootstrap](https://github.com/gios-asu/ASU-Web-Standards-Bootstrap) code.  The intent of this *Wordpress Theme* is to provide a source for the ASU Web Standards that can be applied to Wordpress websites.  This ASU Web Standards Wordpress repository is maintained by the [Julie Ann Wrigley Global Institute of Sustainability](http://sustainability.asu.edu).
 
@@ -38,9 +38,9 @@ For Web Standards documentation, checkout the [Enterprise Brand and Marketing Gu
 
 You can upload this theme to your WordPress installation by going to `Themes -> Add New -> Upload Theme -> Choose File`.
 
-<center>
+<p align="center">
     ![How to install](documentation/images/upload-theme.gif)
-</center>
+</p>
 
 If you manually download and FTP into your server, make sure the theme lives in `wp-content/themes/ASU-Web-Standards-Wordpress-Theme`.
 
@@ -84,9 +84,9 @@ A new section to the customize menu has been added labeled `Social Media`.  Thes
 
 ### Hero Images
 
-<center>
+<p align="center">
     ![Hero images](documentation/images/hero.png)
-</center>
+</p>
 
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
 
