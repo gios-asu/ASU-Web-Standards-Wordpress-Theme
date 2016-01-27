@@ -7,7 +7,7 @@
   "devDependencies": {
     "bower": "~1.3.12",
     "grunt": "~0.4.5",
-    "grunt-bower": "^0.20.0",
+    "grunt-bower": "git+https://git@github.com/gios-asu/grunt-bower.git",
     "grunt-contrib-csslint": "~0.5.0",
     "grunt-phpcs": "~0.2.3",
     "grunt-phpunit": "~0.3.6"

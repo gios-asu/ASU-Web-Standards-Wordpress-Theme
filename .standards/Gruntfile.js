@@ -86,6 +86,21 @@ module.exports = function (grunt) {
                 'dist/fonts/*'
               ]
             },
+            "bootstrap-asu": {
+              keepExpandedHierarchy: true,
+              stripGlobBase: true,
+              dest: '../assets/asu-web-standards/img',
+              js_dest: '../assets/asu-web-standards/js',
+              css_dest: '../assets/asu-web-standards/css',
+              fonts_dest: '../assets/asu-web-standards/fonts',
+              images_dest: '../assets/asu-web-standards/img',
+              files: [
+                'build/css/*.min.css',
+                'build/js/*.min.js',
+                'build/fonts/**',
+                'build/img/**',
+              ],
+            },
             jquery: {
               dest: '../assets/jquery',
               files: [
