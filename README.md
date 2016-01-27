@@ -3,6 +3,9 @@ ASU-Web-Standards-Wordpress-Theme
 
 [![Build Status](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme.svg)](https://travis-ci.org/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Code Climate](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme/badges/gpa.svg)](https://codeclimate.com/github/gios-asu/ASU-Web-Standards-Wordpress-Theme) [![Stories in Ready](https://badge.waffle.io/gios-asu/asu-web-standards-wordpress-theme.svg)](http://waffle.io/gios-asu/asu-web-standards-wordpress-theme) [![Analytics](https://ga-beacon.appspot.com/UA-561868-49/gios-asu/ASU-Web-Standards-Wordpress-Theme?flat)](https://github.com/igrigorik/ga-beacon)
 
+![IE Support](https://img.shields.io/badge/IE-9.0%2B-blue.svg)
+![Google Chrome Support](https://img.shields.io/badge/Google%20Chrome-41%2B*-green.svg)
+![Firefox Support](https://img.shields.io/badge/Firefox-36%2B*-green.svg)
 
 ![Screenshot](screenshot.png)
 
@@ -12,127 +15,66 @@ Fore additional documentation, checkout our [GitHub pages](https://gios-asu.gith
 
 For Web Standards documentation, checkout [The Hub](http://hub.asu.edu).
 
-# Table of contents
+## Table of contents
 
-- [Dependencies](#dependencies)
-- [Supported Browsers](#supported-browsers)
-- [Appearance](#appearance)
-- [New Settings](#new-settings)
-- [New Page Fields](#new-page-field)
+- [Installation](#installation)
+- [The Customizer](#the-customizer)
+    + [School Information](#school-information)
+    + [Social Media](#social-media)
+- [Creating Pages](#creating-pages)
 - [New Page Templates](#new-page-templates)
 - [New Shortcodes](#new-shortcodes)
 - [Menus](#menus)
 - [Widgets](#widgets)
 - [Recommended Plugins](#recommended-plugins)
 
+## Installation
 
-# Dependencies
+[Download the latest version of the theme](https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme/releases/tag/latest).
 
-When using this theme:
+You can upload this theme to your WordPress installation by going to `Themes -> Add New -> Upload Theme -> Choose File`.
 
-- Make sure this theme lives in the folder: `ASU-Web-Standards-Wordpress-Theme`.
-- This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
+![How to install](documentation/images/upload-theme.gif)
 
-# Supported Browsers
+If you manually download and FTP into your server, make sure the theme lives in `wp-content/themes/ASU-Web-Standards-Wordpress-Theme`.
 
-These are the lowest tested versions of the browsers that look acceptable.  Note that
-the asterisk denotes that lower versions may also work, but that these are the lowest
-version tested.
+## The Customizer
 
-![IE Support](https://img.shields.io/badge/IE-9.0%2B-blue.svg)
+This theme uses the WordPress customizer in `Appearance -> Customize` for you to customizer your website.
 
-![Google Chrome Support](https://img.shields.io/badge/Google%20Chrome-41%2B*-green.svg)
+### School Information
 
-![Firefox Support](https://img.shields.io/badge/Firefox-36%2B*-green.svg)
+- **Parent Organization** - This is the Parent Organization title text (ex. `Julie Ann Wrigely Global Institute of Sustainability`) that will appear to the left of the site title, seperated by a pipe (`|`).
+- **Parent Organization URL** - This is the URL (ex. `http://sustainability.asu.edu`) that the page will navigate to when users click on the Parent Organization title text.
+- **Phone Number** -This is the phone number (ex. `(602)-123-1234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
+- **Fax Number** - Similar to the phone number, this is the fax number (ex. `+11231234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
+- **Contact Us Email or URL** - The Contact Us Email or URL can be either an email address (ex. `email@address.com`) or a URL to a Contact Us form (ex. `mysite.asu.edu/contact-us`).
 
+    If the Contact Us input is an email address, then Contact Us link will be prepended with `mailto:`, which will open up the user's default Email software if available with the `Send to` field auto-populated with th given email address.
 
-# New Settings
+    If the Contact Us input is a URL, then the page will navigate to that URL when users click on the Contact Us link.
+- **Contact Us Email Subject (Optional)** - This field only works if the Contact Us Email or URL is an email.
 
-New customization settings have been added to this theme. They are available by going to `Appearance -> Customize`.
+    The Contact Us Email Subject (ex. `Request for Information about the School of Sustainability`) will append to the Contact Us link `?subject=X` where `X` is the value of this input encoded for urls.
 
-## School Information
+    This will auto-populate the `Subject` field in the user's default Email software.
+- **Contribute URL (Optional)** - This is the URL (ex. `http://mysite.asu.edu/contribute`) that the Contribute button will go to. If not given, the contribute button will not be created.
 
-A new section to the customize menu has been added labeled `School Information`.  It contains the following settings that you can change:
-
-**Parent Organization**
-
-This is the Parent Organization title text (ex. `Julie Ann Wrigely Global Institute of Sustainability`) that will appear to the left of the site title, seperated by a pipe (`|`).
-
-**Parent Organization URL**
-
-This is the URL (ex. `http://sustainability.asu.edu`) that the page will navigate to when users click on the Parent Organization title text.
-
-**Phone Number**
-
-This is the phone number (ex. `(602)-123-1234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
-
-**Fax Number**
-
-Similar to the phone number, this is the fax number (ex. `+11231234`) that will appear at the bottom of the page in the footer.  The text entered will become a link, prepended by `tel:` so that the number is clickable on mobile devices.
-
-**Contact Us Email or URL**
-
-The Contact Us Email or URL can be either an email address (ex. `email@address.com`) or a URL to a Contact Us form (ex. `mysite.asu.edu/contact-us`).
-
-If the Contact Us input is an email address, then Contact Us link will be prepended with `mailto:`, which will open up the user's default Email software if available with the `Send to` field auto-populated with th given email address.
-
-If the Contact Us input is a URL, then the page will navigate to that URL when users click on the Contact Us link.
-
-**Contact Us Email Subject (Optional)**
-
-This field only works if the Contact Us Email or URL is an email.
-
-The Contact Us Email Subject (ex. `Request for Information about the School of Sustainability`) will append to the Contact Us link `?subject=X` where `X` is the value of this input encoded for urls.
-
-This will auto-populate the `Subject` field in the user's default Email software.
-
-**Contribute URL (Optional)**
-
-This is the URL (ex. `http://mysite.asu.edu/contribute`) that the Contribute button will go to.
-
-If not given, the contribute button will not be created.
-
-## Social Media
+### Social Media
 
 A new section to the customize menu has been added labeled `Social Media`.  These inputs will add social media badges and links to the footer of your website if given.
 
-**Facebook URL**
+- **Facebook URL** - Your Facebook page url (ex. `https://www.facebook.com/ASUsustainability`)
+- **Twitter URL**- Your Twitter profile url (ex. `https://twitter.com/asugreen`)
+- **Google+ URL** - Your Google+ profile url (ex. `https://plus.google.com/+SchoolofSustainabilityTempe/about`)
+- **LinkedIn URL** - Your LinkedIn page url (ex. `https://www.linkedin.com/groups/ASU-School-Sustainability-2754225/about`)
+- **Youtube URL** - Your Youtube page url (ex. `https://www.youtube.com/channel/UCUjJN141U3xoZ6oJed9B8Zw`)
+- **Vimeo URL** - Your Vimeo page url (ex. `https://vimeo.com/sustainability`)
+- **Instagram URL** - Your Instagram url (ex. `https://www.instagram.com/arizonastateuniversity/`)
+- **Flickr URL** - Your Flickr page url (ex. `https://www.flickr.com/photos/asu-gios/`)
+- **Pinterest URL** - Your Pinterest page url (ex. `https://www.pinterest.com/arizonastate/`)
 
-Your Facebook page url (ex. `https://www.facebook.com/ASUsustainability`)
-
-**Twitter URL**
-
-Your Twitter profile url (ex. `https://twitter.com/asugreen`)
-
-**Google+ URL**
-
-Your Google+ profile url (ex. `https://plus.google.com/+SchoolofSustainabilityTempe/about`)
-
-**LinkedIn URL**
-
-Your LinkedIn page url (ex. `https://www.linkedin.com/groups/ASU-School-Sustainability-2754225/about`)
-
-**Youtube URL**
-
-Your Youtube page url (ex. `https://www.youtube.com/channel/UCUjJN141U3xoZ6oJed9B8Zw`)
-
-**Vimeo URL**
-
-Your Vimeo page url (ex. `https://vimeo.com/sustainability`)
-
-**Instagram URL**
-
-Your Instagram url (ex. `https://www.instagram.com/arizonastateuniversity/`)
-
-**Flickr URL**
-
-Your Flickr page url (ex. `https://www.flickr.com/photos/asu-gios/`)
-
-**Pinterest URL**
-
-Your Pinterest page url (ex. `https://www.pinterest.com/arizonastate/`)
-
-# New Page Fields
+# Creating Pages
 
 When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
 
@@ -262,3 +204,7 @@ Extra widgets can be added to the Footer.  These will appear on the bottom of th
 - [GitHub Updater](https://github.com/afragen/github-updater) - You can update themes and plugins that are hosted on GitHub.
 - [Yoast SEO](https://yoast.com/wordpress/plugins/seo/) - SEO, breadcrumbs, sitemaps, and more!
 - [Yoast Analytics](https://yoast.com/wordpress/plugins/google-analytics/) - Google analytics.
+
+# Additional Notes
+
+- This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
