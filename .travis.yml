@@ -38,4 +38,4 @@ before_script:
   - cd .standards
 
 script:
-  - grunt
+  - grunt test

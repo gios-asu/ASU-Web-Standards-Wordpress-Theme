@@ -262,3 +262,35 @@ Extra widgets can be added to the Footer.  These will appear on the bottom of th
 - [GitHub Updater](https://github.com/afragen/github-updater) - You can update themes and plugins that are hosted on GitHub.
 - [Yoast SEO](https://yoast.com/wordpress/plugins/seo/) - SEO, breadcrumbs, sitemaps, and more!
 - [Yoast Analytics](https://yoast.com/wordpress/plugins/google-analytics/) - Google analytics.
+
+# Developers Corner
+
+You will need [Bower](http://bower.io/) and Grunt installed
+
+## Using Grunt:
+
+Install the Grunt CLI by using NPM:
+
+```
+npm install -g grunt-cli
+```
+
+The following Grunt commands are available:
+
+```
+# test:
+grunt test
+
+# build:
+grunt build
+
+# all:
+grunt
+```
+
+To upversion our dependencies:
+
+```
+bower update
+grunt build
+```

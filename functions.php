@@ -151,14 +151,14 @@ function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
   // This is not necessarily the version of the web standards you are using,
   // but rather a local version number of the web standards assets for WordPress
-  $asu_web_standards_version = '0.2.8';
+  $asu_web_standards_version = '0.3.0';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
 
   // Everything it seems depends on jquery, so might as well make it load in the header
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.11.2.min.js', array(), '1.11.2', false );
-  wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/jquery/jquery.min.js', array(), '1.11.2', false );
+  wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
   wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), $asu_web_standards_version, true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -166,10 +166,10 @@ function asu_webstandards_scripts() {
   wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , '4.0', true );
   /** ie 8 respondsive */
   /** @see https://github.com/scottjehl/Respond */
-  wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/js/respond.min.js', array(), '20150115', true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/respond/respond.min.js', array(), '20150115', true );
 
   wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), '1' );
-  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap-3.1.1-dist/css/bootstrap.min.css', array(), '3.1.5', 'all' );
+  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '3.1.5', 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), $asu_web_standards_version, 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
