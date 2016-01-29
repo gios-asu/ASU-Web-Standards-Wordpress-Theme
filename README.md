@@ -89,7 +89,9 @@ There are three types of hero images used:
 - **Ratio hero** - The Ratio hero will maintain a ratio of 30% height to the width of the view port. Images should be 1170px by 351px.
 - **Slim hero** - The Slim hero will always maintain a height of 70px, no matter what the view port width is. These images should be 1170px by 70px.
 
-When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`. 
+When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
+
+![Activate Custom Fields](documentation/images/custom-fields-activate.png)
 
 To use the following custom fields, just type in the name of the field and the value and click `Add Custom Field`.
 
@@ -115,6 +117,10 @@ To use the following custom fields, just type in the name of the field and the v
     + maroon
     + white
     + black
+
+Here is an example of what your custom fields will look like when you add some data to it:
+
+![Custom Fields filled in](documentation/images/custom-fields-filled-in.png)
 
 ### Page Templates
 
