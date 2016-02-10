@@ -48,7 +48,7 @@ if ( ! function_exists( 'page_feature' ) ) :
              array_key_exists( 'blog_title', $c_options ) &&
              $c_options['blog_title'] !== '' ) {
           $title = $c_options['blog_title'];
-          $alt   = $title;
+          $alt   = htmlentities( strip_tags( $title ) );
         }
 
         // Do we have a description?
@@ -131,7 +131,7 @@ if ( ! function_exists( 'page_feature' ) ) :
       if ( array_key_exists( 'page_feature_image_alt', $custom_fields ) ) {
         $alt = $custom_fields['page_feature_image_alt'][0];
       } else {
-        $alt = $title;
+        $alt = htmlentities( strip_tags( $title ) );
       }
 
       if ( array_key_exists( 'page_feature_hide_on_small', $custom_fields ) ) {
