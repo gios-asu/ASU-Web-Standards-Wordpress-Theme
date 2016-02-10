@@ -226,7 +226,7 @@ HTML;
       </div>
 
       <!-- Global Navigation -->
-      <nav class="navbar navbar-ws" role="navigation">
+      <nav class="navbar navbar-ws">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ws-navbar-collapse-1">
