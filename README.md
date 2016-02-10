@@ -104,6 +104,7 @@ To use the following custom fields, just type in the name of the field and the v
     If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
 
     If you have many `page_feature_image` fields, a random one will be chosen on page load.
+- **page_feature_image_alt** - This is the alt tag for your page feature image. If you do not specify one, the title will be used.
 - **page_feature_type** - The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit.
 - **page_feature_video** - The Page Feature Video (ex. `./wp-content/uploads/2014/10/hero-video-1.webm`) is an absolute or relative URL to the video that you want as the background of the hero section.  It will cover the entire hero section and will appear *on top of* the `page_feature_image`.  If a web browser does not support videos, the `page_feature_image` should appear instead. 
 
