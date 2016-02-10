@@ -18,7 +18,7 @@
 get_header(); ?>
 
 <div id="main-wrapper" class="clearfix">
-  <div id="main" class="clearfix">
+  <div class="clearfix">
     <?php echo do_shortcode( '[page_feature]' ); ?>
 
     <div id="content" class="site-content">

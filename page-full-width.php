@@ -12,12 +12,12 @@ get_header();
 $custom_fields = get_post_custom();
 ?>
 <div id="main-wrapper" class="clearfix">
-  <div id="main" class="clearfix">
+  <div class="clearfix">
     <?php echo do_shortcode( '[page_feature]' ); ?>
 
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-    	<main id="main" class="site-main" role="main">
+    	<main id="main" class="site-main">
           <?php
           while ( have_posts() ) {
             the_post();

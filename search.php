@@ -7,12 +7,12 @@
 
 get_header(); ?>
 <div id="main-wrapper" class="clearfix">
-  <div id="main" class="clearfix">
+  <div class="clearfix">
     <?php echo do_shortcode( '[page_feature]' ); ?>
 
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
-      <main id="main" class="site-main" role="main">
+      <main id="main" class="site-main">
 
         <div class="container">
           <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'asu-wordpress-web-standards-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>

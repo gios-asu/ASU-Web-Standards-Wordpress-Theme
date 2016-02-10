@@ -30,7 +30,7 @@ get_header();
 ?>
 
 <div id="main-wrapper" class="clearfix four-oh-four-error-page">
-  <div id="main" class="clearfix">
+  <div class="clearfix">
     <div class="column">
       <div class="region region-content">
         <div class="block block-system">
