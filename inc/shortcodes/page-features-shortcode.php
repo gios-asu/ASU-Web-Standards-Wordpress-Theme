@@ -22,6 +22,7 @@ if ( ! function_exists( 'page_feature' ) ) :
 
     $custom_fields = get_post_custom();
     $title         = null;
+    $alt           = '';
     $count         = null;
     $image         = null;
     $video         = null;
@@ -47,6 +48,7 @@ if ( ! function_exists( 'page_feature' ) ) :
              array_key_exists( 'blog_title', $c_options ) &&
              $c_options['blog_title'] !== '' ) {
           $title = $c_options['blog_title'];
+          $alt   = $title;
         }
 
         // Do we have a description?
@@ -126,6 +128,12 @@ if ( ! function_exists( 'page_feature' ) ) :
         }
       }
 
+      if ( array_key_exists( 'page_feature_image_alt', $custom_fields ) ) {
+        $alt = $custom_fields['page_feature_image_alt'][0];
+      } else {
+        $alt = $title;
+      }
+
       if ( array_key_exists( 'page_feature_hide_on_small', $custom_fields ) ) {
         $hide_on_small = $custom_fields['page_feature_hide_on_small'][0];
 
@@ -147,6 +155,7 @@ if ( ! function_exists( 'page_feature' ) ) :
           'type' => $type,
           'color' => $color,
           'hide_on_small' => $hide_on_small,
+          'alt' => $alt,
         )
     );
 
@@ -258,6 +267,7 @@ if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
     $type          = $options['type'];
     $color         = $options['color'];
     $hide_on_small = $options['hide_on_small'];
+    $alt           = $options['alt'];
 
     $additional_classes = ' ';
 
@@ -280,7 +290,7 @@ if ( ! function_exists( 'page_feature_ratio_slim' ) ) :
         // Ratio
         // =====
         $html     .= '<section class="hero-ratio ' . $additional_classes . '">';
-        $image_tag = '<img src="%s" class="image-hero"/>';
+        $image_tag = '<img src="%s" class="image-hero" alt="' . $alt . '" />';
 
         if ( isset( $image ) ) {
           $html .= sprintf( $image_tag, $image );
