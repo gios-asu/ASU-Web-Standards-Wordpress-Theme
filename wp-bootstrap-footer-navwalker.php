@@ -7,16 +7,6 @@
  */
 
 class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
-  public function start_lvl( &$output, $depth = 0, $args = array() ) {
-    return;
-  }
-
-  public function end_lvl( &$output, $depth = 0, $args = array() ) {
-    if ( $args == null || empty( $args ) || ! is_object( $args ) ) {
-      return;
-    }
-    $output .= "\n</ul>";
-  }
 
   public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     $classes   = array();
@@ -139,7 +129,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
       $output .= "</li>\n";
     }
     else {
-      $output .= "</div>\n";
+      $output .= "</ul></div>\n";
     }
   }
 }

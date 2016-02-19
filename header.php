@@ -11,7 +11,6 @@
  */
 
 $home_url         = esc_url( home_url( '/' ) );
-$ping_back        = get_bloginfo( 'pingback_url' );
 $theme_color      = false;
 $subsite_menu     = false;
 $parent_blog_name = false;
@@ -90,7 +89,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       global $blog_id;
       $current_blog_id = $blog_id;
       switch_to_blog( $subsite_menu );
-      
+
       if ( false === $parent_blog_name ) {
         $parent_blog_name = get_bloginfo( 'name' );
       }
@@ -138,9 +137,6 @@ HTML;
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title><?php wp_title( '|', true, 'right' ); ?></title>
   <link rel="profile" href="http://gmpg.org/xfn/11">
-  <?php if ( ! empty( $ping_back ) ) : ?>
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-  <?php endif; ?>
 
   <?php wp_head(); ?>
 
@@ -195,7 +191,7 @@ HTML;
         <?php include 'header-asu.php'; ?>
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-            <h1 class="site-title" id="asu_school_name" 
+            <h1 class="site-title" id="asu_school_name"
               style="<?php echo esc_attr( $site_title_attr ); ?>"
             >
               <?php
