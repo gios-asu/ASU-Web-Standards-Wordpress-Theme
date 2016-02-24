@@ -163,7 +163,7 @@ The container can also be made to appear gray by specifying the gray attribute:
 You can write a sidebar for navigating the current page by using the sidebar tag.  The markup looks like this:
 
 ```php
-[sidebar title='My title' affix=true]
+[sidebar title='My title' affix=true spy=true]
   Text1|#idOnPage1
   Text2|#idOnPage2
   Text3|#idOnPage3
@@ -171,7 +171,7 @@ You can write a sidebar for navigating the current page by using the sidebar tag
 ```
 
 The title attribute is optional, it defaults to "Navigate this Doc". The affix
-attribute is optional, it defaults to false.
+attribute is optional, it defaults to false. The spy attribute is optional, it defaults to false.
 
 ## Menus
 
