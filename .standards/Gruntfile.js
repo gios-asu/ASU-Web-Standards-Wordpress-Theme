@@ -1,5 +1,5 @@
 /**
- *  
+ *
  * @see  https://github.com/squizlabs/PHP_CodeSniffer
  */
 module.exports = function (grunt) {

@@ -7,7 +7,7 @@
  * @package asu-wordpress-web-standards
  */
 ?>
-  </div><!-- #page -->  
+  </div><!-- #page -->
 </div><!-- #page-wrapper -->
 
 <?php
@@ -309,7 +309,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               echo wp_kses( sprintf( $contribute, $cOptions['contribute'] ), wp_kses_allowed_html( 'post' ) );
             }
             ?>
-            
+
           </div>
 
 
@@ -321,7 +321,6 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 'depth'             => 2,
                 'container'         => '',
                 'walker'            => new WP_Bootstrap_Footer_Navwalker(),
-                'items_wrap'        => '%3$s',
               )
           );
           ?>
