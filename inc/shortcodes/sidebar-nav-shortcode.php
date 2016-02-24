@@ -41,17 +41,15 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
       if ( 'true' === $atts['affix'] ) {
         $unique_id = 'sidebarNav';
 
-        $script = '
-          <script>
-            $(function () {
-              $("body").scrollspy({ target: "#sidebarNav" });
-            });
-          </script>';
-
         add_action(
             'wp_footer',
-            function () use ( $script ) {
-              echo $script;
+            function () {
+              echo '
+                <script>
+                  $(function () {
+                    $("body").scrollspy({ target: "#sidebarNav" });
+                  });
+                </script>';
             },
             1000
         );
