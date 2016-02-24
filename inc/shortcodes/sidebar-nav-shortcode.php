@@ -14,15 +14,15 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
    *
    * Navbar with group parameters
    *
-   * [sidebar (title="example") (affix=true)]
+   * [sidebar (title="example") (affix=true) (spy=true)]
    *
    * @param $atts - associative array. You can override 'title'.
    * @param $content - content should be of the form 'text|#id' with one on each line.
    */
   function asu_wp_sidebar_shortcode( $atts, $content = null ) {
     $container = '<div id="%4$s" class="sidebar-nav %3$s"><h4>%1$s</h4>%2$s</div>';
-    $list      = '<div class="list-group">%s</div>';
-    $list_item = '<a class="list-group-item" data-scroll="" href="%1$s">%2$s</a>';
+    $list      = '<ul class="list-group nav nav-stacked">%s</ul>';
+    $list_item = '<li><a class="list-group-item" href="%1$s">%2$s</a></li>';
     $title     = 'Navigate this Doc';
     // Unique ID will only be set if affix is true
     $unique_id = '';
@@ -32,10 +32,30 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
     }
 
     if ( $atts != null && array_key_exists( 'affix', $atts ) ) {
-      if ( true === $atts['affix'] ) {
+      if ( 'true' === $atts['affix'] ) {
         $unique_id = 'sidebarNav';
       }
     }
+
+    if ( $atts != null && array_key_exists( 'spy', $atts ) ) {
+      if ( 'true' === $atts['affix'] ) {
+        $unique_id = 'sidebarNav';
+
+        add_action(
+            'wp_footer',
+            function () {
+              echo '
+                <script>
+                  $(function () {
+                    $("body").scrollspy({ target: "#sidebarNav" });
+                  });
+                </script>';
+            },
+            1000
+        );
+      }
+    }
+
     $classes = '';
     // Any custom classes to add
     if ( $atts != null && array_key_exists( 'class', $atts ) ) {
