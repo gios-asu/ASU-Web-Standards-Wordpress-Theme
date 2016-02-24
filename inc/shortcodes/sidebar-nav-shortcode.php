@@ -48,9 +48,13 @@ if ( ! function_exists( 'asu_wp_sidebar_shortcode' ) ) :
             });
           </script>';
 
-        add_action( 'wp_footer', function () use ( $script ) {
-          echo $script;
-        }, 1000 );
+        add_action(
+            'wp_footer',
+            function () use ( $script ) {
+              echo $script;
+            },
+            1000
+        );
       }
     }
 
