@@ -354,9 +354,9 @@ function bybe_crumb_fix( $output, $crumb ) {
   if ( is_array( $crumb ) && $crumb !== array() ) {               
     if ( strpos( $output, '<span class="breadcrumb_last"' ) !== false ||
          strpos( $output, '<strong class="breadcrumb_last"' ) !== false ) { 
-      $output = '<span property="v:title" rel="v:url" href="'. $crumb['url']. '" >';
-      $output.= $crumb['text'];
-      $output.= '</span>';
+      $output  = '<span property="v:title" rel="v:url" href="'. $crumb['url']. '" >';
+      $output .= $crumb['text'];
+      $output .= '</span>';
     }
   }
 
