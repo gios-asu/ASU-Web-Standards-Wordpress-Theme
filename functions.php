@@ -328,20 +328,38 @@ function custom_edit_post_link( $output ) {
 add_filter( 'edit_post_link', 'custom_edit_post_link' );
 
 // Yoast Breadcrumb fix
-add_filter ('wpseo_breadcrumb_output','bybe_crumb_v_fix');
-function bybe_crumb_v_fix ($link_output) {
-  $link_output = preg_replace(array('#<span xmlns:v="http://rdf.data-vocabulary.org/\#">#','#<span typeof="v:Breadcrumb"><a href="(.*?)" .*?'.'>(.*?)</a></span>#','#<span typeof="v:Breadcrumb">(.*?)</span>#','# property=".*?"#','#</span>$#'), array('','<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="$1" itemprop="url"><span itemprop="title">$2</span></a></span>','<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">$1</span></span>','',''), $link_output);
+function bybe_crumb_v_fix( $link_output ) {
+  $link_output = preg_replace(
+      array(
+        '#<span xmlns:v="http://rdf.data-vocabulary.org/\#">#',
+        '#<span typeof="v:Breadcrumb"><a href="(.*?)" .*?'.'>(.*?)</a></span>#',
+        '#<span typeof="v:Breadcrumb">(.*?)</span>#',
+        '# property=".*?"#','#</span>$#',
+      ),
+      array(
+        '',
+        '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="$1" itemprop="url"><span itemprop="title">$2</span></a></span>',
+        '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">$1</span></span>',
+        '',
+        ''
+      ),
+      $link_output
+  );
+
   return $link_output;
 }
+add_filter( 'wpseo_breadcrumb_output', 'bybe_crumb_v_fix' );
 
-add_filter( 'wpseo_breadcrumb_single_link', 'bybe_crumb_fix' , 10, 2 );
-function bybe_crumb_fix( $output, $crumb ){
+function bybe_crumb_fix( $output, $crumb ) {
   if ( is_array( $crumb ) && $crumb !== array() ) {               
-    if( strpos( $output, '<span class="breadcrumb_last"' ) !== false  ||   strpos( $output, '<strong class="breadcrumb_last"' ) !== false ) { 
+    if ( strpos( $output, '<span class="breadcrumb_last"' ) !== false ||
+         strpos( $output, '<strong class="breadcrumb_last"' ) !== false ) { 
       $output = '<span property="v:title" rel="v:url" href="'. $crumb['url']. '" >';
       $output.= $crumb['text'];
       $output.= '</span>';
     }
   }
+
   return $output;
 }
+add_filter( 'wpseo_breadcrumb_single_link', 'bybe_crumb_fix' , 10, 2 );
