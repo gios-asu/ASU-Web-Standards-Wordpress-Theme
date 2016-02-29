@@ -341,7 +341,7 @@ function bybe_crumb_v_fix( $link_output ) {
         '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="$1" itemprop="url"><span itemprop="title">$2</span></a></span>',
         '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">$1</span></span>',
         '',
-        ''
+        '',
       ),
       $link_output
   );
@@ -351,9 +351,9 @@ function bybe_crumb_v_fix( $link_output ) {
 add_filter( 'wpseo_breadcrumb_output', 'bybe_crumb_v_fix' );
 
 function bybe_crumb_fix( $output, $crumb ) {
-  if ( is_array( $crumb ) && $crumb !== array() ) {               
-    if ( strpos( $output, '<span class="breadcrumb_last"' ) !== false ||
-         strpos( $output, '<strong class="breadcrumb_last"' ) !== false ) { 
+  if ( is_array( $crumb ) && $crumb !== array() ) {
+    if ( false !== strpos( $output, '<span class="breadcrumb_last"' ) ||
+         false !== strpos( $output, '<strong class="breadcrumb_last"' ) ) {
       $output  = '<span property="v:title" rel="v:url" href="'. $crumb['url']. '" >';
       $output .= $crumb['text'];
       $output .= '</span>';
