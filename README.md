@@ -188,6 +188,12 @@ Only the lowest level of pills will actually be clickable. If you create a three
 
 If you want to indicate that links will exit your website in the menu, go to `Custom Options->CSS Classes` and manually add the class `external-link` to you menu item.  It will add an external link icon to the right of your menu item.
 
+If you would like to add multiple header items per column in your Mega Menu like so:
+
+![Mega Menu with multiple headings in a column](https://cloud.githubusercontent.com/assets/412382/7396820/0c7d442c-ee59-11e4-97dc-281cda593006.png)
+
+Set the title of the element to `dropdown-title`.
+
 ### Footer Menu
 
 When creating the footer menu, we recommend clicking on "Screen Options" on the top right corner of the admin panel and selecting "CSS Classes".
