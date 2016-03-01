@@ -38,10 +38,11 @@ if ( ! function_exists( 'asu_wordpress_setup' ) ) :
 
     /*
      * Enable support for Post Thumbnails on posts and pages.
+     *  Not to be confused with the page_feature_image custom fields for pages and posts!
      *
      * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
      */
-    //add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
 
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus(
