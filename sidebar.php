@@ -13,7 +13,7 @@
 
   if ( is_active_sidebar( 'sidebar-1' ) ) :
     ?>
-    <div class="sidebar-nav affix-top">
+    <div id="sidebarNav" class="sidebar-nav affix-top">
       <?php dynamic_sidebar( 'sidebar-1' ); ?>
       </div>
       <?php
