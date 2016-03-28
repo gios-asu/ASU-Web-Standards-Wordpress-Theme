@@ -18,7 +18,23 @@ $custom_fields = get_post_custom();
       <main id="main" class="site-main space-top-md">
         <div class="container">
           <div class="row">
-            <div class="col-sm-8">
+            <?php
+            ob_start();
+              get_sidebar();
+              $sidebar_content = ob_get_contents();
+            ob_end_clean();
+
+            // Default widths for having a sidebar
+            $content_class = "col-sm-8";
+            $sidebar_class = "col-sm-4 hidden-xs";
+            if( empty( trim( $sidebar_content ))) { 
+              // if the sidebar has no content then the page should take it all up
+              $content_class = "col-sm-12";
+              $sidebar_class = "hidden-xs";
+            }
+            ?>
+
+            <div class="<?php echo $content_class; ?>">
 
               <header class="entry-header">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -38,11 +54,12 @@ $custom_fields = get_post_custom();
                 ?>
               </div>
             </div>
-            <div class="col-sm-4 hidden-xs">
+            <div class="<?php echo $sidebar_class; ?>">
               <div id="secondary" class="widget-area row" role="complementary">
-                <?php get_sidebar(); ?>
+                <?php echo $sidebar_content; ?>
               </div>
             </div>
+
           </div>
         </div>
       </main><!-- #main -->
