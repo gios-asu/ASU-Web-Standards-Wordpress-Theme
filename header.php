@@ -191,7 +191,7 @@ HTML;
         <?php include 'header-asu.php'; ?>
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-            <h1 class="site-title" id="asu_school_name"
+            <div class="site-title" id="asu_school_name"
               style="<?php echo esc_attr( $site_title_attr ); ?>"
             >
               <?php
@@ -216,7 +216,7 @@ HTML;
               }
               ?>
               <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
-            </h1>
+            </div>
           </div>
         </div>
       </div>
