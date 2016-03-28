@@ -39,7 +39,9 @@ get_header(); ?>
             <?php endif; ?>
             </div>
             <div class="col-sm-3">
-              <?php get_sidebar(); ?>
+              <div id="secondary" class="widget-area row" role="complementary">
+                <?php get_sidebar(); ?>
+              </div>
             </div>
           </div>
         </div>
