@@ -39,7 +39,9 @@ $custom_fields = get_post_custom();
               </div>
             </div>
             <div class="col-sm-4 hidden-xs">
-              <?php get_sidebar(); ?>
+              <div id="secondary" class="widget-area row" role="complementary">
+                <?php get_sidebar(); ?>
+              </div>
             </div>
           </div>
         </div>
