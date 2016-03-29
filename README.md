@@ -14,7 +14,7 @@ The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme
 For Web Standards documentation, checkout the [Enterprise Brand and Marketing Guide](https://brandguide.asu.edu/about/about-enterprise-marketing-hub).
 
 ## Table of contents
-
+- [System Requirements](#system-requirements)
 - [Installation](#installation)
 - [The Customizer](#the-customizer)
     + [School Information](#school-information)
@@ -30,6 +30,9 @@ For Web Standards documentation, checkout the [Enterprise Brand and Marketing Gu
 - [Recommended Plugins](#recommended-plugins)
 - [Additional Notes](#additional-notes)
 - [Developers Corner](#developers-corner)
+
+## System Requirements
+This theme requires PHP **5.4.0+** and up will work up to 7.0. It has also been tested with WordPress v4.*
 
 ## Installation
 
