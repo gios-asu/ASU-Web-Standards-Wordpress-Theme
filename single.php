@@ -27,7 +27,7 @@ $custom_fields = get_post_custom();
               // Default widths for having a sidebar
               $content_class = 'col-sm-8';
               $sidebar_class = 'col-sm-4 hidden-xs';
-            if ( trim( $sidebar_content ) == false ) {
+            if ( false == trim( $sidebar_content ) ) {
               // if the sidebar has no content then the page should take it all up
               $content_class = 'col-sm-12';
               $sidebar_class = 'hidden-xs';
