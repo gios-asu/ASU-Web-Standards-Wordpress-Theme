@@ -37,7 +37,7 @@
                           <li><a target="_top" href="//copp.asu.edu" title="College of Public Programs website" id="public-programs-link-asu-header">Public Programs</a></li>
                           <li><a target="_top" href="//schoolofsustainability.asu.edu" title="School of Sustainability website" id="sustainability-link-asu-header">Sustainability</a></li>
                           <li><a target="_top" href="//uc.asu.edu/" title="University College website" id="university-college-link-asu-header">University College</a></li>
-                          <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website" id="thunderbird-school-link-asu-header">New: Thunderbird School of Global Management</a></li>
+                          <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website" id="thunderbird-school-link-asu-header">Thunderbird School of Global Management</a></li>
                         </ul>
                       </li>
                       <li class="parent map">
