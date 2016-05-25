@@ -169,7 +169,7 @@ function asu_webstandards_scripts() {
   /** @see https://github.com/scottjehl/Respond */
   wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/respond/respond.min.js', array(), '20150115', true );
 
-  wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), '1' );
+  wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700', array(), '1' );
   wp_register_style( 'roboto-mono-font', 'https://fonts.googleapis.com/css?family=Roboto+Mono:300', array(), '1' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '3.1.5', 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), $asu_web_standards_version, 'all' );
