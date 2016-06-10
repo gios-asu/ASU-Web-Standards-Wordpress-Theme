@@ -254,3 +254,120 @@ article img {
   padding-bottom: 10px;
   padding-right: 10px;
 }
+
+/* 
+*
+*
+*Caret Changes from SCSS file
+*
+*
+
+
+// Dropdowns
+.caret {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin-left: 0;
+
+}
+
+.dropdown-menu {
+  font-size: $font-size-medium;
+  max-height: 400px;
+  overflow: auto;
+
+
+  .divider { 
+    margin: 11px 0; 
+  
+  }
+
+  > li > a { 
+    border-bottom: 0; 
+    line-height: $line-height-base; 
+   
+
+    &:hover,
+    &:focus {
+      border-bottom: 0;
+     
+    }
+  }
+
+  > .active > a {
+
+    &,
+    &:hover,
+    &:focus {
+      background-color: $color-maroon;
+      border-bottom: 0;
+  
+    }
+  }
+}
+
+.dropdown-header {
+  font-size: $font-size-small;
+  line-height: $line-height-base;
+ 
+}
+
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  .caret {
+    border-bottom: 5px solid;
+ 
+  }
+}
+*/
+
+/*
+.caret {
+  
+   margin-top: 10px;
+   display: inline-block;
+   vertical-align: left;
+   position: absolute;
+   left: 90%;
+   border-bottom: 6px solid transparent;
+  border-right: 6px solid ;
+  border-left: 0 dotted;
+  border-top: 6px solid transparent;
+
+}
+*/
+.footer-caret{
+
+   margin-top: 10px;
+   display: inline-block;
+   vertical-align: left;
+   position: absolute;
+   left: 90%;
+    
+   /* Caret Left*/ 
+   border-bottom: 6px solid transparent;
+  border-right: 6px solid ;
+  border-left: 0 dotted;
+  border-top: 6px solid transparent;
+
+}
+/*CSS For the grey Border*/
+@media (max-width: 768px) {
+.arpit{
+  border-top : 0.1px solid grey;
+}
+}
+
+/* CSS for down arrow */
+.footer-caret-down{
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: left;
+    position: absolute;
+    left: 90%;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 0 dotted;
+    border-top: 6px solid ;
+}

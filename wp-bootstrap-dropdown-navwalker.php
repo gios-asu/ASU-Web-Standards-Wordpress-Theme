@@ -102,8 +102,8 @@ class WP_Bootstrap_Dropdown_Navwalker extends Walker_Nav_Menu {
       $item_output .= '</a>';
     }
     else {
-      $item_output .= '  <span class="caret hidden-sm hidden-md hidden-lg"></span></h2>';
-      $item_output .= "\n<ul class='big-foot-nav collapse' id='" . $target . "'>";
+      $item_output .= '  <span class=" caret hidden-sm hidden-md hidden-lg"></span></h2>';
+      $item_output .= "\n<ul class=' big-foot-nav collapse' id='" . $target . "'>";
     }
     $item_output .= $args->after;
     /**

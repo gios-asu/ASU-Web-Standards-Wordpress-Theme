@@ -21,8 +21,10 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $class_names  = join( ' ', $filters );
 
     if ( $class_names ) {
+
       $class_names = ' class="' . esc_attr( $class_names ) . '"';
     } else {
+
       $class_names = '';
     }
 
@@ -83,17 +85,20 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
     else {
       $target = $id ? esc_attr( $id ) . '-nav' : '';
-      $item_output .= '<div class="col-md-2 col-sm-3 space-bot-md"><h2 data-toggle="collapse" data-target="#' . $target . '" >';
+      $item_output .= '<div class="arpit col-md-2 col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" >';
     }
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 
     if ( ! $is_top_level ) {
       $item_output .= '</a>';
+
     }
     else {
-      $item_output .= '  <span class="caret hidden-sm hidden-md hidden-lg"></span></h2>';
-      $item_output .= "\n<ul class='big-foot-nav collapse' id='" . $target . "'>";
+
+      $item_output .= '  <span class=" caret hidden-sm hidden-md hidden-lg footer-caret "></span></h2>';
+      $item_output .= "\n<ul class=' big-foot-nav collapse' id='" . $target . "'>";
+
     }
     $item_output .= $args->after;
     /**
@@ -112,6 +117,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
      * @param int    $depth       Depth of menu item. Used for padding.
      * @param array  $args        An array of wp_nav_menu() arguments.
      */
+
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
   }
 
