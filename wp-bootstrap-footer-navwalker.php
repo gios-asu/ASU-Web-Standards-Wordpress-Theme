@@ -21,10 +21,8 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $class_names  = join( ' ', $filters );
 
     if ( $class_names ) {
-
       $class_names = ' class="' . esc_attr( $class_names ) . '"';
     } else {
-
       $class_names = '';
     }
 
@@ -92,13 +90,10 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
 
     if ( ! $is_top_level ) {
       $item_output .= '</a>';
-
     }
     else {
-
-      $item_output .= '  <span class=" caret hidden-sm hidden-md hidden-lg"></span></h2>';
-      $item_output .= "\n<ul class=' big-foot-nav collapse' id='" . $target . "'>";
-
+      $item_output .= '  <span class="caret hidden-sm hidden-md hidden-lg"></span></h2>';
+      $item_output .= "\n<ul class='big-foot-nav collapse' id='" . $target . "'>";
     }
     $item_output .= $args->after;
     /**
@@ -117,7 +112,6 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
      * @param int    $depth       Depth of menu item. Used for padding.
      * @param array  $args        An array of wp_nav_menu() arguments.
      */
-
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
   }
 
