@@ -85,7 +85,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
     else {
       $target = $id ? esc_attr( $id ) . '-nav' : '';
-      $item_output .= '<div class="arpit col-md-2 col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" >';
+      $item_output .= '<div class="foot-menu-border col-md-2 col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" class="collapsed">';
     }
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -96,7 +96,7 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     }
     else {
 
-      $item_output .= '  <span class=" caret hidden-sm hidden-md hidden-lg footer-caret "></span></h2>';
+      $item_output .= '  <span class=" caret hidden-sm hidden-md hidden-lg"></span></h2>';
       $item_output .= "\n<ul class=' big-foot-nav collapse' id='" . $target . "'>";
 
     }
