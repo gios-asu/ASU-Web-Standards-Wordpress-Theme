@@ -94,10 +94,7 @@ There are three types of hero images used:
 
 When editing a Page or Post in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
 
-```
-**Note:** Hero images can't be displayed on category/archive pages using `Custom Fields`.
-For these pages, [see the shortcodes section below](#shortcodes) for the alternative.
-```
+**Note:** Hero images can't be displayed on category/archive pages using `Custom Fields`. For these pages, [see the shortcodes section below](#shortcodes) for the alternative.
 
 ![Activate Custom Fields](documentation/images/custom-fields-activate.png)
 
