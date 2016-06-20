@@ -34,7 +34,7 @@ if ( ! function_exists( 'page_feature' ) ) :
         'description' => null,
         'color' => false,
         'type'  => 'standard',
-        'hide_on_small' => false
+        'hide_on_small' => false,
     ), $atts, 'page_feature' );
 
     $custom_fields = get_post_custom();

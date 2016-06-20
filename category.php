@@ -24,10 +24,10 @@ get_header(); ?>
 <div id="main-wrapper" class="clearfix">
   <div class="clearfix">
     <?php
-      // Render category description here if hero/page_feature shortcode processed
-      if ( false !== strpos( category_description(), 'section class="hero') ) {
-        echo category_description();
-      }
+    // Render category description here if hero/page_feature shortcode processed
+    if ( false !== strpos( category_description(), 'section class="hero' ) ) {
+      echo category_description();
+    }
     ?>
 
     <div id="content" class="site-content">
@@ -35,15 +35,15 @@ get_header(); ?>
       <main id="main" class="site-main" role="main">
         <div class="container pad-bot-md pad-top-sm">
           <?php
-            // Do not render title here if hero shortcode processed
-            if ( false === strpos( category_description(), 'section class="hero') ) : ?>
+          // Do not render title here if hero shortcode processed
+          if ( false === strpos( category_description(), 'section class="hero' ) ) : ?>
           <div class="row">
             <div class="col-sm-12">
               <h2 class="space-top-0"><?php single_cat_title(); ?></h2>
             </div>
           </div>
           <?php
-            endif; ?>
+          endif; ?>
 
 
           <div class="row">
@@ -64,8 +64,8 @@ get_header(); ?>
             ?>
             <div class="<?php echo esc_attr( $content_class ); ?>">
               <?php
-                // Render category description here if no hero/page_feature shortcode processed
-              if ( false === strpos( category_description(), 'section class="hero') ) {
+              // Render category description here if no hero/page_feature shortcode processed
+              if ( false === strpos( category_description(), 'section class="hero' ) ) {
                 echo category_description();
               }
 
