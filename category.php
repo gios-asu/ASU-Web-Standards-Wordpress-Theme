@@ -23,17 +23,29 @@ get_header(); ?>
 
 <div id="main-wrapper" class="clearfix">
   <div class="clearfix">
-    <?php echo do_shortcode( '[page_feature]' ); ?>
+    <?php
+      // Render category description here if hero/page_feature shortcode processed
+      if ( false !== strpos( category_description(), 'section class="hero') ) {
+        echo category_description();
+      }
+    ?>
 
     <div id="content" class="site-content">
       <?php echo do_shortcode( '[asu_breadcrumbs]' ); ?>
       <main id="main" class="site-main" role="main">
-        <div class="container">
+        <div class="container pad-bot-md pad-top-sm">
+          <?php
+            // Do not render title here if hero shortcode processed
+            if ( false === strpos( category_description(), 'section class="hero') ) : ?>
           <div class="row">
             <div class="col-sm-12">
               <h2 class="space-top-0"><?php single_cat_title(); ?></h2>
             </div>
           </div>
+          <?php
+            endif; ?>
+
+
           <div class="row">
             <?php
               ob_start();
@@ -51,9 +63,12 @@ get_header(); ?>
             }
             ?>
             <div class="<?php echo esc_attr( $content_class ); ?>">
-              <?php echo category_description(); ?>
-
               <?php
+                // Render category description here if no hero/page_feature shortcode processed
+              if ( false === strpos( category_description(), 'section class="hero') ) {
+                echo category_description();
+              }
+
               while ( have_posts() ) {
                 the_post();
                 get_template_part( 'content', get_post_format() );
