@@ -95,7 +95,8 @@ There are three types of hero images used:
 When editing a Page or Post in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
 
 ```
-Note: Hero images can't be displayed on category/archive pages using `Custom Fields`. For these pages, [see the shortcodes section below](#shortcodes) for the alternative.
+**Note:** Hero images can't be displayed on category/archive pages using `Custom Fields`.
+For these pages, [see the shortcodes section below](#shortcodes) for the alternative.
 ```
 
 ![Activate Custom Fields](documentation/images/custom-fields-activate.png)
@@ -185,10 +186,10 @@ attribute is optional, it defaults to false. The spy attribute is optional, it d
 You can insert a Hero image at the top of Category and Archive pages by using the following shortcode in the Category description field:
 
 ```php
-[page_feature type="ratio" title="Test Category" image="/wp-content/uploads/2014/10/my-image.jpg" alt="My image"]
+[page_feature type="ratio" title="Test Category" image="/wp-content/uploads/my-image.jpg" alt="My image"]
 ```
 
-All the custom variables described in the [Hero Images section](#hero-images) are available as attributes that can be passed to the shortcode. The attributes are named according to the custom variables, with the 'page_feature_' string dropped:
+All the custom variables described in the [Hero Images section](#hero-images) are available as attributes that can be passed to the shortcode. The attributes are named similar to the custom variables, with the 'page_feature_' string dropped:
 
 * 'type'        = 'page_feature_type'
 * 'title'       = 'page_feature_title'
