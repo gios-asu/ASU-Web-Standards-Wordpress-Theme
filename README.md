@@ -92,7 +92,11 @@ There are three types of hero images used:
 - **Ratio hero** - The Ratio hero will maintain a ratio of 30% height to the width of the view port. Images should be 1170px by 351px.
 - **Slim hero** - The Slim hero will always maintain a height of 70px, no matter what the view port width is. These images should be 1170px by 70px.
 
-When editing a page in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
+When editing a Page or Post in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
+
+```
+Note: Hero images can't be displayed on category/archive pages using `Custom Fields`. For these pages, [see the shortcodes section below](#shortcodes) for the alternative.
+```
 
 ![Activate Custom Fields](documentation/images/custom-fields-activate.png)
 
@@ -101,7 +105,7 @@ To use the following custom fields, just type in the name of the field and the v
 - **page_feature_title** - The Page Feature Title (ex. `The ASU School of Sustainability`) is the text that you want to be the title in the hero section.  For SEO purposes, this will be wrapped in an `h1` tag.  It is normally similar to the Page Title.
 - **page_feature_description** - The Page Feature Description (ex. `The nation's first School of Sustainability.`) is the text that will appear under the Page Feature Title.
 - **page_feature_image** - The Page Feature Image (ex. './wp-content/uploads/2014/10/hero-background-1.jpg') is a absolute or relative URL to the image that you want as the background of the hero section.  It will cover the entire hero section.  For more information about the hero images, consult the [College Standards](https://brandguide.asu.edu/web-standards/academic/hero-images).
-    
+
     Note that you can have 0 to any number of `page_feature_image` fields.  To have multiple values for the same option, create new custom fields with the same name and different values.
 
     If you have 0 `page_feature_image` fields, you will not have a background image behind your hero.
@@ -130,7 +134,7 @@ Here is an example of what your custom fields will look like when you add some d
 
 When editting a page, you can set the page template by going to the `Page Attributes` panel and changing the `Template`.
 
-- **Full Width Template** - This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`. 
+- **Full Width Template** - This is the default template that is provided. It does not provide any containers around your content.  You will have to manually add those contains in your page's `Text`.
 - **Containered Template** - Similar to the Default Template, this will wrap your content in a container for you.
 
 ### Writing Content
@@ -176,16 +180,40 @@ You can write a sidebar for navigating the current page by using the sidebar tag
 The title attribute is optional, it defaults to "Navigate this Doc". The affix
 attribute is optional, it defaults to false. The spy attribute is optional, it defaults to false.
 
+### Hero Images
+
+You can insert a Hero image at the top of Category and Archive pages by using the following shortcode in the Category description field:
+
+```php
+[page_feature type="ratio" title="Test Category" image="/wp-content/uploads/2014/10/my-image.jpg" alt="My image"]
+```
+
+All the custom variables described in the [Hero Images section](#hero-images) are available as attributes that can be passed to the shortcode. The attributes are named according to the custom variables, with the 'page_feature_' string dropped:
+
+* 'type'        = 'page_feature_type'
+* 'title'       = 'page_feature_title'
+* 'description' = 'page_feature_description'
+* 'image'       = 'page_feature_image'
+* 'image_alt'   = 'page_feature_image_alt'
+* 'video'       = 'page_feature_video'
+* 'color'       = 'Page_feature_color'
+
+Note: this shortcode does not support multiple images or videos, like the previously described custom fields setup. You may only define a single image file and video file in the shortcode attributes.
+
+When using the hero shortcode in category descriptions, do not include any other content with the shortcode. The shortcode will insert the hero image into a special position at the top of the page, and the standard page title will be deactivated in favor of the Hero.
+
+![Activate Hero Shortcode](documentation/images/category-description-hero-shortcode.png)
+
 ## Menus
 
-This theme supports two main menus: a main navigation menu and a footer menu. 
+This theme supports two main menus: a main navigation menu and a footer menu.
 
 ### Main Navigation
 
 The main navigation menu only supports a max of three levels.  The top level
 of the menu will be the pills/tabs that you see in the menu. The second level will
 create a basic dropdown under that pill.  A third level will force that dropdown
-to become a "Mega Menu." 
+to become a "Mega Menu."
 
 Only the lowest level of pills will actually be clickable. If you create a three level deep menu, only the deepest pills will be links.
 
