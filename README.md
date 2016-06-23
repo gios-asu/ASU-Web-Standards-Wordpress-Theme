@@ -123,6 +123,7 @@ To use the following custom fields, just type in the name of the field and the v
     + maroon
     + white
     + black
+- **page_feature_hide_on_small** - The Page Feature Hide On Small setting determines whether the Hero Image will be visible or hidden on small-screen layouts (like on mobile devices.) When Hide On SMall is set to true, the Hero Image will be hidden when the page display width is less than 768px.
 
 Here is an example of what your custom fields will look like when you add some data to it:
 
