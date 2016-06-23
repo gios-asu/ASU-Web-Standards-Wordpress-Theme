@@ -2,6 +2,10 @@
 /**
  * Page Feature Shortcode used for simplifying Bootstrap code
  *
+ * Page Feature can use data from two sources: the original method using custom
+ * fields attached to the current page or post, or as values passed via
+ * shortcode attributes.
+ *
  * @author Global Insititue of Sustainability
  * @author Ivan Montiel
  *
@@ -11,7 +15,7 @@ if ( ! function_exists( 'page_feature' ) ) :
   /**
    * Display hero section (page feature)
    */
-  function page_feature() {
+  function page_feature( $atts, $content = null ) {
     // TODO migrate this to a config file of some sort
     $supported_colors = [
       'black'  => '#000000',
@@ -19,6 +23,19 @@ if ( ! function_exists( 'page_feature' ) ) :
       'gold'   => '#ffb310',
       'maroon' => '#990033'
     ];
+
+    // load shortcode attributes, if available
+    $filtered = shortcode_atts( array(
+        'title' => null,
+        'alt'   => '',
+        'count' => null,
+        'image' => null,
+        'video' => null,
+        'description' => null,
+        'color' => false,
+        'type'  => 'standard',
+        'hide_on_small' => false,
+    ), $atts, 'page_feature' );
 
     $custom_fields = get_post_custom();
     $title         = null;
@@ -140,6 +157,58 @@ if ( ! function_exists( 'page_feature' ) ) :
         if ( 'true' === $hide_on_small ) {
           $hide_on_small = true;
         }
+      }
+    }
+
+    // Check for shortcode attributes; overrides previous values
+    // For simplicity, shortcode attributes will be single values only,
+    // no multi-value arrays; if you want multi-value fields, use custom
+    // fields
+    if ( isset( $filtered['title'] ) ) {
+      $title = $filtered['title'];
+    }
+
+    if ( isset( $filtered['image'] ) ) {
+      $image = $filtered['image'];
+    }
+
+    if ( isset( $filtered['video'] ) ) {
+      $video = $filtered['video'];
+    }
+
+    if ( isset( $filtered['description'] ) ) {
+      $description = $filtered['description'];
+    }
+
+    if ( isset( $filtered['type'] ) ) {
+      $type = $filtered['type'];
+    }
+
+    if ( isset( $filtered['color'] ) ) {
+      $color = $filtered['color'];
+
+      if ( $color ) {
+        // Filter the color, only the approved colors are allowed
+        // Default to white
+        if ( array_key_exists( $color, $supported_colors ) ) {
+          $color = $supported_colors[ $color ];
+        } else {
+          $color = $support_colors['white'];
+        }
+      }
+    }
+
+    if ( isset( $filtered['image_alt'] ) ) {
+      $alt = $filtered['image_alt'];
+    } elseif ( isset( $filtered['title'] ) ) {
+      $alt = htmlentities( strip_tags( $title ) );
+    }
+
+    if ( isset( $filtered['hide_on_small'] ) ) {
+      $hide_on_small = $filtered['hide_on_small'];
+
+      if ( 'true' === $hide_on_small ) {
+        $hide_on_small = true;
       }
     }
 

@@ -208,6 +208,12 @@ add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
 remove_filter( 'the_content', 'wpautop' );
 // add_filter( 'the_content', 'wpautop' , 99 );
 // add_filter( 'the_content', 'shortcode_unautop', 100 );
+
+/**
+ * This adds shortcode processing to category/term descriptions
+ */
+add_filter( 'term_description', 'do_shortcode' );
+
 /**
  * Implement the Custom Header feature.
  */
