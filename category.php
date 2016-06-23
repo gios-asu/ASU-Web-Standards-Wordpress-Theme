@@ -24,9 +24,10 @@ get_header(); ?>
 <div id="main-wrapper" class="clearfix">
   <div class="clearfix">
     <?php
+    $category_description = category_description();
     // Render category description here if hero/page_feature shortcode processed
-    if ( false !== strpos( category_description(), 'section class="hero' ) ) {
-      echo category_description();
+    if ( false !== strpos( $category_description, 'section class="hero' ) ) {
+      echo $category_description;
     }
     ?>
 
@@ -36,7 +37,7 @@ get_header(); ?>
         <div class="container pad-bot-md pad-top-sm">
           <?php
           // Do not render title here if hero shortcode processed
-          if ( false === strpos( category_description(), 'section class="hero' ) ) : ?>
+          if ( false === strpos( $category_description, 'section class="hero' ) ) : ?>
           <div class="row">
             <div class="col-sm-12">
               <h2 class="space-top-0"><?php single_cat_title(); ?></h2>
@@ -65,8 +66,8 @@ get_header(); ?>
             <div class="<?php echo esc_attr( $content_class ); ?>">
               <?php
               // Render category description here if no hero/page_feature shortcode processed
-              if ( false === strpos( category_description(), 'section class="hero' ) ) {
-                echo category_description();
+              if ( false === strpos( $category_description, 'section class="hero' ) ) {
+                echo $category_description;
               }
 
               while ( have_posts() ) {
