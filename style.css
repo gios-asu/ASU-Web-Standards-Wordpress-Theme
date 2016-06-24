@@ -254,3 +254,9 @@ article img {
   padding-bottom: 10px;
   padding-right: 10px;
 }
+
+@media (min-width: 992px) {
+    .sidebar-nav.affix {
+      position: relative;
+    }
+    
