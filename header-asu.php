@@ -26,7 +26,7 @@
                           <li><a class="first" href="//artsandsciences.asu.edu/" target="_top" title="Arts and Sciences website" id="arts-and-sciences-link-asu-header">Arts and Sciences</a></li>
                           <li><a href="//wpcarey.asu.edu/" target="_top" title="W. P. Carey School of Business Web and Morrison School of Agribusiness website" id="business-link-asu-header">Business</a></li>
                           <li><a href="//herbergerinstitute.asu.edu" target="_top" title="Herberger Institute for Design and the Arts website" id="design-and-the-arts-link-asu-header">Design and the Arts</a></li>
-                          <li><a href="//education.asu.edu/" target="_top" title="Mary Lou Fulton Teachers College website"  id="education-link-asu-header">Education</a></li>
+                          <li><a href="//education.asu.edu/" target="_top" title="Mary Lou Fulton Teachers College website" id="education-link-asu-header">Education</a></li>
                           <li><a href="//engineering.asu.edu/" target="_top" title="Engineering website" id="engineering-link-asu-header">Engineering</a></li>
                           <li><a href="//sfis.asu.edu/" target="_top" title="Future of Innovation in Society website" id="future-of-innovation-in-society">Future of Innovation in Society</a></li>
                           <li><a href="//graduate.asu.edu" target="_top" title="Graduate College website" id="graduate-link-asu-header">Graduate</a></li>
