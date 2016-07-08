@@ -23,22 +23,22 @@
                       <li class="parent colleges">
                         <a target="_top" href="http://www.asu.edu/colleges/" id="colleges-and-schools-link-asu-header">Colleges &amp; Schools</a>
                         <ul>
-                                <li><a class="first" href="//artsandsciences.asu.edu/" target="_top" title="Arts and Sciences website">Arts and Sciences</a></li>
-                                <li><a href="//wpcarey.asu.edu/" target="_top" title="W. P. Carey School of Business Web and Morrison School of Agribusiness website">Business</a></li>
-                                <li><a href="//herbergerinstitute.asu.edu" target="_top" title="Herberger Institute for Design and the Arts website">Design and the Arts</a></li>
-                                <li><a href="//education.asu.edu/" target="_top" title="Mary Lou Fulton Teachers College website">Education</a></li>
-                                <li><a href="//engineering.asu.edu/" target="_top" title="Engineering website">Engineering</a></li>
-                                <li><a href="//sfis.asu.edu/" target="_top" title="Future of Innovation in Society website">Future of Innovation in Society</a></li>
-                                <li><a href="//graduate.asu.edu" target="_top" title="Graduate College website">Graduate</a></li>
-                                <li><a href="https://chs.asu.edu/" target="_top" title="Health Solutions website">Health Solutions</a></li>
-                                <li><a href="//honors.asu.edu/" target="_top" title="Barrett, The Honors College website">Honors</a></li>
-                                <li><a href="//cronkite.asu.edu" target="_top" title="Walter Cronkite School of Journalism and Mass Communication website">Journalism</a></li>
-                                <li><a href="//www.law.asu.edu/" target="_top" title="Sandra Day O' Connor College of Law website">Law</a></li>
-                                <li><a href="//nursingandhealth.asu.edu/" target="_top" title="College of Nursing and Health Innovation website">Nursing and Health Innovation</a></li>
-                                <li><a href="//copp.asu.edu" target="_top" title="College of Public Programs website">Public Service and Community Solutions</a></li>
-                                <li><a href="//schoolofsustainability.asu.edu" target="_top" title="School of Sustainability website">Sustainability</a></li>
-                                <li><a href="//uc.asu.edu/" target="_top" title="University College website">University College</a></li>
-                                <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website">Thunderbird School of Global Management</a></li>
+                                <li><a class="first" href="//artsandsciences.asu.edu/" target="_top" title="Arts and Sciences website" id="arts-and-sciences-link-asu-header">Arts and Sciences</a></li>
+                                <li><a href="//wpcarey.asu.edu/" target="_top" title="W. P. Carey School of Business Web and Morrison School of Agribusiness website" id="business-link-asu-header">Business</a></li>
+                                <li><a href="//herbergerinstitute.asu.edu" target="_top" title="Herberger Institute for Design and the Arts website" id="design-and-the-arts-link-asu-header">Design and the Arts</a></li>
+                                <li><a href="//education.asu.edu/" target="_top" title="Mary Lou Fulton Teachers College website"  id="education-link-asu-header">Education</a></li>
+                                <li><a href="//engineering.asu.edu/" target="_top" title="Engineering website" id="engineering-link-asu-header">Engineering</a></li>
+                                <li><a href="//sfis.asu.edu/" target="_top" title="Future of Innovation in Society website" id="future-of-innovation-in-society">Future of Innovation in Society</a></li>
+                                <li><a href="//graduate.asu.edu" target="_top" title="Graduate College website" id="graduate-link-asu-header">Graduate</a></li>
+                                <li><a href="https://chs.asu.edu/" target="_top" title="Health Solutions website" id="health-solutions-link-asu-header">Health Solutions</a></li>
+                                <li><a href="//honors.asu.edu/" target="_top" title="Barrett, The Honors College website" id="honors-link-asu-header">Honors</a></li>
+                                <li><a href="//cronkite.asu.edu" target="_top" title="Walter Cronkite School of Journalism and Mass Communication website" id="journalism-link-asu-header">Journalism</a></li>
+                                <li><a href="//www.law.asu.edu/" target="_top" title="Sandra Day O' Connor College of Law website" id="law-link-asu-header">Law</a></li>
+                                <li><a href="//nursingandhealth.asu.edu/" target="_top" title="College of Nursing and Health Innovation website" id="nursing-and-health-link-asu-header">Nursing and Health Innovation</a></li>
+                                <li><a href="//copp.asu.edu" target="_top" title="College of Public Programs website" id="public-programs-link-asu-header">Public Service and Community Solutions</a></li>
+                                <li><a href="//schoolofsustainability.asu.edu" target="_top" title="School of Sustainability website" id="sustainability-link-asu-header">Sustainability</a></li>
+                                <li><a href="//uc.asu.edu/" target="_top" title="University College website" id="university-college-link-asu-header">University College</a></li>
+                                <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website" id="thunderbird-school-link-asu-header">Thunderbird School of Global Management</a></li>
                             </ul>
                       </li>
                       <li class="parent map">
