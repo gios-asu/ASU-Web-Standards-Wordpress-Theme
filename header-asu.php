@@ -23,21 +23,21 @@
                       <li class="parent colleges">
                         <a target="_top" href="http://www.asu.edu/colleges/" id="colleges-and-schools-link-asu-header">Colleges &amp; Schools</a>
                         <ul>
-                          <li><a target="_top" class="first" href="http://artsandsciences.asu.edu/" title="Arts and Sciences website" id="arts-and-sciences-link-asu-header">Arts and Sciences</a></li>
-                          <li><a target="_top" href="//wpcarey.asu.edu/" title="W. P. Carey School of Business Web  and Morrison School of Agribusiness website" id="business-link-asu-header">Business</a></li>
-                          <li><a target="_top" href="//herbergerinstitute.asu.edu" title="Herberger Institute for Design and the Arts website" id="design-and-the-arts-link-asu-header">Design and the Arts</a></li>
-                          <li><a target="_top" href="//education.asu.edu/" title="Mary Lou Fulton Teachers College website" id="education-link-asu-header">Education</a></li>
-                          <li><a target="_top" href="//engineering.asu.edu/" title="Engineering website" id="engineering-link-asu-header">Engineering</a></li>
-                          <li><a target="_top" href="//sfis.asu.edu/" title="Future of Innovation in Society website" id="future-of-innovation-in-society">Future of Innovation in Society</a></li>
-                          <li><a target="_top" href="//graduate.asu.edu" title="Graduate College website" id="graduate-link-asu-header">Graduate</a></li>
-                          <li><a target="_top" href="//healthsolutions.asu.edu/" title="Health Solutions website"  id="health-solutions-link-asu-header">Health Solutions</a></li>
-                          <li><a target="_top" href="//honors.asu.edu/" title="Barrett, The Honors College website" id="honors-link-asu-header">Honors</a></li>
-                          <li><a target="_top" href="//cronkite.asu.edu" title="Walter Cronkite School of Journalism and Mass Communication website" id="journalism-link-asu-header">Journalism</a></li>
-                          <li><a target="_top" href="//www.law.asu.edu/" title="Sandra Day O' Connor College of Law website" id="law-link-asu-header">Law</a></li>
-                          <li><a target="_top" href="//nursingandhealth.asu.edu/" title="College of Nursing and Health Innovation website" id="nursing-and-health-link-asu-header">Nursing and Health</a></li>
-                          <li><a target="_top" href="//copp.asu.edu" title="College of Public Programs website" id="public-programs-link-asu-header">Public Service and Community Solutions</a></li>
-                          <li><a target="_top" href="//schoolofsustainability.asu.edu" title="School of Sustainability website" id="sustainability-link-asu-header">Sustainability</a></li>
-                          <li><a target="_top" href="//uc.asu.edu/" title="University College website" id="university-college-link-asu-header">University College</a></li>
+                          <li><a class="first" href="//artsandsciences.asu.edu/" target="_top" title="Arts and Sciences website" id="arts-and-sciences-link-asu-header">Arts and Sciences</a></li>
+                          <li><a href="//wpcarey.asu.edu/" target="_top" title="W. P. Carey School of Business Web and Morrison School of Agribusiness website" id="business-link-asu-header">Business</a></li>
+                          <li><a href="//herbergerinstitute.asu.edu" target="_top" title="Herberger Institute for Design and the Arts website" id="design-and-the-arts-link-asu-header">Design and the Arts</a></li>
+                          <li><a href="//education.asu.edu/" target="_top" title="Mary Lou Fulton Teachers College website" id="education-link-asu-header">Education</a></li>
+                          <li><a href="//engineering.asu.edu/" target="_top" title="Engineering website" id="engineering-link-asu-header">Engineering</a></li>
+                          <li><a href="//sfis.asu.edu/" target="_top" title="Future of Innovation in Society website" id="future-of-innovation-in-society">Future of Innovation in Society</a></li>
+                          <li><a href="//graduate.asu.edu" target="_top" title="Graduate College website" id="graduate-link-asu-header">Graduate</a></li>
+                          <li><a href="https://chs.asu.edu/" target="_top" title="Health Solutions website" id="health-solutions-link-asu-header">Health Solutions</a></li>
+                          <li><a href="//honors.asu.edu/" target="_top" title="Barrett, The Honors College website" id="honors-link-asu-header">Honors</a></li>
+                          <li><a href="//cronkite.asu.edu" target="_top" title="Walter Cronkite School of Journalism and Mass Communication website" id="journalism-link-asu-header">Journalism</a></li>
+                          <li><a href="//www.law.asu.edu/" target="_top" title="Sandra Day O' Connor College of Law website" id="law-link-asu-header">Law</a></li>
+                          <li><a href="//nursingandhealth.asu.edu/" target="_top" title="College of Nursing and Health Innovation website" id="nursing-and-health-link-asu-header">Nursing and Health Innovation</a></li>
+                          <li><a href="//copp.asu.edu" target="_top" title="College of Public Programs website" id="public-programs-link-asu-header">Public Service and Community Solutions</a></li>
+                          <li><a href="//schoolofsustainability.asu.edu" target="_top" title="School of Sustainability website" id="sustainability-link-asu-header">Sustainability</a></li>
+                          <li><a href="//uc.asu.edu/" target="_top" title="University College website" id="university-college-link-asu-header">University College</a></li>
                           <li><a target="_top" href="http://www.thunderbird.edu/" title="Thunderbird School of Global Management website" id="thunderbird-school-link-asu-header">Thunderbird School of Global Management</a></li>
                         </ul>
                       </li>
@@ -63,7 +63,7 @@
                   </div>
                   <!-- /#asu_universal_nav -->
                 </div>
-                <!-- /#asu_nav_menu -->    
+                <!-- /#asu_nav_menu -->
               </div>
               <!-- /#asu_nav_wrapper -->
               <div id="asu_search">
@@ -72,19 +72,19 @@
                   <form target="_top" action="https://search.asu.edu/search" method="get" name="gs">
                     <label class="hidden" for="asu_search_box">Search</label>
                     <input name="site" value="default_collection" type="hidden">
-                    <input type="text" name="q" size="32" placeholder="Search ASU" id="asu_search_box" class="asu_search_box" onfocus="ASUHeader.searchFocus(this)" onblur="ASUHeader.searchBlur(this)"> 
+                    <input type="text" name="q" size="32" placeholder="Search ASU" id="asu_search_box" class="asu_search_box" onfocus="ASUHeader.searchFocus(this)" onblur="ASUHeader.searchBlur(this)">
                     <input type="submit" value="Search" title="Search" class="asu_search_button">
-                    <input name="sort" value="date:D:L:d1" type="hidden"> 
-                    <input name="output" value="xml_no_dtd" type="hidden"> 
-                    <input name="ie" value="UTF-8" type="hidden"> 
-                    <input name="oe" value="UTF-8" type="hidden"> 
-                    <input name="client" value="asu_frontend" type="hidden"> 
+                    <input name="sort" value="date:D:L:d1" type="hidden">
+                    <input name="output" value="xml_no_dtd" type="hidden">
+                    <input name="ie" value="UTF-8" type="hidden">
+                    <input name="oe" value="UTF-8" type="hidden">
+                    <input name="client" value="asu_frontend" type="hidden">
                     <input name="proxystylesheet" value="asu_frontend" type="hidden">
                   </form>
                 </div>
                 <!-- /#asu_search_module -->
               </div>
-              <!-- /#asu_search -->    
+              <!-- /#asu_search -->
             </div>
             <!-- /#asu_mobile_menu -->
             <div id="asu_mobile_hdr">
