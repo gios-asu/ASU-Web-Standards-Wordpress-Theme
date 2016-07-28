@@ -33,7 +33,7 @@ if ( ! function_exists( 'page_feature' ) ) :
         'video' => null,
         'description' => null,
         'color' => false,
-        'type'  => 'standard',
+        'type'  => null, // this is not the default
         'hide_on_small' => false,
     ), $atts, 'page_feature' );
 
