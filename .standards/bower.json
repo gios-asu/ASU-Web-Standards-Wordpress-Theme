@@ -11,7 +11,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "respond": "~1.4.2",
     "bootstrap-asu": "^0.4.0"
   }
 }
