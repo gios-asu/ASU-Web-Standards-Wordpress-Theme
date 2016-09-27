@@ -165,9 +165,6 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , '4.0', true );
   wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , '4.0', true );
-  /** ie 8 respondsive */
-  /** @see https://github.com/scottjehl/Respond */
-  wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/respond/respond.min.js', array(), '20150115', true );
 
   wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700', array(), '1' );
   wp_register_style( 'roboto-mono-font', 'https://fonts.googleapis.com/css?family=Roboto+Mono:300', array(), '1' );
@@ -181,7 +178,6 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'bootstrap-asu-js' );
   wp_enqueue_script( 'asu-header-config' );
   wp_enqueue_script( 'asu-header' );
-  wp_enqueue_script( 'asu-wordpress-web-standards-respond' );
 
   wp_enqueue_style( 'roboto-font' );
   wp_enqueue_style( 'roboto-mono-font' );
