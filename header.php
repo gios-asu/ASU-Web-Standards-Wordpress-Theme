@@ -185,6 +185,35 @@ HTML;
   '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','SI_dataLayer','GTM-KDWN8Z');</script>
   <!-- End Google Tag Manager ASU Universal -->
+  <!-- Lavidge AdWords Tracking -->
+  <script>
+    var versaTag = {};
+    versaTag.id = "5381";
+    versaTag.sync = 0;
+    versaTag.dispType = "js";
+    versaTag.ptcl = "HTTPS";
+    versaTag.bsUrl = "bs.serving-sys.com/BurstingPipe";
+    versaTag.activityParams = {
+    "OrderID":"","Session":"","Value":"","productid":"","productinfo":"","Quantity":""
+    };
+    versaTag.retargetParams = {};
+    versaTag.dynamicRetargetParams = {};
+    versaTag.conditionalParams = {};
+  </script>
+  <script id="ebOneTagUrlId" src="https://secure-ds.serving-sys.com/SemiCachedScripts/ebOneTag.js"></script>
+  <noscript>
+    <iframe src="https://bs.serving-sys.com/BurstingPipe?
+      cn=ot&amp;
+      onetagid=5381&amp;
+      ns=1&amp;
+      activityValues=$$Value=[Value]&amp;OrderID=[OrderID]&amp;Session=[Session]&amp;ProductID=[ProductID]&amp;ProductInfo=[ProductInfo]&amp;Quantity=[Quantity]$$&amp;
+      retargetingValues=$$$$&amp;
+      dynamicRetargetingValues=$$$$&amp;
+      acp=$$$$&amp;"
+      style="display:none;width:0px;height:0px"></iframe>
+  </noscript>
+  <!-- End Lavidge AdWords Tracking -->
+
   <div id="page-wrapper">
     <div id="page">
       <div id="asu_header">
