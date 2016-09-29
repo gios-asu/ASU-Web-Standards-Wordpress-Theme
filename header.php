@@ -176,7 +176,7 @@ HTML;
 <body <?php body_class(); ?>>
   <a href="#skippy" class="sr-only">Skip to Content</a>
 
-  <?php include 'analytics-body-tracking.php'; ?>
+  <?php include 'analytics-body-tracking-codes.php'; ?>
 
   <div id="page-wrapper">
     <div id="page">
