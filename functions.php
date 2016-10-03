@@ -237,7 +237,7 @@ function asu_webstandards_disable_wyswyg_for_pages( $default ) {
     return $default; //no autop
   }
 }
-add_filter('user_can_richedit', 'asu_webstandards_disable_wyswyg_for_pages');
+add_filter( 'user_can_richedit', 'asu_webstandards_disable_wyswyg_for_pages' );
 
 /**
  * This adds shortcode processing to category/term descriptions
