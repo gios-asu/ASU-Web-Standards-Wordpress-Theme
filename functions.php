@@ -210,6 +210,36 @@ remove_filter( 'the_content', 'wpautop' );
 // add_filter( 'the_content', 'shortcode_unautop', 100 );
 
 /**
+ * This reenables wpautop for specific post types only
+ * For now, we just want to enable wpautop on Posts,
+ * leaving Pages unfiltered, since wpautop causes issues
+ * with Bootstrap. Posts should be fine with wpautop.
+ */
+function asu_webstandards_apply_wpautop_formatting( $content ) {
+  if ( 'post' === get_post_type() ) {
+    return wpautop( $content );
+  } else {
+    return $content; //no autop
+  }
+}
+add_filter( 'the_content', 'asu_webstandards_apply_wpautop_formatting' );
+
+/**
+ * This disables the Visual Editor for Pages only
+ * This allows Posts to be able to use the Visual Editor, where it is less
+ * likely to cause formatting problems with our Bootstrap styling.
+ */
+function asu_webstandards_disable_wyswyg_for_pages( $default ) {
+  global $post;
+  if ( 'page' == get_post_type( $post ) ) {
+    return false;
+  } else {
+    return $default; //no autop
+  }
+}
+add_filter( 'user_can_richedit', 'asu_webstandards_disable_wyswyg_for_pages' );
+
+/**
  * This adds shortcode processing to category/term descriptions
  */
 add_filter( 'term_description', 'do_shortcode' );
