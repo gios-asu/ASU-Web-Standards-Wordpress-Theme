@@ -1,5 +1,5 @@
 {
-  "name": "asu-web-standards-wordperss-theme-assets",
+  "name": "asu-web-standards-wordpress-theme-assets",
   "homepage": "https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme",
   "authors": [
     "Ivan Montiel <idmontie@asu.edu>"
@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "respond": "~1.4.2",
-    "bootstrap-asu": "^0.4.0"
+    "bootstrap-asu": "^1.0.0",
+    "jquery": "~2.2.0"
   }
 }

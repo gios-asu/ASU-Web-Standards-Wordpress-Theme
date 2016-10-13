@@ -106,12 +106,6 @@ module.exports = function (grunt) {
               files: [
                 'dist/jquery.min.js',
               ]
-            },
-            respond: {
-              dest: '../assets/respond',
-              files: [
-                'dest/respond.min.js'
-              ]
             }
           }
         }

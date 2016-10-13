@@ -247,8 +247,6 @@ Extra widgets can be added to the Footer.  These will appear on the bottom of th
 
 ## Additional Notes
 
-- This theme uses [RespondJS](https://github.com/scottjehl/Respond) to make media queries work on IE 6-8. If you use a CDN to host CSS files, make sure they do not use `@import` and that they also allow cross domain requests to files.
-
 - This theme includes the current **Google Tag Manager** and **Lavidge AdWords** tracking that should be on all ASU sites. For implementing custom tracking codes create a child theme and override the `analytics-body-tracking-code.php` file.
 
 ## Developers Corner
