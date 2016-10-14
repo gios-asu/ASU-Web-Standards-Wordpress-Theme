@@ -1,14 +1,14 @@
 <?php
 /**
  * Jetpack Compatibility File
- * See: http://jetpack.me/
+ * See: http://jetpack.com/
  *
  * @package asu-wordpress-web-standards-theme
  */
 
 /**
  * Add theme support for Infinite Scroll.
- * See: http://jetpack.me/support/infinite-scroll/
+ * See: http://jetpack.com/support/infinite-scroll/
  */
 function asu_webstandards_jetpack_setup() {
   add_theme_support(

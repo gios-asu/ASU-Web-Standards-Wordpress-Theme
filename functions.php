@@ -152,36 +152,37 @@ function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
   // This is not necessarily the version of the web standards you are using,
   // but rather a local version number of the web standards assets for WordPress
-  $asu_web_standards_version = '0.4.10';
+  $asu_web_standards_version = '1.0.0';
+
+  // dependency versions
+  $jquery_version = '2.2.4';
+  $bootstrap_version = '3.3.7';
+  $asu_header_version = '4.0';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
 
   // Everything it seems depends on jquery, so might as well make it load in the header
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/jquery/jquery.min.js', array(), '1.11.2', false );
-  wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/jquery/jquery.min.js', array(), $jquery_version, false );
+  wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $bootstrap_version, true );
   wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), $asu_web_standards_version, true );
-  wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
-  wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
-  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , '4.0', true );
-  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , '4.0', true );
-  /** ie 8 respondsive */
-  /** @see https://github.com/scottjehl/Respond */
-  wp_enqueue_script( 'asu-wordpress-web-standards-respond', get_template_directory_uri() . '/assets/respond/respond.min.js', array(), '20150115', true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+  wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , $asu_header_version, true );
+  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , $asu_header_version, true );
 
   wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700', array(), '1' );
   wp_register_style( 'roboto-mono-font', 'https://fonts.googleapis.com/css?family=Roboto+Mono:300', array(), '1' );
-  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '3.1.5', 'all' );
+  wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), $bootstrap_version, 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), $asu_web_standards_version, 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
-  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), false, 'all' );
+  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), $asu_header_version, 'all' );
 
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'bootstrap-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
   wp_enqueue_script( 'asu-header-config' );
   wp_enqueue_script( 'asu-header' );
-  wp_enqueue_script( 'asu-wordpress-web-standards-respond' );
 
   wp_enqueue_style( 'roboto-font' );
   wp_enqueue_style( 'roboto-mono-font' );
@@ -208,6 +209,36 @@ add_action( 'wp_enqueue_scripts', 'asu_webstandards_scripts' );
 remove_filter( 'the_content', 'wpautop' );
 // add_filter( 'the_content', 'wpautop' , 99 );
 // add_filter( 'the_content', 'shortcode_unautop', 100 );
+
+/**
+ * This reenables wpautop for specific post types only
+ * For now, we just want to enable wpautop on Posts,
+ * leaving Pages unfiltered, since wpautop causes issues
+ * with Bootstrap. Posts should be fine with wpautop.
+ */
+function asu_webstandards_apply_wpautop_formatting( $content ) {
+  if ( 'post' === get_post_type() ) {
+    return wpautop( $content );
+  } else {
+    return $content; //no autop
+  }
+}
+add_filter( 'the_content', 'asu_webstandards_apply_wpautop_formatting' );
+
+/**
+ * This disables the Visual Editor for Pages only
+ * This allows Posts to be able to use the Visual Editor, where it is less
+ * likely to cause formatting problems with our Bootstrap styling.
+ */
+function asu_webstandards_disable_wyswyg_for_pages( $default ) {
+  global $post;
+  if ( 'page' == get_post_type( $post ) ) {
+    return false;
+  } else {
+    return $default; //no autop
+  }
+}
+add_filter( 'user_can_richedit', 'asu_webstandards_disable_wyswyg_for_pages' );
 
 /**
  * This adds shortcode processing to category/term descriptions
