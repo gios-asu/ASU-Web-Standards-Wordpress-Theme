@@ -157,7 +157,7 @@ function asu_webstandards_scripts() {
   // dependency versions
   $jquery_version = '2.2.4';
   $bootstrap_version = '3.3.7';
-  $asu_header_version = '4.0';
+  $asu_header_version = '4.5';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
@@ -169,19 +169,17 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
   wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , $asu_header_version, true );
-  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , $asu_header_version, true );
 
   wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700', array(), '1' );
   wp_register_style( 'roboto-mono-font', 'https://fonts.googleapis.com/css?family=Roboto+Mono:300', array(), '1' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), $bootstrap_version, 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), $asu_web_standards_version, 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
-  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), $asu_header_version, 'all' );
+  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu_header.min.css', array(), $asu_header_version, 'all' );
 
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'bootstrap-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
-  wp_enqueue_script( 'asu-header-config' );
   wp_enqueue_script( 'asu-header' );
 
   wp_enqueue_style( 'roboto-font' );

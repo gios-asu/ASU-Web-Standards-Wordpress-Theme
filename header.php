@@ -171,6 +171,23 @@ HTML;
       }
     }
   </style>
+
+  <!-- START /asuthemes/4.5/heads/default.shtml -->
+    <!--[if IE 9]>
+      <style type="text/css">
+      #asu_universal_nav ul ul{filter:none;box-shadow:0 6px 6px 0 #999}#asu_universal_nav>ul>li.parent:hover>a{filter:none;box-shadow:6px 0 6px -6px #999,-6px 0 6px -6px #999}
+      </style>
+    <![endif]-->
+    <script>
+    var ASUHeader = ASUHeader || {};
+    ASUHeader.browser = false;
+    </script>
+    <!--[if IE 5]><script>ASUHeader.browser = true;</script><![endif]-->
+    <!--[if IE 6]><script>ASUHeader.browser = true;</script><![endif]-->
+    <!--[if IE 7]><script>ASUHeader.browser = true;</script><![endif]-->
+    <!--[if IE 8]><script>ASUHeader.browser = true;</script><![endif]-->
+  <!-- END /asuthemes/4.5/heads/default.shtml -->
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -181,35 +198,45 @@ HTML;
   <div id="page-wrapper">
     <div id="page">
       <div id="asu_header">
-        <?php include 'header-asu.php'; ?>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <?php include 'header-asu.php'; ?>
+            </div>
+          </div>
+        </div>
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-            <div class="site-title" id="asu_school_name"
-              style="<?php echo esc_attr( $site_title_attr ); ?>"
-            >
-              <?php
-                // Print the parent organization and its link
-              $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
-              $cOptions = get_option( 'wordpress_asu_theme_options' );
+<!--             <div class="col-md-12">
+                          <?php #include 'header-asu.php'; ?> -->
 
-                // Do we have a parent org?
-              if ( isset( $cOptions ) && is_array( $cOptions ) &&
-                       array_key_exists( 'org', $cOptions ) &&
-                       $cOptions['org'] !== '' ) {
-                  // Does the parent org have a link?
-                if ( array_key_exists( 'org_link', $cOptions ) &&
-                       $cOptions['org_link'] !== '' ) {
-                    $wrapper = '<a href="%1$s" id="org-link-site-title">%2$s</a>';
+              <div class="site-title" id="asu_school_name"
+                style="<?php echo esc_attr( $site_title_attr ); ?>"
+              >
+                <?php
+                  // Print the parent organization and its link
+                $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
+                $cOptions = get_option( 'wordpress_asu_theme_options' );
 
-                    $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
-                    $prefix  = sprintf( $prefix, $wrapper );
+                  // Do we have a parent org?
+                if ( isset( $cOptions ) && is_array( $cOptions ) &&
+                         array_key_exists( 'org', $cOptions ) &&
+                         $cOptions['org'] !== '' ) {
+                    // Does the parent org have a link?
+                  if ( array_key_exists( 'org_link', $cOptions ) &&
+                         $cOptions['org_link'] !== '' ) {
+                      $wrapper = '<a href="%1$s" id="org-link-site-title">%2$s</a>';
+
+                      $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
+                      $prefix  = sprintf( $prefix, $wrapper );
+                  }
+
+                  echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
                 }
-
-                echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
-              }
-              ?>
-              <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
-            </div>
+                ?>
+                <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
+              </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
