@@ -207,36 +207,32 @@ HTML;
         </div>
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
-<!--             <div class="col-md-12">
-                          <?php #include 'header-asu.php'; ?> -->
+            <div class="site-title" id="asu_school_name"
+              style="<?php echo esc_attr( $site_title_attr ); ?>"
+            >
+              <?php
+                // Print the parent organization and its link
+              $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
+              $cOptions = get_option( 'wordpress_asu_theme_options' );
 
-              <div class="site-title" id="asu_school_name"
-                style="<?php echo esc_attr( $site_title_attr ); ?>"
-              >
-                <?php
-                  // Print the parent organization and its link
-                $prefix   = '<span class="first-word">%1$s</span>&nbsp;|&nbsp;';
-                $cOptions = get_option( 'wordpress_asu_theme_options' );
+                // Do we have a parent org?
+              if ( isset( $cOptions ) && is_array( $cOptions ) &&
+                       array_key_exists( 'org', $cOptions ) &&
+                       $cOptions['org'] !== '' ) {
+                  // Does the parent org have a link?
+                if ( array_key_exists( 'org_link', $cOptions ) &&
+                       $cOptions['org_link'] !== '' ) {
+                    $wrapper = '<a href="%1$s" id="org-link-site-title">%2$s</a>';
 
-                  // Do we have a parent org?
-                if ( isset( $cOptions ) && is_array( $cOptions ) &&
-                         array_key_exists( 'org', $cOptions ) &&
-                         $cOptions['org'] !== '' ) {
-                    // Does the parent org have a link?
-                  if ( array_key_exists( 'org_link', $cOptions ) &&
-                         $cOptions['org_link'] !== '' ) {
-                      $wrapper = '<a href="%1$s" id="org-link-site-title">%2$s</a>';
-
-                      $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
-                      $prefix  = sprintf( $prefix, $wrapper );
-                  }
-
-                  echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
+                    $wrapper = sprintf( $wrapper, esc_html( $cOptions['org_link'] ), '%1$s' );
+                    $prefix  = sprintf( $prefix, $wrapper );
                 }
-                ?>
-                <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
-              </div>
-            <!-- </div> -->
+
+                echo wp_kses( sprintf( $prefix, esc_html( $cOptions['org'] ) ), wp_kses_allowed_html( 'post' ) );
+              }
+              ?>
+              <a href="<?php echo esc_url( home_url() ); ?>" id="blog-name-site-title"><?php bloginfo( 'name' ); ?></a>
+            </div>
           </div>
         </div>
       </div>
