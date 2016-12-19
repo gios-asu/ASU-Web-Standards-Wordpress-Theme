@@ -361,7 +361,7 @@
 
     #asu_hdr.asu_hdr_white #asu_logo a{
         background-size: contain;
-        background-image: url("../assets/mobile_logo.png");
+        background-image: url("../img/mobile_logo.png");
     }
     #innovation-footer .footer-menu ul li{
         clear: left;
