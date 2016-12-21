@@ -113,8 +113,33 @@ if (ASUHeader.user_signedin == true) {
 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
   document.getElementById('asu_hdr').className = document.getElementById('asu_hdr').className+" chrome";
 }
+
+
+
+
+window.ASUHeader = window.ASUHeader || {};
+ASUHeader.site_menu = ASUHeader.site_menu || {};
+
+<?php
+ // just an hardcoded example menu to get started 
+  $menu_structure = [
+    ['title' => 'home', 'path' => "/"],
+    ['title' => 'second', 'children' => [  # todo: note this parent item does not have a path 
+      ['title' => 'inner second', 'path' => "#3"]
+    ]]
+  ];
+
+?>
+
+ASUHeader.site_menu.json = '<?php echo json_encode($menu_structure); ?>';
+
+//'[{"title":"Home","path":"\/"},{"title":"Our Services","path":"\/services"},{"title":"Webspark","path":"https:\/\/brandguide.asu.edu\/web-standards\/webspark"},{"title":"Developer Tools","path":"\/resources","children":[{"title":"Hosting","path":"\/resources\/hosting","children":[{"title":"Pantheon Plans & Pricing","path":"\/host\/pantheon\/pricing"}]},{"title":"Download ASU Modules & Themes","path":"https:\/\/fserver.drupal.asu.edu"},{"title":"Documentation","path":"\/resources\/docs","children":[{"title":"ASU Best Practices","path":"\/resources\/docs\/asu-drupal-best-practices"},{"title":"ASU Modules & Themes","path":"\/resources\/docs\/modules"},{"title":"Tutorials","path":"\/resources\/docs\/tutorials"}]},{"title":"Support","path":"\/content\/support","children":[{"title":"Phx Metro Drupal Users Group","path":"http:\/\/groups.drupal.org\/phoenix-metro"},{"title":"#drupal-phx IRC","path":"http:\/\/webchat.freenode.net\/?nick=Guest_ASU&channels=drupal-phx"},{"title":"ASU Drupal Mailing List","path":"http:\/\/lists.asu.edu\/cgi-bin\/wa?A0=DRUPAL"}]}]}]';
+ASUHeader.site_menu.site_name = "<?php echo get_bloginfo( 'name' ); ?>";
+
+
+
+
 //--><!]]>
 </script>
 <div style="clear:both;"></div>
 <!-- END /asuthemes/4.5/headers/default.shtml -->
-
