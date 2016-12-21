@@ -22,9 +22,10 @@
   float: right;
   margin-top: 10px;
 }
+/* udpated for v4.5 of the asu header logo 
 #asu_logo {
   padding-left: 10px !important;
-}
+}*/
 #asu_school_name {
   float: left;
   clear: left;
@@ -78,6 +79,7 @@
 
 /* =Header Styles
 --------------------------------------------------------- */
+/* udpated for v4.5 of the asu header logo */
 #asu_hdr {
   position: relative;
   display: block;
@@ -95,12 +97,15 @@
   border: 0;
 }
 #asu_logo {
-  margin: 0;
-  padding-left: 22px;
-  display: block;
-  float: left;
-  min-width: 203px;
+    margin:0;
+    float:left;
+    width:200px;
+    padding:12px 0
 }
+#asu_logo a img {
+    width: 100%;
+}
+
 #asu_mobile_button,
 #asu_print_logo {
   display: none;
@@ -996,14 +1001,16 @@
     background-color: transparent;
     background-position: left top;
     background-repeat: no-repeat;
-    background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_mobile_gold.png);
+    /*background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_mobile_gold.png);*/
     display: block;
     width: 77px;
     height: 32px;
     margin-top: 5px;
   }
   #asu_hdr.asu_hdr_white #asu_logo a {
-    background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_mobile_white.png);
+    /*updated for v 4.5 of the asu logo*/
+    background-size: contain;
+    background-image: url(https://www.asu.edu/asuthemes/4.5/assets/mobile_logo.png);
   }
   #asu_hdr.asu_hdr_maroon #asu_logo a {
     background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_maroon.png);
