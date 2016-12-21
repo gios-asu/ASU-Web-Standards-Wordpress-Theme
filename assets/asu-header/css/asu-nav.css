@@ -997,16 +997,16 @@
   #asu_logo {
     padding-left: 10px;
   }
-/*  #asu_logo a {
+  #asu_logo a {
     background-color: transparent;
     background-position: left top;
     background-repeat: no-repeat;
-    background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_mobile_gold.png);
+    /*background-image: url(//www.asu.edu/asuthemes/4.0-rsp.1/images/logos/asu_logo_mobile_gold.png);*/
     display: block;
     width: 77px;
     height: 32px;
     margin-top: 5px;
-  }*/
+  }
   #asu_hdr.asu_hdr_white #asu_logo a {
     /*updated for v 4.5 of the asu logo*/
     background-size: contain;
