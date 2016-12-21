@@ -97,7 +97,7 @@
                 } else {
                 ?>
                 <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
-                  <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" alt="Arizona State University" height="32" width="203" style="margin-top:14px" title="Arizona State University">
+                  <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.5/assets/full_logo.png"  height="36" width="200">
                 </a>
                 <?php
                 }
