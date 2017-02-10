@@ -231,14 +231,20 @@ HTML;
           // Create Main Navigation
           // ======================
 
+          $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+          $we_are_on_the_homepage = ( home_url() === $current_url );
+          $home_icon_class = 'menu_item';
+          if ( $we_are_on_the_homepage ) {
+            $home_icon_class .= ' active'; 
+          } 
           $wrapper  = '<ul id="%1$s" class="%2$s">';
 
           if ( ! empty( $subsite_menu ) ) {
             $wrapper .= $subsite_menu;
           }
 
-          $wrapper .= '<li>';
-          $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
+          $wrapper .= '<li class="'.$home_icon_class.'">';
+          $wrapper .= "<a href=\"$home_url\" title=\"Home\" id=\"home-icon-main-nav\">";
           $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
           $wrapper .= '</a>';
           $wrapper .= '</li>';
