@@ -236,8 +236,8 @@ HTML;
           $we_are_on_the_homepage = ( home_url() === $current_url );
           $home_icon_class = 'menu_item';
           if ( $we_are_on_the_homepage ) {
-            $home_icon_class .= ' active'; 
-          } 
+            $home_icon_class .= ' active';
+          }
           $wrapper  = '<ul id="%1$s" class="%2$s">';
 
           if ( ! empty( $subsite_menu ) ) {
