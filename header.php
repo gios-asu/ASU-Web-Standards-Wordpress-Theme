@@ -72,8 +72,6 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       // ====================
       // Create Subnavigation
       // ====================
-      // TODO sanatize $c_options['parent_blog_id'] is number
-
       $subsite_menu = intval( $c_options['parent_blog_id'] );
 
       // Do we have a custom blog name?
@@ -86,41 +84,44 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
       // Switching Blogs
       // ===============
       // @codingStandardsIgnoreStart
-      global $blog_id;
-      $current_blog_id = $blog_id;
-      switch_to_blog( $subsite_menu );
+      if ( is_multisite() ) {
+        global $blog_id;
+        $current_blog_id = $blog_id;
+        // the switch_to_blog function is only defined if we're running on multisite
+        switch_to_blog( $subsite_menu );
 
-      if ( false === $parent_blog_name ) {
-        $parent_blog_name = get_bloginfo( 'name' );
-      }
+        if ( false === $parent_blog_name ) {
+          $parent_blog_name = get_bloginfo( 'name' );
+        }
 
-      ob_start();
+        ob_start();
 
-      $wrapper  = <<<HTML
-        <li class="dropdown" id="%s" class="%s">
-          <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-            <i class="fa fa-bars"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li class="dropdown-title">{$parent_blog_name}</li>
-            %s
-          </ul>
-        </li>
+        $wrapper  = <<<HTML
+          <li class="dropdown" id="%s" class="%s">
+            <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+              <i class="fa fa-bars"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li class="dropdown-title">{$parent_blog_name}</li>
+              %s
+            </ul>
+          </li>
 HTML;
 
-      wp_nav_menu(
-          array(
-            'menu'              => 'primary',
-            'theme_location'    => 'primary',
-            'depth'             => 1,
-            'container'         => null,
-            'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
-            'items_wrap'        => $wrapper,
-          )
-      );
-      $subsite_menu = ob_get_contents();
-      ob_end_clean();
-      switch_to_blog( $current_blog_id );
+        wp_nav_menu(
+            array(
+              'menu'              => 'primary',
+              'theme_location'    => 'primary',
+              'depth'             => 1,
+              'container'         => null,
+              'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
+              'items_wrap'        => $wrapper,
+            )
+        );
+        $subsite_menu = ob_get_contents();
+        ob_end_clean();
+        switch_to_blog( $current_blog_id );
+      }
       // @codingStandardsIgnoreEnd
       // ==============
       // Switching Back
@@ -231,14 +232,20 @@ HTML;
           // Create Main Navigation
           // ======================
 
+          $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+          $we_are_on_the_homepage = ( home_url() === $current_url );
+          $home_icon_class = 'menu_item';
+          if ( $we_are_on_the_homepage ) {
+            $home_icon_class .= ' active';
+          }
           $wrapper  = '<ul id="%1$s" class="%2$s">';
 
           if ( ! empty( $subsite_menu ) ) {
             $wrapper .= $subsite_menu;
           }
 
-          $wrapper .= '<li>';
-          $wrapper .= "<a href=\"$home_url\" title=\"Home\"  id=\"home-icon-main-nav\">";
+          $wrapper .= '<li class="'.$home_icon_class.'">';
+          $wrapper .= "<a href=\"$home_url\" title=\"Home\" id=\"home-icon-main-nav\">";
           $wrapper .= '<span class="fa fa-home hidden-xs hidden-sm" aria-hidden="true"></span><span class="hidden-md hidden-lg">Home</span>';
           $wrapper .= '</a>';
           $wrapper .= '</li>';

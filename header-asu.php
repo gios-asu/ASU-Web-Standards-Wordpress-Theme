@@ -18,7 +18,18 @@
                   <h2 class="hidden">Menu</h2>
                   <div id="asu_universal_nav">
                     <ul>
-                      <li class="home"><a target="_top" href="http://www.asu.edu/" id="asu-home-link-asu-header">ASU Home</a></li>
+                      <li class="parent"><a target="_top" href="http://www.asu.edu/" id="asu-home-link-asu-header">ASU Home</a>
+                        <ul>
+                          <li><a class="first" href="//www.asu.edu/?feature=newsevents" target="_top" title="News and Events">News/Events</a></li>
+                          <li><a href="//www.asu.edu/?feature=academics" target="_top" title="Academics">Academics</a></li>
+                          <li><a href="//www.asu.edu/?feature=research" target="_top" title="Research">Research</a></li>
+                          <li><a href="//www.asu.edu/?feature=athletics" target="_top" title="Athletics">Athletics</a></li>
+                          <li><a href="//www.asu.edu/?feature=alumni" target="_top" title="Alumni">Alumni</a></li>
+                          <li><a href="//www.asu.edu/?feature=giving" target="_top" title="Giving">Giving</a></li>
+                          <li><a href="//www.asu.edu/?feature=president" target="_top" title="President">President</a></li>
+                          <li><a href="//www.asu.edu/?feature=aboutasu" target="_top" title="About ASU">About ASU</a></li>
+                        </ul>
+                      </li>
                       <li class="myasu"><a target="_top" href="https://my.asu.edu/" id="my-asu-link-asu-header">My ASU</a></li>
                       <li class="parent colleges">
                         <a target="_top" href="http://www.asu.edu/colleges/" id="colleges-and-schools-link-asu-header">Colleges &amp; Schools</a>
@@ -57,7 +68,7 @@
                           <li><a target="_top" href="//wpcarey.asu.edu/mba/china-program/english/" id="china-link-asu-header">China</a></li>
                         </ul>
                       </li>
-                      <li class="contact"><a target="_top" href="http://www.asu.edu/contactasu/" title="Directory, Index and other info" id="directory-link-asu-header">Directory</a></li>
+                      <li class="contact"><a target="_top" href="//isearch.asu.edu" title="Directory, Index and other info" id="directory-link-asu-header">Directory</a></li>
                     </ul>
                     <img class="asu_touch" src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/ipad_close.gif" alt="">
                   </div>
@@ -72,7 +83,7 @@
                   <form target="_top" action="https://search.asu.edu/search" method="get" name="gs">
                     <label class="hidden" for="asu_search_box">Search</label>
                     <input name="site" value="default_collection" type="hidden">
-                    <input type="text" name="q" size="32" placeholder="Search ASU" id="asu_search_box" class="asu_search_box" onfocus="ASUHeader.searchFocus(this)" onblur="ASUHeader.searchBlur(this)">
+                    <input type="text" name="q" size="32" placeholder="Search" id="asu_search_box" class="asu_search_box">
                     <input type="submit" value="Search" title="Search" class="asu_search_button">
                     <input name="sort" value="date:D:L:d1" type="hidden">
                     <input name="output" value="xml_no_dtd" type="hidden">
