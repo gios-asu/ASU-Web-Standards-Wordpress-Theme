@@ -157,7 +157,7 @@ function asu_webstandards_scripts() {
   // dependency versions
   $jquery_version = '2.2.4';
   $bootstrap_version = '3.3.7';
-  $asu_header_version = '4.0';
+  $asu_header_version = '4.0.1';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
