@@ -177,7 +177,20 @@ HTML;
 <body <?php body_class(); ?>>
   <a href="#skippy" class="sr-only">Skip to Content</a>
 
-  <?php include 'analytics-body-tracking-codes.php'; ?>
+  <?php
+  // Do we have an asu_analytics?
+  if ( array_key_exists( 'asu_analytics', $c_options ) && $c_options['asu_analytics'] !== '' ) {
+    $asu_analytics = $c_options['asu_analytics'];
+    if ( $asu_analytics <> 'disable' ) {
+      // Include the 'analytics-body-tracking-codes.php' file to run script for running analytics. If not, the
+      // file containing the script isn't included and it does not run.
+      require_once( 'analytics-body-tracking-codes.php' );
+    } // else: Action required when ASU Analytics is disabled.
+  }
+  else { // If customize option is not present, enable tracking by default.
+      require_once( 'analytics-body-tracking-codes.php' );
+  }
+  ?>
 
   <div id="page-wrapper">
     <div id="page">

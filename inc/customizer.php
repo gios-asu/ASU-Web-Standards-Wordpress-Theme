@@ -959,6 +959,47 @@ function wordpress_asu_customize_register( $wp_customize ) {
       )
   );
 
+  //  =============================
+  //  =============================
+  //  =Google Tag Manager Section =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_asu_analytics',
+      array(
+        'title'      => __( 'ASU Analytics','asu_wordpress' ),
+        'priority'   => 70,
+      )
+  );
+
+  //  =============================
+  //  = Tag Manager               =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[asu_analytics]',
+      array(
+        'default'           => 'enable',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_asu_analytics',
+      array(
+        'label'      => __( 'ASU Tag Manager', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_asu_analytics',
+        'settings'   => 'wordpress_asu_theme_options[asu_analytics]',
+        'type'       => 'radio',
+        'choices'    => array(
+        'enable'  => 'enabled',
+        'disable' => 'disabled',
+        ),
+      )
+  );
+
   // ======================================
   // ======================================
   // = Remove Default Wordpress Sections  =
