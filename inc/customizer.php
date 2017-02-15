@@ -987,17 +987,17 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   $wp_customize->add_control(
-          'wordpress_asu_asu_analytics',
-          array(
-            'label'      => __( 'ASU Tag Manager', 'asu_wordpress' ),
-            'section'    => 'wordpress_asu_theme_section_asu_analytics',
-            'settings'   => 'wordpress_asu_theme_options[asu_analytics]',
-            'type'       => 'radio',
-            'choices'    => array(
-              'enable'  => 'enabled',
-              'disable' => 'disabled',
-            ),
-          )
+      'wordpress_asu_asu_analytics',
+      array(
+        'label'      => __( 'ASU Tag Manager', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_asu_analytics',
+        'settings'   => 'wordpress_asu_theme_options[asu_analytics]',
+        'type'       => 'radio',
+        'choices'    => array(
+        'enable'  => 'enabled',
+        'disable' => 'disabled',
+        ),
+      )
   );
 
   // ======================================
