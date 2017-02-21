@@ -151,6 +151,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   //  =============================
   //  = Campus Address            =
   //  =============================
+  /*
   $wp_customize->add_setting(
       'wordpress_asu_theme_options[campus_address]',
       array(
@@ -171,12 +172,13 @@ function wordpress_asu_customize_register( $wp_customize ) {
         'priority'   => 20,
       )
   );
+  */
 
   //  =============================
-  //  = School Address            =
+  //  = Text Below Logo in Footer =
   //  =============================
   $wp_customize->add_setting(
-      'wordpress_asu_theme_options[address]',
+      'wordpress_asu_theme_options[footer_txt]',
       array(
         'default'           => '',
         'capability'        => 'edit_theme_options',
@@ -186,11 +188,11 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   $wp_customize->add_control(
-      'wordpress_asu_address',
+      'wordpress_text_in_footer',
       array(
-        'label'      => __( 'School Address', 'asu_wordpress' ),
+        'label'      => __( 'Text Below Logo in Footer', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
-        'settings'   => 'wordpress_asu_theme_options[address]',
+        'settings'   => 'wordpress_asu_theme_options[footer_txt]',
         'type'       => 'textarea',
         'priority'   => 21,
       )
@@ -212,7 +214,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_phone',
       array(
-        'label'      => __( 'Phone Number', 'asu_wordpress' ),
+        'label'      => __( 'Phone Number (Optional)', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[phone]',
         'priority'   => 30,
@@ -235,7 +237,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_fax',
       array(
-        'label'      => __( 'Fax Number', 'asu_wordpress' ),
+        'label'      => __( 'Fax Number (Optional)', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[fax]',
         'priority'   => 40,

@@ -51,6 +51,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             //  = Campus Address            =
             //  =============================
             // Do we have an address?
+            /*
             if ( isset( $cOptions ) &&
                  array_key_exists( 'campus_address', $cOptions ) &&
                  $cOptions['campus_address'] !== '' ) {
@@ -83,17 +84,18 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
 
               echo '</address><br/>';
             }
+            */
             ?>
             <address>
               <?php
               //  =============================
-              //  = School Address            =
+              //  = Text Below Logo in Footer =
               //  =============================
-              // Do we have an address?
+              // Do we want Text Below Logo in Footer?
               if ( isset( $cOptions ) &&
-                     array_key_exists( 'address', $cOptions ) &&
-                     $cOptions['address'] !== '' ) {
-                echo wp_kses( nl2br( $cOptions['address'] ), wp_kses_allowed_html( 'post' ) );
+                     array_key_exists( 'footer_txt', $cOptions ) &&
+                     $cOptions['footer_txt'] !== '' ) {
+                echo wp_kses( nl2br( $cOptions['footer_txt'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?><br/>
               <?php
