@@ -86,7 +86,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
             }
             */
             ?>
-            <footerText>
+            <span>
               <?php
               //  =============================
               //  = Text Below Logo in Footer =
@@ -125,7 +125,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 echo wp_kses( sprintf( $fax, $cOptions['fax'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?>
-            </footerText>
+            </span>
             <?php
             //  =============================
             //  = Contact Us Email or URL   =
