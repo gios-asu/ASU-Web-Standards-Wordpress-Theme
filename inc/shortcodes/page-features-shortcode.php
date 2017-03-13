@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * Page Feature Shortcode used for simplifying Bootstrap code
  *
@@ -247,7 +247,11 @@ if ( ! function_exists( 'page_feature' ) ) :
       $html .= '        <div class="panel-display clearfix">';
 
       // Section
-      $section_start = '<section class="hero hero-bg-img hero-action-call %2$s" style="%1$s">';
+      if ( 'parallax' !== $type ) {
+        $section_start = '<section class="hero hero-bg-img hero-action-call %2$s" style="%1$s">';
+      } else { // Adding parallax effect
+        $section_start = '<section class="hero hero-bg-img hero-action-call %2$s" style="%1$s; background-attachment: fixed">';
+      }
 
       if ( isset( $video ) ) {
         $section_start = sprintf( $section_start, '%1$s', 'hero-video' );
