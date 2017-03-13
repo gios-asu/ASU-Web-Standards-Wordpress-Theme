@@ -694,7 +694,6 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'slim' => 'Slim',
           'ratio' => 'Ratio',
           'standard' => 'Standard',
-          'parallax' => "Parallax",
         ),
       )
   );
