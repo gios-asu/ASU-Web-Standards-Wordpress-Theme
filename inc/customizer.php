@@ -152,7 +152,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   //  = Text Below Logo in Footer =
   //  =============================
   $wp_customize->add_setting(
-      'wordpress_asu_theme_options[footer_txt]',
+      'wordpress_asu_theme_options[campus_address]',
       array(
         'default'           => '',
         'capability'        => 'edit_theme_options',
@@ -166,7 +166,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
       array(
         'label'      => __( 'Text Below Logo in Footer', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
-        'settings'   => 'wordpress_asu_theme_options[footer_txt]',
+        'settings'   => 'wordpress_asu_theme_options[campus_address]',
         'type'       => 'textarea',
         'priority'   => 21,
       )

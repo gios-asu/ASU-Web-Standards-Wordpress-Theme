@@ -93,9 +93,9 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               // Do we want Text Below Logo in Footer?
               if ( isset( $cOptions ) &&
-                     array_key_exists( 'footer_txt', $cOptions ) &&
-                     $cOptions['footer_txt'] !== '' ) {
-                echo wp_kses( nl2br( $cOptions['footer_txt'] ), wp_kses_allowed_html( 'post' ) );
+                     array_key_exists( 'campus_address', $cOptions ) &&
+                     $cOptions['campus_address'] !== '' ) {
+                echo wp_kses( nl2br( $cOptions['campus_address'] ), wp_kses_allowed_html( 'post' ) );
               }
               ?><br/>
               <?php
