@@ -91,6 +91,7 @@ There are three types of hero images used:
 - **Normal hero** - Normal hero images have a static height - no matter what the width of the viewport is, the height will remain the same. The height of the hero will expand to fit the content, but will at least 350px is height. The recommended size for these hero images 1170px by 380 to 700px.
 - **Ratio hero** - The Ratio hero will maintain a ratio of 30% height to the width of the view port. Images should be 1170px by 351px.
 - **Slim hero** - The Slim hero will always maintain a height of 70px, no matter what the view port width is. These images should be 1170px by 70px.
+- **Parallax hero** - The Parallax hero will maintain a height of a Normal hero, no matter what the width of the viewport is. These images will be fixed to the background and the content will slide over it giving a parallax effect.
 
 When editing a Page or Post in Wordpress, we have added a set of custom fields that you can use to add "hero" sections to the top of your page.  To enable them, go to `Page -> Page you want to edit -> Screen Options (at the top right of the screen) -> Check Custom Field`. After your Visual/Text section of the edit page, you'll see a section labeled `Custom Fields`.
 
@@ -110,7 +111,7 @@ To use the following custom fields, just type in the name of the field and the v
 
     If you have many `page_feature_image` fields, a random one will be chosen on page load.
 - **page_feature_image_alt** - This is the alt tag for your page feature image. If you do not specify one, the title will be used.
-- **page_feature_type** - The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit.
+- **page_feature_type** - The Feature type is what will control the size and behavior of the featured image. If you would like the image to maintain its ratio at any screen size then set page_feature_type to `ratio`. If you would like the feature to be just one line high then use the page_feature_type `slim`. If you would like the hero image to have a parallax effect, then set page_feature_type to `parallax`. The default page feature type doesn't need to be specified, and it will maintain the height of the featured image at the cost of the cropping and adjusting the image's ratio to fit. 
 - **page_feature_video** - The Page Feature Video (ex. `./wp-content/uploads/2014/10/hero-video-1.webm`) is an absolute or relative URL to the video that you want as the background of the hero section.  It will cover the entire hero section and will appear *on top of* the `page_feature_image`.  If a web browser does not support videos, the `page_feature_image` should appear instead. This is not to be confused with the featured image that WordPress lets you select you for pages and posts.
 
     It is not recommended that you use this option.
