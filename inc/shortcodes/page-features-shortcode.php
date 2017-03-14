@@ -1,5 +1,5 @@
-	<?php
-/**
+<?php
+ /**
  * Page Feature Shortcode used for simplifying Bootstrap code
  *
  * Page Feature can use data from two sources: the original method using custom
