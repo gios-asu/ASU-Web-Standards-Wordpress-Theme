@@ -309,8 +309,6 @@ function change_default_template_name( $translation, $text, $domain ) {
 add_filter( 'gettext', 'change_default_template_name', 10, 3 );
 
 
-add_action( 'wp_head', 'asu_webstandards_favicons' );
-
 /**
  * asu_webstandards_favicons header hook, provides links to the favicons from the asu-web-standards
  */
@@ -338,7 +336,7 @@ function asu_webstandards_favicons() {
   <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/asu-web-standards/img/favicon/mstile-310x310.png" />
   <?php
 }
-
+add_action( 'wp_head', 'asu_webstandards_favicons' );
 
 /**
  * Add any additional attributes to the nav menu links.
@@ -404,10 +402,6 @@ function bybe_crumb_fix( $output, $crumb ) {
 }
 add_filter( 'wpseo_breadcrumb_single_link', 'bybe_crumb_fix' , 10, 2 );
 
-/**
- * Hook onto WP Head so we can add some JavaScript.
- */
-add_action( 'wp_head', 'prevent_iframes' );
 
 /**
  * Prevent iframing except when we are in the WordPress Admin interface.
@@ -429,3 +423,4 @@ function prevent_iframes() {
     <?php
   }
 }
+add_action( 'wp_head', 'prevent_iframes' );
