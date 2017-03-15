@@ -403,3 +403,29 @@ function bybe_crumb_fix( $output, $crumb ) {
   return $output;
 }
 add_filter( 'wpseo_breadcrumb_single_link', 'bybe_crumb_fix' , 10, 2 );
+
+/**
+ * Hook onto WP Head so we can add some JavaScript.
+ */
+add_action( 'wp_head', 'prevent_iframes' );
+
+/**
+ * Prevent iframing except when we are in the WordPress Admin interface.
+ */
+function prevent_iframes() {
+  // the page is not being rendered in the
+  // customizer which is a legit iframe for a site
+  if ( ! is_customize_preview() ) {
+    // prevent pages from being iframed
+    ?>
+      <script type="text/javascript">
+        if ( top.frames.length != 0 ) {
+            if ( window.location.href.replace )
+               top.location.replace( self.location.href );
+            else
+               top.location.href = self.document.href;
+        }
+     </script>
+    <?php
+  }
+}
