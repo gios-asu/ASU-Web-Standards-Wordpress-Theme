@@ -435,10 +435,10 @@ if ( ! function_exists( 'include_theme_file' ) ) {
   function include_theme_file( $filename ) {
     // error_log( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename );
     if ( file_exists( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename ) ) {
-      include get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename;
+      include( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename );
 
     } else {
-      include ( $filename );
+      include( $filename );
       // include will throw warnings if the file isn't found
     }
 
