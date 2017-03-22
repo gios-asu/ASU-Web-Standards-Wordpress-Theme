@@ -184,18 +184,18 @@ HTML;
     if ( $asu_analytics <> 'disable' ) {
       // Include the 'analytics-body-tracking-codes.php' file to run script for running analytics. If not, the
       // file containing the script isn't included and it does not run.
-      require_once( 'analytics-body-tracking-codes.php' );
-    } // else: Action required when ASU Analytics is disabled.
+      include_theme_file( 'analytics-body-tracking-codes.php' );
+    } // else: ASU Analytics is disabled.
   }
   else { // If customize option is not present, enable tracking by default.
-      require_once( 'analytics-body-tracking-codes.php' );
+      include_theme_file( 'analytics-body-tracking-codes.php' );
   }
   ?>
 
   <div id="page-wrapper">
     <div id="page">
       <div id="asu_header">
-        <?php include 'header-asu.php'; ?>
+        <?php include_theme_file( 'header-asu.php' ); ?>
         <div id="site-name-desktop" class="section site-name-desktop">
           <div class="container">
             <div class="site-title" id="asu_school_name"
