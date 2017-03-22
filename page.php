@@ -12,7 +12,7 @@
  * @package asu-wordpress-web-standards-theme
  */
 
-include 'helpers/mime-types-helper.php';
+include_template_file( 'helpers/mime-types-helper.php' );
 
 get_header();
 
