@@ -426,7 +426,7 @@ function prevent_iframes() {
 add_action( 'wp_head', 'prevent_iframes' );
 
 
-if ( ! function_exists ( 'include_theme_file' ) ) {
+if ( ! function_exists( 'include_theme_file' ) ) {
   /** Include a file in this theme or child theme if its present in the child theme. We can't just
    * always call include with get_stylesheet_directory()."filename" because that will require that the
    * child theme always define that file. Instead we want the child theme to optionally override files
@@ -434,7 +434,7 @@ if ( ! function_exists ( 'include_theme_file' ) ) {
    */
   function include_theme_file( $filename ) {
     // error_log( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename );
-    if ( file_exists ( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename ) ) {
+    if ( file_exists( get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename ) ) {
       include get_stylesheet_directory() . DIRECTORY_SEPARATOR . $filename;
 
     } else {
