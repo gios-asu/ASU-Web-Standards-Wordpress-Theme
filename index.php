@@ -14,7 +14,7 @@
  * @package asu-wordpress-web-standards
  */
 
-include_template_file( 'helpers/mime-types-helper.php' );
+include_theme_file( 'helpers/mime-types-helper.php' );
 
 get_header();
 
