@@ -149,7 +149,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   //  =============================
-  //  = Campus Address            =
+  //  = Text Below Logo in Footer =
   //  =============================
   $wp_customize->add_setting(
       'wordpress_asu_theme_options[campus_address]',
@@ -162,35 +162,11 @@ function wordpress_asu_customize_register( $wp_customize ) {
   );
 
   $wp_customize->add_control(
-      'wordpress_asu_campus_address',
+      'wordpress_text_in_footer',
       array(
-        'label'      => __( 'Campus Address (Tempe, Polytechnic, Downtown Phoenix, West, Research Park, Skysong, Lake Havasu)', 'asu_wordpress' ),
+        'label'      => __( 'Text Below Logo in Footer', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[campus_address]',
-        'type'       => 'option',
-        'priority'   => 20,
-      )
-  );
-
-  //  =============================
-  //  = School Address            =
-  //  =============================
-  $wp_customize->add_setting(
-      'wordpress_asu_theme_options[address]',
-      array(
-        'default'           => '',
-        'capability'        => 'edit_theme_options',
-        'type'              => 'option',
-        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
-      )
-  );
-
-  $wp_customize->add_control(
-      'wordpress_asu_address',
-      array(
-        'label'      => __( 'School Address', 'asu_wordpress' ),
-        'section'    => 'wordpress_asu_theme_section',
-        'settings'   => 'wordpress_asu_theme_options[address]',
         'type'       => 'textarea',
         'priority'   => 21,
       )
@@ -212,7 +188,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_phone',
       array(
-        'label'      => __( 'Phone Number', 'asu_wordpress' ),
+        'label'      => __( 'Phone Number (Optional)', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[phone]',
         'priority'   => 30,
@@ -235,7 +211,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_control(
       'wordpress_asu_fax',
       array(
-        'label'      => __( 'Fax Number', 'asu_wordpress' ),
+        'label'      => __( 'Fax Number (Optional)', 'asu_wordpress' ),
         'section'    => 'wordpress_asu_theme_section',
         'settings'   => 'wordpress_asu_theme_options[fax]',
         'priority'   => 40,
@@ -718,6 +694,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'slim' => 'Slim',
           'ratio' => 'Ratio',
           'standard' => 'Standard',
+          'parallax' => 'Parallax',
         ),
       )
   );
@@ -956,6 +933,47 @@ function wordpress_asu_customize_register( $wp_customize ) {
           'max' => 20,
           'step' => 1,
         )
+      )
+  );
+
+  //  =============================
+  //  =============================
+  //  =Google Tag Manager Section =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+      'wordpress_asu_theme_section_asu_analytics',
+      array(
+        'title'      => __( 'ASU Analytics','asu_wordpress' ),
+        'priority'   => 70,
+      )
+  );
+
+  //  =============================
+  //  = Tag Manager               =
+  //  =============================
+  $wp_customize->add_setting(
+      'wordpress_asu_theme_options[asu_analytics]',
+      array(
+        'default'           => 'enable',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
+
+  $wp_customize->add_control(
+      'wordpress_asu_asu_analytics',
+      array(
+        'label'      => __( 'ASU Tag Manager', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_asu_analytics',
+        'settings'   => 'wordpress_asu_theme_options[asu_analytics]',
+        'type'       => 'radio',
+        'choices'    => array(
+        'enable'  => 'enabled',
+        'disable' => 'disabled',
+        ),
       )
   );
 
