@@ -15,8 +15,6 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $location = get_nav_menu_locations();
     $menu_id = $location[ $menu_name ] ;
     $menu_item = wp_get_nav_menu_items( $menu_id );
-    // global $footer_menu_counter;
-    // $footer_menu_counter = 0;
 
     foreach ( $menu_item as $i ) {
       if ( 0 == $i->menu_item_parent ) {
