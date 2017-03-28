@@ -322,7 +322,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 'theme_location'    => 'secondary',
                 'depth'             => 2,
                 'container'         => '',
-                'walker'            => new WP_Bootstrap_Footer_Navwalker(),
+                'walker'            => new WP_Bootstrap_Footer_Navwalker( 'secondary' ),
               )
           );
           ?>

@@ -8,17 +8,16 @@
 
 class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
 
-  private $footer_menu_counter = 0;
+  private $number_of_top_level_menu_items = 0;
 
-  function __construct() {
-    $menu_name = 'secondary';
+  function __construct($menu_name) {
     $location = get_nav_menu_locations();
     $menu_id = $location[ $menu_name ] ;
     $menu_item = wp_get_nav_menu_items( $menu_id );
 
     foreach ( $menu_item as $i ) {
       if ( 0 == $i->menu_item_parent ) {
-        $this-> footer_menu_counter += 1;
+        $this-> number_of_top_level_menu_items += 1;
       }
     }
   }
@@ -96,17 +95,15 @@ class WP_Bootstrap_Footer_Navwalker extends Walker_Nav_Menu {
     $item_output = $args->before;
 
     if ( ! $is_top_level ) {
-      $item_output .= '<a data-test = 1 '. $attributes .'>';
+      $item_output .= '<a '. $attributes .'>';
     }
     else {
       $target = $id ? esc_attr( $id ) . '-nav' : '';
-      //global $footer_menu_counter;
-      if ( $this->footer_menu_counter <> 2 ) {
-        $item_output .= '<div class="foot-menu-border col-md-2 col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" class="collapsed">';
+      $menu_width = 'col-md-2';
+      if ( 2 == $this->number_of_top_level_menu_items ) {
+        $menu_width = 'col-md-4';
       }
-      else {
-        $item_output .= '<div class="foot-menu-border col-md-4 col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" class="collapsed">';
-      }
+      $item_output .= '<div class="foot-menu-border ' . $menu_width . ' col-sm-3 space-bot-md "><h2 data-toggle="collapse" data-target="#' . $target . '" class="collapsed">';
     }
 
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
