@@ -353,6 +353,7 @@ function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args )
     // if a link to a particular page appears multiple times then we should qualifiy it with its parent menu item
     $atts['id'] .= '_under_'.$item->menu_item_parent;
   }
+  $atts['class'] = 'menu-item';
   return $atts;
 }
 
