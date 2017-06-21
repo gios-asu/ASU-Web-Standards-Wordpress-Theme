@@ -152,7 +152,7 @@ function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
   // This is not necessarily the version of the web standards you are using,
   // but rather a local version number of the web standards assets for WordPress
-  $asu_web_standards_version = '1.0.3';
+  $asu_web_standards_version = '1.0.4';
 
   // dependency versions
   $jquery_version = '2.2.4';
@@ -353,6 +353,7 @@ function asu_webstandards_custom_nav_menu_link_attributes( $atts, $item, $args )
     // if a link to a particular page appears multiple times then we should qualifiy it with its parent menu item
     $atts['id'] .= '_under_'.$item->menu_item_parent;
   }
+  $atts['class'] = 'menu-item';
   return $atts;
 }
 
