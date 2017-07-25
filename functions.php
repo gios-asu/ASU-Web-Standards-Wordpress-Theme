@@ -441,7 +441,7 @@ function add_x_frame_options_header() {
     header( 'X-Frame-Options: DENY' );
   }
 }
-add_action( 'send_headers', 'add_header_xua' );
+add_action( 'send_headers', 'add_x_frame_options_header' );
 
 if ( ! function_exists( 'include_theme_file' ) ) {
   /** Include a file in this theme or child theme if its present in the child theme. We can't just
