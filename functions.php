@@ -413,19 +413,35 @@ function prevent_iframes() {
   if ( ! is_customize_preview() ) {
     // prevent pages from being iframed
     ?>
+      <style id="antiClickjack">body{display:none !important;}</style>
       <script type="text/javascript">
-        if ( top.frames.length != 0 ) {
-            if ( window.location.href.replace )
-               top.location.replace( self.location.href );
-            else
-               top.location.href = self.document.href;
-        }
-     </script>
+       if (self === top) {
+           var antiClickjack = document.getElementById("antiClickjack");
+           antiClickjack.parentNode.removeChild(antiClickjack);
+       } else {
+           top.location = self.location;
+       }
+      </script>
     <?php
   }
 }
 add_action( 'wp_head', 'prevent_iframes' );
 
+/**
+ * Prevent iframes by adding response header
+ * This is a recommended primary layer of protection, with the anti-clickjack script
+ * used as a reliable failback for legacy browsers.
+ *
+ * TODO: Review in future to replace deprecated X-Frame-Options header with
+ * frame-ancestors directive (https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet)
+ */
+function add_x_frame_options_header() {
+  if ( ! is_customize_preview() ) {
+    // prevent pages from being iframed
+    header( 'X-Frame-Options: DENY' );
+  }
+}
+add_action( 'send_headers', 'add_x_frame_options_header' );
 
 if ( ! function_exists( 'include_theme_file' ) ) {
   /** Include a file in this theme or child theme if its present in the child theme. We can't just
