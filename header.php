@@ -16,6 +16,7 @@ $subsite_menu     = false;
 $parent_blog_name = false;
 $site_title_attr  = '';
 $menu_item_attr   = '';
+$asu_analytics    = false;
 
 // Check if we have options set
 if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
@@ -128,6 +129,11 @@ HTML;
       // ==============
     }
   }
+
+  // Do we have an asu_analytics setting?
+  if ( array_key_exists( 'asu_analytics', $c_options ) && $c_options['asu_analytics'] !== '' ) {
+    $asu_analytics = $c_options['asu_analytics'];
+  }
 }
 
 ?><!DOCTYPE html>
@@ -178,9 +184,8 @@ HTML;
   <a href="#skippy" class="sr-only">Skip to Content</a>
 
   <?php
-  // Do we have an asu_analytics?
-  if ( array_key_exists( 'asu_analytics', $c_options ) && $c_options['asu_analytics'] !== '' ) {
-    $asu_analytics = $c_options['asu_analytics'];
+  // Do we have asu_analytics?
+  if ( $asu_analytics ) {
     if ( $asu_analytics <> 'disable' ) {
       // Include the 'analytics-body-tracking-codes.php' file to run script for running analytics. If not, the
       // file containing the script isn't included and it does not run.
