@@ -318,6 +318,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 <li><a href="http://www.asu.edu/copyright/" id="copyright-trademark-legal-footer">Copyright &amp; Trademark</a></li>
                 <li><a href="http://www.asu.edu/accessibility/" id="accessibility-legal-footer">Accessibility</a></li>
                 <li><a href="http://www.asu.edu/privacy/" id="privacy-legal-footer">Privacy</a></li>
+                <li><a href="https://www.asu.edu/tou/" id="tou-legal-footer">Terms of Use</a></li>
                 <li><a href="http://www.asu.edu/asujobs" id="jobs-legal-footer">Jobs</a></li>
                 <li><a href="https://cfo.asu.edu/emergency" id="emergency-legal-footer">Emergency</a></li>
                 <li><a href="https://contact.asu.edu/" id="contact-asu-legal-footer">Contact ASU</a></li>
