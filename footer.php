@@ -137,7 +137,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Facebook                  =
               //  =============================
-              $fb = '<li><a href="%1$s" title="Facebook" id="facebook-link-in-footer"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>';
+              $fb = '<li><a href="%1$s" title="Facebook" id="facebook-link-in-footer" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>';
 
               // Do we have a facebook?
               if ( isset( $cOptions ) &&
@@ -150,7 +150,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Twitter                   =
               //  =============================
-              $twitter = '<li><a href="%1$s" title="Twitter" id="twitter-link-in-footer"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>';
+              $twitter = '<li><a href="%1$s" title="Twitter" id="twitter-link-in-footer" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>';
 
               // Do we have a twitter?
               if ( isset( $cOptions ) &&
@@ -163,7 +163,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Google+                   =
               //  =============================
-              $googlePlus = '<li><a href="%1$s" title="Google+" id="google_plus-link-in-footer"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>';
+              $googlePlus = '<li><a href="%1$s" title="Google+" id="google_plus-link-in-footer" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>';
 
               // Do we have a google+?
               if ( isset( $cOptions ) &&
@@ -175,7 +175,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = LinkedIn                  =
               //  =============================
-              $linkedIn = '<li><a href="%1$s" title="LinkedIn" id="linkedin-link-in-footer"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a></li>';
+              $linkedIn = '<li><a href="%1$s" title="LinkedIn" id="linkedin-link-in-footer" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a></li>';
 
               // Do we have a linkedin?
               if ( isset( $cOptions ) &&
@@ -187,7 +187,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Youtube                   =
               //  =============================
-              $youtube = '<li><a href="%1$s" title="Youtube" id="youtube-link-in-footer"><i class="fa fa-youtube-square" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>';
+              $youtube = '<li><a href="%1$s" title="Youtube" id="youtube-link-in-footer" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>';
 
               // Do we have a youtube?
               if ( isset( $cOptions ) &&
@@ -199,7 +199,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Vimeo                     =
               //  =============================
-              $vimeo = '<li><a href="%1$s" title="Vimeo" id="vimeo-link-in-footer"><i class="fa fa-vimeo-square" aria-hidden="true"></i><span class="sr-only">Vimeo</span></a></li>';
+              $vimeo = '<li><a href="%1$s" title="Vimeo" id="vimeo-link-in-footer" target="_blank"><i class="fa fa-vimeo-square" aria-hidden="true"></i><span class="sr-only">Vimeo</span></a></li>';
 
               // Do we have a vimeo?
               if ( isset( $cOptions ) &&
@@ -211,7 +211,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Instagram                 =
               //  =============================
-              $instagram = '<li><a href="%1$s" title="Instagram" id="instagram-link-in-footer"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>';
+              $instagram = '<li><a href="%1$s" title="Instagram" id="instagram-link-in-footer" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>';
 
               // Do we have a instagram?
               if ( isset( $cOptions ) &&
@@ -223,7 +223,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Flickr                    =
               //  =============================
-              $flickr = '<li><a href="%1$s" title="Flickr" id="flickr-link-in-footer"><i class="fa fa-flickr" aria-hidden="true"></i><span class="sr-only">Flickr</span></a></li>';
+              $flickr = '<li><a href="%1$s" title="Flickr" id="flickr-link-in-footer" target="_blank"><i class="fa fa-flickr" aria-hidden="true"></i><span class="sr-only">Flickr</span></a></li>';
 
               // Do we have a flickr?
               if ( isset( $cOptions ) &&
@@ -235,7 +235,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = Pinterest                 =
               //  =============================
-              $pinterest = '<li><a href="%1$s" title="Pinterest" id="pinterest-link-in-footer"><i class="fa fa-pinterest-square" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>';
+              $pinterest = '<li><a href="%1$s" title="Pinterest" id="pinterest-link-in-footer" target="_blank"><i class="fa fa-pinterest-square" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>';
 
               // Do we have a pinterest?
               if ( isset( $cOptions ) &&
@@ -247,7 +247,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
               //  =============================
               //  = RSS                       =
               //  =============================
-              $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer"><i class="fa fa-rss" aria-hidden="true"></i><span class="sr-only">RSS</span></a></li>';
+              $rss = '<li><a href="%1$s" title="RSS"  id="rss-link-in-footer" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i><span class="sr-only">RSS</span></a></li>';
 
               // Do we have a instagram?
               if ( isset( $cOptions ) &&
@@ -298,12 +298,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
     <div id="innovation-bar">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 space-top-sm space-bot-sm">
+          <div class="col-md-10 space-top-sm space-bot-sm innovation-footer-text-wrapper">
             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="asu-is-number-1-for-innovation">ASU is #1 in the U.S. for Innovation</a>
           </div>
           <div class="hidden-sm hidden-xs col-md-2 innovation-footer-image-wrapper">
-             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="best-colleges-us-news-bage-icon">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/asu-web-standards/img/footer/best-colleges-us-news-badge.png" alt="Best Colleges U.S. News Most Innovative 2016">
+             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="best-colleges-us-news-badge-icon">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/asu-web-standards/img/footer/best-colleges-us-news-badge.png" alt="Best Colleges U.S. News Most Innovative 2018">
             </a>
           </div>
         </div>
@@ -318,6 +318,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 <li><a href="http://www.asu.edu/copyright/" id="copyright-trademark-legal-footer">Copyright &amp; Trademark</a></li>
                 <li><a href="http://www.asu.edu/accessibility/" id="accessibility-legal-footer">Accessibility</a></li>
                 <li><a href="http://www.asu.edu/privacy/" id="privacy-legal-footer">Privacy</a></li>
+                <li><a href="https://www.asu.edu/tou/" id="tou-legal-footer">Terms of Use</a></li>
                 <li><a href="http://www.asu.edu/asujobs" id="jobs-legal-footer">Jobs</a></li>
                 <li><a href="https://cfo.asu.edu/emergency" id="emergency-legal-footer">Emergency</a></li>
                 <li><a href="https://contact.asu.edu/" id="contact-asu-legal-footer">Contact ASU</a></li>
