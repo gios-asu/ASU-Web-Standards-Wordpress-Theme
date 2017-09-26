@@ -298,12 +298,12 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
     <div id="innovation-bar">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 space-top-sm space-bot-sm">
+          <div class="col-md-10 space-top-sm space-bot-sm innovation-footer-text-wrapper">
             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="asu-is-number-1-for-innovation">ASU is #1 in the U.S. for Innovation</a>
           </div>
           <div class="hidden-sm hidden-xs col-md-2 innovation-footer-image-wrapper">
-             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="best-colleges-us-news-bage-icon">
-              <img src="<?php echo get_template_directory_uri() ?>/assets/asu-web-standards/img/footer/best-colleges-us-news-badge.png" alt="Best Colleges U.S. News Most Innovative 2016">
+             <a href="http://yourfuture.asu.edu/rankings" target="_blank" id="best-colleges-us-news-badge-icon">
+              <img src="<?php echo get_template_directory_uri() ?>/assets/asu-web-standards/img/footer/best-colleges-us-news-badge.png" alt="Best Colleges U.S. News Most Innovative 2018">
             </a>
           </div>
         </div>
