@@ -47,8 +47,8 @@ class WP_Bootstrap_Dropdown_Navwalker extends Walker_Nav_Menu {
     $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
 
     $is_top_level = $atts['href'] === null ||
-                  $atts['href'] === '' ||
-                  $atts['href'] === '#';
+                    $atts['href'] === '' ||
+                    $atts['href'] === '#';
 
     if ( ! $is_top_level ) {
       $output .= '<li' . $idFull . $class_names .'>';
