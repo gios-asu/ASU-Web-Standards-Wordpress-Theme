@@ -134,6 +134,11 @@ HTML;
   if ( array_key_exists( 'asu_analytics', $c_options ) && $c_options['asu_analytics'] !== '' ) {
     $asu_analytics = $c_options['asu_analytics'];
   }
+
+  // Disable Analytics if in Debug mode
+  if ( defined('WP_DEBUG') && true === WP_DEBUG ) {
+    $asu_analytics = 'disable';
+  }
 }
 
 ?><!DOCTYPE html>
