@@ -27,6 +27,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
    * @extends Walker_Nav_Menu
    */
   class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+  private $mega_menu_flag = false;
 
     /**
      * Start Level.
@@ -42,7 +43,46 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
      */
     public function start_lvl( &$output, $depth = 0, $args = array() ) {
       $indent = str_repeat( "\t", $depth );
-      $output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\" >\n";
+
+      if ( 0 == $depth ) {
+        $output .= "$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+      }
+
+      // if the depth is not 0 and args has children, then add a row
+      if ( $args->children_has_children ) {
+        $columns = 'col-md-' . floor( 12.0 / $args->number_of_children );
+
+        if ( 5 === $args->number_of_children ) {
+          $columns = 'col-md-5ths';
+        }
+
+        $output .= '<li class="li-row-container">' . "\n";
+        $output .= '<div class="row">' . "\n";
+        $output .= '<div class="column '  . $columns . ' vertical-border-right">' . "\n";
+        $output .= '<ul>';
+        $this->mega_menu_flag = $depth;
+      }
+    }
+
+    /**
+     * End Level.
+     *
+     * @see Walker::end_lvl()
+     * @since 3.0.0
+     *
+     * @access public
+     * @param mixed $output Passed by reference. Used to append additional content.
+     * @param int   $depth (default: 0) Depth of page. Used for padding.
+     * @param array $args (default: array()) Arguments.
+     * @return void
+     */
+    public function end_lvl( &$output, $depth = 0, $args = array() ) {
+      if ( $depth === $this->mega_menu_flag ) {
+        $output .= "\n</div>\n</div>\n</li>\n</ul>";
+        $this->mega_menu_flag = false;
+      } else if ( 0 == $depth ) {
+        $output .= "</ul>\n";
+      }
     }
 
     /**
@@ -70,30 +110,74 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
        * comparison that is not case sensitive. The strcasecmp() function returns
        * a 0 if the strings are equal.
        */
-      if ( 0 === strcasecmp( $item->attr_title, 'divider' ) && 1 === $depth ) {
+      if ( 0 == strcasecmp( $item->attr_title, 'divider' ) &&  1 === $depth ) {
         $output .= $indent . '<li role="presentation" class="divider">';
-      } elseif ( 0 === strcasecmp( $item->title, 'divider' ) && 1 === $depth ) {
+      } else if ( 0 == strcasecmp( $item->title, 'divider' ) &&  1 === $depth ) {
         $output .= $indent . '<li role="presentation" class="divider">';
-      } elseif ( 0 === strcasecmp( $item->attr_title, 'dropdown-header' ) && 1 === $depth ) {
+      } else if ( 0 == strcasecmp( $item->attr_title, 'dropdown-header' ) && 1 === $depth ) {
         $output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
-      } elseif ( 0 === strcasecmp( $item->attr_title, 'disabled' ) ) {
+      } else if ( 0 == strcasecmp( $item->attr_title, 'disabled' ) ) {
         $output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
+      } else if ( false !== strpos( $item->attr_title, 'dropdown-title' ) ) {
+        $output .= $indent . '<li role="presentation" class="dropdown-title">' . esc_attr( $item->title );
       } else {
-        $value = '';
-        $class_names = $value;
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $class_names = $value = '';
+
+        $classes   = empty( $item->classes ) ? array() : (array) $item->classes;
         $classes[] = 'menu-item-' . $item->ID;
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-        if ( $args->has_children ) {
-          $class_names .= ' dropdown';
+
+        // Add the mega menu class if your children have children
+        if ( $args->children_has_children ) {
+          $classes[] = 'mega-menu';
         }
+
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+
+        if ( $args->has_children ) {
+          $class_names .= ' dropdown'; }
+
         if ( in_array( 'current-menu-item', $classes, true ) ) {
           $class_names .= ' active';
         }
+
         $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-        $id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
+
+        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
         $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+        /**
+         * Columns for mega menu
+         * =====================
+         */
+        if ( 1 === $depth  && $args->has_children && $args->not_first ) {
+          $columns = 'col-md-' .floor( 12.0 / $args->number_of_siblings );
+
+          if ( 5 === $args->number_of_siblings ) {
+            $columns = 'col-md-5ths';
+          }
+
+          if ( $args->not_last ) {
+            $line = 'vertical-border-right'; }
+          else {
+            $line = ''; }
+
+          $output .= "</ul>\n</div>\n<div class='column {$columns} $line'>\n<ul>\n";
+        }
+
+        // Override classes w/the dropdown title class if we are a child that has children
+        if ( 1 === $depth && $args->has_children ) {
+          $class_names = ' class="dropdown-title"';
+        }
+
         $output .= $indent . '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"' . $id . $value . $class_names . '>';
+
+        // if we are a child that has children
+        if ( 1 === $depth && $args->has_children ) {
+          $output .= apply_filters( 'the_title', $item->title, $item->ID );
+          $output .= "</li>\n";
+          return;
+        }
+
         $atts = array();
 
         if ( empty( $item->attr_title ) ) {
@@ -104,6 +188,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 
         $atts['target'] = ! empty( $item->target ) ? $item->target : '';
         $atts['rel']    = ! empty( $item->xfn )    ? $item->xfn    : '';
+
         // If item has_children add atts to a.
         if ( $args->has_children && 0 === $depth ) {
           $atts['href']           = '#';
@@ -113,7 +198,9 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
         } else {
           $atts['href'] = ! empty( $item->url ) ? $item->url : '';
         }
+
         $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
         $attributes = '';
         foreach ( $atts as $attr => $value ) {
           if ( ! empty( $value ) ) {
@@ -121,6 +208,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
             $attributes .= ' ' . $attr . '="' . $value . '"';
           }
         }
+
         $item_output = $args->before;
 
         /*
@@ -143,8 +231,34 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
         $item_output .= $args->after;
+
+        if ( $depth > 0 && $args->has_children ) {
+          $item_output .= "</li>\n";
+        }
+
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
       } // End if().
+    }
+
+    /**
+     * Start El.
+     *
+     * @see Walker::end_el()
+     * @since 3.0.0
+     *
+     * @access public
+     * @param mixed $output Passed by reference. Used to append additional content.
+     * @param mixed $item Menu item data object.
+     * @param int   $depth (default: 0) Depth of menu item. Used for padding.
+     * @param array $args (default: array()) Arguments.
+     * @return void
+     */
+    public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+      if ( 1 === $depth && $args->depth > 2 ) {
+        return;
+      }
+
+      $output .= "</li>\n";
     }
 
     /**
@@ -170,11 +284,52 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
      */
     public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
       if ( ! $element ) {
-        return; }
+        return;
+      }
+
       $id_field = $this->db_fields['id'];
+
       // Display this element.
       if ( is_object( $args[0] ) ) {
-        $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] ); }
+        $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+
+        $children_has_children = false;
+        $number_of_children    = 0;
+
+        if ( $args[0]->has_children ) {
+          $number_of_children = count( $children_elements[ $element->$id_field ] );
+
+          foreach ( $children_elements[ $element->$id_field ] as $_ => $child ) {
+            if ( in_array( 'menu-item-has-children', $child->classes ) ) {
+              $children_has_children = true;
+              break;
+            }
+          }
+        }
+
+        $args[0]->children_has_children = $children_has_children;
+        $args[0]->number_of_children    = $number_of_children;
+
+        // Determine if we are a child
+        $parent_id = $element->menu_item_parent;
+        if ( array_key_exists( $parent_id, $children_elements ) ) {
+          $parent_array = $children_elements[ $parent_id ];
+          $my_id = $element->ID;
+          $index = -1;
+
+          for ( $i = 0; $i < count( $parent_array ); $i++ ) {
+            if ( $my_id === $parent_array[ $i ]->ID ) {
+              $index = $i;
+              break;
+            }
+          }
+
+          $args[0]->not_first = ! ( $i == 0 );
+          $args[0]->not_last  = ! ( $i === count( $parent_array ) - 1 );
+          $args[0]->number_of_siblings = count( $parent_array );
+        }
+      }
+
       parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
 
@@ -204,19 +359,23 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
             echo ' id="' . esc_attr( $container_id ) . '"';
           }
           if ( $container_class ) {
-            echo ' class="' . sanitize_html_class( $container_class ) . '"'; }
+            echo ' class="' . sanitize_html_class( $container_class ) . '"';
+          }
           echo '>';
         }
         echo '<ul';
         if ( $menu_id ) {
-          echo ' id="' . esc_attr( $menu_id ) . '"'; }
+          echo ' id="' . esc_attr( $menu_id ) . '"';
+        }
         if ( $menu_class ) {
-          echo ' class="' . esc_attr( $menu_class ) . '"'; }
+          echo ' class="' . esc_attr( $menu_class ) . '"';
+        }
         echo '>';
         echo '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', '' ) . '</a></li>';
         echo '</ul>';
         if ( $container ) {
-          echo '</' . esc_attr( $container ) . '>'; }
+          echo '</' . esc_attr( $container ) . '>';
+        }
       }
     }
   }
