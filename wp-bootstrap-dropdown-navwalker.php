@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Name: wp_bootstrap_footer_navwalker
+ * Class Name: wp_bootstrap_dropdown_navwalker
  *
  * @package asu-wordpress-web-standards
  */
