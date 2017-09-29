@@ -98,7 +98,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
         ob_start();
 
         $wrapper  = <<<HTML
-          <li class="dropdown" id="%s" class="%s">
+          <li id="%s" class="dropdown %s">
             <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
               <i class="fa fa-bars"></i>
             </a>
