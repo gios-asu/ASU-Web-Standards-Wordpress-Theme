@@ -56,7 +56,7 @@ $custom_fields = get_post_custom();
             </div>
             <div class="<?php echo esc_attr( $sidebar_class ); ?>">
               <div id="secondary" class="widget-area row" role="complementary">
-                <?php echo wp_kses( $sidebar_content, wp_kses_allowed_html( 'post' ) ); ?>
+                <?php echo $sidebar_content; ?>
               </div>
             </div>
 
