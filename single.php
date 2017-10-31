@@ -19,44 +19,43 @@ $custom_fields = get_post_custom();
         <div class="container">
           <div class="row">
             <?php
-              ob_start();
-                get_sidebar();
-                $sidebar_content = ob_get_contents();
-              ob_end_clean();
-
-              // Default widths for having a sidebar
-              $content_class = 'col-sm-8';
-              $sidebar_class = 'col-sm-4 hidden-xs';
-            if ( false == trim( $sidebar_content ) ) {
-              // if the sidebar has no content then the page should take it all up
-              $content_class = 'col-sm-12';
-              $sidebar_class = 'hidden-xs';
-            }
+            
+            // Set up our default layout: 8 columns for content, 4 for the sidebar
+            $content_class = 'col-sm-8';
+            $sidebar_class = 'col-sm-4 hidden-xs';
+            
+            /**
+             * Here we check to see if our sidebar is NOT active, or if it has no
+             * widgets to render. In that case, we don't need a sidebar - so we give
+             * the content the full 12 columns.
+             * 
+             * https://codex.wordpress.org/Function_Reference/is_active_sidebar
+             */
+            if( ! is_active_sidebar( 'sidebar-1' ) ) {
+                $content_class = 'col-sm-12';
+                $sidebar_class = 'hidden-xs';
+                }              
             ?>
-
+            
             <div class="<?php echo esc_attr( $content_class ); ?>">
-
-              <header class="entry-header">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                <div class="entry-meta">
-                  <?php asu_webstandards_posted_on(); ?>
-                </div><!-- .entry-meta -->
-              </header><!-- .entry-header -->
-              <div class="single">
+              
                 <?php
+            
                 while ( have_posts() ) {
-                  the_post();
+                    the_post();
+                    get_template_part( 'content', get_post_format() );
 
-                  get_template_part( 'content', 'single' );
-
-                  asu_webstandards_post_nav();
-                }
+                    // If comments are open or we have at least one comment, load up the comment template
+                    if ( comments_open() || '0' != get_comments_number() ) {
+                        comments_template();
+                        }
+                     } // end of the loop.
                 ?>
-              </div>
+              
             </div>
             <div class="<?php echo esc_attr( $sidebar_class ); ?>">
               <div id="secondary" class="widget-area row" role="complementary">
-                <?php echo $sidebar_content; ?>
+                <?php get_sidebar(); ?>
               </div>
             </div>
 

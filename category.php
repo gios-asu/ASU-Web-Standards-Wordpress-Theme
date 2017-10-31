@@ -49,19 +49,21 @@ get_header(); ?>
 
           <div class="row">
             <?php
-              ob_start();
-                get_sidebar();
-                $sidebar_content = ob_get_contents();
-              ob_end_clean();
-
-              // Default widths for having a sidebar
-              $content_class = 'col-sm-8';
-              $sidebar_class = 'col-sm-4 hidden-xs';
-            if ( false == trim( $sidebar_content ) ) {
-              // if the sidebar has no content then the page should take it all up
-              $content_class = 'col-sm-12';
-              $sidebar_class = 'hidden-xs';
-            }
+              // Set up our default layout: 8 columns for content, 4 for the sidebar
+            $content_class = 'col-sm-8';
+            $sidebar_class = 'col-sm-4 hidden-xs';
+            
+            /**
+             * Here we check to see if our sidebar is NOT active, or if it has no
+             * widgets to render. In that case, we don't need a sidebar - so we give
+             * the content the full 12 columns.
+             * 
+             * https://codex.wordpress.org/Function_Reference/is_active_sidebar
+             */
+            if( ! is_active_sidebar( 'sidebar-1' ) ) {
+                $content_class = 'col-sm-12';
+                $sidebar_class = 'hidden-xs';
+                }   
             ?>
             <div class="<?php echo esc_attr( $content_class ); ?>">
               <?php
@@ -83,7 +85,7 @@ get_header(); ?>
             </div>
             <div class="<?php echo esc_attr( $sidebar_class ); ?>">
               <div id="secondary" class="widget-area row" role="complementary">
-                <?php echo $sidebar_content; ?>
+                <?php get_sidebar(); ?>
                </div>
             </div>
           </div>
