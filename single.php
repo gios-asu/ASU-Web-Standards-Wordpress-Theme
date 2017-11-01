@@ -37,18 +37,22 @@ $custom_fields = get_post_custom();
           ?>
 
           <div class="<?php echo esc_attr( $content_class ); ?>">
+            <header class="entry-header">
+              <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+              <div class="entry-meta">
+                <?php asu_webstandards_posted_on(); ?>
+              </div><!-- .entry-meta -->
+            </header><!-- .entry-header -->
 
-          <?php
-          while ( have_posts() ) {
-            the_post();
-            get_template_part( 'content', get_post_format() );
-
-            //If comments are open or we have at least one comment, load up the comment template
-            if ( comments_open() || '0' != get_comments_number() ) {
-              comments_template();
-            }
-          }
-          ?>
+            <div class="single">
+              <?php
+              while ( have_posts() ) {
+                the_post();
+                get_template_part( 'content', 'single' );
+                asu_webstandards_post_nav();
+              }
+              ?>
+            </div>
 
             </div>
             <div class="<?php echo esc_attr( $sidebar_class ); ?>">
