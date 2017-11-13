@@ -29,7 +29,26 @@ $custom_fields = get_post_custom();
       <main id="main" class="site-main space-top-md" role="main">
         <div class="container">
           <div class="row">
-            <div class="col-sm-8">
+
+            <?php
+            // Set up our default layout: 8 columns for content, 4 for the sidebar
+            $content_class = 'col-sm-8';
+            $sidebar_class = 'col-sm-4 hidden-xs';
+
+            /**
+             * Here we check to see if our sidebar is NOT active, or if it has no
+             * widgets to render. In that case, we don't need a sidebar - so we give
+             * the content the full 12 columns.
+             *
+             * https://codex.wordpress.org/Function_Reference/is_active_sidebar
+             */
+            if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+                $content_class = 'col-sm-12';
+                $sidebar_class = 'hidden-xs';
+            }
+            ?>
+
+            <div class="<?php echo esc_attr( $content_class ); ?>">
               <?php
               while ( have_posts() ) {
                 the_post();
@@ -42,7 +61,7 @@ $custom_fields = get_post_custom();
               } // end of the loop.
               ?>
             </div>
-            <div class="col-sm-4 hidden-xs">
+            <div class="<?php echo esc_attr( $sidebar_class ); ?>">
               <div id="secondary" class="widget-area row" role="complementary">
                 <?php get_sidebar(); ?>
               <div>
