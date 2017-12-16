@@ -108,14 +108,14 @@
                 } else {
                 ?>
                 <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
-                  <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.5/assets/full_logo.png"  height="36" width="200">
+                  <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png"  height="36" width="200">
                 </a>
                 <?php
                 }
                 ?>
               </div>
               <!-- /#asu_logo  -->
-              <img src="//www.asu.edu/asuthemes/4.0-rsp-up.0/images/logos/asu_logo_white.png" height="32" width="203" id="asu_print_logo" alt="ASU Logo" />
+              <img src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png" height="32" id="asu_print_logo" alt="ASU Logo" />
               <div id="asu_mobile_button" class="asushow"><a href="javascript:toggleASU();" data-target=".navbar-collapse" data-toggle="collapse">Menu</a></div>
             </div>
             <!-- /#asu_mobile_header  -->
