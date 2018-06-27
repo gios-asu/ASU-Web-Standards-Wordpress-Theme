@@ -6,12 +6,14 @@
 
   $( document ).ready( function() {
 
+    // Hides the disclosure triangle when a person record has no additional details
     $('.additional-info').each( function( index ) {
       if( $.trim( $(this).text() ).length == 0) {
-
+        $(this).siblings('.show-details').css('display', 'none');
       }
     });
 
+    // Toggles the additional details section when the disclosure triangle is clicked
     $('.show-details').click( function() {
 
       $( this ).siblings( '.additional-info' ).slideToggle();
@@ -25,10 +27,11 @@
       }
     });
 
-    $('.letter-toggle').click( function(event) {
-      alert('You clicked me!');
-    });
+    // Jumps to a named anchor when selected in the dropdown (mobile only)
+    $( '#faculty-dropdown' ).click( function( e ) {
+      window.location = $( '#faculty-dropdown' ).val();
 
+    });
   });
 
 } )( jQuery );
