@@ -4,6 +4,7 @@
     <div class="region region-header">
       <div id="block-asu-brand-asu-brand-header" class="block block-asu-brand">
         <div class="content">
+          <div id="asu-report-accessiblity" class="accessibility-hide"><a href="https://www.asu.edu/accessibility/" class="sr-only sr-only-focusable" tabindex="0">Report an accessibility problem</a></div>
           <!-- START /asuthemes/4.0-rsp-up.0/headers/default_white.shtml -->
           <div id="asu_hdr" class=" asu_hdr_white chrome">
             <div id="asu_mobile_menu" class="toggle_off">
