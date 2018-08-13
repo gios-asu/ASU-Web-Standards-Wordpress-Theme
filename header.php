@@ -181,7 +181,7 @@ HTML;
 </head>
 
 <body <?php body_class(); ?>>
-  <a href="#skippy" class="sr-only">Skip to Content</a>
+  <a href="#skippy" class="sr-only sr-only-focusable" tabindex="0">Skip to Content</a>
 
   <?php
   // Do we have asu_analytics?
