@@ -108,7 +108,7 @@
                   echo wp_kses_post( $html );
                 } else {
                 ?>
-                <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
+                <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header" tabindex="0">
                   <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png"  height="36" width="200">
                 </a>
                 <?php
