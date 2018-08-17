@@ -152,12 +152,12 @@ function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
   // This is not necessarily the version of the web standards you are using,
   // but rather a local version number of the web standards assets for WordPress
-  $asu_web_standards_version = '1.0.4';
+  $asu_web_standards_version = '1.0.5';
 
   // dependency versions
   $jquery_version = '2.2.4';
   $bootstrap_version = '3.3.7';
-  $asu_header_version = '4.0.1';
+  $asu_header_version = '4.0.2';
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );

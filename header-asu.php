@@ -4,8 +4,30 @@
     <div class="region region-header">
       <div id="block-asu-brand-asu-brand-header" class="block block-asu-brand">
         <div class="content">
+          <div id="asu-report-accessiblity" class="accessibility-hide"><a href="https://www.asu.edu/accessibility/" class="sr-only sr-only-focusable" tabindex="0">Report an accessibility problem</a></div>
           <!-- START /asuthemes/4.0-rsp-up.0/headers/default_white.shtml -->
           <div id="asu_hdr" class=" asu_hdr_white chrome">
+            <div id="asu_mobile_hdr">
+              <div id="asu_logo">
+                <?php
+                $html = apply_filters( 'asu_logo', '' );
+
+                if ( ! empty( $html ) ) {
+                  echo wp_kses_post( $html );
+                } else {
+                ?>
+                <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header" tabindex="0">
+                  <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png"  height="36" width="200">
+                </a>
+                <?php
+                }
+                ?>
+              </div>
+              <!-- /#asu_logo  -->
+              <img src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png" height="32" id="asu_print_logo" alt="ASU Logo" tabindex="0"/>
+              <div id="asu_mobile_button" class="asushow"><a href="javascript:toggleASU();" data-target=".navbar-collapse" data-toggle="collapse">Menu</a></div>
+            </div>
+            <!-- /#asu_mobile_header  -->
             <div id="asu_mobile_menu" class="toggle_off">
               <div id="asu_nav_wrapper">
                 <h2 class="hidden">Sign In / Sign Out</h2>
@@ -98,27 +120,6 @@
               <!-- /#asu_search -->
             </div>
             <!-- /#asu_mobile_menu -->
-            <div id="asu_mobile_hdr">
-              <div id="asu_logo">
-                <?php
-                $html = apply_filters( 'asu_logo', '' );
-
-                if ( ! empty( $html ) ) {
-                  echo wp_kses_post( $html );
-                } else {
-                ?>
-                <a target="_top" href="http://www.asu.edu/" title="Arizona State University" id="asu-logo-in-header">
-                  <img alt="Arizona State University" title="Arizona State University" src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png"  height="36" width="200">
-                </a>
-                <?php
-                }
-                ?>
-              </div>
-              <!-- /#asu_logo  -->
-              <img src="//www.asu.edu/asuthemes/4.6/assets/full_logo.png" height="32" id="asu_print_logo" alt="ASU Logo" />
-              <div id="asu_mobile_button" class="asushow"><a href="javascript:toggleASU();" data-target=".navbar-collapse" data-toggle="collapse">Menu</a></div>
-            </div>
-            <!-- /#asu_mobile_header  -->
           </div>
           <!-- /#asu_hdr -->
           <div style="clear:both;"></div>
