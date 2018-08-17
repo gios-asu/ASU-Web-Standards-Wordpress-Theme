@@ -34,6 +34,14 @@ For Web Standards documentation, checkout the [Enterprise Brand and Marketing Gu
 ## System Requirements
 This theme requires PHP **5.4.0+** and up will work up to 7.0. It has also been tested with WordPress v4.*
 
+## UPVERSION NOTES
+
+Upversion these files:
+
+* functions.php
+* style.css
+
+
 ## Installation
 
 [Download the latest version of the theme](https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme/releases/latest).
