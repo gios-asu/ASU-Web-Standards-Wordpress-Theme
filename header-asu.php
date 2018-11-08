@@ -84,7 +84,7 @@
                           <li><a target="_top" href="//campus.asu.edu/downtown/" title="Downtown Phoenix campus" id="downtown-phoenix-link-asu-header">Downtown Phoenix</a></li>
                           <li><a target="_top" href="//asuonline.asu.edu/" title="Online and Extended campus" id="online-and-extended-link-asu-header">Online and Extended</a></li>
                           <li><a target="_top" class="border" href="//havasu.asu.edu/" id="lake-havasu-link-asu-header">Lake Havasu</a></li>
-                          <li><a target="_top" href="//skysong.asu.edu/" id="skysong-link-asu-header">Skysong</a></li>
+                          <li><a target="_top" href="//corporate.asu.edu" id="corporate-link-asu-header">Corporate Engagement and Strategic Partnerships</a></li>
                           <li><a target="_top" href="//asuresearchpark.com/" id="research-park-link-asu-header">Research Park</a></li>
                           <li><a target="_top" href="//washingtoncenter.asu.edu/" id="washington-dc-link-asu-header">Washington D.C.</a></li>
                           <li><a target="_top" href="//wpcarey.asu.edu/mba/china-program/english/" id="china-link-asu-header">China</a></li>
