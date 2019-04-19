@@ -255,6 +255,12 @@ article img {
   padding-right: 10px;
 }
 
+/* remove the ASU Bootstrap link underlines in the header area */
+#asu_hdr a {
+  border-bottom: none;
+}
+
+/* hide the site title on small screens */
 @media only screen and (max-width: 992px) {
   #asu_school_name {
     display: none;
