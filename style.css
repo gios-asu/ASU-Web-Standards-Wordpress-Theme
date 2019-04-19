@@ -254,3 +254,9 @@ article img {
   padding-bottom: 10px;
   padding-right: 10px;
 }
+
+@media only screen and (max-width: 992px) {
+  #asu_school_name {
+    display: none;
+  }
+}
