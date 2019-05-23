@@ -184,6 +184,22 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
                 echo wp_kses( sprintf( $linkedIn, $cOptions['linkedin'] ), wp_kses_allowed_html( 'post' ) );
               }
 
+
+
+              //  =============================
+              //  = Medium                  =  This is a temporary fix until Bootstrap 5
+              //  =============================
+ 
+              $medium = '<li><a href="%1$s" title="Medium" id="medium-link-in-footer" target="_blank"> 
+              <img src="/wp-content/themes/ASU-Web-Standards-Wordpress-Theme/assets/asu-web-standards/img/footer/icon-medium.png" width="34px" style="margin-top:-7px;" />  </a></li>';
+              
+              // Do we have a Medium?
+              if ( isset( $cOptions ) &&
+                     array_key_exists( 'medium', $cOptions ) &&
+                     $cOptions['medium'] !== '' ) {
+                echo wp_kses( sprintf( $medium, $cOptions['medium'] ), wp_kses_allowed_html( 'post' ) );
+              }
+
               //  =============================
               //  = Youtube                   =
               //  =============================
