@@ -255,6 +255,9 @@ article img {
   padding-right: 10px;
 }
 
+.footer span.fa {
+  color:#a9a9a9;
+}
 /* remove the ASU Bootstrap link underlines in the header area */
 #asu_hdr a {
   border-bottom: none;
