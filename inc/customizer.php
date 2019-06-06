@@ -413,29 +413,27 @@ function wordpress_asu_customize_register( $wp_customize ) {
       )
   );
 
-
   //  =============================
   //  = Medium                  =
   //  =============================
   $wp_customize->add_setting(
-    'wordpress_asu_theme_options[medium]',
-    array(
-      'default'           => '',
-      'capability'        => 'edit_theme_options',
-      'type'              => 'option',
-      'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
-    )
-);
+      'wordpress_asu_theme_options[medium]',
+      array(
+        'default'           => '',
+        'capability'        => 'edit_theme_options',
+        'type'              => 'option',
+        'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+      )
+  );
 
-$wp_customize->add_control(
-    'wordpress_asu_medium',
-    array(
-      'label'      => __( 'Medium In URL', 'asu_wordpress' ),
-      'section'    => 'wordpress_asu_theme_section_social',
-      'settings'   => 'wordpress_asu_theme_options[medium]',
-    )
-);
-
+  $wp_customize->add_control(
+      'wordpress_asu_medium',
+      array(
+        'label'      => __( 'Medium In URL', 'asu_wordpress' ),
+        'section'    => 'wordpress_asu_theme_section_social',
+        'settings'   => 'wordpress_asu_theme_options[medium]',
+      )
+  );
 
   //  =============================
   //  = Youtube                   =
