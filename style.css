@@ -4,7 +4,7 @@ Theme URI: https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme
 Author: <a href="https://sustainability.asu.edu/?utm_source=wordpress&utm_medium=theme&utm_campaign=ASU-Wordpress-Web-Standards-Theme">The Julie Ann Wrigley Global Institute of Sustainability</a>
 Author URI: http://sustainability.asu.edu
 Description: ASU Web Standards compliant Wordpress Theme, for questions and updates please use the github repository: <a href="https://github.com/gios-asu/ASU-Wordpress-Web-Standards-Theme?utm_source=wordpress&utm_medium=theme&utm_campaign=ASU-Wordpress-Web-Standards-Theme">github.com/gios-asu/ASU-Wordpress-Web-Standards-Theme</a>.
-Version: 2.2.14
+Version: 2.2.15
 License: MIT
 License URI: https://github.com/gios-asu/ASU-Web-Standards-Wordpress-Theme/blob/master/LICENSE
 Text Domain: asu-wordpress-web-standards
@@ -25,7 +25,7 @@ Licensed under MIT.
 
 /* The 404 page h1 wont clear the main nav on its own */
 .four-oh-four-error-page .fdt-home-container {
-  clear:both;
+  clear: both;
 }
 
 .screen-reader-text {
@@ -44,7 +44,7 @@ div.aligncenter {
 }
 
 .alignright {
-  float:right;
+  float: right;
   margin: 5px 0 20px 20px;
 }
 
@@ -70,7 +70,7 @@ a img.alignleft {
 a img.aligncenter {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .wp-caption {
@@ -161,11 +161,11 @@ ol.comment-list > li:hover {
 
 .form-allowed-tags code {
   display: block;
-  white-space: pre-wrap;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 /* ==========
@@ -227,7 +227,7 @@ article img {
 }
 
 .widget ul li a {
- border-bottom: 0;
+  border-bottom: 0;
 }
 
 .widget ul li:hover {
@@ -245,7 +245,7 @@ article img {
  */
 .gallery:after {
   clear: both;
-  content: '';
+  content: "";
   display: table;
 }
 
@@ -253,4 +253,8 @@ article img {
   float: left;
   padding-bottom: 10px;
   padding-right: 10px;
+}
+
+.footer span.fa {
+  color: #a9a9a9;
 }
