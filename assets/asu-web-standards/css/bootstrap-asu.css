@@ -4890,8 +4890,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 
 #innovation-bar .innovation-footer-image-wrapper a img {
-  max-width: 87%;
-  padding-top: 6px;
+  height: 121px;
+  margin-top: -0.2em;
 }
 
 @media (max-width: 991px) {
