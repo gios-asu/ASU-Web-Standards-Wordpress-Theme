@@ -13,6 +13,12 @@ The ASU Web Standards Wordpress Theme (aka WordSpark) provides an enhanced theme
 
 For Web Standards documentation, checkout the [Enterprise Brand and Marketing Guide](https://brandguide.asu.edu/about/about-enterprise-marketing-hub).
 
+## IMPORTANT NOTE: Gutenberg Editor Support
+
+With the release of the Gutenberg Content Editor in WordPress 5.0, users of the ASU Web Standards WP Theme may be curious if they can use the GUtenberg Editor. Unfortunately, the Gutenberg Editor is **NOT** compatible with this theme. Similar to the CLassic Visual Editor, we recommend disabling the Gutenberg editor.
+
+**This theme only supports the Classic Visual Editor when editing Posts.** Pages can only be edited using the HTML editor.
+
 ## Table of contents
 - [System Requirements](#system-requirements)
 - [Installation](#installation)
