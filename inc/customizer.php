@@ -967,7 +967,7 @@ function wordpress_asu_customize_register( $wp_customize ) {
   $wp_customize->add_section(
     'wordpress_asu_theme_section_asu_search',
     array(
-      'title'      => __( 'ASU Search Replaces WP Search','asu_wordpress' ),
+      'title'      => __( 'ASU Search','asu_wordpress' ),
       'priority'   => 70,
     )
   );
