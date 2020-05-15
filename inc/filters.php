@@ -20,4 +20,22 @@ function asu_ws_search_form () {
   return $form;
 }
 
-add_filter( 'get_search_form', 'asu_ws_search_form' );
+if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+  $c_options = get_option( 'wordpress_asu_theme_options' );
+
+
+  // Do we have an asu_search setting?
+  if ( array_key_exists( 'asu_search', $c_options ) && $c_options['asu_search'] !== '' ) {
+    $asu_search = $c_options['asu_search'];
+  }
+
+  // Is ASU Search enabled? Then replace vanilla WP Search with ASU Search
+  if ( $asu_search ) {
+    if ( $asu_search <> 'disable' ) {
+      add_filter( 'get_search_form', 'asu_ws_search_form' );
+    } // else: ASU Search is disabled.
+  }
+  else { // If customize option is not present, enable tracking by default.
+    add_filter( 'get_search_form', 'asu_ws_search_form' );
+  }
+}

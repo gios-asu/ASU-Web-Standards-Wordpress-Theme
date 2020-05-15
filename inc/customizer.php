@@ -960,6 +960,44 @@ function wordpress_asu_customize_register( $wp_customize ) {
 
   //  =============================
   //  =============================
+  //  = ASU Search Section        =
+  //  =============================
+  //  =============================
+
+  $wp_customize->add_section(
+    'wordpress_asu_theme_section_asu_search',
+    array(
+      'title'      => __( 'ASU Search','asu_wordpress' ),
+      'priority'   => 70,
+    )
+  );
+
+  $wp_customize->add_setting(
+    'wordpress_asu_theme_options[asu_search]',
+    array(
+      'default'           => 'enable',
+      'capability'        => 'edit_theme_options',
+      'type'              => 'option',
+      'sanitize_callback' => 'wordpress_asu_sanitize_nothing',
+    )
+  );
+
+  $wp_customize->add_control(
+    'wordpress_asu_asu_search',
+    array(
+      'label'      => __( 'ASU Search', 'asu_wordpress' ),
+      'section'    => 'wordpress_asu_theme_section_asu_search',
+      'settings'   => 'wordpress_asu_theme_options[asu_search]',
+      'type'       => 'radio',
+      'choices'    => array(
+      'enable'  => 'enabled',
+      'disable' => 'disabled',
+      ),
+    )
+  );
+
+  //  =============================
+  //  =============================
   //  =Google Tag Manager Section =
   //  =============================
   //  =============================
