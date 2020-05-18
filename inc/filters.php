@@ -35,7 +35,7 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
    * so we check to ensure it has been set, and is not empty. Otherwise, the default behavior applies
    */
 
-  if ( isset( $asu_search ) && !empty( $asu_search ) ) {
+  if ( ! empty( $asu_search ) ) {
     if ( $asu_search <> 'disable' ) {
       add_filter( 'get_search_form', 'asu_ws_search_form' );
     } // else: ASU Search is disabled.
