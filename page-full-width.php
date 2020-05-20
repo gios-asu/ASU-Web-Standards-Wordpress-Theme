@@ -16,11 +16,10 @@ $custom_fields = get_post_custom();
 
 
   <style type="text/css">
-.alertbody{background-color: #78BE20; color:#000;}
+.alertbody{background-color: #78BE20; color:#000; display: none;}
 .alertcontainer{padding:27px 0;text-align:inherit;max-width:1170px;margin:0 auto;width:100%;}
 .alerticon{float:left;padding: 0px;font-size: 64px;margin: 0px 20px 0px 20px;background:none;}
 .alerticon .fa{background: radial-gradient(white 50%, transparent 50%);}
-.alertbody{}
 .alertbody h2{font-size:30px;letter-spacing:0px;margin:6px 0 2px 0;font-weight:bolder;}
 .alertbody p{font-weight:bold;margin-top:0px;}
 .alertbody a{color:#000; border-bottom: none; text-decoration: underline;}
