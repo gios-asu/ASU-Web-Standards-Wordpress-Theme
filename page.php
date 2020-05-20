@@ -20,6 +20,37 @@ $custom_fields = get_post_custom();
 ?>
 <div id="main-wrapper" class="clearfix">
   <div class="clearfix">
+
+
+  <style type="text/css">
+.alertbody{background-color: #78BE20; color:#000; display: none;}
+.alertcontainer{padding:27px 0;text-align:inherit;max-width:1170px;margin:0 auto;width:100%;}
+.alerticon{float:left;padding: 0px;font-size: 64px;margin: 0px 20px 0px 20px;background:none;}
+.alerticon .fa{background: radial-gradient(white 50%, transparent 50%);}
+.alertbody h2{font-size:30px;letter-spacing:0px;margin:6px 0 2px 0;font-weight:bolder;}
+.alertbody p{font-weight:bold;margin-top:0px;}
+.alertbody a{color:#000; border-bottom: none; text-decoration: underline;}
+    /* Medium devices (landscape tablets, 768px and up) */
+@media screen and (max-width: 768px){
+.alerticon{display:none;float:none;background:none;margin: 0px 20px 0px 20px;}
+.alertcontainer{padding:12px 7px 11px 18px;text-align:left;}
+.alertbody h2{margin:0px 0 6px 0;font-size:26px;line-height:23px;}
+.alertbody p{font-size:13px;margin-bottom:4px;}
+}
+</style>
+    <div class="alertbody">
+      <div class="alertcontainer">
+        <div class="alerticon"><i aria-hidden="true" class="fa fa-exclamation-circle">&zwnj;</i></div>
+        <div class="alertbody">
+          <h2>Novel coronavirus information</h2>
+          <p><a href="http://eoss.asu.edu/health/announcements/coronavirus/faqs">FAQ&nbsp;page</a> &nbsp;|&nbsp; <a href="https://eoss.asu.edu/health/announcements/coronavirus">Latest&nbsp;ASU&nbsp;updates</a> &nbsp;|&nbsp; <a href="https://provost.asu.edu/remote">Information&nbsp;on&nbsp;teaching&nbsp;and&nbsp;learning&nbsp;remotely.</a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+
     <?php echo do_shortcode( '[page_feature]' ); ?>
 
     <div id="content" class="site-content">
