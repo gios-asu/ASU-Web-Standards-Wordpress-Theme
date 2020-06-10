@@ -29,7 +29,7 @@ $custom_fields = get_post_custom();
 .alerticon .fa{background: radial-gradient(white 50%, transparent 50%);}
 .alertbody h2{font-size:30px;letter-spacing:0px;margin:6px 0 2px 0;font-weight:bolder;}
 .alertbody p{font-weight:bold;margin-top:0px;}
-.alertbody a{color:#000; border-bottom: none; text-decoration: underline;}
+.alertbody a{color:#000; border-bottom: 1px solid black; font-weight: bold;}
     /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (max-width: 768px){
 .alerticon{display:none;float:none;background:none;margin: 0px 20px 0px 20px;}
@@ -43,7 +43,7 @@ $custom_fields = get_post_custom();
         <div class="alerticon"><i aria-hidden="true" class="fa fa-exclamation-circle">&zwnj;</i></div>
         <div class="alertbody">
           <h2>Novel coronavirus information</h2>
-          <p><a href="http://eoss.asu.edu/health/announcements/coronavirus/faqs">FAQ&nbsp;page</a> &nbsp;|&nbsp; <a href="https://eoss.asu.edu/health/announcements/coronavirus">Latest&nbsp;ASU&nbsp;updates</a> &nbsp;|&nbsp; <a href="https://provost.asu.edu/remote">Information&nbsp;on&nbsp;teaching&nbsp;and&nbsp;learning&nbsp;remotely.</a></p>
+          <p><a href="https://www.asu.edu/about/fall-2020">Fall&nbsp;2020&nbsp;update</a>&nbsp;|&nbsp;<a href="http://eoss.asu.edu/health/announcements/coronavirus/faqs">FAQ&nbsp;page</a> &nbsp;|&nbsp; <a href="https://www.asu.edu/about/fall-2020#class">Class flexibility for students</a> &nbsp;|&nbsp; <a href="https://eoss.asu.edu/health/announcements/coronavirus">Novel coronavirus updates</a></p>
         </div>
       </div>
     </div>
