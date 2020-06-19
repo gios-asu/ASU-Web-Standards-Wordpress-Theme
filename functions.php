@@ -443,6 +443,12 @@ function add_x_frame_options_header() {
 }
 add_action( 'send_headers', 'add_x_frame_options_header' );
 
+/**
+ * Remove oembed <link> tags from <head> so that LinkedIn previews will work
+ */
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links');
+
+
 if ( ! function_exists( 'include_theme_file' ) ) {
   /** Include a file in this theme or child theme if its present in the child theme. We can't just
    * always call include with get_stylesheet_directory()."filename" because that will require that the
