@@ -4789,7 +4789,6 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 .footer .little-foot {
   background-color: #e5e5e5;
-  height: 59px;
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -4862,11 +4861,15 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
     position: absolute;
     vertical-align: left;
   }
+
+  .footer ul > li,
+  .footer ol > li {
+   width: 50%;
+  }
 }
 
 #innovation-bar {
   background-color: #ffc627;
-  height: 56px;
   text-align: right;
 }
 

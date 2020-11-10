@@ -152,12 +152,16 @@ function asu_webstandards_scripts() {
   // Upversion this number when you include a new version of the web standards
   // This is not necessarily the version of the web standards you are using,
   // but rather a local version number of the web standards assets for WordPress
-  $asu_web_standards_version = '1.1.3';
+  $asu_web_standards_version = '1.1.5';
 
   // dependency versions
   $jquery_version = '2.2.4';
-  $bootstrap_version = '3.3.7';
+  $bootstrap_version = '3.3.8';
   $asu_header_version = '4.0.2';
+
+  $the_theme     = wp_get_theme();
+	$theme_version = $the_theme->get( 'Version' );
+	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/style.css' );
 
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
@@ -190,7 +194,7 @@ function asu_webstandards_scripts() {
   wp_enqueue_style( 'bootstrap-asu' );
   wp_enqueue_style( 'base-wordpress-theme' );
   wp_enqueue_style( 'addon-wordpress-theme' );
-  wp_enqueue_style( 'child-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'child-style', get_stylesheet_uri(), array(), $css_version );
   wp_enqueue_style( 'asu-header-css' );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

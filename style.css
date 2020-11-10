@@ -4,7 +4,7 @@ Theme URI: https://github.com/asu-ke-web-services/ASU-Web-Standards-Wordpress-Th
 Author: <a href="https://sustainability.asu.edu/?utm_source=wordpress&utm_medium=theme&utm_campaign=ASU-Wordpress-Web-Standards-Theme">The Julie Ann Wrigley Global Institute of Sustainability</a>
 Author URI: http://sustainability.asu.edu
 Description: ASU Web Standards compliant Wordpress Theme, for questions and updates please use the github repository: <a href="https://github.com/gios-asu/ASU-Wordpress-Web-Standards-Theme?utm_source=wordpress&utm_medium=theme&utm_campaign=ASU-Wordpress-Web-Standards-Theme">github.com/gios-asu/ASU-Wordpress-Web-Standards-Theme</a>.
-Version: 2.2.21
+Version: 2.2.22
 Text Domain: asu-wordpress-web-standards
 
 GitHub Theme URI: https://github.com/asu-ke-web-services/ASU-Web-Standards-Wordpress-Theme
@@ -255,4 +255,12 @@ article img {
 
 .footer span.fa {
   color: #a9a9a9;
+}
+
+
+@media (max-width: 768px) {
+  .footer ul > li,
+  .footer ol > li {
+   width: 50%;
+  }
 }
