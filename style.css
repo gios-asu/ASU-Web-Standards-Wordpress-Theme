@@ -256,3 +256,11 @@ article img {
 .footer span.fa {
   color: #a9a9a9;
 }
+
+
+@media (max-width: 768px) {
+  .footer ul > li,
+  .footer ol > li {
+   width: 50%;
+  }
+}
