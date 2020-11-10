@@ -159,6 +159,10 @@ function asu_webstandards_scripts() {
   $bootstrap_version = '3.3.8';
   $asu_header_version = '4.0.2';
 
+  $the_theme     = wp_get_theme();
+	$theme_version = $the_theme->get( 'Version' );
+	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/style.css' );
+
   // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
   wp_deregister_script( 'jquery' );
 
@@ -190,7 +194,7 @@ function asu_webstandards_scripts() {
   wp_enqueue_style( 'bootstrap-asu' );
   wp_enqueue_style( 'base-wordpress-theme' );
   wp_enqueue_style( 'addon-wordpress-theme' );
-  wp_enqueue_style( 'child-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'child-style', get_stylesheet_uri(), array(), $css_version );
   wp_enqueue_style( 'asu-header-css' );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
