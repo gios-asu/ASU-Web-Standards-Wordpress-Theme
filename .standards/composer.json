@@ -1,5 +1,5 @@
 {
-  "name": "ASU Web Standards Wordpress Theme",
+  "name": "ke-web-services/asu-web-standards-wordpress-theme",
   "version": "0.0.1",
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*",

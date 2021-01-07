@@ -36,7 +36,7 @@ $custom_fields = get_post_custom();
         <div class="alerticon"><i aria-hidden="true" class="fa fa-exclamation-circle">&zwnj;</i></div>
         <div class="alertbody">
           <h2>Novel coronavirus information</h2>
-          <p><a href="https://www.asu.edu/about/fall-2020">Fall&nbsp;2020&nbsp;update</a>&nbsp;|&nbsp;<a href="http://eoss.asu.edu/health/announcements/coronavirus/faqs">FAQ&nbsp;page</a> &nbsp;|&nbsp; <a href="https://www.asu.edu/about/fall-2020#class">Class flexibility for students</a> &nbsp;|&nbsp; <a href="https://eoss.asu.edu/health/announcements/coronavirus">Novel coronavirus updates</a></p>
+          <p><a href="https://www.asu.edu/about/spring-2021">Spring&nbsp;2021&nbsp;update</a>&nbsp;|&nbsp;<a href="http://eoss.asu.edu/health/announcements/coronavirus/faqs">FAQ&nbsp;page</a> &nbsp;|&nbsp; <a href="https://www.asu.edu/about/spring-2021#class-flexibility">Class flexibility for students</a> &nbsp;|&nbsp; <a href="https://eoss.asu.edu/health/announcements/coronavirus">Novel coronavirus updates</a></p>
         </div>
       </div>
     </div>
