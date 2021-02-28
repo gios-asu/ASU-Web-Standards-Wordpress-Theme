@@ -149,9 +149,9 @@ HTML;
 
   <?php if ( is_user_logged_in() ) { ?>
     <style  type="text/css" media="screen">
-      .navbar-ws.affix {
-        top: 32px !important;
-      }
+      header {
+				top: 32px !important;
+			}
 
       #wpadminbar {
         z-index: 999999 !important;
