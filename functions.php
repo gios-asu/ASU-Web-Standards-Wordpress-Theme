@@ -15,6 +15,11 @@ if ( ! isset( $content_width ) ) {
   $content_width = 640; /* pixels */
 }
 
+/**
+ * Load custom menu builder.
+ */
+require get_template_directory() . '/inc/wp-custom-menu.php';
+
 if ( ! function_exists( 'asu_wordpress_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
