@@ -204,7 +204,6 @@ function asu_webstandards_scripts() {
 
   // load current user status
   global $current_user;
-  wp_get_current_user();
 
   $menu_name   = 'primary';
   $menu_items  = asu_wp_get_menu_formatted_array( $menu_name );
