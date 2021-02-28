@@ -12,6 +12,10 @@ GitHub Theme URI: https://github.com/asu-ke-web-services/ASU-Web-Standards-Wordp
 
 /* =WordPress Core
 -------------------------------------------------------------- */
+body {
+  margin-top: 145px !important;
+}
+
 .alignnone {
   margin: 5px 20px 20px 0;
 }
