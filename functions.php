@@ -189,7 +189,7 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-header-cookie-js' );
   wp_enqueue_script( 'asu-header-menu-js' );
 
-  // Check if we have options set
+  // Check if we have Customizer options set
   if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
     $c_options = get_option( 'wordpress_asu_theme_options' );
 
@@ -202,7 +202,10 @@ function asu_webstandards_scripts() {
     }
   }
 
-  $locations = get_nav_menu_locations();
+  // load current user status
+  global $current_user;
+  wp_get_current_user();
+
   $menu_name   = 'primary';
   $menu_items  = asu_wp_get_menu_formatted_array( $menu_name );
 
