@@ -189,6 +189,85 @@ function asu_webstandards_scripts() {
   wp_enqueue_script( 'asu-header-cookie-js' );
   wp_enqueue_script( 'asu-header-menu-js' );
 
+  // Check if we have options set
+  if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+    $c_options = get_option( 'wordpress_asu_theme_options' );
+
+    if ( array_key_exists( 'org', $c_options ) ) {
+      $parent_org_name = $c_options['org'];
+    }
+
+    if ( array_key_exists( 'org_link', $c_options ) ) {
+      $parent_org_link = $c_options['org_link'];
+    }
+  }
+
+  $locations = get_nav_menu_locations();
+  $menu_name   = 'primary';
+  $menu_items  = asu_wp_get_menu_formatted_array( $menu_name );
+
+  // pass WordPress PHP variables to the asu-header navigation menu script we enqueued above
+  // These variables are props for the header Preact component
+  // For details on props which can be used with the header, see the Storybook example here:
+  // https://unity.web.asu.edu/@asu-design-system/components-library/index.html?path=/story/header--with-menu-columns
+  wp_localize_script(
+      'asu-header-menu-js', // the handle of the script to pass our variables
+      'headerMenuVars', // object name to access our PHP variables from in our script
+      // register an array of variables we would like to use in our script
+      array(
+        'title' => "Global Institute of Sustainability and Innovation",
+        'parentOrg' => $parent_org_name,
+        'parentOrgUrl' => $parent_org_link,
+        'loggedIn' => is_user_logged_in(),
+        'userName' => $current_user->user_login,
+        'logoutLink' => wp_logout_url(),
+        'loginLink' => "https://weblogin.asu.edu/cgi-bin/login?callapp=" . site_url(),
+        'navTree' => $menu_items,
+        'navTreeExample' => [
+          [
+            'href' => "/",
+            'type' => "icon-home", // Home icon
+            'class' => "data-class", // classes passed to  tag
+            'selected' => true  // set to true to  highlight menu item
+          ],
+          [
+            'text' => "My ASU",
+            'href' => "https://webapp4.asu.edu/myasu/"
+          ],
+          [
+            'text' => "Two Column Submenu",
+            'href' => "/",
+            'items' => [
+              [
+                [
+                  'type' => "heading",
+                  'text' => "Column One Heading"
+                ],
+                [
+                  'href' => "https://www.asu.edu/",
+                  'text' => "Pellentesque ornare"
+                ],
+                [
+                  'href' => "https://www.asu.edu/",
+                  'text' => "Curabitur viverra arcu nisl"
+                ]
+              ],
+              [
+                [
+                  'href' => "https://www.asu.edu/?feature=newsevents",
+                  'type' => "heading",
+                  'text' => "Column Two Heading"
+                ],
+                [
+                  'href' => "https://www.asu.edu/?feature=academics",
+                  'text' => "Nunc in libero odio"
+                ]
+              ]
+            ]
+          ]
+        ]
+      )
+  );
 
   wp_enqueue_style( 'roboto-font' );
   wp_enqueue_style( 'roboto-mono-font' );
