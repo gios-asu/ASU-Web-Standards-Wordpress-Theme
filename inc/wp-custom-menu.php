@@ -59,6 +59,7 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent ) && array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
 					$dropdown[ $m->ID ] = [
+						'type' => 'heading',
 						'text' => $m->title,
 						'href' => $m->url,
 						'parent' => $m->menu_item_parent
@@ -70,22 +71,17 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 
 			/**
 			 * Step 3: Loop through every source menu item a third time. If this item has a
-			 * parent value, but that value IS NOT IN the top-level menu array, build an array
-			 * of data for this menu item
+			 * parent value, but that value IS NOT IN the top-level menu array, add these
+			 * "grandchildren" menu items to the secondary menu level array (required
+       * by the UDS menu component.)
 			 */
-			$column = array();
 			foreach ( $array_menu as $m ) {
 				if ( ! empty( $m->menu_item_parent )  && ! array_key_exists( $m->menu_item_parent, $pre_menu ) ) {
-					$column[ $m->ID ] = [
+
+					$dropdown[ $m->menu_item_parent ] = [
 						'text' => $m->title,
 						'href' => $m->url,
 					];
-
-					/**
-					 * Add this item's data as a child to the $dropdown array we created in step 2.
-					 * Place it under the parent, then under 'children', in a new array with ID of this item's ID.
-					 */
-					$dropdown[ $m->menu_item_parent ]['items'][ $m->ID ] = $column[ $m->ID ];
 
 					/**
 					 * Determine this item's top-menu item (grandparent) by getting the parent ID of this item's parent.
@@ -94,7 +90,7 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 					 */
 					if ( array_key_exists( 'parent', $dropdown[ $m->menu_item_parent ] ) ) {
 						$top_menu = $dropdown[ $m->menu_item_parent ]['parent'];
-						$pre_menu[ $top_menu ]['items'][ $m->menu_item_parent ]['items'][ $m->ID ] = $column[ $m->ID ];
+						$pre_menu[ $top_menu ]['items'][ $m->menu_item_parent ] = $dropdown[ $m->menu_item_parent ];
 					}
 				}
 			}
@@ -117,13 +113,13 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 						$items2 = [];
 						if (isset($m2['items'])) {
 							foreach ($m2['items'] as $m3) {
-								$items2[] = $m3;
+								$items2[] = [$m3];
 							}
 
 							$items[] = [
 								'text' => $m2['text'],
 								'href' => $m2['href'],
-								'items' => $items2,
+								'items' => [$items2],
 							];
 						} else {
 							$items[] = [
@@ -136,7 +132,7 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 					$menu[] = [
 						'text' => $m1['text'],
 						'href' => $m1['href'],
-						'items' => $items,
+						'items' => [$items],
 					];
 				} else {
 					$menu[] = [
