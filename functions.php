@@ -217,7 +217,7 @@ function asu_webstandards_scripts() {
       'headerMenuVars', // object name to access our PHP variables from in our script
       // register an array of variables we would like to use in our script
       array(
-        'title' => "Global Institute of Sustainability and Innovation",
+        'title' => get_bloginfo(),
         'parentOrg' => $parent_org_name,
         'parentOrgUrl' => $parent_org_link,
         'loggedIn' => is_user_logged_in(),
