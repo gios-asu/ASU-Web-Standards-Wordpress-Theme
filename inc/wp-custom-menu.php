@@ -28,7 +28,7 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 			}
 
 			/**
-			 * Constructing a menu array
+			 * Construct a preliminary menu array
 			 */
 
 			/**
@@ -99,6 +99,9 @@ if ( ! function_exists( 'asu_wp_get_menu_array' ) ) {
 				}
 			}
 
+			// The UDS nav menu requires that we re-format our menu.
+			// We must reset the menu IDs from the array keys to sequential array keys, 0 to x.
+			// And the items[] nested arrays must be wrapped in an additional array.
 			$menu = array();
 			$menu[] = [
 				'href' => '/',
