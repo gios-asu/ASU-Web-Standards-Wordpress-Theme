@@ -155,7 +155,6 @@ function asu_webstandards_scripts() {
   $asu_web_standards_version = '1.1.5';
 
   // dependency versions
-  $jquery_version = '2.2.4';
   $bootstrap_version = '3.3.8';
   $asu_header_version = '4.0.2';
 
@@ -163,11 +162,6 @@ function asu_webstandards_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 	$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/style.css' );
 
-  // Wordpress provides jquery, but we enqueue our own mainly so we include it in the footer and control the version.
-  wp_deregister_script( 'jquery' );
-
-  // Everything it seems depends on jquery, so might as well make it load in the header
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/jquery/jquery.min.js', array(), $jquery_version, false );
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $bootstrap_version, true );
   wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), $asu_web_standards_version, true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
@@ -182,7 +176,6 @@ function asu_webstandards_scripts() {
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
   wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), $asu_header_version, 'all' );
 
-  wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'bootstrap-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
   wp_enqueue_script( 'asu-header-config' );
