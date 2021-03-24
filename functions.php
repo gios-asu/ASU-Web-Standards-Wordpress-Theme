@@ -15,6 +15,11 @@ if ( ! isset( $content_width ) ) {
   $content_width = 640; /* pixels */
 }
 
+/**
+ * Load custom menu builder.
+ */
+require get_template_directory() . '/inc/wp-custom-menu.php';
+
 if ( ! function_exists( 'asu_wordpress_setup' ) ) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
@@ -156,7 +161,7 @@ function asu_webstandards_scripts() {
 
   // dependency versions
   $bootstrap_version = '3.3.8';
-  $asu_header_version = '4.0.2';
+  $asu_header_version = '5.0.0';
 
   $the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
@@ -164,22 +169,107 @@ function asu_webstandards_scripts() {
 
   wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $bootstrap_version, true );
   wp_register_script( 'bootstrap-asu-js', get_template_directory_uri() . '/assets/asu-web-standards/js/bootstrap-asu.min.js', array(), $asu_web_standards_version, true );
-  wp_enqueue_script( 'asu-wordpress-web-standards-theme-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
   wp_enqueue_script( 'asu-wordpress-web-standards-theme-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
-  wp_register_script( 'asu-header', get_template_directory_uri() . '/assets/asu-header/js/asu-header.min.js', array() , $asu_header_version, true );
-  wp_register_script( 'asu-header-config', get_template_directory_uri() . '/assets/asu-header/js/asu-header-config.js', array( 'asu-header' ) , $asu_header_version, true );
+  wp_register_script( 'asu-header-js', get_template_directory_uri() . '/assets/asu-header/js/vendor.js', array() , $asu_header_version, true );
+  wp_register_script( 'asu-header-component-js', get_template_directory_uri() . '/assets/asu-header/js/components-library.js', array( 'asu-header-js' ) , $asu_header_version, true );
+  wp_register_script( 'asu-header-cookie-js', get_template_directory_uri() . '/assets/asu-header/js/cookie-consent.js', array( 'asu-header-js' ) , $asu_header_version, true );
+  wp_register_script( 'asu-header-menu-js', get_template_directory_uri() . '/assets/asu-header/js/header-nav-menu.js', array( 'asu-header-js' ) , $asu_header_version, true );
 
   wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700', array(), '1' );
   wp_register_style( 'roboto-mono-font', 'https://fonts.googleapis.com/css?family=Roboto+Mono:300', array(), '1' );
   wp_register_style( 'bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), $bootstrap_version, 'all' );
   wp_register_style( 'bootstrap-asu', get_template_directory_uri() . '/assets/asu-web-standards/css/bootstrap-asu.min.css', array(), $asu_web_standards_version, 'all' );
   wp_register_style( 'base-wordpress-theme', get_template_directory_uri() . '/style.css', array(), false, 'all' );
-  wp_register_style( 'asu-header-css', get_template_directory_uri() . '/assets/asu-header/css/asu-nav.css', array(), $asu_header_version, 'all' );
+  wp_register_style( 'asu-header-cookie-consent', get_template_directory_uri() . '/assets/asu-header/css/cookie-consent.css', array(), $asu_header_version, 'all' );
 
   wp_enqueue_script( 'bootstrap-js' );
   wp_enqueue_script( 'bootstrap-asu-js' );
-  wp_enqueue_script( 'asu-header-config' );
-  wp_enqueue_script( 'asu-header' );
+  wp_enqueue_script( 'asu-header-js' );
+  wp_enqueue_script( 'asu-header-component-js' );
+  wp_enqueue_script( 'asu-header-cookie-js' );
+  wp_enqueue_script( 'asu-header-menu-js' );
+
+  // Check if we have Customizer options set
+  if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
+    $c_options = get_option( 'wordpress_asu_theme_options' );
+
+    if ( array_key_exists( 'org', $c_options ) ) {
+      $parent_org_name = $c_options['org'];
+    }
+
+    if ( array_key_exists( 'org_link', $c_options ) ) {
+      $parent_org_link = $c_options['org_link'];
+    }
+  }
+
+  // load current user status
+  global $current_user;
+
+  $menu_name   = 'primary';
+  $menu_items  = asu_wp_get_menu_formatted_array( $menu_name );
+
+  // pass WordPress PHP variables to the asu-header navigation menu script we enqueued above
+  // These variables are props for the header Preact component
+  // For details on props which can be used with the header, see the Storybook example here:
+  // https://unity.web.asu.edu/@asu-design-system/components-library/index.html?path=/story/header--with-menu-columns
+  wp_localize_script(
+      'asu-header-menu-js', // the handle of the script to pass our variables
+      'headerMenuVars', // object name to access our PHP variables from in our script
+      // register an array of variables we would like to use in our script
+      array(
+        'title' => get_bloginfo(),
+        'parentOrg' => $parent_org_name,
+        'parentOrgUrl' => $parent_org_link,
+        'loggedIn' => is_user_logged_in(),
+        'userName' => $current_user->user_login,
+        'logoutLink' => wp_logout_url(),
+        'loginLink' => "https://weblogin.asu.edu/cgi-bin/login?callapp=" . site_url(),
+        'navTree' => $menu_items,
+        'navTreeExample' => [
+          [
+            'href' => "/",
+            'type' => "icon-home", // Home icon
+            'class' => "data-class", // classes passed to  tag
+            'selected' => true  // set to true to  highlight menu item
+          ],
+          [
+            'text' => "My ASU",
+            'href' => "https://webapp4.asu.edu/myasu/"
+          ],
+          [
+            'text' => "Two Column Submenu",
+            'href' => "/",
+            'items' => [
+              [
+                [
+                  'type' => "heading",
+                  'text' => "Column One Heading"
+                ],
+                [
+                  'href' => "https://www.asu.edu/",
+                  'text' => "Pellentesque ornare"
+                ],
+                [
+                  'href' => "https://www.asu.edu/",
+                  'text' => "Curabitur viverra arcu nisl"
+                ]
+              ],
+              [
+                [
+                  'href' => "https://www.asu.edu/?feature=newsevents",
+                  'type' => "heading",
+                  'text' => "Column Two Heading"
+                ],
+                [
+                  'href' => "https://www.asu.edu/?feature=academics",
+                  'text' => "Nunc in libero odio"
+                ]
+              ]
+            ]
+          ]
+        ]
+      )
+  );
 
   wp_enqueue_style( 'roboto-font' );
   wp_enqueue_style( 'roboto-mono-font' );
@@ -188,7 +278,7 @@ function asu_webstandards_scripts() {
   wp_enqueue_style( 'base-wordpress-theme' );
   wp_enqueue_style( 'addon-wordpress-theme' );
   wp_enqueue_style( 'child-style', get_stylesheet_uri(), array(), $css_version );
-  wp_enqueue_style( 'asu-header-css' );
+  wp_enqueue_style( 'asu-header-cookie-consent' );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
